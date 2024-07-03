@@ -13,3 +13,264 @@ number-depth: 3
 ---
 
 ## Les variables
+
+### Exercice 1
+
+- [ ] À votre avis que valent les variables *first* et *second* à la fin de ces instructions ? 
+  - Vérifiez
+
+#### Bloc 1
+
+```{.python}
+first = 6 
+second = first + 9 
+first = second 
+second = 11
+```
+
+#### Bloc 2
+
+```{.python}
+first = 7
+second = first + 5
+first += 2
+second = first * 9
+```
+
+#### Bloc 3
+
+```{.python}
+first = 10
+second = first % 3
+second = second + 2 
+first = second // 2
+```
+
+### Exercice 2
+
+Affectez les valeurs des expressions ci-dessous dans une variable, puis affichez le résultat. 
+
+::: {.callout-warning}
+Certaines expressions ne sont pas valides, dans ce cas expliquez l'erreur et corrigez l'expression.
+:::
+
+- [ ] `4 - 7`
+- [ ] `"il fait " + 20 + " degrés"`
+- [ ] `3 * 2.5 + 4`
+- [ ] `"Je veux avoir " + 20 + " en remise à niveau"`
+
+
+### Exercice 3
+
+- [ ] Ecrivez un script qui permet d'inverser les valeurs de deux variables suivantes :
+  - a = 2
+  - b = 8
+
+::: {.callout-note title="Pour aller plus loin" collapse="true"}
+- [ ] Sauriez-vous le faire sans créer aucune autre variable ?
+:::
+
+### Exercice 4
+
+Définissez 4 variables :
+
+- identifiant = ?
+- profil = ?
+- phrase_debut = `"Bonjour "`
+- phrase_fin = `". Votre profil est : "`
+
+Affichez la texte qui résulte de la concaténation des 4 variables. Par exemple : `"Bonjour Alice. Votre profil est : développeuse"`.
+
+
+### Exercice 5
+
+Considérons maintenant deux variables numériques entières suivantes :
+
+- `heure` : valeurs comprises entre 0 et 23
+- `minute` : valeurs comprises entre 0 et 59
+
+Ajoutons une variable textuelle `jour` pouvant prendre les valeurs "lundi", "mardi", ... , "dimanche".
+
+Pour chacun des cas listés ci-dessous, créez une fonction qui renvoie un booléen si le jour et l'horaire est valide :
+
+- [ ] Un jour de semaine (hors week-end)
+- [ ] En dehors des heures de travail, i.e. soit le week-end, soit avant 8h, soit après 18h
+- [ ] Un vendredi à partir de 18h30
+- [ ] N'importe quel jour entre 12h30 et 13h45 inclus
+- [ ] Un jeudi à n'importe quelle heure ou entre 15h et 18h15 pour n'importe quel autre jour
+
+::: {.callout-tip title="Exemple" collapse="true"}
+```{.python}
+def heure_et_minute_pairs(jour, heure, minute) -> bool:
+    """Retourne True si heure et minute sont pairs. False sinon"""
+    if heure % 2 == 0 and minute % 2 == 0:
+        return True
+    return False
+
+if __name__ == "__main__":
+    print(heure_et_minute_pairs("mardi", 20, 00))
+    print(heure_et_minute_pairs("lundi", 15, 27))
+    print(heure_et_minute_pairs("mardi", 12, 45))
+```
+:::
+
+## Les collections
+
+### Listes
+
+- [ ] À votre avis, qu'affiche le code suivant ? 
+  - Vérifiez
+
+```{.python}
+from copy import copy
+
+initial = [1, 2, 'test', True, 4, 5] 
+second = initiale
+my_copy = copy(initiale)
+
+initial[0] = 42
+initial[5] = 'another'
+
+print(initial)
+print(second)
+print(my_copy)
+```
+
+### Dictionnaires
+
+- [ ] Copiez le code ci-dessous
+
+```{.python}
+remise_a_niveau = {
+    "UE" : "Informatique pour la data science",
+    "module" : "remise_a_niveau",
+    "nb_eleve": 20,
+    "eleves": ["eleve1", "eleve2", "eleve3"]
+}
+```
+
+- [ ] Affichez les valeurs associées à toutes les clés du dictionnaire
+- [ ] Mettez à 3 la valeur associée à la clé *nb_eleve*
+- [ ] Ajoutez une clé annee qui vaut la valeur `"2021-2022"`
+
+## Conditions
+
+::: {.callout-important}
+À partir de maintenant, créez un nouveau fichier *.py* pour chaque nouvelle fonction.
+:::
+
+### Fonction Pair
+
+- [ ] Définissez une fonction `est_pair()` qui prend un entier en paramètre et retourne un booléen en sortie
+- [ ] Définissez une fonction `est_pair_print()` qui prend un entier en paramètre, affiche s'il est pair et ne retourne rien
+
+### Fizz / Buzz
+
+Écrivez une fonction qui prend en entrée un entier et qui va :
+
+- écrire *FIZZ* si cet entier est multiple de 3
+- *BUZZ* s'il est multiple de 5
+- *FIZZ BUZZ* s'il est multiple de 3 et 5
+
+Affichez le nombre dans tous les autres cas.
+
+## Boucles
+
+### 10 premiers entiers
+
+Écrivez les 10 premiers entiers positifs :
+
+- [ ] Avec une boucle *for*
+- [ ] Avec une boucle *while*
+
+### Fibonacci
+
+- [ ] Écrivez une fonction qui affiche les *n* premiers termes de la suite de Fibonacci
+
+::: {.callout-note title="Rappel"}
+La suite de Fibonacci $(F_{n})_{n\in \mathbb {N}}$ est définie par :
+
+- $F_{0} = 0$
+- $F_{1} = 1$ 
+- $F_{n} = F_{n-1} + F_{n-2}$ pour $n \geq 2$
+:::
+
+Le résultat attendu lorsque vous appelez votre fonction : 
+
+```{python}
+#| echo: false
+def fibonacci(n):
+    return n if n < 2 else fibonacci(n-1) + fibonacci(n-2)
+
+def afficher_suite_fibonacci(n) -> None:
+    """Affiche les n premiers termes de la suite de Fibonacci"""
+    if isinstance(n, int) and n <= 0:
+        raise ValueError("Erreur : n doit être strictement positif")
+    a, b = 0, 1
+    for _ in range(n):
+        print(a, end=" ")
+        b, a = a + b, b
+```
+
+```{python}
+afficher_suite_fibonacci(15)  
+```
+
+::: {.callout-tip title="Fonction print"}
+Vous pourriez trouver un peu d'aide en consultant de la [documentation sur la fonction print](https://www.w3schools.com/python/ref_func_print.asp){target="_blank"}.
+:::
+
+
+### Fibonacci 10.000
+
+Affichez les termes de la suite de Fibonacci inférieurs à 10 000 :
+
+- [ ] en utilisant une boucle *while*
+- [ ] en utilisant une boucle *for*
+
+
+### Crible d'Ératosthène
+
+Le crible d'Ératosthène est un algorithme simple pour calculer exhaustivement les nombres premiers inférieurs à une valeur fixée N. 
+
+Il consiste à rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens :
+
+- Initialisez une liste de *N* éléments qui valent tous **True** (tous les nombres sont potentiellement premiers)
+  - `liste = [True, True, True, True, True, True, True...]`
+- Mettez à **False** les éléments d'index *0* et *1* car ces deux nombres ne sont pas premiers
+  - `liste = [False, False, True, True, True, True, True...]`
+- Mettez à **False** tous les éléments ayant un index multiple de 2
+  - `liste = [False, False, True, True, False, True, False...]`
+- Puis recherchez le prochain nombre encore potentiellemnent premier supérieur à 2 :arrow_right: 3
+- Mettez à **False** tous les éléments ayant un index multiple de 3
+- etc.
+- Récupérez les index ayant pour valeur *True* et affichez ces nombres premiers
+
+---
+
+- [ ] Utilisez le crible d'Ératosthène pour calculer et afficher les nombres premiers plus petits que 1000.
+
+### Pyramide
+
+- [ ] Définissez une fonction qui affichera *n* lignes d'un triangle d'étoiles. 
+
+```{.default filename="Exemple pour n=5"}
+*********
+ *******
+  *****
+   ***
+    *
+```
+
+### Nouvelle base
+
+Ecrivez une fonction qui prend en paramètres :
+
+- un entier positif *entier_base_10*
+- un entier *nouvelle_base* (compris entre 2 et 16)
+
+Et retourne l'écriture de *entier_base_10* dans la *nouvelle_base*
+
+### Maximum
+
+- [ ] Ecrivez une fonction qui prend [un nombre quelconque]{.underline} de paramètres et retourne la valeur maximale parmi ces paramètres.
