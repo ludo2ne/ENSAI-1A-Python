@@ -1,7 +1,7 @@
 ---
 title: "TP Remise en jambe - STID"
 description: "Bases de Python et d'algorithmique"
-author: "Ludovic Deneuville"
+author: "Hong-Phuong DANG, Rémi PEPIN, Ludovic DENEUVILLE"
 format:
   html:
     toc: true
@@ -11,6 +11,70 @@ from: markdown+emoji
 number-sections: true
 number-depth: 3
 ---
+
+## Rappels {.unnumbered}
+
+### Listes et boucles {.unnumbered}
+
+Une liste en Python est une collection ordonnée et modifiable d'éléments, pouvant contenir des éléments de différents types.
+
+Voici quelques exemples de boucles pour afficher les éléments de la liste.
+
+```{.python}
+liste = ["Alice", "Benoit", "Camille"]
+
+for v in liste:
+    print(v)
+
+for i in range(len(liste)):
+    print(liste[i])
+
+for i, v in enumerate(liste):
+    print(f"index {i} : valeur {v}")
+
+index = 0
+while index < len(liste):
+    print(liste[index])
+    index += 1
+```
+
+### Range {.unnumbered}
+
+Vous pouvez également étudier le comportement de la fonction [range](https://www.w3schools.com/python/ref_func_range.asp){target="_blank"} selon son nombre de paramètres
+
+```{python}
+print(f"range(10)       : {list(range(10))}")
+print(f"range(2, 10)    : {list(range(2, 10))}")
+print(f"range(5, 10, 2) : {list(range(5, 10, 2))}")
+```
+
+### Dictionnaire {.unnumbered}
+
+Un dictionnaire est une collection non ordonnée de paires clé-valeur. 
+
+Chaque clé est unique.
+
+```{.python}
+# Créer un dictionnaire
+dico = {1: "Alice", 2: "Benoit", 3: "Camille"}
+
+# Ajouter un élément
+dico[8] = "Dua"
+
+# Supprimer un élément à partir de sa clé
+dico.pop(1)
+
+# Parcourir le dictionnaire
+for k, v in dico.items():
+    print(f"clé {k} : valeur {v}")
+
+for k in dico.keys():
+    print(k)
+
+for v in dico.values():
+    print(v)
+```
+
 
 ## Les variables
 
@@ -145,13 +209,14 @@ remise_a_niveau = {
     "UE" : "Informatique pour la data science",
     "module" : "remise_a_niveau",
     "nb_eleve": 20,
-    "eleves": ["eleve1", "eleve2", "eleve3"]
+    "eleves": ["Alice", "Benoit", "Camille"]
 }
 ```
 
 - [ ] Affichez les valeurs associées à toutes les clés du dictionnaire
-- [ ] Mettez à 3 la valeur associée à la clé *nb_eleve*
-- [ ] Ajoutez une clé annee qui vaut la valeur `"2021-2022"`
+- [ ] Ajoutez une élève prénommée *Dua*
+- [ ] Mettez à 4 la valeur associée à la clé *nb_eleve*
+- [ ] Ajoutez une clé annee qui vaut la valeur `"2024-2025"`
 
 ## Conditions
 
