@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic Deneuville">
+<meta name="author" content="Hong-Phuong DANG, Rémi PEPIN, Ludovic DENEUVILLE">
 <meta name="description" content="Bases de Python et d’algorithmique">
 
 <title>TP Remise en jambe - STID – Python 1A</title>
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -71,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -171,7 +234,40 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#les-variables" id="toc-les-variables" class="nav-link active" data-scroll-target="#les-variables"><span class="header-section-number">1</span> Les variables</a></li>
+  <li><a href="#rappels" id="toc-rappels" class="nav-link active" data-scroll-target="#rappels">Rappels</a>
+  <ul class="collapse">
+  <li><a href="#listes-et-boucles" id="toc-listes-et-boucles" class="nav-link" data-scroll-target="#listes-et-boucles">Listes et boucles</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range">Range</a></li>
+  <li><a href="#dictionnaire" id="toc-dictionnaire" class="nav-link" data-scroll-target="#dictionnaire">Dictionnaire</a></li>
+  </ul></li>
+  <li><a href="#les-variables" id="toc-les-variables" class="nav-link" data-scroll-target="#les-variables"><span class="header-section-number">1</span> Les variables</a>
+  <ul class="collapse">
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1.1</span> Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">1.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">1.3</span> Exercice 3</a></li>
+  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">1.4</span> Exercice 4</a></li>
+  <li><a href="#exercice-5" id="toc-exercice-5" class="nav-link" data-scroll-target="#exercice-5"><span class="header-section-number">1.5</span> Exercice 5</a></li>
+  </ul></li>
+  <li><a href="#les-collections" id="toc-les-collections" class="nav-link" data-scroll-target="#les-collections"><span class="header-section-number">2</span> Les collections</a>
+  <ul class="collapse">
+  <li><a href="#listes" id="toc-listes" class="nav-link" data-scroll-target="#listes"><span class="header-section-number">2.1</span> Listes</a></li>
+  <li><a href="#dictionnaires" id="toc-dictionnaires" class="nav-link" data-scroll-target="#dictionnaires"><span class="header-section-number">2.2</span> Dictionnaires</a></li>
+  </ul></li>
+  <li><a href="#conditions" id="toc-conditions" class="nav-link" data-scroll-target="#conditions"><span class="header-section-number">3</span> Conditions</a>
+  <ul class="collapse">
+  <li><a href="#fonction-pair" id="toc-fonction-pair" class="nav-link" data-scroll-target="#fonction-pair"><span class="header-section-number">3.1</span> Fonction Pair</a></li>
+  <li><a href="#fizz-buzz" id="toc-fizz-buzz" class="nav-link" data-scroll-target="#fizz-buzz"><span class="header-section-number">3.2</span> Fizz / Buzz</a></li>
+  </ul></li>
+  <li><a href="#boucles" id="toc-boucles" class="nav-link" data-scroll-target="#boucles"><span class="header-section-number">4</span> Boucles</a>
+  <ul class="collapse">
+  <li><a href="#premiers-entiers" id="toc-premiers-entiers" class="nav-link" data-scroll-target="#premiers-entiers"><span class="header-section-number">4.1</span> 10 premiers entiers</a></li>
+  <li><a href="#fibonacci" id="toc-fibonacci" class="nav-link" data-scroll-target="#fibonacci"><span class="header-section-number">4.2</span> Fibonacci</a></li>
+  <li><a href="#fibonacci-10.000" id="toc-fibonacci-10.000" class="nav-link" data-scroll-target="#fibonacci-10.000"><span class="header-section-number">4.3</span> Fibonacci 10.000</a></li>
+  <li><a href="#crible-dératosthène" id="toc-crible-dératosthène" class="nav-link" data-scroll-target="#crible-dératosthène"><span class="header-section-number">4.4</span> Crible d’Ératosthène</a></li>
+  <li><a href="#pyramide" id="toc-pyramide" class="nav-link" data-scroll-target="#pyramide"><span class="header-section-number">4.5</span> Pyramide</a></li>
+  <li><a href="#nouvelle-base" id="toc-nouvelle-base" class="nav-link" data-scroll-target="#nouvelle-base"><span class="header-section-number">4.6</span> Nouvelle base</a></li>
+  <li><a href="#maximum" id="toc-maximum" class="nav-link" data-scroll-target="#maximum"><span class="header-section-number">4.7</span> Maximum</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -199,7 +295,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic Deneuville </p>
+             <p>Hong-Phuong DANG, Rémi PEPIN, Ludovic DENEUVILLE </p>
           </div>
   </div>
     
@@ -212,10 +308,400 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="rappels" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="rappels">Rappels</h2>
+<section id="listes-et-boucles" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="listes-et-boucles">Listes et boucles</h3>
+<p>Une liste en Python est une collection ordonnée et modifiable d’éléments, pouvant contenir des éléments de différents types.</p>
+<p>Voici quelques exemples de boucles pour afficher les éléments de la liste.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Benoit"</span>, <span class="st">"Camille"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> liste:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(liste)):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[i])</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(liste):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"index </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> index <span class="op">&lt;</span> <span class="bu">len</span>(liste):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[index])</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    index <span class="op">+=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="range" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="range">Range</h3>
+<p>Vous pouvez également étudier le comportement de la fonction <a href="https://www.w3schools.com/python/ref_func_range.asp" target="_blank">range</a> selon son nombre de paramètres</p>
+<div id="d4f10ecc" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(10)       : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(2, 10)    : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>))<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(5, 10, 2) : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2</span>))<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>range(10)       : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+range(2, 10)    : [2, 3, 4, 5, 6, 7, 8, 9]
+range(5, 10, 2) : [5, 7, 9]</code></pre>
+</div>
+</div>
+</section>
+<section id="dictionnaire" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="dictionnaire">Dictionnaire</h3>
+<p>Un dictionnaire est une collection non ordonnée de paires clé-valeur.</p>
+<p>Chaque clé est unique.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Créer un dictionnaire</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dico <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"Alice"</span>, <span class="dv">2</span>: <span class="st">"Benoit"</span>, <span class="dv">3</span>: <span class="st">"Camille"</span>}</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ajouter un élément</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dico[<span class="dv">8</span>] <span class="op">=</span> <span class="st">"Dua"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Supprimer un élément à partir de sa clé</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dico.pop(<span class="dv">1</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Parcourir le dictionnaire</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> dico.items():</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"clé </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> dico.keys():</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(k)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> dico.values():</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
 <section id="les-variables" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="les-variables"><span class="header-section-number">1</span> Les variables</h2>
+<section id="exercice-1" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1.1</span> Exercice 1</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">À votre avis que valent les variables <em>first</em> et <em>second</em> à la fin de ces instructions ?</label>
+<ul>
+<li>Vérifiez</li>
+</ul></li>
+</ul>
+<section id="bloc-1" class="level4">
+<h4 class="anchored" data-anchor-id="bloc-1">Bloc 1</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> <span class="dv">6</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> first <span class="op">+</span> <span class="dv">9</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> second </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> <span class="dv">11</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bloc-2" class="level4">
+<h4 class="anchored" data-anchor-id="bloc-2">Bloc 2</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> first <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>first <span class="op">+=</span> <span class="dv">2</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> first <span class="op">*</span> <span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bloc-3" class="level4">
+<h4 class="anchored" data-anchor-id="bloc-3">Bloc 3</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> first <span class="op">%</span> <span class="dv">3</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> second <span class="op">+</span> <span class="dv">2</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>first <span class="op">=</span> second <span class="op">//</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="exercice-2" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">1.2</span> Exercice 2</h3>
+<p>Affectez les valeurs des expressions ci-dessous dans une variable, puis affichez le résultat.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Certaines expressions ne sont pas valides, dans ce cas expliquez l’erreur et corrigez l’expression.</p>
+</div>
+</div>
+<ul class="task-list">
+<li><label><input type="checkbox"><code>4 - 7</code></label></li>
+<li><label><input type="checkbox"><code>"il fait " + 20 + " degrés"</code></label></li>
+<li><label><input type="checkbox"><code>3 * 2.5 + 4</code></label></li>
+<li><label><input type="checkbox"><code>"Je veux avoir " + 20 + " en remise à niveau"</code></label></li>
+</ul>
+</section>
+<section id="exercice-3" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">1.3</span> Exercice 3</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Ecrivez un script qui permet d’inverser les valeurs de deux variables suivantes :</label>
+<ul>
+<li>a = 2</li>
+<li>b = 8</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Pour aller plus loin">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pour aller plus loin
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><label><input type="checkbox">Sauriez-vous le faire sans créer aucune autre variable ?</label></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="exercice-4" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">1.4</span> Exercice 4</h3>
+<p>Définissez 4 variables :</p>
+<ul>
+<li>identifiant = ?</li>
+<li>profil = ?</li>
+<li>phrase_debut = <code>"Bonjour "</code></li>
+<li>phrase_fin = <code>". Votre profil est : "</code></li>
+</ul>
+<p>Affichez la texte qui résulte de la concaténation des 4 variables. Par exemple : <code>"Bonjour Alice. Votre profil est : développeuse"</code>.</p>
+</section>
+<section id="exercice-5" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="exercice-5"><span class="header-section-number">1.5</span> Exercice 5</h3>
+<p>Considérons maintenant deux variables numériques entières suivantes :</p>
+<ul>
+<li><code>heure</code> : valeurs comprises entre 0 et 23</li>
+<li><code>minute</code> : valeurs comprises entre 0 et 59</li>
+</ul>
+<p>Ajoutons une variable textuelle <code>jour</code> pouvant prendre les valeurs “lundi”, “mardi”, … , “dimanche”.</p>
+<p>Pour chacun des cas listés ci-dessous, créez une fonction qui renvoie un booléen si le jour et l’horaire est valide :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Un jour de semaine (hors week-end)</label></li>
+<li><label><input type="checkbox">En dehors des heures de travail, i.e.&nbsp;soit le week-end, soit avant 8h, soit après 18h</label></li>
+<li><label><input type="checkbox">Un vendredi à partir de 18h30</label></li>
+<li><label><input type="checkbox">N’importe quel jour entre 12h30 et 13h45 inclus</label></li>
+<li><label><input type="checkbox">Un jeudi à n’importe quelle heure ou entre 15h et 18h15 pour n’importe quel autre jour</label></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Exemple">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exemple
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> heure_et_minute_pairs(jour, heure, minute) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne True si heure et minute sont pairs. False sinon"""</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> heure <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span> <span class="kw">and</span> minute <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(heure_et_minute_pairs(<span class="st">"mardi"</span>, <span class="dv">20</span>, <span class="dv">00</span>))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(heure_et_minute_pairs(<span class="st">"lundi"</span>, <span class="dv">15</span>, <span class="dv">27</span>))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(heure_et_minute_pairs(<span class="st">"mardi"</span>, <span class="dv">12</span>, <span class="dv">45</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="les-collections" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="les-collections"><span class="header-section-number">2</span> Les collections</h2>
+<section id="listes" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="listes"><span class="header-section-number">2.1</span> Listes</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">À votre avis, qu’affiche le code suivant ?</label>
+<ul>
+<li>Vérifiez</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> copy <span class="im">import</span> copy</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>initial <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="st">'test'</span>, <span class="va">True</span>, <span class="dv">4</span>, <span class="dv">5</span>] </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>second <span class="op">=</span> initiale</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>my_copy <span class="op">=</span> copy(initiale)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>initial[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>initial[<span class="dv">5</span>] <span class="op">=</span> <span class="st">'another'</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(initial)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(second)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_copy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dictionnaires" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="dictionnaires"><span class="header-section-number">2.2</span> Dictionnaires</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Copiez le code ci-dessous</label></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>remise_a_niveau <span class="op">=</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UE"</span> : <span class="st">"Informatique pour la data science"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"module"</span> : <span class="st">"remise_a_niveau"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nb_eleve"</span>: <span class="dv">20</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"eleves"</span>: [<span class="st">"Alice"</span>, <span class="st">"Benoit"</span>, <span class="st">"Camille"</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Affichez les valeurs associées à toutes les clés du dictionnaire</label></li>
+<li><label><input type="checkbox">Ajoutez une élève prénommée <em>Dua</em></label></li>
+<li><label><input type="checkbox">Mettez à 4 la valeur associée à la clé <em>nb_eleve</em></label></li>
+<li><label><input type="checkbox">Ajoutez une clé annee qui vaut la valeur <code>"2024-2025"</code></label></li>
+</ul>
+</section>
+</section>
+<section id="conditions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conditions"><span class="header-section-number">3</span> Conditions</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>À partir de maintenant, créez un nouveau fichier <em>.py</em> pour chaque nouvelle fonction.</p>
+</div>
+</div>
+<section id="fonction-pair" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="fonction-pair"><span class="header-section-number">3.1</span> Fonction Pair</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Définissez une fonction <code>est_pair()</code> qui prend un entier en paramètre et retourne un booléen en sortie</label></li>
+<li><label><input type="checkbox">Définissez une fonction <code>est_pair_print()</code> qui prend un entier en paramètre, affiche s’il est pair et ne retourne rien</label></li>
+</ul>
+</section>
+<section id="fizz-buzz" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fizz-buzz"><span class="header-section-number">3.2</span> Fizz / Buzz</h3>
+<p>Écrivez une fonction qui prend en entrée un entier et qui va :</p>
+<ul>
+<li>écrire <em>FIZZ</em> si cet entier est multiple de 3</li>
+<li><em>BUZZ</em> s’il est multiple de 5</li>
+<li><em>FIZZ BUZZ</em> s’il est multiple de 3 et 5</li>
+</ul>
+<p>Affichez le nombre dans tous les autres cas.</p>
+</section>
+</section>
+<section id="boucles" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="boucles"><span class="header-section-number">4</span> Boucles</h2>
+<section id="premiers-entiers" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="premiers-entiers"><span class="header-section-number">4.1</span> 10 premiers entiers</h3>
+<p>Écrivez les 10 premiers entiers positifs :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Avec une boucle <em>for</em></label></li>
+<li><label><input type="checkbox">Avec une boucle <em>while</em></label></li>
+</ul>
+</section>
+<section id="fibonacci" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="fibonacci"><span class="header-section-number">4.2</span> Fibonacci</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Écrivez une fonction qui affiche les <em>n</em> premiers termes de la suite de Fibonacci</label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Rappel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rappel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La suite de Fibonacci <span class="math inline">\((F_{n})_{n\in \mathbb {N}}\)</span> est définie par :</p>
+<ul>
+<li><span class="math inline">\(F_{0} = 0\)</span></li>
+<li><span class="math inline">\(F_{1} = 1\)</span></li>
+<li><span class="math inline">\(F_{n} = F_{n-1} + F_{n-2}\)</span> pour <span class="math inline">\(n \geq 2\)</span></li>
+</ul>
+</div>
+</div>
+<p>Le résultat attendu lorsque vous appelez votre fonction :</p>
+<div id="05154723" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>afficher_suite_fibonacci(<span class="dv">15</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="Fonction print">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fonction print
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vous pourriez trouver un peu d’aide en consultant de la <a href="https://www.w3schools.com/python/ref_func_print.asp" target="_blank">documentation sur la fonction print</a>.</p>
+</div>
+</div>
+</section>
+<section id="fibonacci-10.000" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="fibonacci-10.000"><span class="header-section-number">4.3</span> Fibonacci 10.000</h3>
+<p>Affichez les termes de la suite de Fibonacci inférieurs à 10 000 :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">en utilisant une boucle <em>while</em></label></li>
+<li><label><input type="checkbox">en utilisant une boucle <em>for</em></label></li>
+</ul>
+</section>
+<section id="crible-dératosthène" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="crible-dératosthène"><span class="header-section-number">4.4</span> Crible d’Ératosthène</h3>
+<p>Le crible d’Ératosthène est un algorithme simple pour calculer exhaustivement les nombres premiers inférieurs à une valeur fixée N.</p>
+<p>Il consiste à rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens :</p>
+<ul>
+<li>Initialisez une liste de <em>N</em> éléments qui valent tous <strong>True</strong> (tous les nombres sont potentiellement premiers)
+<ul>
+<li><code>liste = [True, True, True, True, True, True, True...]</code></li>
+</ul></li>
+<li>Mettez à <strong>False</strong> les éléments d’index <em>0</em> et <em>1</em> car ces deux nombres ne sont pas premiers
+<ul>
+<li><code>liste = [False, False, True, True, True, True, True...]</code></li>
+</ul></li>
+<li>Mettez à <strong>False</strong> tous les éléments ayant un index multiple de 2
+<ul>
+<li><code>liste = [False, False, True, True, False, True, False...]</code></li>
+</ul></li>
+<li>Puis recherchez le prochain nombre encore potentiellemnent premier supérieur à 2 <span class="emoji" data-emoji="arrow_right">➡️</span> 3</li>
+<li>Mettez à <strong>False</strong> tous les éléments ayant un index multiple de 3</li>
+<li>etc.</li>
+<li>Récupérez les index ayant pour valeur <em>True</em> et affichez ces nombres premiers</li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Utilisez le crible d’Ératosthène pour calculer et afficher les nombres premiers plus petits que 1000.</label></li>
+</ul>
+</section>
+<section id="pyramide" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="pyramide"><span class="header-section-number">4.5</span> Pyramide</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Définissez une fonction qui affichera <em>n</em> lignes d’un triangle d’étoiles.</label></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Exemple pour n=5</strong></pre>
+</div>
+<div class="sourceCode" id="cb13" data-filename="Exemple pour n=5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>*********</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a> *******</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  *****</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>   ***</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    *</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="nouvelle-base" class="level3" data-number="4.6">
+<h3 data-number="4.6" class="anchored" data-anchor-id="nouvelle-base"><span class="header-section-number">4.6</span> Nouvelle base</h3>
+<p>Ecrivez une fonction qui prend en paramètres :</p>
+<ul>
+<li>un entier positif <em>entier_base_10</em></li>
+<li>un entier <em>nouvelle_base</em> (compris entre 2 et 16)</li>
+</ul>
+<p>Et retourne l’écriture de <em>entier_base_10</em> dans la <em>nouvelle_base</em></p>
+</section>
+<section id="maximum" class="level3" data-number="4.7">
+<h3 data-number="4.7" class="anchored" data-anchor-id="maximum"><span class="header-section-number">4.7</span> Maximum</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Ecrivez une fonction qui prend <u>un nombre quelconque</u> de paramètres et retourne la valeur maximale parmi ces paramètres.</label></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
