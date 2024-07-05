@@ -1,0 +1,18 @@
+---
+title: "Ressources utiles"
+description: "Lien vers des ressources utiles"
+author: "Ludovic Deneuville"
+format: html
+from: markdown+emoji
+---
+
+## Python
+
+- [Documentation officielle](https://docs.python.org/3.10/){target="_blank"} de Python 3.10
+- [Introduction à Python 3 pour la programmation scientifique](https://courspython.com/){target="_blank"}, David Cassagne
+- [Python pour la data science](https://pythonds.linogaliana.fr/){target="_blank"}, Lino Galiana (INSEE, ENSAE)
+- [Real Python](https://realpython.com/){target="_blank"}
+
+## Datavisualisation
+
+- [Python Graph Gallery](https://python-graph-gallery.com/), Yan Holtz

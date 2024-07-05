@@ -7,6 +7,13 @@ from: markdown+emoji
 ---
 
 
+Vous trouverez sur ce site des supports pratiques pour les enseignements de Python en première année à l'ENSAI.
+
+## Remise en jambe (STID)
+
+- [TP1](remise-en-jambe/tp1.qmd) : Rappels sur Python
+
+
 ## TP de POO, tests et documentation
 
 - [TP1](poo-tp/tp1.qmd) : Programmation Python et Visual Studio Code
