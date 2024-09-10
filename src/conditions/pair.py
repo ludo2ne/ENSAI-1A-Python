@@ -1,6 +1,6 @@
 def est_pair(n) -> bool:
     if not isinstance(n, int):
-        raise ValueError("Erreur : n doit être un entier")
+        raise TypeError("Erreur : n doit être un entier")
 
     return n % 2 == 0
 

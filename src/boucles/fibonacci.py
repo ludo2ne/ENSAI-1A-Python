@@ -5,7 +5,7 @@ def fibonacci(n):
 def afficher_suite_fibonacci(n) -> None:
     """Affiche les n premiers termes de la suite de Fibonacci"""
     if not isinstance(n, int) or n <= 0:
-        raise ValueError("Erreur : n doit être strictement positif")
+        raise TypeError("Erreur : n doit être strictement positif")
     a, b = 0, 1
     for _ in range(n):
         print(a, end=" ")
