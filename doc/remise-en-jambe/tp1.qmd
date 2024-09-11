@@ -47,6 +47,53 @@ Il est important de stocker vos fichiers dans votre lecteur `P:` et non sur votr
   - Cliquez sur le bouton [Sélectionner un dossier]{.text-like-button}
   - Votre dossier apparait à gauche dans l'*explorer*
 
+### Paramétrage VSCode {.unnumbered}
+
+- [ ] Créez à la racine un dossier `.vscode`
+- [ ] Dans ce dossier, créez un fichier nommé `settings.json` et collez le contenu ci-dessous
+
+```{.json filename="settings.json"}
+{
+    "flake8.args": [
+        "--max-line-length=100"
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "black-formatter.args": ["--line-length", "100"],
+    "python.analysis.extraPaths": [
+        "./*"
+    ],
+    "python.languageServer": "Jedi",
+    "python.testing.pytestEnabled": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+    },
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+    },
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+}
+```
+
+- [ ] Fermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif
+
+::: {.callout-note}
+Ce fichier de settings permet d'intégrer à votre espace de travail :
+
+- **Black** : un formateur automatique de code
+- **Flake8** : un linter
+- **Git Bash** : comme terminal par défaut
+- cacher certains fichiers non utiles
+:::
+
 ## Rappels {.unnumbered}
 
 ### Listes et boucles {.unnumbered}
