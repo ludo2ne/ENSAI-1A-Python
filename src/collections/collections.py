@@ -1,15 +1,15 @@
-from copy import copy
-
-initial = [1, 2, "test", True, 4, 5]
-second = initial
-my_copy = copy(initial)
-
-initial[0] = 42
-initial[5] = "another"
-
-print(initial)
-print(second)
-print(my_copy)
+# from copy import copy
+#
+# initial = [1, 2, "test", True, 4, 5]
+# second = initial
+# my_copy = copy(initial)
+#
+# initial[0] = 42
+# initial[5] = "another"
+#
+# print(initial)
+# print(second)
+# print(my_copy)
 
 
 print("-" * 50)
@@ -21,7 +21,16 @@ remise_a_niveau = {
     "eleves": ["Alice", "Benoit", "Camille"],
 }
 
-print(remise_a_niveau.keys())
+print(list(remise_a_niveau.keys()))
+print()
+
+print(remise_a_niveau.values())
+print()
+
+print(remise_a_niveau["eleves"])
+print()
+
+remise_a_niveau["eleves"].append("Dua")
 remise_a_niveau["nb_eleve"] = 4
 remise_a_niveau["annee"] = "2024-2025"
 

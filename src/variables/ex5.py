@@ -4,10 +4,9 @@ def jour_semaine(jour, heure, minute) -> bool:
 
 
 def hors_heures_travail(jour, heure, minute) -> bool:
-    liste_jour_semaine = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"]
-    if jour not in liste_jour_semaine:
+    if jour in ["Samedi", "Dimanche"]:
         return True
-    elif heure < 8 or heure > 18:
+    elif heure < 8 or heure >= 18:
         return True
     else:
         return False
@@ -21,7 +20,7 @@ def vendredi_apres_18_30(jour, heure, minute) -> bool:
 
 
 def pause_dej(jour, heure, minute) -> bool:
-    if (heure == 12 and minute >= 30) or (heure == 13 and minute >= 45):
+    if (heure == 12 and minute >= 30) or (heure == 13 and minute <= 45):
         return True
     return False
 
@@ -37,8 +36,10 @@ def jeudi_ou_15_18(jour, heure, minute):
 
 
 if __name__ == "__main__":
-    j = "Vendredi"
+    j = "Dimanche"
     h = 18
     m = 5
 
+    # Appel des fonctions
+    print(jour_semaine(j, h, m))
     print(jeudi_ou_15_18(j, h, m))
