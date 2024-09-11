@@ -1,0 +1,151 @@
+---
+title: "Remise en jambe STID - TP Noté"
+description: "2023-2024"
+author: "Ludovic DENEUVILLE"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+- à rendre soit seul, soit par groupe de 2
+- Déposez sous Moodle, vos 2 fichiers python : 
+    - ex1.py
+    - ex2.py
+- date limite : Mercredi 6 septembre à 17h00
+- Commentez et expliquez ce que font vos algorithmes
+
+
+## Avant de commencer{.unnumbered}
+
+- [ ] Créez sur votre disque P, un dossier TP2
+- [ ] Ouvrez Visual Studio Code
+    - [ ] File > Open Folder > TP2
+- Dans le dossier TP2, créez 2 sous-dossiers
+    - [ ] src : qui contient les sources Python
+    - [ ] data : qui contient les fichiers de données
+- [ ] Importez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier `/data`
+- [ ] Dans le sous-dossier `/src`, créer 2 fichiers : `ex1.py` et `ex2.py`
+    - [ ] Indiquez en commentaire en haut des 2 fichiers vos noms et prénoms
+
+
+## Exercice 1 
+
+### Contexte
+
+Dans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous
+
+
+#### Fonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents
+
+- En partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents
+- Et retournez la position du **dernier caractère** de cette occurrence
+
+##### Exemple 1
+
+Entrée : `jgngmnjdyigpmeawqksgcntozdpjiy`
+
+Si en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents
+
+```
+jgngmnjdyigpmeawqksgcntozdpjiy
+
+jgng     -> ko car 2 g
+ gngm    -> ko car 2 g
+  ngmn   -> ko car 2 n
+   gmnj  -> OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 
+```
+
+##### Autres exemples
+
+- v**pqvd**jfvapvbmlfjaxgdkqznphwt : 5
+- frfjfx**jxfl**bxenxoervxbdnliftzuhjky : 10
+
+
+#### Fonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents 
+
+##### Exemple
+
+ruxrxorrixjd**bordjxfhivtzle**kuynbo : 26
+
+
+### Todo
+
+- [ ] Chargez le fichier de données [code.txt](./data/code.txt){target="_blank"}
+    - Cherchez une méthode qui permet de réaliser cette opération
+    - Le fichier texte est composé de caractères alphabétiques
+    - Stockez le résultat dans une variable
+- [ ] Réalisez les 2 fonctions demandées
+- [ ] Appliquez ces fonctions au fichier `code.txt`
+
+
+
+---
+
+## Exercice 2
+
+### Contexte
+
+Vous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :
+
+- lorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l'ordre), elles disparaissent
+    - exemple : `adDz` devient `az` (car `dD` disparait)
+    - exemple2 : `zrRYye` devient `ze`
+- le comportement doit être récursif
+    - c'est à dire qu'il faut réduire la chaîne tant qu'elle n'est pas stable
+    - exemple : `zAdDa` devient `zAa` puis devient `z`
+
+
+#### Autres exemples
+
+- abCdABcA : ne change pas
+- xXx -> x
+- abCd**eE**DcAb -> abC**dD**cAb -> ab**Cc**Ab -> abAb
+
+
+### Todo
+
+Créez une fonction qui :
+
+- [ ] prend en paramètre une chaîne de caractères
+- [ ] vérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)
+- [ ] réduit cette chaîne selon les principes exposés ci-dessus
+- [ ] retourne la longueur de la chaîne après réduction
+
+---
+
+- [ ] chargez le contenu du fichier [reduction.txt](./data/reduction.txt){target="_blank"} et appliquez la fonction à cette chaîne de caractères
+
+### Bonus
+
+- Imaginez que l'on retire toutes les occurrences (majuscules et minuscules) d'un même caractère
+- Cela va modifier la réduction de la chaîne
+- exemple : 
+    - chaîne de départ : bcdCaAcADCaAacBC
+    - si on enlève tous les **a** et les **A**
+        - bcd**Cc**D**Cc**BC -> bc**dD**BC -> bcBC (taille = 4)
+    - si on enlève tous les **b** et les **B**
+        - cdC**aA**cADC**aA**a**cC** -> cd**Cc**ADCa -> cdADCa (taille = 6)
+    - si on enlève tous les **c** et les **C**
+        - bd**aA**AD**aA**aB -> bdADaB (taille = 6)
+    - si on enlève tous les **d** et les **D**
+        - b**cCaA**cAC**aA**acBC -> bcACacBC (taille : 8)
+- dans l'exemple, la meilleure réduction a été obtenue en retirant la lettre **a** (et **A**) car la chaîne finale est de taille minimale
+
+Créez une fonction qui :
+
+- [ ] prend en entrée une chaîne de caractères
+- [ ] teste les réductions en retirant un caractère (comme décrit ci-dessus)
+- [ ] retourne en sortie la taille de la chaîne après application de la meilleure réduction
+
+
+::: {.callout-tip title="Inspiration" collapse="true"}
+- [Reduction de chaine](https://adventofcode.com/2018/day/5)
+- [Recherche du code](https://adventofcode.com/2022/day/6)
+:::
+
+

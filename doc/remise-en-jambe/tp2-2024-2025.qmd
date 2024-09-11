@@ -1,0 +1,197 @@
+---
+title: "Remise en jambe STID - TP Noté"
+description: "2024-2025"
+author: "Ludovic DENEUVILLE"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+
+### Consignes {.unnumbered}
+
+- à rendre soit seul, soit par groupe de 2
+- Déposez sous Moodle, vos 2 fichiers python nommés : 
+  - `ex1.py`
+  - `ex2.py`
+  - `ex3.py`
+- date limite : 12/09/24 19:00
+- Commentez et expliquez ce que font vos algorithmes
+
+
+Voici à quoi devra ressembler vos fichiers :
+
+```{.python filename="ex1.py"}
+"""
+Remise en jambe - TP Noté
+12/09/2024
+Élève 1 : ?
+Élève 2 : ?
+"""
+
+def ma_fonction(?) -> ?:
+    # TODO coder fonction
+
+
+if __name__ == "__main__":
+
+    # TODO charger fichier
+
+    resultat = ma_fonction(?)
+    print(resultat)  # résultat obtenu : ?
+```
+
+
+## Avant de commencer {.unnumbered}
+
+Créez votre espace de travail :
+
+- [ ] Ouvrez `Git Bash`
+  - Sur le bureau > clic droit > **Git Bash here**
+- [ ] Collez la commande suivante
+  - `cp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/`
+  - Dans Git Bash :arrow_right: *clic droit > Paste* ou *MAJ + INSER*
+- [ ] Fermez *Git Bash*
+
+Ouvrez votre espace de travail dans Visual Studio Code :
+
+- [ ] Ouvrez Visual Studio Code
+- [ ] File > Open Folder
+  - Allez dans le dossier *P:/Cours1A/UE0-Info-Remise-en-jambe/*
+  - Cliquez [une seule fois]{.underline} sur *TP2*
+  - Cliquez sur le bouton [Sélectionner un dossier]{.text-like-button}
+  - Votre dossier apparait à gauche dans l'*explorer*
+
+## Exercice 1
+
+Vous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d'entiers.
+
+Cette fonction effectue ensuite les actions suivantes : 
+
+- Pour chaque ligne, elle fait la différence entre plus grande et plus petite valeur
+- Somme les résultats obtenus pour chaque ligne
+- Retourne cette somme
+
+### Exemple
+
+```{.txt filename="somme.txt"}
+4 1 9 5
+7 5 3
+2 4 4 8
+```
+
+| Ligne     | Min | Max | Différence |
+|-----------|-----|-----|------------|
+| Ligne 1   | 1   | 9   | 8          |
+| Ligne 2   | 3   | 7   | 4          |
+| Ligne 3   | 2   | 8   | 6          |
+| **Total** |     |     | **18**     |
+
+::: {.callout-note}
+Résultat : 18
+:::
+
+### Travail à faire
+
+- [ ] Écrivez cette fonction
+- [ ] Chargez le fichier [somme.txt](./data/somme.txt){target="_blank"} dans une variable
+- [ ] Appliquez la fonction au fichier
+  - Ecrivez en commentaire le résultat obtenu
+
+
+## Exercice 2
+
+### Objectif
+
+Vous allez recevoir en entrée un fichier contenant une liste d'instructions pour mettre à jour des variables.
+
+Au départ, toutes les variables utilisées sont initialisées à 0.
+
+Pour chaque instruction :
+
+- Si la condition est valide, vous appliquez la mise à jour
+- Sinon vous passez à l'instruction suivante
+
+### Exemple
+
+Voici ci-dessous une liste d'instructions.
+
+```{.txt filename="instructions.txt"}
+b inc 4 if a > 1
+a inc 1 if b < 2
+c dec -5 if a >= 1
+c inc -10 if c == 5
+```
+
+Votre programme doit lire et appliquer ces instructions dans l'ordre :
+
+- `b inc 4 if a > 1` : signifie que l'on va incrémenter la variable *b* de 4 si la variable *a* est strictement supérieure à 1
+  - or initialement *a=0* :arrow_right: condition *a > 1* :x: :arrow_right: la mise à jour de b n'est pas appliquée
+- `a inc 1 if b < 2` : *a* est incrémenté de 1 si *b* est strictement inférieur à 2
+  - *b = 0* :arrow_right: condition *b < 2* :heavy_check_mark: :arrow_right: *a = a + 1* :arrow_right: *a = 1*
+- `c dec -5 if a >= 1`
+  - *a = 1* :arrow_right: condition :heavy_check_mark: :arrow_right: *c = c - (-5)* :arrow_right: *a = 1, c = 5*
+- `c inc -10 if c == 5`
+  - *c = 5* :arrow_right: condition :heavy_check_mark: :arrow_right: *c = c + (-10)* :arrow_right: *a = 1, c = -5*
+
+Vous pourriez également rencontrer les opérateurs `<=` (inférieur ou égal à) ou `!=` (différent de).
+
+Le résultat final attendu est le produit de :
+
+- la plus grande valeur d'une variable à la fin (une fois toutes les intructions passées)
+- la plus grande valeur d'une variable rencontrée au cours des instructions
+
+
+::: {.callout-note title="Dans l'exemple"}
+- La plus grande valeur à la fin est 1 (*a*).
+- La plus grande valeur au cours des instructions est 10 (*c* à la 3e étape).
+
+Le résultat attendu est 1 x 10 = 10.
+:::
+
+### Travail à faire
+
+- [ ] Ecrivez une fonction qui répond à ce besoin avec :
+  - en entrée : une chaine de caractères 
+  - en sortie : retourne le résultat numérique
+- [ ] Chargez le contenu du fichier [instructions.txt](./data/instructions.txt){target="_blank"} dans une variable de type *str*
+- [ ] Appliquez la fonction sur ces données
+  - Ecrivez en commentaire le résultat obtenu
+
+
+## Exercice 3
+
+Votre objectif est de compter le nombre de mots de passe valide entre *153517* et *630395*.
+
+Un mot de passe valide vérifie :
+
+- taille : 6 digits
+- les digits sont rangés dans l'ordre croissant
+- il doit y avoir à minima 2 digits de même valeur
+
+### Exemples
+
+- `334561` : :x: les digits ne sont pas dans l'ordre croissant
+- `456789` : :x: pas de doublon
+- `224789` : :heavy_check_mark:
+- `223344` : :heavy_check_mark:
+
+### Travail à faire
+
+- [ ] Écrivez le code qui répond au besoin
+- [ ] Mettez en commentaire votre résultat
+
+### Bonus
+
+- [ ] Modifiez votre code pour faire en sorte d'avoir au moins exactement une paire de digits de même valeur
+
+---
+
+- `223344` : :heavy_check_mark:
+- `222345` : :x: *222* n'est pas une paire mais un triplet
+- `222244` : :heavy_check_mark: grace à la paire *44*
