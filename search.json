@@ -175,6 +175,34 @@
     "text": "5 Aides\n\n5.1 Index error\ntry:\n    if liste1[i] &gt; 0:\n    ...\nexcept IndexError:\n    print(f\"Index error : {i}\")\n\n\n5.2 Parcours de listes\nliste = [\"Alban\", \"Bertille\", \"Corine\"]\n\nfor v in liste:\n    print(v)\n\nfor i in range(len(liste)):\n    print(liste[i])\n\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\n\n5.3 Parcours de dictionnaires\ndico = {\"a\":\"Alban\", \"b\":\"Bertille\", \"c\":\"Corine\"}\n\n for k, v in dico.items():\n        print(f\"clé {k} : valeur {v}\")"
   },
   {
+    "objectID": "remise-en-jambe/tp2-2023-2024.html",
+    "href": "remise-en-jambe/tp2-2023-2024.html",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "",
+    "text": "à rendre soit seul, soit par groupe de 2\nDéposez sous Moodle, vos 2 fichiers python :\n\nex1.py\nex2.py\n\ndate limite : Mercredi 6 septembre à 17h00\nCommentez et expliquez ce que font vos algorithmes"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2023-2024.html#avant-de-commencer",
+    "href": "remise-en-jambe/tp2-2023-2024.html#avant-de-commencer",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "Avant de commencer",
+    "text": "Avant de commencer\n\nCréez sur votre disque P, un dossier TP2\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder &gt; TP2\n\nDans le dossier TP2, créez 2 sous-dossiers\n\nsrc : qui contient les sources Python\ndata : qui contient les fichiers de données\n\nImportez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier /data\nDans le sous-dossier /src, créer 2 fichiers : ex1.py et ex2.py\n\nIndiquez en commentaire en haut des 2 fichiers vos noms et prénoms"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2023-2024.html#exercice-1",
+    "href": "remise-en-jambe/tp2-2023-2024.html#exercice-1",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "1 Exercice 1",
+    "text": "1 Exercice 1\n\n1.1 Contexte\nDans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous\n\nFonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents\n\nEn partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents\nEt retournez la position du dernier caractère de cette occurrence\n\n\nExemple 1\nEntrée : jgngmnjdyigpmeawqksgcntozdpjiy\nSi en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents\njgngmnjdyigpmeawqksgcntozdpjiy\n\njgng     -&gt; ko car 2 g\n gngm    -&gt; ko car 2 g\n  ngmn   -&gt; ko car 2 n\n   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 \n\n\nAutres exemples\n\nvpqvdjfvapvbmlfjaxgdkqznphwt : 5\nfrfjfxjxflbxenxoervxbdnliftzuhjky : 10\n\n\n\n\nFonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents\n\nExemple\nruxrxorrixjdbordjxfhivtzlekuynbo : 26\n\n\n\n\n1.2 Todo\n\nChargez le fichier de données code.txt\n\nCherchez une méthode qui permet de réaliser cette opération\nLe fichier texte est composé de caractères alphabétiques\nStockez le résultat dans une variable\n\nRéalisez les 2 fonctions demandées\nAppliquez ces fonctions au fichier code.txt"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2023-2024.html#exercice-2",
+    "href": "remise-en-jambe/tp2-2023-2024.html#exercice-2",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "2 Exercice 2",
+    "text": "2 Exercice 2\n\n2.1 Contexte\nVous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :\n\nlorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent\n\nexemple : adDz devient az (car dD disparait)\nexemple2 : zrRYye devient ze\n\nle comportement doit être récursif\n\nc’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable\nexemple : zAdDa devient zAa puis devient z\n\n\n\nAutres exemples\n\nabCdABcA : ne change pas\nxXx -&gt; x\nabCdeEDcAb -&gt; abCdDcAb -&gt; abCcAb -&gt; abAb\n\n\n\n\n2.2 Todo\nCréez une fonction qui :\n\nprend en paramètre une chaîne de caractères\nvérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)\nréduit cette chaîne selon les principes exposés ci-dessus\nretourne la longueur de la chaîne après réduction\n\n\n\nchargez le contenu du fichier reduction.txt et appliquez la fonction à cette chaîne de caractères\n\n\n\n2.3 Bonus\n\nImaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère\nCela va modifier la réduction de la chaîne\nexemple :\n\nchaîne de départ : bcdCaAcADCaAacBC\nsi on enlève tous les a et les A\n\nbcdCcDCcBC -&gt; bcdDBC -&gt; bcBC (taille = 4)\n\nsi on enlève tous les b et les B\n\ncdCaAcADCaAacC -&gt; cdCcADCa -&gt; cdADCa (taille = 6)\n\nsi on enlève tous les c et les C\n\nbdaAADaAaB -&gt; bdADaB (taille = 6)\n\nsi on enlève tous les d et les D\n\nbcCaAcACaAacBC -&gt; bcACacBC (taille : 8)\n\n\ndans l’exemple, la meilleure réduction a été obtenue en retirant la lettre a (et A) car la chaîne finale est de taille minimale\n\nCréez une fonction qui :\n\nprend en entrée une chaîne de caractères\nteste les réductions en retirant un caractère (comme décrit ci-dessus)\nretourne en sortie la taille de la chaîne après application de la meilleure réduction\n\n\n\n\n\n\n\nInspiration\n\n\n\n\n\n\nReduction de chaine\nRecherche du code"
+  },
+  {
     "objectID": "remise-en-jambe/tp1.html",
     "href": "remise-en-jambe/tp1.html",
     "title": "TP Remise en jambe - STID",
@@ -243,6 +271,48 @@
     "title": "Ressources utiles",
     "section": "Datavisualisation",
     "text": "Datavisualisation\n\nPython Graph Gallery, Yan Holtz"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html",
+    "href": "remise-en-jambe/tp2-2024-2025.html",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "",
+    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html#consignes",
+    "href": "remise-en-jambe/tp2-2024-2025.html#consignes",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "",
+    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html#avant-de-commencer",
+    "href": "remise-en-jambe/tp2-2024-2025.html#avant-de-commencer",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "Avant de commencer",
+    "text": "Avant de commencer\n\nCréez votre espace de travail\n\nCopiez le dossier U:/Eleves/Informatique/TP2\nCollez le dossier TP2 dans P:/Cours1A/UE0-Info-Remise-en-jambe/\n\n\n\n\n\n\n\nEn ligne de commande\n\n\n\n\n\nLa même chose en lignes de commande :\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\ncp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\nOuvrez votre espace de travail dans Visual Studio Code\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans le dossier P:/Cours1A/UE0-Info-Remise-en-jambe/\nCliquez une seule fois sur TP2\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html#exercice-1",
+    "href": "remise-en-jambe/tp2-2024-2025.html#exercice-1",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "1 Exercice 1",
+    "text": "1 Exercice 1\nVous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d’entiers.\nCette fonction effectue ensuite les actions suivantes :\n\nPour chaque ligne, elle fait la différence entre plus grande et plus petite valeur\nSomme les résultats obtenus pour chaque ligne\nRetourne cette somme\n\n\n1.1 Exemple\n\n\nsomme.txt\n\n4 1 9 5\n7 5 3\n2 4 4 8\n\n\n\n\nLigne\nMin\nMax\nDifférence\n\n\n\n\nLigne 1\n1\n9\n8\n\n\nLigne 2\n3\n7\n4\n\n\nLigne 3\n2\n8\n6\n\n\nTotal\n\n\n18\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nRésultat : 18\n\n\n\n\n1.2 Travail à faire\n\nÉcrivez cette fonction\nChargez le fichier somme.txt dans une variable\nAppliquez la fonction au fichier\n\nEcrivez en commentaire le résultat obtenu"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html#exercice-2",
+    "href": "remise-en-jambe/tp2-2024-2025.html#exercice-2",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "2 Exercice 2",
+    "text": "2 Exercice 2\nVotre objectif est de compter le nombre de mots de passe valides entre 153517 et 630395.\nUn mot de passe valide vérifie les conditions suivantes :\n\ntaille : 6 digits\nles digits sont rangés dans l’ordre croissant\nil doit y avoir à minima 2 digits de même valeur\n\n\n2.1 Exemples\n\n334561 : ❌ les digits ne sont pas dans l’ordre croissant\n456789 : ❌ absence de 2 digits de même valeur\n224789 : ✔️ ordre croissant avec 2 digits de même valeur\n223344 : ✔️ ordre croissant avec au moins 2 digits de même valeur\n\n\n\n2.2 Travail à faire\n\nÉcrivez une fonction qui prend en paramètre deux entiers et qui :\n\nvérifie que ces 2 paramètres sont de type int\nvérifie que ces 2 paramètres contiennent exactement 6 digits\nretourne le nombre de mots de passe valides compris entre ces 2 paramètres\n\nAppelez cette fonction avec les valeurs 153517 et 630395\n\nÉcrivez en commentaire le résultat obtenu\n\n\n\n\n2.3 Bonus\n\nModifiez votre code (créez une nouvelle fonction) pour faire en sorte d’avoir au moins une paire exactement de digits de même valeur\n\n⚠️ Ici un triplet ou un quadruplet n’est pas une paire\n\n\n\n\n223344 : ✔️\n222345 : ❌ car 222 n’est pas une paire mais un triplet\n222244 : ✔️ grâce à la paire 44"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2-2024-2025.html#exercice-3",
+    "href": "remise-en-jambe/tp2-2024-2025.html#exercice-3",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "3 Exercice 3",
+    "text": "3 Exercice 3\n\n3.1 Objectif\nVous allez recevoir en entrée un fichier contenant une liste d’instructions pour mettre à jour des variables.\nAu départ, toutes les variables utilisées sont initialisées à 0.\nPour chaque instruction :\n\nSi la condition est valide, vous appliquez la mise à jour\nSinon vous passez à l’instruction suivante\n\n\n\n3.2 Exemple\nVoici ci-dessous une liste d’instructions.\n\n\ninstructions.txt\n\nb inc 4 if a &gt; 1\na inc 1 if b &lt; 2\nc dec -5 if a &gt;= 1\nc inc -10 if c == 5\n\nVotre programme doit lire et appliquer ces instructions dans l’ordre :\n\nb inc 4 if a &gt; 1 : signifie que l’on va incrémenter la variable b de 4 si la variable a est strictement supérieure à 1\n\nor initialement a=0 ➡️ condition a &gt; 1 ❌ ➡️ la mise à jour de b n’est pas appliquée\n\na inc 1 if b &lt; 2 : a est incrémenté de 1 si b est strictement inférieur à 2\n\nb = 0 ➡️ condition b &lt; 2 ✔️ ➡️ a = a + 1 ➡️ a = 1\n\nc dec -5 if a &gt;= 1\n\na = 1 ➡️ condition ✔️ ➡️ c = c - (-5) ➡️ a = 1, c = 5\n\nc inc -10 if c == 5\n\nc = 5 ➡️ condition ✔️ ➡️ c = c + (-10) ➡️ a = 1, c = -5\n\n\nVous pourriez également rencontrer les opérateurs &lt;= (inférieur ou égal à) ou != (différent de).\nLe résultat final attendu est le produit de :\n\nla plus grande valeur d’une variable à la fin (une fois toutes les intructions passées)\nla plus grande valeur d’une variable rencontrée au cours des instructions\n\n\n\n\n\n\n\nDans l’exemple\n\n\n\n\nLa plus grande valeur à la fin est 1 (a).\nLa plus grande valeur au cours des instructions est 10 (c à la 3e étape).\n\nLe résultat attendu est 1 x 10 = 10.\n\n\n\n\n3.3 Travail à faire\n\nEcrivez une fonction qui répond à ce besoin avec :\n\nen entrée : une chaine de caractères\nen sortie : retourne le résultat numérique\n\nChargez le contenu du fichier instructions.txt dans une variable de type str\nAppliquez la fonction sur ces données\n\nEcrivez en commentaire le résultat obtenu"
   },
   {
     "objectID": "poo-tp/tp5.html",

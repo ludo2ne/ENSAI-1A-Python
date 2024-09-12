@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Modules, style de code, exceptions et tests">
+<meta name="author" content="Ludovic DENEUVILLE">
+<meta name="description" content="2023-2024">
 
-<title>POO, documentation et tests - TP2 – Python 1A</title>
+<title>Remise en jambe STID - TP Noté – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -213,17 +179,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#créer-larborscence" id="toc-créer-larborscence" class="nav-link active" data-scroll-target="#créer-larborscence"><span class="header-section-number">1</span> Créer l’arborscence</a></li>
-  <li><a href="#moodle" id="toc-moodle" class="nav-link" data-scroll-target="#moodle"><span class="header-section-number">2</span> Moodle</a></li>
-  <li><a href="#visual-studio-code" id="toc-visual-studio-code" class="nav-link" data-scroll-target="#visual-studio-code"><span class="header-section-number">3</span> Visual Studio Code</a></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
+  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link active" data-scroll-target="#avant-de-commencer">Avant de commencer</a></li>
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1</span> Exercice 1</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">4.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">4.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">4.3</span> Exercice 3</a></li>
-  <li><a href="#exercice-4" id="toc-exercice-4" class="nav-link" data-scroll-target="#exercice-4"><span class="header-section-number">4.4</span> Exercice 4</a></li>
+  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte"><span class="header-section-number">1.1</span> Contexte</a></li>
+  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo"><span class="header-section-number">1.2</span> Todo</a></li>
   </ul></li>
-  <li><a href="#template-doc" id="toc-template-doc" class="nav-link" data-scroll-target="#template-doc"><span class="header-section-number">5</span> Template doc</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2</span> Exercice 2</a>
+  <ul class="collapse">
+  <li><a href="#contexte-1" id="toc-contexte-1" class="nav-link" data-scroll-target="#contexte-1"><span class="header-section-number">2.1</span> Contexte</a></li>
+  <li><a href="#todo-1" id="toc-todo-1" class="nav-link" data-scroll-target="#todo-1"><span class="header-section-number">2.2</span> Todo</a></li>
+  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">2.3</span> Bonus</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -236,12 +203,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">POO, documentation et tests - TP2</h1>
+<h1 class="title">Remise en jambe STID - TP Noté</h1>
 </div>
 
 <div>
   <div class="description">
-    Modules, style de code, exceptions et tests
+    2023-2024
   </div>
 </div>
 
@@ -251,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic Deneuville </p>
+             <p>Ludovic DENEUVILLE </p>
           </div>
   </div>
     
@@ -264,193 +231,184 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="créer-larborscence" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="créer-larborscence"><span class="header-section-number">1</span> Créer l’arborscence</h2>
-<pre><code>└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...</code></pre>
-<p>Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (<em>mkdir : make directory</em>):</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Git Bash</code></label>
 <ul>
-<li>Sur le bureau &gt; clic droit &gt; <strong>Git Bash here</strong></li>
-</ul></li>
-<li><label><input type="checkbox">Collez la commande suivante</label>
+<li>à rendre soit seul, soit par groupe de 2</li>
+<li>Déposez sous Moodle, vos 2 fichiers python :
 <ul>
-<li><code>mkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ &amp;&amp; touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py</code></li>
-<li>dans Git Bash : clic droit &gt; Paste ou MAJ + INSER</li>
+<li>ex1.py</li>
+<li>ex2.py</li>
 </ul></li>
-<li><label><input type="checkbox">Fermez <em>Git Bash</em></label></li>
+<li>date limite : Mercredi 6 septembre à 17h00</li>
+<li>Commentez et expliquez ce que font vos algorithmes</li>
 </ul>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Utilisez le lecteur <strong>P:</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il est important de stocker vos fichiers dans votre lecteur <code>P:</code> et pas sur votre bureau ou votre disque <em>C:</em> car vos fichiers risqueraient de disparaitre !</p>
-</div>
-</div>
-</section>
-<section id="moodle" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="moodle"><span class="header-section-number">2</span> Moodle</h2>
-<ul class="task-list">
-<li><label><input type="checkbox">Aller sur la page du <a href="https://foad-moodle.ensai.fr/course/view.php?id=148&amp;section=3" class="external" target="_blank">tp2</a></label></li>
-<li><label><input type="checkbox">Ouvrez le sujet et enregistrez le dans <code>/p/Cours1A/IPOO/TP2</code></label></li>
-<li><label><input type="checkbox">Téléchargez les fichiers <em>.py</em> et placez les dans le bon dossier</label></li>
-</ul>
-</section>
-<section id="visual-studio-code" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="visual-studio-code"><span class="header-section-number">3</span> Visual Studio Code</h2>
-<ul class="task-list">
+<section id="avant-de-commencer" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
+<ul>
+<li><label><input type="checkbox">Créez sur votre disque P, un dossier TP2</label></li>
 <li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
 <ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_1</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label>
+<li><label><input type="checkbox">File &gt; Open Folder &gt; TP2</label></li>
+</ul></li>
+<li>Dans le dossier TP2, créez 2 sous-dossiers
+<ul class="task-list">
+<li><label><input type="checkbox">src : qui contient les sources Python</label></li>
+<li><label><input type="checkbox">data : qui contient les fichiers de données</label></li>
+</ul></li>
+<li><label><input type="checkbox">Importez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier <code>/data</code></label></li>
+<li><label><input type="checkbox">Dans le sous-dossier <code>/src</code>, créer 2 fichiers : <code>ex1.py</code> et <code>ex2.py</code></label>
+<ul class="task-list">
+<li><label><input type="checkbox">Indiquez en commentaire en haut des 2 fichiers vos noms et prénoms</label></li>
+</ul></li>
+</ul>
+</section>
+<section id="exercice-1" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1</span> Exercice 1</h2>
+<section id="contexte" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="contexte"><span class="header-section-number">1.1</span> Contexte</h3>
+<p>Dans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous</p>
+<section id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents" class="level4">
+<h4 class="anchored" data-anchor-id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents">Fonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents</h4>
 <ul>
-<li>dans votre <em>Explorer</em> à gauche apparait l’arborescence des dossiers et fichiers de <strong>Exercice_1</strong></li>
+<li>En partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents</li>
+<li>Et retournez la position du <strong>dernier caractère</strong> de cette occurrence</li>
+</ul>
+<section id="exemple-1" class="level5">
+<h5 class="anchored" data-anchor-id="exemple-1">Exemple 1</h5>
+<p>Entrée : <code>jgngmnjdyigpmeawqksgcntozdpjiy</code></p>
+<p>Si en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents</p>
+<pre><code>jgngmnjdyigpmeawqksgcntozdpjiy
+
+jgng     -&gt; ko car 2 g
+ gngm    -&gt; ko car 2 g
+  ngmn   -&gt; ko car 2 n
+   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 </code></pre>
+</section>
+<section id="autres-exemples" class="level5">
+<h5 class="anchored" data-anchor-id="autres-exemples">Autres exemples</h5>
+<ul>
+<li>v<strong>pqvd</strong>jfvapvbmlfjaxgdkqznphwt : 5</li>
+<li>frfjfx<strong>jxfl</strong>bxenxoervxbdnliftzuhjky : 10</li>
+</ul>
+</section>
+</section>
+<section id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents" class="level4">
+<h4 class="anchored" data-anchor-id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents">Fonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents</h4>
+<section id="exemple" class="level5">
+<h5 class="anchored" data-anchor-id="exemple">Exemple</h5>
+<p>ruxrxorrixjd<strong>bordjxfhivtzle</strong>kuynbo : 26</p>
+</section>
+</section>
+</section>
+<section id="todo" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="todo"><span class="header-section-number">1.2</span> Todo</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Chargez le fichier de données <a href="./data/code.txt" target="_blank">code.txt</a></label>
+<ul>
+<li>Cherchez une méthode qui permet de réaliser cette opération</li>
+<li>Le fichier texte est composé de caractères alphabétiques</li>
+<li>Stockez le résultat dans une variable</li>
+</ul></li>
+<li><label><input type="checkbox">Réalisez les 2 fonctions demandées</label></li>
+<li><label><input type="checkbox">Appliquez ces fonctions au fichier <code>code.txt</code></label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="exercice-2" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2</span> Exercice 2</h2>
+<section id="contexte-1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="contexte-1"><span class="header-section-number">2.1</span> Contexte</h3>
+<p>Vous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :</p>
+<ul>
+<li>lorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent
+<ul>
+<li>exemple : <code>adDz</code> devient <code>az</code> (car <code>dD</code> disparait)</li>
+<li>exemple2 : <code>zrRYye</code> devient <code>ze</code></li>
+</ul></li>
+<li>le comportement doit être récursif
+<ul>
+<li>c’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable</li>
+<li>exemple : <code>zAdDa</code> devient <code>zAa</code> puis devient <code>z</code></li>
+</ul></li>
+</ul>
+<section id="autres-exemples-1" class="level4">
+<h4 class="anchored" data-anchor-id="autres-exemples-1">Autres exemples</h4>
+<ul>
+<li>abCdABcA : ne change pas</li>
+<li>xXx -&gt; x</li>
+<li>abCd<strong>eE</strong>DcAb -&gt; abC<strong>dD</strong>cAb -&gt; ab<strong>Cc</strong>Ab -&gt; abAb</li>
+</ul>
+</section>
+</section>
+<section id="todo-1" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="todo-1"><span class="header-section-number">2.2</span> Todo</h3>
+<p>Créez une fonction qui :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">prend en paramètre une chaîne de caractères</label></li>
+<li><label><input type="checkbox">vérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)</label></li>
+<li><label><input type="checkbox">réduit cette chaîne selon les principes exposés ci-dessus</label></li>
+<li><label><input type="checkbox">retourne la longueur de la chaîne après réduction</label></li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">chargez le contenu du fichier <a href="./data/reduction.txt" target="_blank">reduction.txt</a> et appliquez la fonction à cette chaîne de caractères</label></li>
+</ul>
+</section>
+<section id="bonus" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="bonus"><span class="header-section-number">2.3</span> Bonus</h3>
+<ul>
+<li>Imaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère</li>
+<li>Cela va modifier la réduction de la chaîne</li>
+<li>exemple :
+<ul>
+<li>chaîne de départ : bcdCaAcADCaAacBC</li>
+<li>si on enlève tous les <strong>a</strong> et les <strong>A</strong>
+<ul>
+<li>bcd<strong>Cc</strong>D<strong>Cc</strong>BC -&gt; bc<strong>dD</strong>BC -&gt; bcBC (taille = 4)</li>
+</ul></li>
+<li>si on enlève tous les <strong>b</strong> et les <strong>B</strong>
+<ul>
+<li>cdC<strong>aA</strong>cADC<strong>aA</strong>a<strong>cC</strong> -&gt; cd<strong>Cc</strong>ADCa -&gt; cdADCa (taille = 6)</li>
+</ul></li>
+<li>si on enlève tous les <strong>c</strong> et les <strong>C</strong>
+<ul>
+<li>bd<strong>aA</strong>AD<strong>aA</strong>aB -&gt; bdADaB (taille = 6)</li>
+</ul></li>
+<li>si on enlève tous les <strong>d</strong> et les <strong>D</strong>
+<ul>
+<li>b<strong>cCaA</strong>cAC<strong>aA</strong>acBC -&gt; bcACacBC (taille : 8)</li>
 </ul></li>
 </ul></li>
+<li>dans l’exemple, la meilleure réduction a été obtenue en retirant la lettre <strong>a</strong> (et <strong>A</strong>) car la chaîne finale est de taille minimale</li>
 </ul>
-</section>
-<section id="exercices" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">4.1</span> Exercice 1</h3>
-<p><code>Flake8</code> est un <a href="https://openclassrooms.com/fr/courses/7160741-ecrivez-du-code-python-maintenable/7187871-utilisez-des-linters-pour-que-votre-code-reste-propre" class="external" target="_blank">linter</a>. Il vérifie la mise en forme de votre code et <span style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: red;">souligne en rouge ce qui ne lui plait pas.</span></p>
+<p>Créez une fonction qui :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Téléchargez le fichier <code>fonctions.py</code> sur Moodle</label></li>
-<li><label><input type="checkbox">Collez ce fichier dans <code>/p/Cours1A/IPOO/TP2/Exercice_1</code></label></li>
-<li><label><input type="checkbox">Allez dans VSCode et ouvrez ce fichier</label></li>
-<li><label><input type="checkbox">Ouvrez un nouveau <em>Terminal</em> (Terminal &gt; New Terminal)</label></li>
-<li><label><input type="checkbox">Suivez les consignes du sujet</label></li>
+<li><label><input type="checkbox">prend en entrée une chaîne de caractères</label></li>
+<li><label><input type="checkbox">teste les réductions en retirant un caractère (comme décrit ci-dessus)</label></li>
+<li><label><input type="checkbox">retourne en sortie la taille de la chaîne après application de la meilleure réduction</label></li>
 </ul>
-</section>
-<section id="exercice-2" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">4.2</span> Exercice 2</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_2</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label></li>
-</ul>
-<p>Les doctest vu au TP1 ne sont pas utilisés en pratique car cela surcharge les modules. On préfère exporter les tests dans des modules à part. Si l’on veut tester le module <em>produit.py</em> :</p>
-<ul>
-<li><p>on crée dans le même package, un module <em>test_produit.py</em></p></li>
-<li><p>dans <em>test_produit.py</em>, on importe <code>produit</code>et <code>pytest</code> :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> produit <span class="im">import</span> produit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul>
-</section>
-<section id="exercice-3" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_3</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-tip callout-titled" title="Inspiration">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Aide
+Inspiration
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ul class="task-list">
-<li><label><input type="checkbox">Vérifier que les 2 paramètres sont des tuples</label></li>
-<li><label><input type="checkbox">Vérifier que les 2 paramètres sont des tuples de longeur 3</label></li>
-<li><label><input type="checkbox">Vérifier que tous les éléments de ces tuples sont des int ou float</label></li>
-<li><label><input type="checkbox">Vérifier que les éléments de *axes- sont strictements positifs</label></li>
-<li><label><input type="checkbox">Tester si le point appartient à l’ellipsoïde</label></li>
-<li><label><input type="checkbox">Ecrire des tests dans un autre fichier en s’inspirant de l’exercice 2</label></li>
+<ul>
+<li><a href="https://adventofcode.com/2018/day/5">Reduction de chaine</a></li>
+<li><a href="https://adventofcode.com/2022/day/6">Recherche du code</a></li>
 </ul>
 </div>
 </div>
 </div>
-</section>
-<section id="exercice-4" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="exercice-4"><span class="header-section-number">4.4</span> Exercice 4</h3>
-<ul>
-<li>Inscription
-<ul class="task-list">
-<li><label><input type="checkbox">Vérifier la validité d’une <em>adresse électronique</em></label>
-<ul>
-<li><p>Exemple pour lever une exception</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> adresse_electronique.count(<span class="st">'@'</span>) <span class="op">!=</span> <span class="dv">1</span>:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"L'adresse électronique doit contenir un seul symbole @."</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ul></li>
-<li><label><input type="checkbox">Valider que le mot de passe respecte les règles</label></li>
-<li><label><input type="checkbox">Vérifier que le 2e mot de passe saisi est le même</label></li>
-</ul></li>
-<li><label><input type="checkbox">Connexion</label>
-<ul>
-<li><code>base_de_donnees : list[tuple[str, str]]</code></li>
-</ul></li>
-<li><label><input type="checkbox">Ecrire les tests</label></li>
-</ul>
-</section>
-</section>
-<section id="template-doc" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="template-doc"><span class="header-section-number">5</span> Template doc</h2>
-<p>Voici un modèle que vous pouvez utiliser pour documenter vos fonctions</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    description_longue</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    param1 : type (str, int, float, list...)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param1</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    param2 : type</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param2</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">    type_retour</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">        description_retour</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; 1+1</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">    2</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; print("abc")</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    abc</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; ma_fonction(xxx, yyy)</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">    valeur_esperee</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> ma_fonction(p1, p2)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
