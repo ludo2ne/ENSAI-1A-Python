@@ -202,9 +202,9 @@ Le résultat final attendu est le produit de :
 
 ::: {.callout-note title="Dans l'exemple"}
 - La plus grande valeur à la fin est 1 (*a*).
-- La plus grande valeur au cours des instructions est 10 (*c* à la 3e étape).
+- La plus grande valeur au cours des instructions est 5 (*c* à la 3e étape).
 
-Le résultat attendu est 1 x 10 = 10.
+Le résultat attendu est 1 x 5 = 5.
 :::
 
 ### Travail à faire
