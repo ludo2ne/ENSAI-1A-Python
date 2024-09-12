@@ -13,18 +13,22 @@ number-depth: 3
 ---
 
 
-### Consignes {.unnumbered}
+## Consignes {.unnumbered}
 
-- à rendre soit seul, soit par groupe de 2
-- Déposez sous Moodle, vos 2 fichiers python nommés : 
+- À rendre soit seul, soit par groupe de 2
+- Déposez sous [Moodle]{.underline} (Compléments d'informatique et d'économie), vos 3 fichiers Python nommés : 
   - `ex1.py`
   - `ex2.py`
   - `ex3.py`
-- date limite : 12/09/24 19:00
+- Date limite : 12/09/24 19:00
+
+::: {.callout-tip title="Conseils"}
+- Lisez attentivement et respectez les consignes
 - Commentez et expliquez ce que font vos algorithmes
+:::
 
 
-Voici à quoi devra ressembler vos fichiers :
+Vos fichiers devront ressembler à ceci :
 
 ```{.python filename="ex1.py"}
 """
@@ -40,7 +44,10 @@ def ma_fonction(?) -> ?:
 
 if __name__ == "__main__":
 
-    # TODO charger fichier
+    # TODO charger fichier si nécessaire
+
+    # exemple = """coller ici l'exemple"""
+    # print(ma_fonction(exemple), ma_fonction(exemple) == "mettez ici le résultat attendu pour l'exemple")
 
     resultat = ma_fonction(?)
     print(resultat)  # résultat obtenu : ?
@@ -49,7 +56,13 @@ if __name__ == "__main__":
 
 ## Avant de commencer {.unnumbered}
 
-Créez votre espace de travail :
+### Créez votre espace de travail {.unnumbered}
+
+- [ ] Copiez le dossier *U:/Eleves/Informatique/TP2*
+- [ ] Collez le dossier *TP2* dans *P:/Cours1A/UE0-Info-Remise-en-jambe/*
+
+::: {.callout-tip collapse="true" title="En ligne de commande"}
+La même chose en lignes de commande :
 
 - [ ] Ouvrez `Git Bash`
   - Sur le bureau > clic droit > **Git Bash here**
@@ -57,10 +70,12 @@ Créez votre espace de travail :
   - `cp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/`
   - Dans Git Bash :arrow_right: *clic droit > Paste* ou *MAJ + INSER*
 - [ ] Fermez *Git Bash*
+:::
 
-Ouvrez votre espace de travail dans Visual Studio Code :
 
-- [ ] Ouvrez Visual Studio Code
+### Ouvrez votre espace de travail dans Visual Studio Code {.unnumbered}
+
+- [ ] Ouvrez **Visual Studio Code**
 - [ ] File > Open Folder
   - Allez dans le dossier *P:/Cours1A/UE0-Info-Remise-en-jambe/*
   - Cliquez [une seule fois]{.underline} sur *TP2*
@@ -105,6 +120,44 @@ Résultat : 18
 
 
 ## Exercice 2
+
+Votre objectif est de compter le nombre de mots de passe valides entre *153517* et *630395*.
+
+Un mot de passe valide vérifie les conditions suivantes :
+
+- taille : 6 digits
+- les digits sont rangés dans l'ordre croissant
+- il doit y avoir à minima 2 digits de même valeur
+
+### Exemples
+
+- `334561` : :x: les digits ne sont pas dans l'ordre croissant
+- `456789` : :x: absence de 2 digits de même valeur
+- `224789` : :heavy_check_mark: ordre croissant avec 2 digits de même valeur
+- `223344` : :heavy_check_mark: ordre croissant avec au moins 2 digits de même valeur
+
+### Travail à faire
+
+- [ ] Écrivez une fonction qui prend en paramètre deux entiers et qui :
+  - vérifie que ces 2 paramètres sont de type **int**
+  - vérifie que ces 2 paramètres contiennent exactement 6 digits
+  - retourne le nombre de mots de passe valides compris entre ces 2 paramètres
+- [ ] Appelez cette fonction avec les valeurs *153517* et *630395*
+  - Écrivez en commentaire le résultat obtenu
+
+### Bonus
+
+- [ ] Modifiez votre code (créez une nouvelle fonction) pour faire en sorte d'avoir au moins une paire exactement de digits de même valeur
+  - :warning: Ici un triplet ou un quadruplet n'est pas une paire
+
+---
+
+- `223344` : :heavy_check_mark:
+- `222345` : :x: car *222* n'est pas une paire mais un triplet
+- `222244` : :heavy_check_mark: grâce à la paire *44*
+
+
+## Exercice 3
 
 ### Objectif
 
@@ -163,35 +216,3 @@ Le résultat attendu est 1 x 10 = 10.
 - [ ] Appliquez la fonction sur ces données
   - Ecrivez en commentaire le résultat obtenu
 
-
-## Exercice 3
-
-Votre objectif est de compter le nombre de mots de passe valide entre *153517* et *630395*.
-
-Un mot de passe valide vérifie :
-
-- taille : 6 digits
-- les digits sont rangés dans l'ordre croissant
-- il doit y avoir à minima 2 digits de même valeur
-
-### Exemples
-
-- `334561` : :x: les digits ne sont pas dans l'ordre croissant
-- `456789` : :x: pas de doublon
-- `224789` : :heavy_check_mark:
-- `223344` : :heavy_check_mark:
-
-### Travail à faire
-
-- [ ] Écrivez le code qui répond au besoin
-- [ ] Mettez en commentaire votre résultat
-
-### Bonus
-
-- [ ] Modifiez votre code pour faire en sorte d'avoir au moins exactement une paire de digits de même valeur
-
----
-
-- `223344` : :heavy_check_mark:
-- `222345` : :x: *222* n'est pas une paire mais un triplet
-- `222244` : :heavy_check_mark: grace à la paire *44*
