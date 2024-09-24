@@ -29,6 +29,8 @@ def is_valid_password(pwd) -> bool:
         return True
 
     # Bonus : exactly a pair of a digit
+    # replace the 2 lines above with :
+    #
     # if 2 in digits.values():
     #     return True
 
