@@ -143,9 +143,4 @@ Créez une fonction qui :
 - [ ] retourne en sortie la taille de la chaîne après application de la meilleure réduction
 
 
-::: {.callout-tip title="Inspiration" collapse="true"}
-- [Reduction de chaine](https://adventofcode.com/2018/day/5)
-- [Recherche du code](https://adventofcode.com/2022/day/6)
-:::
-
 

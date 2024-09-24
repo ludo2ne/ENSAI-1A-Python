@@ -3,7 +3,6 @@ Remise en jambe - TP Noté
 12/09/2024
 Élève 1 : ?
 Élève 2 : ?
-https://adventofcode.com/2019/day/4
 """
 
 
