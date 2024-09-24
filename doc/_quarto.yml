@@ -19,7 +19,7 @@ website:
         menu:
           - href: remise-en-jambe/tp1.qmd
             text: "TP n°1"
-          - href: remise-en-jambe/tp2-2024-2025.qmd
+          - href: remise-en-jambe/tp2/2024/tp2-2024-2025.qmd
             text: "TP n°2 2024-2025"
       - text: TP POO
         menu:
