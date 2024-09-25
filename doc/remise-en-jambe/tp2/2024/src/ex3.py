@@ -50,7 +50,10 @@ def process_instructions(texte) -> int:
 
 if __name__ == "__main__":
 
-    text_input = open("doc/remise-en-jambe/tp2/2024/data/instructions.txt", "r").read()
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/instructions.txt"
+    text_input = open(file_path, "r").read()
 
     example1 = """b inc 4 if a > 1
 a inc 1 if b < 2
@@ -58,4 +61,4 @@ c dec -5 if a >= 1
 c inc -10 if c == 5"""
 
     print("Exemple1 :", process_instructions(example1), process_instructions(example1) == 5)
-    print("Fichier : ", process_instructions(text_input))
+    print("Fichier : ", process_instructions(text_input))  # obtained result : 39110511

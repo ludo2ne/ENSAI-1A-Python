@@ -25,7 +25,10 @@ def ma_fonction(texte) -> int:
 
 if __name__ == "__main__":
 
-    text_input = open("doc/remise-en-jambe/tp2/2024/data/somme.txt", "r").read()
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/somme.txt"
+    text_input = open(file_path, "r").read()
 
     exemple = """4 1 9 5
 7 5 3
@@ -33,4 +36,4 @@ if __name__ == "__main__":
     print(ma_fonction(exemple), ma_fonction(exemple) == 18)
 
     resultat = ma_fonction(text_input)
-    print(resultat)  # résultat obtenu : 36174
+    print(resultat)  # obtained result : 36174

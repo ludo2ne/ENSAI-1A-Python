@@ -6,8 +6,9 @@ Remise en jambe - TP Noté
 """
 
 
-def is_valid_password(pwd) -> bool:
-    """Check if a password is valid"""
+def is_valid_password(pwd, bonus) -> bool:
+    """Check if a password is valid
+    bonus: boolean indicating whether the bonus is on or not"""
 
     pwd_str = str(pwd)
 
@@ -24,20 +25,18 @@ def is_valid_password(pwd) -> bool:
             digits[d] = 1  # if the key does not exist, initialize its value to 1
 
     # Check if at least one digit appears at least 2 times
-    if max(digits.values()) >= 2:
+
+    if not bonus and max(digits.values()) >= 2:
         return True
-
-    # Bonus : exactly a pair of a digit
-    # replace the 2 lines above with :
-    #
-    # if 2 in digits.values():
-    #     return True
-
-    return False
+    elif bonus and 2 in digits.values():
+        return True
+    else:
+        return False
 
 
-def count_valid_password(start, end) -> int:
-    """Count the number of valid password between start and end"""
+def count_valid_password(start, end, bonus) -> int:
+    """Count the number of valid password between start and end
+    bonus: boolean indicating whether the bonus is on or not"""
 
     if not isinstance(start, int) or not isinstance(end, int):
         raise TypeError("At least one of the 2 parameters is not an integer.")
@@ -48,7 +47,7 @@ def count_valid_password(start, end) -> int:
     nb_valid = 0  # intialize the counter
 
     for pwd in range(start, end + 1):
-        if is_valid_password(pwd):
+        if is_valid_password(pwd, bonus):
             nb_valid += 1
 
     return nb_valid
@@ -56,7 +55,8 @@ def count_valid_password(start, end) -> int:
 
 if __name__ == "__main__":
 
-    resultat = count_valid_password(153517, 630395)
-    print(resultat)
-    # résultat obtenu : 1729
-    # Bonus : 1172
+    resultat = count_valid_password(153517, 630395, bonus=False)
+    print(resultat)  # obtained result : 1729
+
+    bonus = count_valid_password(153517, 630395, bonus=True)
+    print(bonus)  # Bonus : 1172
