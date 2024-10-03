@@ -17,12 +17,18 @@ website:
         text: Home
       - text: Remise en jambe
         menu:
+          - href: remise-en-jambe/intro.qmd
+            text: "Introduction"
           - href: remise-en-jambe/tp1.qmd
             text: "TP n°1"
+          - href: remise-en-jambe/tp2/2023/tp2-2023-2024.qmd
+            text: "TP n°2 2023-2024"
           - href: remise-en-jambe/tp2/2024/tp2-2024-2025.qmd
             text: "TP n°2 2024-2025"
       - text: TP POO
         menu:
+          - href: poo-tp/intro.qmd
+            text: "Introduction"
           - href: poo-tp/tp1.qmd
             text: "TP n°1"
           - href: poo-tp/tp2.qmd

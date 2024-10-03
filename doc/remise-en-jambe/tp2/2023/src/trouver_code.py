@@ -35,9 +35,11 @@ def trouver_code_v2(texte, taille) -> int:
 
 if __name__ == "__main__":
     # Import du fichier
-    file_path = "annales/2023-2024/data/code.txt"
-    with open(file_path, "r") as file:
-        texte = file.read()
+
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/code.txt"
+    text_input = open(file_path, "r").read()
 
     print("Tests.....")
     print(trouver_code("jgngmnjdyigpmeawqksgcntozdpjiy", 4) == 7)
@@ -48,5 +50,5 @@ if __name__ == "__main__":
     print("-" * 100)
 
     # Avec le fichier texte
-    print(trouver_code(texte, 4))
-    print(trouver_code(texte, 14))
+    print(trouver_code(text_input, 4))
+    print(trouver_code(text_input, 14))

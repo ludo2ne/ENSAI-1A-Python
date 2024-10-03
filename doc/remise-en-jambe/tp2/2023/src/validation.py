@@ -48,7 +48,10 @@ def count_sequences(text):
 
 
 if __name__ == "__main__":
-    text_input = open("annales/2023-2024/data/valid.txt", "r").read()
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/valid.txt"
+    text_input = open(file_path, "r").read()
 
     example1 = """1-2 a: abcdefgh
                   1-3 z: abcdef

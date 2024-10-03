@@ -21,26 +21,30 @@ def reduction_rapide(texte) -> int:
 
 if __name__ == "__main__":
     # Import du fichier
-    texte = open("annales/2023-2024/data/reduction.txt", "r").read()
 
-    print(reduction_rapide(texte))
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/reduction.txt"
+    text_input = open(file_path, "r").read()
+
+    print(reduction_rapide(text_input))
     print(
         min(
-            reduction_rapide(texte.replace(c, "").replace(c.upper(), ""))
-            for c in set(texte.lower())
+            reduction_rapide(text_input.replace(c, "").replace(c.upper(), ""))
+            for c in set(text_input.lower())
         )
     )
 
     print("-" * 100)
 
     # En détaillant un peu plus
-    #   pour chacun des caractères présent dans texte
+    #   pour chacun des caractères présents dans texte
     #   on calcule la réduction rapide en supprimant toutes les occurences de ce caractère (majuscule et minuscule)
-    for c in sorted(set(texte.lower())):
+    for c in sorted(set(text_input.lower())):
         print(
             c,
             ":",
-            reduction_rapide(texte.replace(c, "").replace(c.upper(), "")),
+            reduction_rapide(text_input.replace(c, "").replace(c.upper(), "")),
             end=" - ",
             sep="",
         )

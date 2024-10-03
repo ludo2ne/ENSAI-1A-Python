@@ -34,7 +34,10 @@ def part2(text):
 
 
 if __name__ == "__main__":
-    text_input = open("annales/2023-2024/data/items.txt", "r").read()
+    from pathlib import Path
+
+    file_path = Path(__file__).resolve().parent.parent / "data/items.txt"
+    text_input = open(file_path, "r").read()
 
     example = """ABcCaB
                  xyZpZq

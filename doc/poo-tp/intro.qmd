@@ -1,0 +1,41 @@
+---
+title: "POO, documentation et tests"
+description: "Programme du cours"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+::: {.callout-important}
+Les cours et les sujets des TP sont disponibles sur Moodle.
+
+Le contenu de ce site vient en complément (pour vous aider) mais ne se substitue en aucun cas aux supports donnés par votre professeur.
+:::
+
+## Cours
+
+Le programme est le suivant :
+
+- Documentation du code
+- Exceptions
+- Tests unitaires avec *pytest*
+- Découverte du paradigme objet
+- Modélisation UML
+
+## TP
+
+6 TP et 1 TD de 3h chacun :
+
+- [TP1](tp1.qmd) : Programmation Python et Visual Studio Code
+- [TP2](tp2.qmd) : Modules, style de code, exceptions et tests
+- [TP3](tp3.qmd) : Structures hétérogènes de données et tests
+- [TP4](tp4.qmd) : Classes, objets, attributs et méthodes en Python
+- [TP5](tp5.qmd) : Classes et diagrammes UML
+- [TP6](tp6.qmd) : Relations entre classes
+- [TD7](td7.qmd) : Héritages, relations, UML, modélisation

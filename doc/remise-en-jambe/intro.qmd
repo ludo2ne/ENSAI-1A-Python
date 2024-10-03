@@ -1,0 +1,26 @@
+---
+title: "Remise en jambe - STID"
+author: "Ludovic DENEUVILLE"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+Cet enseignement vise à rafraîchir les connaissances en Python et algorithmie.
+
+Il est composé d'un TP encadré de 3h pour revoir les notions élémentaires suivantes :
+
+- variables
+- collections
+- conditions
+- boucles
+- fonctions
+
+Ensuite, lors d'un second TP de 3h (qui lui sera noté), les élèves devront résoudre des problèmes d'algorithmie.
+
+

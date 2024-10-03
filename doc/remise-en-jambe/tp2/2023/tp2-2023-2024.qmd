@@ -142,5 +142,7 @@ Créez une fonction qui :
 - [ ] teste les réductions en retirant un caractère (comme décrit ci-dessus)
 - [ ] retourne en sortie la taille de la chaîne après application de la meilleure réduction
 
-
+::: {.callout-tip title="Source"}
+Exercices inspirés du site [AdventOfCode](https://adventofcode.com/){target="_blank"} qui propose chaque année en décembre, un problème à résoudre par jour.
+:::
 
