@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic DENEUVILLE">
-<meta name="description" content="2024-2025">
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Programme du cours">
 
-<title>Remise en jambe STID - TP Noté – Python 1A</title>
+<title>POO, documentation et tests – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,61 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -116,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python 1A</span>
     </a>
   </div>
@@ -127,7 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -137,19 +103,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-remise-en-jambe">    
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/intro.html">
+    <a class="dropdown-item" href="../remise-en-jambe/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp1.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
  <span class="dropdown-text">TP n°2 2023-2024</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
  <span class="dropdown-text">TP n°2 2024-2025</span></a>
   </li>  
     </ul>
@@ -160,35 +126,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tp-poo">    
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/intro.html">
+    <a class="dropdown-item" href="../poo-tp/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp1.html">
+    <a class="dropdown-item" href="../poo-tp/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp2.html">
+    <a class="dropdown-item" href="../poo-tp/tp2.html">
  <span class="dropdown-text">TP n°2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp3.html">
+    <a class="dropdown-item" href="../poo-tp/tp3.html">
  <span class="dropdown-text">TP n°3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp4.html">
+    <a class="dropdown-item" href="../poo-tp/tp4.html">
  <span class="dropdown-text">TP n°4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp5.html">
+    <a class="dropdown-item" href="../poo-tp/tp5.html">
  <span class="dropdown-text">TP n°5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp6.html">
+    <a class="dropdown-item" href="../poo-tp/tp6.html">
  <span class="dropdown-text">TP n°6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/td7.html">
+    <a class="dropdown-item" href="../poo-tp/td7.html">
  <span class="dropdown-text">TD n°7</span></a>
   </li>  
     </ul>
@@ -196,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../ressources.html"> 
+    <a class="nav-link" href="../ressources.html"> 
 <span class="menu-text">Ressources</span></a>
   </li>  
   <li class="nav-item compact">
@@ -225,29 +191,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link active" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer">Avant de commencer</a>
-  <ul class="collapse">
-  <li><a href="#créez-votre-espace-de-travail" id="toc-créez-votre-espace-de-travail" class="nav-link" data-scroll-target="#créez-votre-espace-de-travail">Créez votre espace de travail</a></li>
-  <li><a href="#ouvrez-votre-espace-de-travail-dans-visual-studio-code" id="toc-ouvrez-votre-espace-de-travail-dans-visual-studio-code" class="nav-link" data-scroll-target="#ouvrez-votre-espace-de-travail-dans-visual-studio-code">Ouvrez votre espace de travail dans Visual Studio Code</a></li>
-  </ul></li>
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1</span> Exercice 1</a>
-  <ul class="collapse">
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">1.1</span> Exemple</a></li>
-  <li><a href="#travail-à-faire" id="toc-travail-à-faire" class="nav-link" data-scroll-target="#travail-à-faire"><span class="header-section-number">1.2</span> Travail à faire</a></li>
-  </ul></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2</span> Exercice 2</a>
-  <ul class="collapse">
-  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples"><span class="header-section-number">2.1</span> Exemples</a></li>
-  <li><a href="#travail-à-faire-1" id="toc-travail-à-faire-1" class="nav-link" data-scroll-target="#travail-à-faire-1"><span class="header-section-number">2.2</span> Travail à faire</a></li>
-  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">2.3</span> Bonus</a></li>
-  </ul></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">3</span> Exercice 3</a>
-  <ul class="collapse">
-  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif"><span class="header-section-number">3.1</span> Objectif</a></li>
-  <li><a href="#exemple-1" id="toc-exemple-1" class="nav-link" data-scroll-target="#exemple-1"><span class="header-section-number">3.2</span> Exemple</a></li>
-  <li><a href="#travail-à-faire-2" id="toc-travail-à-faire-2" class="nav-link" data-scroll-target="#travail-à-faire-2"><span class="header-section-number">3.3</span> Travail à faire</a></li>
-  </ul></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link active" data-scroll-target="#cours"><span class="header-section-number">1</span> Cours</a></li>
+  <li><a href="#tp" id="toc-tp" class="nav-link" data-scroll-target="#tp"><span class="header-section-number">2</span> TP</a></li>
   </ul>
 </nav>
 </nav>
@@ -260,12 +205,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Remise en jambe STID - TP Noté</h1>
+<h1 class="title">POO, documentation et tests</h1>
 </div>
 
 <div>
   <div class="description">
-    2024-2025
+    Programme du cours
   </div>
 </div>
 
@@ -275,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic DENEUVILLE </p>
+             <p>Ludovic Deneuville </p>
           </div>
   </div>
     
@@ -288,339 +233,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="consignes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="consignes">Consignes</h2>
-<ul>
-<li>À rendre soit seul, soit par groupe de 2</li>
-<li>Déposez sous <u>Moodle</u> (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :
-<ul>
-<li><code>ex1.py</code></li>
-<li><code>ex2.py</code></li>
-<li><code>ex3.py</code></li>
-</ul></li>
-<li>Date limite : 12/09/24 19:00</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Conseils">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Conseils
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Les cours et les sujets des TP sont disponibles sur Moodle.</p>
+<p>Le contenu de ce site vient en complément (pour vous aider) mais ne se substitue en aucun cas aux supports donnés par votre professeur.</p>
+</div>
+</div>
+<section id="cours" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="cours"><span class="header-section-number">1</span> Cours</h2>
+<p>Le programme est le suivant :</p>
 <ul>
-<li>Lisez attentivement et respectez les consignes</li>
-<li>Commentez et expliquez ce que font vos algorithmes</li>
-</ul>
-</div>
-</div>
-<p>Vos fichiers devront ressembler à ceci :</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>ex1.py</strong></pre>
-</div>
-<div class="sourceCode" id="cb1" data-filename="ex1.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Remise en jambe - TP Noté</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">12/09/2024</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 1 : ?</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 2 : ?</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(?) <span class="op">-&gt;</span> ?:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> coder fonction</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> charger fichier si nécessaire</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># exemple = """coller ici l'exemple"""</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(ma_fonction(exemple), ma_fonction(exemple) == "mettez ici le résultat attendu pour l'exemple")</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> ma_fonction(?)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(resultat)  <span class="co"># résultat obtenu : ?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="avant-de-commencer" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
-<section id="créez-votre-espace-de-travail" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="créez-votre-espace-de-travail">Créez votre espace de travail</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Copiez le dossier <em>U:/Eleves/Informatique/TP2</em></label></li>
-<li><label><input type="checkbox">Collez le dossier <em>TP2</em> dans <em>P:/Cours1A/UE0-Info-Remise-en-jambe/</em></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="En ligne de commande">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-En ligne de commande
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>La même chose en lignes de commande :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Git Bash</code></label>
-<ul>
-<li>Sur le bureau &gt; clic droit &gt; <strong>Git Bash here</strong></li>
-</ul></li>
-<li><label><input type="checkbox">Collez la commande suivante</label>
-<ul>
-<li><code>cp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/</code></li>
-<li>Dans Git Bash <span class="emoji" data-emoji="arrow_right">➡️</span> <em>clic droit &gt; Paste</em> ou <em>MAJ + INSER</em></li>
-</ul></li>
-<li><label><input type="checkbox">Fermez <em>Git Bash</em></label></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="ouvrez-votre-espace-de-travail-dans-visual-studio-code" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="ouvrez-votre-espace-de-travail-dans-visual-studio-code">Ouvrez votre espace de travail dans Visual Studio Code</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <strong>Visual Studio Code</strong></label></li>
-<li><label><input type="checkbox">File &gt; Open Folder</label>
-<ul>
-<li>Allez dans le dossier <em>P:/Cours1A/UE0-Info-Remise-en-jambe/</em></li>
-<li>Cliquez <u>une seule fois</u> sur <em>TP2</em></li>
-<li>Cliquez sur le bouton <span class="text-like-button">Sélectionner un dossier</span></li>
-<li>Votre dossier apparait à gauche dans l’<em>explorer</em></li>
-</ul></li>
+<li>Documentation du code</li>
+<li>Exceptions</li>
+<li>Tests unitaires avec <em>pytest</em></li>
+<li>Découverte du paradigme objet</li>
+<li>Modélisation UML</li>
 </ul>
 </section>
-</section>
-<section id="exercice-1" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1</span> Exercice 1</h2>
-<p>Vous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d’entiers.</p>
-<p>Cette fonction effectue ensuite les actions suivantes :</p>
+<section id="tp" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="tp"><span class="header-section-number">2</span> TP</h2>
+<p>6 TP et 1 TD de 3h chacun :</p>
 <ul>
-<li>Pour chaque ligne, elle fait la différence entre plus grande et plus petite valeur</li>
-<li>Somme les résultats obtenus pour chaque ligne</li>
-<li>Retourne cette somme</li>
+<li><a href="../poo-tp/tp1.html">TP1</a> : Programmation Python et Visual Studio Code</li>
+<li><a href="../poo-tp/tp2.html">TP2</a> : Modules, style de code, exceptions et tests</li>
+<li><a href="../poo-tp/tp3.html">TP3</a> : Structures hétérogènes de données et tests</li>
+<li><a href="../poo-tp/tp4.html">TP4</a> : Classes, objets, attributs et méthodes en Python</li>
+<li><a href="../poo-tp/tp5.html">TP5</a> : Classes et diagrammes UML</li>
+<li><a href="../poo-tp/tp6.html">TP6</a> : Relations entre classes</li>
+<li><a href="../poo-tp/td7.html">TD7</a> : Héritages, relations, UML, modélisation</li>
 </ul>
-<section id="exemple" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="exemple"><span class="header-section-number">1.1</span> Exemple</h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>somme.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb2" data-filename="somme.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>4 1 9 5</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>7 5 3</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>2 4 4 8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Ligne</th>
-<th>Min</th>
-<th>Max</th>
-<th>Différence</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ligne 1</td>
-<td>1</td>
-<td>9</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Ligne 2</td>
-<td>3</td>
-<td>7</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ligne 3</td>
-<td>2</td>
-<td>8</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td><strong>Total</strong></td>
-<td></td>
-<td></td>
-<td><strong>18</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Résultat : 18</p>
-</div>
-</div>
-</section>
-<section id="travail-à-faire" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="travail-à-faire"><span class="header-section-number">1.2</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Écrivez cette fonction</label></li>
-<li><label><input type="checkbox">Chargez le fichier <a href="./data/somme.txt" target="_blank">somme.txt</a> dans une variable</label></li>
-<li><label><input type="checkbox">Appliquez la fonction au fichier</label>
-<ul>
-<li>Ecrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="exercice-2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2</span> Exercice 2</h2>
-<p>Votre objectif est de compter le nombre de mots de passe valides entre <em>153517</em> et <em>630395</em>.</p>
-<p>Un mot de passe valide vérifie les conditions suivantes :</p>
-<ul>
-<li>taille : 6 digits</li>
-<li>les digits sont rangés dans l’ordre croissant</li>
-<li>il doit y avoir à minima 2 digits de même valeur</li>
-</ul>
-<section id="exemples" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="exemples"><span class="header-section-number">2.1</span> Exemples</h3>
-<ul>
-<li><code>334561</code> : <span class="emoji" data-emoji="x">❌</span> les digits ne sont pas dans l’ordre croissant</li>
-<li><code>456789</code> : <span class="emoji" data-emoji="x">❌</span> absence de 2 digits de même valeur</li>
-<li><code>224789</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> ordre croissant avec 2 digits de même valeur</li>
-<li><code>223344</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> ordre croissant avec au moins 2 digits de même valeur</li>
-</ul>
-</section>
-<section id="travail-à-faire-1" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="travail-à-faire-1"><span class="header-section-number">2.2</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Écrivez une fonction qui prend en paramètre deux entiers et qui :</label>
-<ul>
-<li>vérifie que ces 2 paramètres sont de type <strong>int</strong></li>
-<li>vérifie que ces 2 paramètres contiennent exactement 6 digits</li>
-<li>retourne le nombre de mots de passe valides compris entre ces 2 paramètres</li>
-</ul></li>
-<li><label><input type="checkbox">Appelez cette fonction avec les valeurs <em>153517</em> et <em>630395</em></label>
-<ul>
-<li>Écrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-</section>
-<section id="bonus" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="bonus"><span class="header-section-number">2.3</span> Bonus</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Modifiez votre code (créez une nouvelle fonction) pour faire en sorte d’avoir au moins une paire exactement de digits de même valeur</label>
-<ul>
-<li><span class="emoji" data-emoji="warning">⚠️</span> Ici un triplet ou un quadruplet n’est pas une paire</li>
-</ul></li>
-</ul>
-<hr>
-<ul>
-<li><code>223344</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
-<li><code>222345</code> : <span class="emoji" data-emoji="x">❌</span> car <em>222</em> n’est pas une paire mais un triplet</li>
-<li><code>222244</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> grâce à la paire <em>44</em></li>
-</ul>
-</section>
-</section>
-<section id="exercice-3" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">3</span> Exercice 3</h2>
-<section id="objectif" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="objectif"><span class="header-section-number">3.1</span> Objectif</h3>
-<p>Vous allez recevoir en entrée un fichier contenant une liste d’instructions pour mettre à jour des variables.</p>
-<p>Au départ, toutes les variables utilisées sont initialisées à 0.</p>
-<p>Pour chaque instruction :</p>
-<ul>
-<li>Si la condition est valide, vous appliquez la mise à jour</li>
-<li>Sinon vous passez à l’instruction suivante</li>
-</ul>
-</section>
-<section id="exemple-1" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="exemple-1"><span class="header-section-number">3.2</span> Exemple</h3>
-<p>Voici ci-dessous une liste d’instructions.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>instructions.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb3" data-filename="instructions.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>b inc 4 if a &gt; 1</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>a inc 1 if b &lt; 2</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c dec -5 if a &gt;= 1</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>c inc -10 if c == 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Votre programme doit lire et appliquer ces instructions dans l’ordre :</p>
-<ul>
-<li><code>b inc 4 if a &gt; 1</code> : signifie que l’on va incrémenter la variable <em>b</em> de 4 si la variable <em>a</em> est strictement supérieure à 1
-<ul>
-<li>or initialement <em>a=0</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <em>a &gt; 1</em> <span class="emoji" data-emoji="x">❌</span> <span class="emoji" data-emoji="arrow_right">➡️</span> la mise à jour de b n’est pas appliquée</li>
-</ul></li>
-<li><code>a inc 1 if b &lt; 2</code> : <em>a</em> est incrémenté de 1 si <em>b</em> est strictement inférieur à 2
-<ul>
-<li><em>b = 0</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <em>b &lt; 2</em> <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = a + 1</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1</em></li>
-</ul></li>
-<li><code>c dec -5 if a &gt;= 1</code>
-<ul>
-<li><em>a = 1</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>c = c - (-5)</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1, c = 5</em></li>
-</ul></li>
-<li><code>c inc -10 if c == 5</code>
-<ul>
-<li><em>c = 5</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>c = c + (-10)</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1, c = -5</em></li>
-</ul></li>
-</ul>
-<p>Vous pourriez également rencontrer les opérateurs <code>&lt;=</code> (inférieur ou égal à) ou <code>!=</code> (différent de).</p>
-<p>Le résultat final attendu est le produit de :</p>
-<ul>
-<li>la plus grande valeur d’une variable à la fin (une fois toutes les intructions passées)</li>
-<li>la plus grande valeur d’une variable rencontrée au cours des instructions</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Dans l'exemple">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Dans l’exemple
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>La plus grande valeur à la fin est 1 (<em>a</em>).</li>
-<li>La plus grande valeur au cours des instructions est 5 (<em>c</em> à la 3e étape).</li>
-</ul>
-<p>Le résultat attendu est 1 x 5 = 5.</p>
-</div>
-</div>
-</section>
-<section id="travail-à-faire-2" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="travail-à-faire-2"><span class="header-section-number">3.3</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Ecrivez une fonction qui répond à ce besoin avec :</label>
-<ul>
-<li>en entrée : une chaine de caractères</li>
-<li>en sortie : retourne le résultat numérique</li>
-</ul></li>
-<li><label><input type="checkbox">Chargez le contenu du fichier <a href="./data/instructions.txt" target="_blank">instructions.txt</a> dans une variable de type <em>str</em></label></li>
-<li><label><input type="checkbox">Appliquez la fonction sur ces données</label>
-<ul>
-<li>Ecrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Bibliographie">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Bibliographie
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Exercices inspirés du site <a href="https://adventofcode.com/" target="_blank">AdventOfCode</a> qui propose chaque année en décembre, un problème à résoudre par jour.</p>
-</div>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
