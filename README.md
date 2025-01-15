@@ -7,6 +7,8 @@ Enseignements ENSAI de 1ère année en Python.
 - [ ] repo ENSAI-1A-POO-TP :arrow_right: récupérer contenu et supprimer
 - [ ] Fiche Numpy
 - [ ] Fiche Pandas
+  - https://pythonds.linogaliana.fr/content/manipulation/02_pandas_intro.html
+  - TP Johann
 
 ## :rocket: Publier les pages
 

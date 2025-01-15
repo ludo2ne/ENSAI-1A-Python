@@ -12,38 +12,189 @@ number-sections: true
 number-depth: 3
 ---
 
-## Introduction
+- [ ] Récupérez le sujet sur Moodle
 
-- [ ] Créer l'arboresence
-  - à la main
-  - ou en ligne de commande
-    - aller dans le dossier où vous souhaitez créer l'arborescence
-    - clic droit > Git Bash
-    - `mkdir -p IPOO/TP1/Exercice_{1..7}/ && touch IPOO/TP1/Exercice_{1..7}/ex.py`
-    - la commande est dans *U:\Eleves\Informatique\1A POO*
-- [ ] Ouvrir Visual Studio Code
-- [ ] File > Open Folder > `Exercice_x`
-- [ ] Fonctions
-  - pourquoi -> éviter de faire 2 fois la même chose
-  - des entrées, des opérations, des sorties
-- [ ] Documentation
-- [ ] Tests
-- [ ] utilisation du `if __name__ == "__main__":`
-- [ ] Terminal
+::: {.callout-tip}
+Cette page contient des informations complémentaires (et facultatives) pour vous aider à suivre le TP.
+:::
 
-## exercice 1
 
-- Rappeler list, tuple, dict, set
-- enumerate : index, value
-- `sorted(liste)` vs `liste.sort()`
+Vous pouvez réaliser ce TP, soit :
 
-## exercice 2
+- sur l'un des Datalab
+  - du [GENES](https://onyxia.lab.groupe-genes.fr/) - [Lancer le service VScode-python](https://onyxia.lab.groupe-genes.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-96a5c8b9&resources.limits.cpu=%C2%AB20000m%C2%BB){target="_blank"}
+  - le [SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"} de l'INSEE - [Lancer le service VScode-python](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-ec97c721&resources.limits.cpu=%C2%AB20000m%C2%BB&autoLaunch=true){target="_blank"}
+- sur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)
+- sur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)
+
+
+## Créer l'arborscence
+
+```
+└── P
+    └── Cours1A
+        └── IPOO
+            ├── TP1
+            │   ├── Exercice_1
+            │   │   └── ex.py
+            │   ├── ...
+            │   └── Exercice_7
+            │       └── ex.py
+            ├── TP2
+            │   ├── Exercice_1
+            │   │   └── ex.py
+            │   ├── ...
+```
+
+Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l'arborscence ci-dessus.
+Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
+
+- [ ] Ouvrez `Git Bash`
+  - Sur le bureau > clic droit > **Git Bash here**
+- [ ] Collez la commande suivante
+  - `mkdir -p IPOO/TP1/Exercice_{1..7}/ && touch IPOO/TP1/Exercice_{1..7}/ex.py`
+  - dans Git Bash : clic droit > Paste ou MAJ + INSER
+- [ ] Fermez *Git Bash*
+
+:::{.callout-important}
+### Utilisez le lecteur **P: (si vous êtes sur la VM)**
+
+Il est important de stocker vos fichiers dans votre lecteur `P:` et pas sur votre bureau ou votre disque *C:* car vos fichiers risqueraient de disparaitre !
+:::
+
+
+## Visual Studio Code
+
+- [ ] Ouvrez Visual Studio Code
+  - [ ] File > Open Folder
+  - [ ] Cliquez [une seule fois]{.underline} sur **Exercice_1**
+  - [ ] Cliquez sur `Sélectionner un dossier`
+    - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
+
+
+## Fonction
+
+::: {.callout-important}
+Les fonctions permettent de :
+
+- **réutiliser du code** (éviter d'écrire deux fois la même chose)
+- **simplifier**
+- **organiser**
+:::
+
+### Définition
+
+Parallèle avec les mathématiques, par exemple : $f : x, y \mapsto x^2 + y + 1$
+
+- nom de la fonction : f
+- paramètres d'entrée : x, y
+- sortie : $x^2 + y + 1$
+
+En python pour définir la fonction :
+
+```python
+def f(x, y):
+    return x**2 + y + 1
+```
+
+### Utilisation
+
+En maths : $f(3, 4) = 3^2 + 4 + 1 = 14$
+
+En Python, on ferait de même en appelant la fonction :
+
+```{.python}
+resultat = f(3)
+print(resultat)
+```
+
+### Template
+
+Voici un modèle que vous pouvez utiliser pour documenter vos fonctions.
+
+```{.python}
+def ma_fonction(param1, param2) -> type_retour:
+    """description_courte
+
+    description_longue
+
+    Parameters
+    ----------
+    param1 : type (str, int, float, list...)
+        description_param1
+    param2 : type
+        description_param2
+
+    Returns
+    -------
+    type_retour
+        description_retour
+
+    Examples
+    --------
+    >>> 1+1
+    2
+    >>> print("abc")
+    abc
+    >>> ma_fonction(xxx, yyy)
+    valeur_esperee
+    """
+    return None
+```
+
+::: {.callout-note title="Remarques"}
+Il est tout à fait possible pour une fonction de :
+
+- ne prendre aucun paramètre en entrée
+- ne rien retourner (None)
+:::
+
+
+## Exercices
+
+Dans Visual Studio Code :
+
+- [ ] Ouvrez un terminal (Terminal > New Terminal ou CTRL+ù)
+
+Rappels : [le terminal Git Bash et les commandes Unix](https://ludo2ne.github.io/Git-tuto/doc/presentation.html#git-bash){target="_blank"}
+
+- [ ] Écrivez `python` puis tapez sur `ENTREE`
+
+Vous pouvez maintenant écrire et éxécuter du code Python.
+
+
+
+### Exercice 1
+
+Collections :
+
+| Type de Donnée | Ordonné | Mutable | Doublon |
+|----------------|:-------:|:-------:|:-------:|
+| list           | ✔       | ✔       | ✔      |
+| dict           |         | ✔       |         |
+| tuple          | ✔       |         | ✔      |
+| set            |         | ✔       |         |
+
+
+#### Fonctions et méthodes
+
+- fonction `sorted(liste)`
+  - paramètre : une liste
+  - retourne : une nouvelle liste triée
+- méthode `liste.sort()`
+  - paramètre : aucun
+  - s'applique à l'objet *liste*
+  - retourne : rien (par contre elle modifie la liste initiale)
+
+
+
+### Exercice 2
 
 ```{.python}
 "*{:{^}{taille_max}}*".format(ligne, "^", taille_max)
 ```
 
-## exercice 4
+### Exercice 4
 
 ```{.python}
 from itertools import combinations
@@ -54,8 +205,29 @@ print(list(combinations([1, 2, 3, 4], 2)))
 
 ## Aides
 
-### Index error
 
+### Parcours de listes 
+
+La fonction **enumerate()** permet de boucler sur une liste en utilisant à la fois l'index et la valeur des éléments.
+
+```{.python}
+liste = ["Anaïs", "Benoit", "Camille"]
+
+# Par valeurs
+for v in liste:
+    print(v)
+
+# Par index
+for i in range(len(liste)):
+    print(liste[i])
+
+# Index et valeurs
+for i, v in enumerate(liste):
+    print(f"index {i} : valeur {v}")
+```
+
+
+Si vous avez une erreur d'index, vous pouvez encapsuler votre code dans un bloc **try/except**.
 
 ```{.python}
 try:
@@ -65,26 +237,21 @@ except IndexError:
     print(f"Index error : {i}")
 ```
 
-### Parcours de listes 
-
-```{.python}
-liste = ["Anais", "Benoit", "Caroline"]
-
-for v in liste:
-    print(v)
-
-for i in range(len(liste)):
-    print(liste[i])
-
-for i, v in enumerate(liste):
-    print(f"index {i} : valeur {v}")
-```
 
 ### Parcours de dictionnaires
 
 ```{.python}
-dico = {"a":"Alban", "b":"Bertille", "c":"Corine"}
+dico = {"d":"Dominique", "e":"Eva", "f":"Fernande"}
 
- for k, v in dico.items():
-        print(f"clé {k} : valeur {v}")
+# Par clés
+for k in dico.keys():
+    print(f"{k} : {dico[k]}")
+
+# Par valeurs
+for v in dico.values():
+    print(v)
+
+# Clés et valeurs
+for k, v in dico.items():
+    print(f"clé {k} : valeur {v}")
 ```
