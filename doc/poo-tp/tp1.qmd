@@ -22,8 +22,8 @@ Cette page contient des informations complémentaires (et facultatives) pour vou
 Vous pouvez réaliser ce TP, soit :
 
 - sur l'un des Datalab
-  - du [GENES](https://onyxia.lab.groupe-genes.fr/) - [Lancer le service VScode-python](https://onyxia.lab.groupe-genes.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-96a5c8b9&resources.limits.cpu=%C2%AB20000m%C2%BB){target="_blank"}
-  - le [SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"} de l'INSEE - [Lancer le service VScode-python](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-ec97c721&resources.limits.cpu=%C2%AB20000m%C2%BB&autoLaunch=true){target="_blank"}
+  - du [GENES](https://onyxia.lab.groupe-genes.fr/) :arrow_right: [Lancer le service VScode-python](https://onyxia.lab.groupe-genes.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-96a5c8b9&resources.limits.cpu=%C2%AB20000m%C2%BB){target="_blank"}
+  - le [SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"} de l'INSEE :arrow_right: [Lancer le service VScode-python](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-ec97c721&resources.limits.cpu=%C2%AB20000m%C2%BB&autoLaunch=true){target="_blank"}
 - sur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)
 - sur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)
 
@@ -50,8 +50,9 @@ Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l'
 Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
 
 - [ ] Ouvrez `Git Bash`
-  - Sur le bureau > clic droit > **Git Bash here**
-- [ ] Collez la commande suivante
+  - VM ou machine perso : sur le bureau > clic droit > **Git Bash here**
+  - Datalab : Terminal > New Terminal (ou CTRL + ù)
+- [ ] Collez puis exécutez la commande suivante
   - `mkdir -p IPOO/TP1/Exercice_{1..7}/ && touch IPOO/TP1/Exercice_{1..7}/ex.py`
   - dans Git Bash : clic droit > Paste ou MAJ + INSER
 - [ ] Fermez *Git Bash*
@@ -63,16 +64,7 @@ Il est important de stocker vos fichiers dans votre lecteur `P:` et pas sur votr
 :::
 
 
-## Visual Studio Code
-
-- [ ] Ouvrez Visual Studio Code
-  - [ ] File > Open Folder
-  - [ ] Cliquez [une seule fois]{.underline} sur **Exercice_1**
-  - [ ] Cliquez sur `Sélectionner un dossier`
-    - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
-
-
-## Fonction
+## Fonctions
 
 ::: {.callout-important}
 Les fonctions permettent de :
@@ -90,7 +82,7 @@ Parallèle avec les mathématiques, par exemple : $f : x, y \mapsto x^2 + y + 1$
 - paramètres d'entrée : x, y
 - sortie : $x^2 + y + 1$
 
-En python pour définir la fonction :
+En Python pour définir la fonction :
 
 ```python
 def f(x, y):
@@ -104,8 +96,12 @@ En maths : $f(3, 4) = 3^2 + 4 + 1 = 14$
 En Python, on ferait de même en appelant la fonction :
 
 ```{.python}
-resultat = f(3)
+# Appel par positions des paramètres
+resultat = f(3, 4)
 print(resultat)
+
+# Appel par noms des paramètres
+resultat = f(x=3, y=4)
 ```
 
 ### Template
@@ -113,7 +109,7 @@ print(resultat)
 Voici un modèle que vous pouvez utiliser pour documenter vos fonctions.
 
 ```{.python}
-def ma_fonction(param1, param2) -> type_retour:
+def ma_fonction(param1, param2=valeur_par_defaut) -> type_retour:
     """description_courte
 
     description_longue
@@ -152,7 +148,11 @@ Il est tout à fait possible pour une fonction de :
 
 ## Exercices
 
-Dans Visual Studio Code :
+[Visual Studio Code](https://code.visualstudio.com/){target="_blank"} (VS Code) est un éditeur de code source développé par Microsoft, gratuit et open-source, conçu pour être léger et performant. Il est compatible avec de très nombreux langages de programmation : Python, R, Java, JavaScript, C++...
+
+- [ ] Ouvrez Visual Studio Code
+
+### Exercice 1
 
 - [ ] Ouvrez un terminal (Terminal > New Terminal ou CTRL+ù)
 
@@ -163,10 +163,7 @@ Rappels : [le terminal Git Bash et les commandes Unix](https://ludo2ne.github.io
 Vous pouvez maintenant écrire et éxécuter du code Python.
 
 
-
-### Exercice 1
-
-Collections :
+#### Collections usuelles
 
 | Type de Donnée | Ordonné | Mutable | Doublon |
 |----------------|:-------:|:-------:|:-------:|
@@ -191,17 +188,20 @@ Collections :
 ### Exercice 2
 
 ```{.python}
-"*{:{^}{taille_max}}*".format(ligne, "^", taille_max)
+print("|{:{}{}}|".format('abc', '<', 14))
+print("|{:{}{}}|".format('abc', '>', 10))
+print("|{:{}{}}|".format('abc', '^', 7))
 ```
 
-### Exercice 4
+Avec des f-strings :
 
 ```{.python}
-from itertools import combinations
+chaine = 'abc'
 
-print(list(combinations([1, 2, 3, 4], 2)))
+print(f"|{chaine:<8}|")
+print(f"|{chaine:>12}|")
+print(f"|{chaine:^16}|")
 ```
-
 
 ## Aides
 
