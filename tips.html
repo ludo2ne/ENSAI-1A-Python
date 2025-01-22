@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic DENEUVILLE">
-<meta name="description" content="2023-2024">
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Aides à programmer en python">
 
-<title>Remise en jambe STID - TP Noté – Python 1A</title>
+<title>Trucs et astuces – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-120d9ffdb366f80f4be3d8d4b9ab4133.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-433c775cf9d4f89e97061b8f24aee672.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-120d9ffdb366f80f4be3d8d4b9ab4133.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-433c775cf9d4f89e97061b8f24aee672.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Python 1A</span>
     </a>
   </div>
@@ -93,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="./index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -103,19 +137,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-remise-en-jambe">    
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/intro.html">
+    <a class="dropdown-item" href="./remise-en-jambe/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp1.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp2/2023/tp2-2023-2024.html">
  <span class="dropdown-text">TP n°2 2023-2024</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp2/2024/tp2-2024-2025.html">
  <span class="dropdown-text">TP n°2 2024-2025</span></a>
   </li>  
     </ul>
@@ -126,35 +160,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tp-poo">    
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/intro.html">
+    <a class="dropdown-item" href="./poo-tp/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp1.html">
+    <a class="dropdown-item" href="./poo-tp/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp2.html">
+    <a class="dropdown-item" href="./poo-tp/tp2.html">
  <span class="dropdown-text">TP n°2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp3.html">
+    <a class="dropdown-item" href="./poo-tp/tp3.html">
  <span class="dropdown-text">TP n°3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp4.html">
+    <a class="dropdown-item" href="./poo-tp/tp4.html">
  <span class="dropdown-text">TP n°4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp5.html">
+    <a class="dropdown-item" href="./poo-tp/tp5.html">
  <span class="dropdown-text">TP n°5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp6.html">
+    <a class="dropdown-item" href="./poo-tp/tp6.html">
  <span class="dropdown-text">TP n°6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/td7.html">
+    <a class="dropdown-item" href="./poo-tp/td7.html">
  <span class="dropdown-text">TD n°7</span></a>
   </li>  
     </ul>
@@ -162,15 +196,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../tips.html"> 
+    <a class="nav-link active" href="./tips.html" aria-current="page"> 
 <span class="menu-text">Astuces</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../exercices.html"> 
+    <a class="nav-link" href="./exercices.html"> 
 <span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../ressources.html"> 
+    <a class="nav-link" href="./ressources.html"> 
 <span class="menu-text">Ressources</span></a>
   </li>  
   <li class="nav-item compact">
@@ -199,17 +233,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link active" data-scroll-target="#avant-de-commencer">Avant de commencer</a></li>
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1</span> Exercice 1</a>
+  <li><a href="#afficher-avec-print" id="toc-afficher-avec-print" class="nav-link active" data-scroll-target="#afficher-avec-print"><span class="header-section-number">1</span> Afficher avec print</a></li>
+  <li><a href="#listes" id="toc-listes" class="nav-link" data-scroll-target="#listes"><span class="header-section-number">2</span> Listes</a>
   <ul class="collapse">
-  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte"><span class="header-section-number">1.1</span> Contexte</a></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo"><span class="header-section-number">1.2</span> Todo</a></li>
+  <li><a href="#parcours-de-liste" id="toc-parcours-de-liste" class="nav-link" data-scroll-target="#parcours-de-liste"><span class="header-section-number">2.1</span> Parcours de liste</a></li>
   </ul></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2</span> Exercice 2</a>
+  <li><a href="#dictionnaire" id="toc-dictionnaire" class="nav-link" data-scroll-target="#dictionnaire"><span class="header-section-number">3</span> Dictionnaire</a>
   <ul class="collapse">
-  <li><a href="#contexte-1" id="toc-contexte-1" class="nav-link" data-scroll-target="#contexte-1"><span class="header-section-number">2.1</span> Contexte</a></li>
-  <li><a href="#todo-1" id="toc-todo-1" class="nav-link" data-scroll-target="#todo-1"><span class="header-section-number">2.2</span> Todo</a></li>
-  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">2.3</span> Bonus</a></li>
+  <li><a href="#parcours-de-dictionnaires" id="toc-parcours-de-dictionnaires" class="nav-link" data-scroll-target="#parcours-de-dictionnaires"><span class="header-section-number">3.1</span> Parcours de dictionnaires</a></li>
+  </ul></li>
+  <li><a href="#fonctions" id="toc-fonctions" class="nav-link" data-scroll-target="#fonctions"><span class="header-section-number">4</span> Fonctions</a>
+  <ul class="collapse">
+  <li><a href="#valeur-retournée" id="toc-valeur-retournée" class="nav-link" data-scroll-target="#valeur-retournée"><span class="header-section-number">4.1</span> Valeur retournée</a></li>
+  <li><a href="#simple-affichage" id="toc-simple-affichage" class="nav-link" data-scroll-target="#simple-affichage"><span class="header-section-number">4.2</span> Simple affichage</a></li>
+  <li><a href="#valeur-par-défaut" id="toc-valeur-par-défaut" class="nav-link" data-scroll-target="#valeur-par-défaut"><span class="header-section-number">4.3</span> Valeur par défaut</a></li>
+  <li><a href="#multiples-retours" id="toc-multiples-retours" class="nav-link" data-scroll-target="#multiples-retours"><span class="header-section-number">4.4</span> Multiples retours</a></li>
+  <li><a href="#lambda-fonctions" id="toc-lambda-fonctions" class="nav-link" data-scroll-target="#lambda-fonctions"><span class="header-section-number">4.5</span> Lambda fonctions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -223,12 +262,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Remise en jambe STID - TP Noté</h1>
+<h1 class="title">Trucs et astuces</h1>
 </div>
 
 <div>
   <div class="description">
-    2023-2024
+    Aides à programmer en python
   </div>
 </div>
 
@@ -238,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic DENEUVILLE </p>
+             <p>Ludovic Deneuville </p>
           </div>
   </div>
     
@@ -251,173 +290,172 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li>à rendre soit seul, soit par groupe de 2</li>
-<li>Déposez sous Moodle, vos 2 fichiers python :
-<ul>
-<li>ex1.py</li>
-<li>ex2.py</li>
-</ul></li>
-<li>date limite : Mercredi 6 septembre à 17h00</li>
-<li>Commentez et expliquez ce que font vos algorithmes</li>
-</ul>
-<section id="avant-de-commencer" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
-<ul>
-<li><label><input type="checkbox">Créez sur votre disque P, un dossier TP2</label></li>
-<li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
-<ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder &gt; TP2</label></li>
-</ul></li>
-<li>Dans le dossier TP2, créez 2 sous-dossiers
-<ul class="task-list">
-<li><label><input type="checkbox">src : qui contient les sources Python</label></li>
-<li><label><input type="checkbox">data : qui contient les fichiers de données</label></li>
-</ul></li>
-<li><label><input type="checkbox">Importez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier <code>/data</code></label></li>
-<li><label><input type="checkbox">Dans le sous-dossier <code>/src</code>, créer 2 fichiers : <code>ex1.py</code> et <code>ex2.py</code></label>
-<ul class="task-list">
-<li><label><input type="checkbox">Indiquez en commentaire en haut des 2 fichiers vos noms et prénoms</label></li>
-</ul></li>
-</ul>
-</section>
-<section id="exercice-1" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1</span> Exercice 1</h2>
-<section id="contexte" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="contexte"><span class="header-section-number">1.1</span> Contexte</h3>
-<p>Dans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous</p>
-<section id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents" class="level4">
-<h4 class="anchored" data-anchor-id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents">Fonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents</h4>
-<ul>
-<li>En partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents</li>
-<li>Et retournez la position du <strong>dernier caractère</strong> de cette occurrence</li>
-</ul>
-<section id="exemple-1" class="level5">
-<h5 class="anchored" data-anchor-id="exemple-1">Exemple 1</h5>
-<p>Entrée : <code>jgngmnjdyigpmeawqksgcntozdpjiy</code></p>
-<p>Si en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents</p>
-<pre><code>jgngmnjdyigpmeawqksgcntozdpjiy
-
-jgng     -&gt; ko car 2 g
- gngm    -&gt; ko car 2 g
-  ngmn   -&gt; ko car 2 n
-   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 </code></pre>
-</section>
-<section id="autres-exemples" class="level5">
-<h5 class="anchored" data-anchor-id="autres-exemples">Autres exemples</h5>
-<ul>
-<li>v<strong>pqvd</strong>jfvapvbmlfjaxgdkqznphwt : 5</li>
-<li>frfjfx<strong>jxfl</strong>bxenxoervxbdnliftzuhjky : 10</li>
-</ul>
-</section>
-</section>
-<section id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents" class="level4">
-<h4 class="anchored" data-anchor-id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents">Fonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents</h4>
-<section id="exemple" class="level5">
-<h5 class="anchored" data-anchor-id="exemple">Exemple</h5>
-<p>ruxrxorrixjd<strong>bordjxfhivtzle</strong>kuynbo : 26</p>
-</section>
-</section>
-</section>
-<section id="todo" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="todo"><span class="header-section-number">1.2</span> Todo</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Chargez le fichier de données <a href="./data/code.txt" target="_blank">code.txt</a></label>
-<ul>
-<li>Cherchez une méthode qui permet de réaliser cette opération</li>
-<li>Le fichier texte est composé de caractères alphabétiques</li>
-<li>Stockez le résultat dans une variable</li>
-</ul></li>
-<li><label><input type="checkbox">Réalisez les 2 fonctions demandées</label></li>
-<li><label><input type="checkbox">Appliquez ces fonctions au fichier <code>code.txt</code></label></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="exercice-2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2</span> Exercice 2</h2>
-<section id="contexte-1" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="contexte-1"><span class="header-section-number">2.1</span> Contexte</h3>
-<p>Vous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :</p>
-<ul>
-<li>lorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent
-<ul>
-<li>exemple : <code>adDz</code> devient <code>az</code> (car <code>dD</code> disparait)</li>
-<li>exemple2 : <code>zrRYye</code> devient <code>ze</code></li>
-</ul></li>
-<li>le comportement doit être récursif
-<ul>
-<li>c’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable</li>
-<li>exemple : <code>zAdDa</code> devient <code>zAa</code> puis devient <code>z</code></li>
-</ul></li>
-</ul>
-<section id="autres-exemples-1" class="level4">
-<h4 class="anchored" data-anchor-id="autres-exemples-1">Autres exemples</h4>
-<ul>
-<li>abCdABcA : ne change pas</li>
-<li>xXx -&gt; x</li>
-<li>abCd<strong>eE</strong>DcAb -&gt; abC<strong>dD</strong>cAb -&gt; ab<strong>Cc</strong>Ab -&gt; abAb</li>
-</ul>
-</section>
-</section>
-<section id="todo-1" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="todo-1"><span class="header-section-number">2.2</span> Todo</h3>
-<p>Créez une fonction qui :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">prend en paramètre une chaîne de caractères</label></li>
-<li><label><input type="checkbox">vérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)</label></li>
-<li><label><input type="checkbox">réduit cette chaîne selon les principes exposés ci-dessus</label></li>
-<li><label><input type="checkbox">retourne la longueur de la chaîne après réduction</label></li>
-</ul>
-<hr>
-<ul class="task-list">
-<li><label><input type="checkbox">chargez le contenu du fichier <a href="./data/reduction.txt" target="_blank">reduction.txt</a> et appliquez la fonction à cette chaîne de caractères</label></li>
-</ul>
-</section>
-<section id="bonus" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="bonus"><span class="header-section-number">2.3</span> Bonus</h3>
-<ul>
-<li>Imaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère</li>
-<li>Cela va modifier la réduction de la chaîne</li>
-<li>exemple :
-<ul>
-<li>chaîne de départ : bcdCaAcADCaAacBC</li>
-<li>si on enlève tous les <strong>a</strong> et les <strong>A</strong>
-<ul>
-<li>bcd<strong>Cc</strong>D<strong>Cc</strong>BC -&gt; bc<strong>dD</strong>BC -&gt; bcBC (taille = 4)</li>
-</ul></li>
-<li>si on enlève tous les <strong>b</strong> et les <strong>B</strong>
-<ul>
-<li>cdC<strong>aA</strong>cADC<strong>aA</strong>a<strong>cC</strong> -&gt; cd<strong>Cc</strong>ADCa -&gt; cdADCa (taille = 6)</li>
-</ul></li>
-<li>si on enlève tous les <strong>c</strong> et les <strong>C</strong>
-<ul>
-<li>bd<strong>aA</strong>AD<strong>aA</strong>aB -&gt; bdADaB (taille = 6)</li>
-</ul></li>
-<li>si on enlève tous les <strong>d</strong> et les <strong>D</strong>
-<ul>
-<li>b<strong>cCaA</strong>cAC<strong>aA</strong>acBC -&gt; bcACacBC (taille : 8)</li>
-</ul></li>
-</ul></li>
-<li>dans l’exemple, la meilleure réduction a été obtenue en retirant la lettre <strong>a</strong> (et <strong>A</strong>) car la chaîne finale est de taille minimale</li>
-</ul>
-<p>Créez une fonction qui :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">prend en entrée une chaîne de caractères</label></li>
-<li><label><input type="checkbox">teste les réductions en retirant un caractère (comme décrit ci-dessus)</label></li>
-<li><label><input type="checkbox">retourne en sortie la taille de la chaîne après application de la meilleure réduction</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Source">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Source
+<section id="afficher-avec-print" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="afficher-avec-print"><span class="header-section-number">1</span> Afficher avec print</h2>
+<p>Utiliser les f-strings</p>
+<div id="9fdc4a0b" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"il est </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> heures."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>il est 20 heures.</code></pre>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Exercices inspirés du site <a href="https://adventofcode.com/" target="_blank">AdventOfCode</a> qui propose chaque année en décembre, un problème à résoudre par jour.</p>
+<p>Personnaliser le séparateur (par défaut l’espace)</p>
+<div id="e96890a1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, sep<span class="op">=</span><span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 2 3 4 5
+1-2-3-4-5</code></pre>
+</div>
+</div>
+<p>Personnaliser le caractère de fin (par défaut le retour à la ligne `’)</p>
+<div id="55d42afd" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span>, end<span class="op">=</span><span class="st">" --&gt; "</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+2
+3 --&gt; 4</code></pre>
+</div>
+</div>
+</section>
+<section id="listes" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="listes"><span class="header-section-number">2</span> Listes</h2>
+<section id="parcours-de-liste" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="parcours-de-liste"><span class="header-section-number">2.1</span> Parcours de liste</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [<span class="st">"Anaïs"</span>, <span class="st">"Benoit"</span>, <span class="st">"Camille"</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> liste:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par index</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(liste)):</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[i])</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Index et valeurs</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(liste):</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"index </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="dictionnaire" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="dictionnaire"><span class="header-section-number">3</span> Dictionnaire</h2>
+<section id="parcours-de-dictionnaires" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="parcours-de-dictionnaires"><span class="header-section-number">3.1</span> Parcours de dictionnaires</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dico <span class="op">=</span> {<span class="st">"d"</span>:<span class="st">"Dominique"</span>, <span class="st">"e"</span>:<span class="st">"Eva"</span>, <span class="st">"f"</span>:<span class="st">"Fernande"</span>}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par clés</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> dico.keys():</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : </span><span class="sc">{</span>dico[k]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> dico.values():</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Clés et valeurs</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> dico.items():</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"clé </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="fonctions" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="fonctions"><span class="header-section-number">4</span> Fonctions</h2>
+<p>Prenons le cas d’une fonction qui va calculer le maximum entre deux entiers <em>a</em> et <em>b</em>.</p>
+<section id="valeur-retournée" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="valeur-retournée"><span class="header-section-number">4.1</span> Valeur retournée</h3>
+<div id="200c1bfe" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> a</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La fonction <code>maximum()</code> retourne une valeur qui peut-être stockée :</p>
+<div id="8a56c508" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La variable <em>res</em> a maintenant pour valeur : 8</p>
+</section>
+<section id="simple-affichage" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="simple-affichage"><span class="header-section-number">4.2</span> Simple affichage</h3>
+<div id="415b4cd4" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La fonction <code>affiche_maximum()</code> effectue le même type d’opérations mais :</p>
+<ul>
+<li>elle ne fait qu’afficher le maximum</li>
+<li>elle ne renvoie pas de résultat</li>
+</ul>
+<div id="e833fb86" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>8</code></pre>
+</div>
+</div>
+<p>Si l’on essaie de stocker le résultat, il vaudra simplement <em>None</em>.</p>
+<div id="efd1f934" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>La variable <em>res2</em> a maintenant pour valeur : None</p>
+</section>
+<section id="valeur-par-défaut" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="valeur-par-défaut"><span class="header-section-number">4.3</span> Valeur par défaut</h3>
+<p>Il est possible de donner aux paramètres une valeur par défaut</p>
+<div id="afda2ee5" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="d0231000" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2</code></pre>
+</div>
+</div>
+<div id="43e2fcdc" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+</div>
+</section>
+<section id="multiples-retours" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="multiples-retours"><span class="header-section-number">4.4</span> Multiples retours</h3>
+<p>Une fonction peut retourner plusieurs valeurs.</p>
+<div id="291077e2" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="102b692d" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(minimum, maximum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3 20</code></pre>
+</div>
+</div>
+</section>
+<section id="lambda-fonctions" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="lambda-fonctions"><span class="header-section-number">4.5</span> Lambda fonctions</h3>
+<p>Une manière très concise pour définir des fonctions</p>
+<div id="53ae38e2" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>36</code></pre>
 </div>
 </div>
 

@@ -196,6 +196,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
+    <a class="nav-link" href="../tips.html"> 
+<span class="menu-text">Astuces</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../exercices.html"> 
+<span class="menu-text">Exercices</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../ressources.html"> 
 <span class="menu-text">Ressources</span></a>
   </li>  
@@ -278,29 +286,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="créer-larborscence" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="créer-larborscence"><span class="header-section-number">1</span> Créer l’arborscence</h2>
-<pre><code>└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...</code></pre>
-<p>Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (<em>mkdir : make directory</em>):</p>
+<p>Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (<em>mkdir : make directory</em>):</p>
 <ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Git Bash</code></label>
-<ul>
-<li>Sur le bureau &gt; clic droit &gt; <strong>Git Bash here</strong></li>
-</ul></li>
-<li><label><input type="checkbox">Collez la commande suivante</label>
+<li><label><input type="checkbox">Ouvrez <code>Git Bash</code> et collez puis exécutez la commande suivante</label>
 <ul>
 <li><code>mkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ &amp;&amp; touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py</code></li>
 <li>dans Git Bash : clic droit &gt; Paste ou MAJ + INSER</li>
@@ -313,20 +301,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Utilisez le lecteur <strong>P:</strong>
+Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il est important de stocker vos fichiers dans votre lecteur <code>P:</code> et pas sur votre bureau ou votre disque <em>C:</em> car vos fichiers risqueraient de disparaitre !</p>
+<p>Si vous n’êtes pas sur la VM, remplacez le lecteur <code>/p</code> par un autre de votre machine.</p>
 </div>
 </div>
 </section>
 <section id="moodle" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="moodle"><span class="header-section-number">2</span> Moodle</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">Aller sur la page du <a href="https://foad-moodle.ensai.fr/course/view.php?id=148&amp;section=3" class="external" target="_blank">tp2</a></label></li>
+<li><label><input type="checkbox">Aller sur la page du <a href="https://foad-moodle.ensai.fr/course/view.php?id=148&amp;section=3" target="_blank">tp2</a></label></li>
 <li><label><input type="checkbox">Ouvrez le sujet et enregistrez le dans <code>/p/Cours1A/IPOO/TP2</code></label></li>
-<li><label><input type="checkbox">Téléchargez les fichiers <em>.py</em> et placez les dans le bon dossier</label></li>
+<li><label><input type="checkbox">Téléchargez les fichiers <em>.py</em> et placez les dans les bons dossiers</label></li>
 </ul>
 </section>
 <section id="visual-studio-code" class="level2" data-number="3">
@@ -335,8 +323,8 @@ Utilisez le lecteur <strong>P:</strong>
 <li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
 <ul class="task-list">
 <li><label><input type="checkbox">File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_1</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label>
+<li><label><input type="checkbox">Cliquez une seule fois sur <span class="emoji" data-emoji="file_folder">📁</span> <strong>Exercice_1</strong></label></li>
+<li><label><input type="checkbox">Cliquez sur <span class="text-like-button">Sélectionner un dossier</span></label>
 <ul>
 <li>dans votre <em>Explorer</em> à gauche apparait l’arborescence des dossiers et fichiers de <strong>Exercice_1</strong></li>
 </ul></li>
@@ -347,7 +335,7 @@ Utilisez le lecteur <strong>P:</strong>
 <h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
 <section id="exercice-1" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">4.1</span> Exercice 1</h3>
-<p><code>Flake8</code> est un <a href="https://openclassrooms.com/fr/courses/7160741-ecrivez-du-code-python-maintenable/7187871-utilisez-des-linters-pour-que-votre-code-reste-propre" class="external" target="_blank">linter</a>. Il vérifie la mise en forme de votre code et <span style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: red;">souligne en rouge ce qui ne lui plait pas.</span></p>
+<p><code>Flake8</code> est un <a href="https://openclassrooms.com/fr/courses/7160741-ecrivez-du-code-python-maintenable/7187871-utilisez-des-linters-pour-que-votre-code-reste-propre" target="_blank">linter</a>. Il vérifie la mise en forme de votre code et <span style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: red;">souligne en rouge ce qui ne lui plait pas.</span></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Téléchargez le fichier <code>fonctions.py</code> sur Moodle</label></li>
 <li><label><input type="checkbox">Collez ce fichier dans <code>/p/Cours1A/IPOO/TP2/Exercice_1</code></label></li>
@@ -359,24 +347,28 @@ Utilisez le lecteur <strong>P:</strong>
 <section id="exercice-2" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">4.2</span> Exercice 2</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_2</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label></li>
+<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Cliquez une seule fois sur <span class="emoji" data-emoji="file_folder">📁</span> <strong>Exercice_2</strong></label></li>
+<li><label><input type="checkbox">Cliquez sur <span class="text-like-button">Sélectionner un dossier</span></label></li>
+</ul></li>
 </ul>
-<p>Les doctest vu au TP1 ne sont pas utilisés en pratique car cela surcharge les modules. On préfère exporter les tests dans des modules à part. Si l’on veut tester le module <em>produit.py</em> :</p>
+<p>Les doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules. On préfère exporter les tests dans des modules à part. Si l’on veut tester le module <em>produit.py</em> :</p>
 <ul>
 <li><p>on crée dans le même package, un module <em>test_produit.py</em></p></li>
 <li><p>dans <em>test_produit.py</em>, on importe <code>produit</code>et <code>pytest</code> :</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> produit <span class="im">import</span> produit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> produit <span class="im">import</span> produit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
 <section id="exercice-3" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
-<li><label><input type="checkbox">Cliquez une seule fois sur <strong>Exercice_3</strong></label></li>
-<li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label></li>
+<li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label>
+<ul class="task-list">
+<li><label><input type="checkbox">Cliquez une seule fois sur <span class="emoji" data-emoji="file_folder">📁</span> <strong>Exercice_3</strong></label></li>
+<li><label><input type="checkbox">Cliquez sur <span class="text-like-button">Sélectionner un dossier</span></label></li>
+</ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -394,7 +386,7 @@ Aide
 <li><label><input type="checkbox">Vérifier que les 2 paramètres sont des tuples</label></li>
 <li><label><input type="checkbox">Vérifier que les 2 paramètres sont des tuples de longeur 3</label></li>
 <li><label><input type="checkbox">Vérifier que tous les éléments de ces tuples sont des int ou float</label></li>
-<li><label><input type="checkbox">Vérifier que les éléments de *axes- sont strictements positifs</label></li>
+<li><label><input type="checkbox">Vérifier que les éléments de <em>axes</em> sont strictements positifs</label></li>
 <li><label><input type="checkbox">Tester si le point appartient à l’ellipsoïde</label></li>
 <li><label><input type="checkbox">Ecrire des tests dans un autre fichier en s’inspirant de l’exercice 2</label></li>
 </ul>
@@ -410,10 +402,10 @@ Aide
 <li><label><input type="checkbox">Vérifier la validité d’une <em>adresse électronique</em></label>
 <ul>
 <li><p>Exemple pour lever une exception</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> adresse_electronique.count(<span class="st">'@'</span>) <span class="op">!=</span> <span class="dv">1</span>:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"L'adresse électronique doit contenir un seul symbole @."</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> adresse_electronique.count(<span class="st">'@'</span>) <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"L'adresse électronique doit contenir un seul symbole @."</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 <li><label><input type="checkbox">Valider que le mot de passe respecte les règles</label></li>
 <li><label><input type="checkbox">Vérifier que le 2e mot de passe saisi est le même</label></li>
@@ -429,38 +421,33 @@ Aide
 <section id="template-doc" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="template-doc"><span class="header-section-number">5</span> Template doc</h2>
 <p>Voici un modèle que vous pouvez utiliser pour documenter vos fonctions</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    description_longue</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">    param1 : type (str, int, float, list...)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param1</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">    param2 : type</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param2</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">    type_retour</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">        description_retour</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; 1+1</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">    2</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; print("abc")</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">    abc</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; ma_fonction(xxx, yyy)</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">    valeur_esperee</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> ma_fonction(p1, p2)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2<span class="op">=</span>valeur_par_defaut) <span class="op">-&gt;</span> type_retour:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    description_longue</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    param1 : type (str, int, float, list...)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param1</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    param2 : type</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param2</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">    type_retour</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">        description_retour</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; 1+1</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co">    2</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; print("abc")</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co">    abc</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; ma_fonction(xxx, yyy)</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">    valeur_esperee</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

@@ -67,42 +67,42 @@
     "href": "poo-tp/tp2.html",
     "title": "POO, documentation et tests - TP2",
     "section": "",
-    "text": "└── P\n    └── Cours1A\n        └── IPOO\n            ├── TP1\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   │   └── ex.py\n            │   ├── ...\n            │   └── Exercice_7\n            │       └── ex.py\n            ├── TP2\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   ├── ...\nPour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et pas sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !"
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash et collez puis exécutez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nWarning\n\n\n\nSi vous n’êtes pas sur la VM, remplacez le lecteur /p par un autre de votre machine."
   },
   {
     "objectID": "poo-tp/tp2.html#créer-larborscence",
     "href": "poo-tp/tp2.html#créer-larborscence",
     "title": "POO, documentation et tests - TP2",
     "section": "",
-    "text": "└── P\n    └── Cours1A\n        └── IPOO\n            ├── TP1\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   │   └── ex.py\n            │   ├── ...\n            │   └── Exercice_7\n            │       └── ex.py\n            ├── TP2\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   ├── ...\nPour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et pas sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !"
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash et collez puis exécutez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nWarning\n\n\n\nSi vous n’êtes pas sur la VM, remplacez le lecteur /p par un autre de votre machine."
   },
   {
     "objectID": "poo-tp/tp2.html#moodle",
     "href": "poo-tp/tp2.html#moodle",
     "title": "POO, documentation et tests - TP2",
     "section": "2 Moodle",
-    "text": "2 Moodle\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans le bon dossier"
+    "text": "2 Moodle\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans les bons dossiers"
   },
   {
     "objectID": "poo-tp/tp2.html#visual-studio-code",
     "href": "poo-tp/tp2.html#visual-studio-code",
     "title": "POO, documentation et tests - TP2",
     "section": "3 Visual Studio Code",
-    "text": "3 Visual Studio Code\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1"
+    "text": "3 Visual Studio Code\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur 📁 Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1"
   },
   {
     "objectID": "poo-tp/tp2.html#exercices",
     "href": "poo-tp/tp2.html#exercices",
     "title": "POO, documentation et tests - TP2",
     "section": "4 Exercices",
-    "text": "4 Exercices\n\n4.1 Exercice 1\nFlake8 est un linter. Il vérifie la mise en forme de votre code et souligne en rouge ce qui ne lui plait pas.\n\nTéléchargez le fichier fonctions.py sur Moodle\nCollez ce fichier dans /p/Cours1A/IPOO/TP2/Exercice_1\nAllez dans VSCode et ouvrez ce fichier\nOuvrez un nouveau Terminal (Terminal &gt; New Terminal)\nSuivez les consignes du sujet\n\n\n\n4.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier\n\nLes doctest vu au TP1 ne sont pas utilisés en pratique car cela surcharge les modules. On préfère exporter les tests dans des modules à part. Si l’on veut tester le module produit.py :\n\non crée dans le même package, un module test_produit.py\ndans test_produit.py, on importe produitet pytest :\nimport pytest\nfrom produit import produit\n\n\n\n4.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nVérifier que les 2 paramètres sont des tuples\nVérifier que les 2 paramètres sont des tuples de longeur 3\nVérifier que tous les éléments de ces tuples sont des int ou float\nVérifier que les éléments de *axes- sont strictements positifs\nTester si le point appartient à l’ellipsoïde\nEcrire des tests dans un autre fichier en s’inspirant de l’exercice 2\n\n\n\n\n\n\n4.4 Exercice 4\n\nInscription\n\nVérifier la validité d’une adresse électronique\n\nExemple pour lever une exception\nif adresse_electronique.count('@') != 1:\n    raise ValueError(\n        \"L'adresse électronique doit contenir un seul symbole @.\"\n    )\n\nValider que le mot de passe respecte les règles\nVérifier que le 2e mot de passe saisi est le même\n\nConnexion\n\nbase_de_donnees : list[tuple[str, str]]\n\nEcrire les tests"
+    "text": "4 Exercices\n\n4.1 Exercice 1\nFlake8 est un linter. Il vérifie la mise en forme de votre code et souligne en rouge ce qui ne lui plait pas.\n\nTéléchargez le fichier fonctions.py sur Moodle\nCollez ce fichier dans /p/Cours1A/IPOO/TP2/Exercice_1\nAllez dans VSCode et ouvrez ce fichier\nOuvrez un nouveau Terminal (Terminal &gt; New Terminal)\nSuivez les consignes du sujet\n\n\n\n4.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_2\nCliquez sur Sélectionner un dossier\n\n\nLes doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules. On préfère exporter les tests dans des modules à part. Si l’on veut tester le module produit.py :\n\non crée dans le même package, un module test_produit.py\ndans test_produit.py, on importe produitet pytest :\nimport pytest\nfrom produit import produit\n\n\n\n4.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nVérifier que les 2 paramètres sont des tuples\nVérifier que les 2 paramètres sont des tuples de longeur 3\nVérifier que tous les éléments de ces tuples sont des int ou float\nVérifier que les éléments de axes sont strictements positifs\nTester si le point appartient à l’ellipsoïde\nEcrire des tests dans un autre fichier en s’inspirant de l’exercice 2\n\n\n\n\n\n\n4.4 Exercice 4\n\nInscription\n\nVérifier la validité d’une adresse électronique\n\nExemple pour lever une exception\nif adresse_electronique.count('@') != 1:\n    raise ValueError(\n        \"L'adresse électronique doit contenir un seul symbole @.\"\n    )\n\nValider que le mot de passe respecte les règles\nVérifier que le 2e mot de passe saisi est le même\n\nConnexion\n\nbase_de_donnees : list[tuple[str, str]]\n\nEcrire les tests"
   },
   {
     "objectID": "poo-tp/tp2.html#template-doc",
     "href": "poo-tp/tp2.html#template-doc",
     "title": "POO, documentation et tests - TP2",
     "section": "5 Template doc",
-    "text": "5 Template doc\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2):\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nif __name__ == '__main__':\n    a = ma_fonction(p1, p2)\n    print(a)"
+    "text": "5 Template doc\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None"
   },
   {
     "objectID": "poo-tp/td7.html",
@@ -257,6 +257,62 @@
     "title": "Remise en jambe - STID",
     "section": "",
     "text": "Cet enseignement vise à rafraîchir les connaissances en Python et algorithmie.\nIl est composé d’un TP encadré de 3h pour revoir les notions élémentaires suivantes :\n\nvariables\ncollections\nconditions\nboucles\nfonctions\n\nEnsuite, lors d’un second TP de 3h (qui lui sera noté), les élèves devront résoudre des problèmes d’algorithmie."
+  },
+  {
+    "objectID": "tips.html",
+    "href": "tips.html",
+    "title": "Trucs et astuces",
+    "section": "",
+    "text": "Utiliser les f-strings\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\nPersonnaliser le séparateur (par défaut l’espace)\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\nPersonnaliser le caractère de fin (par défaut le retour à la ligne `’)\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
+  },
+  {
+    "objectID": "tips.html#afficher-avec-print",
+    "href": "tips.html#afficher-avec-print",
+    "title": "Trucs et astuces",
+    "section": "",
+    "text": "Utiliser les f-strings\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\nPersonnaliser le séparateur (par défaut l’espace)\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\nPersonnaliser le caractère de fin (par défaut le retour à la ligne `’)\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
+  },
+  {
+    "objectID": "tips.html#listes",
+    "href": "tips.html#listes",
+    "title": "Trucs et astuces",
+    "section": "2 Listes",
+    "text": "2 Listes\n\n2.1 Parcours de liste\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")"
+  },
+  {
+    "objectID": "tips.html#dictionnaire",
+    "href": "tips.html#dictionnaire",
+    "title": "Trucs et astuces",
+    "section": "3 Dictionnaire",
+    "text": "3 Dictionnaire\n\n3.1 Parcours de dictionnaires\ndico = {\"d\":\"Dominique\", \"e\":\"Eva\", \"f\":\"Fernande\"}\n\n# Par clés\nfor k in dico.keys():\n    print(f\"{k} : {dico[k]}\")\n\n# Par valeurs\nfor v in dico.values():\n    print(v)\n\n# Clés et valeurs\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")"
+  },
+  {
+    "objectID": "tips.html#fonctions",
+    "href": "tips.html#fonctions",
+    "title": "Trucs et astuces",
+    "section": "4 Fonctions",
+    "text": "4 Fonctions\nPrenons le cas d’une fonction qui va calculer le maximum entre deux entiers a et b.\n\n4.1 Valeur retournée\n\ndef maximum(a, b) -&gt; int:\n    \"\"\"Retourne le maximum entre a et b\"\"\"\n    if a &gt; b:\n        return a\n    return b\n\nLa fonction maximum() retourne une valeur qui peut-être stockée :\n\nres = maximum(2, 8)\n\nLa variable res a maintenant pour valeur : 8\n\n\n4.2 Simple affichage\n\ndef affiche_maximum(a, b) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\nLa fonction affiche_maximum() effectue le même type d’opérations mais :\n\nelle ne fait qu’afficher le maximum\nelle ne renvoie pas de résultat\n\n\naffiche_maximum(2, 8)\n\n8\n\n\nSi l’on essaie de stocker le résultat, il vaudra simplement None.\n\nres2 = affiche_maximum(2, 8)\n\nLa variable res2 a maintenant pour valeur : None\n\n\n4.3 Valeur par défaut\nIl est possible de donner aux paramètres une valeur par défaut\n\ndef affiche_maximum_def(a, b=0) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\n\naffiche_maximum_def(2)\n\n2\n\n\n\naffiche_maximum_def(3)\n\n3\n\n\n\n\n4.4 Multiples retours\nUne fonction peut retourner plusieurs valeurs.\n\ndef min_max(liste):\n    \"\"\"Retourne le minimum et le maximum parmi une liste.\"\"\"\n    return min(liste), max(liste)\n\n\nma_liste = [4, 8, 20, 19, 12, 3]\nminimum, maximum = min_max(ma_liste)\n\nprint(minimum, maximum)\n\n3 20\n\n\n\n\n4.5 Lambda fonctions\nUne manière très concise pour définir des fonctions\n\ncarre = lambda x: x**2\n\nprint(carre(6))\n\n36"
+  },
+  {
+    "objectID": "exercices.html",
+    "href": "exercices.html",
+    "title": "Exercices Algorithmie",
+    "section": "",
+    "text": "Écrivez un code qui permet d’afficher ceci :\n\nAvec une boucle for\nAvec une boucle while\n\n5\n4\n3\n2\n1\nboom\n\n\n\nÉcrivez un code qui permet de calculer et d’afficher la somme et le produit des entiers de 1 à 50.\n\n\n\nAffichez les tables de multiplication de 1 à 9.\n1 x 1 = 1\n1 x 2 = 2\n...\n1 x 9 = 9\n-----------\n2 x 1 = 2\n...\n9 x 9 = 81"
+  },
+  {
+    "objectID": "exercices.html#boucles",
+    "href": "exercices.html#boucles",
+    "title": "Exercices Algorithmie",
+    "section": "",
+    "text": "Écrivez un code qui permet d’afficher ceci :\n\nAvec une boucle for\nAvec une boucle while\n\n5\n4\n3\n2\n1\nboom\n\n\n\nÉcrivez un code qui permet de calculer et d’afficher la somme et le produit des entiers de 1 à 50.\n\n\n\nAffichez les tables de multiplication de 1 à 9.\n1 x 1 = 1\n1 x 2 = 2\n...\n1 x 9 = 9\n-----------\n2 x 1 = 2\n...\n9 x 9 = 81"
+  },
+  {
+    "objectID": "exercices.html#fonctions",
+    "href": "exercices.html#fonctions",
+    "title": "Exercices Algorithmie",
+    "section": "2 Fonctions",
+    "text": "2 Fonctions\n\n2.1 Parité\nÉcrivez une fonction qui :\n\nprend en paramètre un entier\naffiche s’il est pair ou impair\n\nComplétez la fonction :\n\nvérifiez que le paramètre est de type entier\n\nsinon affichez un message d’erreur\n\naffichez également si le paramètre est un multiple de 3\n\n\n\n2.2 Année bissextile\nÉcrivez une fonction qui\n\nprend en paramètre une année\nretourne True si elle est bissextile, False sinon\n\n\n\n\n\n\n\nNote\n\n\n\nUne année est bissextile si :\n\nelle est divisible par 4,\nmais pas divisible par 100, sauf si elle est aussi divisible par 400"
   },
   {
     "objectID": "remise-en-jambe/tp1.html",
@@ -459,14 +515,14 @@
     "href": "poo-tp/intro.html#tp",
     "title": "POO, documentation et tests",
     "section": "2 TP",
-    "text": "2 TP\n6 TP et 1 TD de 3h chacun :\n\nTP1 : Programmation Python et Visual Studio Code\nTP2 : Modules, style de code, exceptions et tests\nTP3 : Structures hétérogènes de données et tests\nTP4 : Classes, objets, attributs et méthodes en Python\nTP5 : Classes et diagrammes UML\nTP6 : Relations entre classes\nTD7 : Héritages, relations, UML, modélisation"
+    "text": "2 TP\n6 TP et 1 TD de 3h chacun :\n\nTP1 : Programmation Python et Visual Studio Code\nTP2 : Modules, style de code, exceptions et tests\nTP3 : Structures hétérogènes de données et tests\nTP4 : Classes, objets, attributs et méthodes en Python\nTP5 : Classes et diagrammes UML\nTP6 : Relations entre classes\nTD7 : Héritages, relations, UML, modélisation\n\nVous pouvez réaliser les TP, soit :\n\nsur l’un des Datalab\n\ndu GENES ➡️ Lancer le service VScode-python\nle SSP Cloud de l’INSEE ➡️ Lancer le service VScode-python\n\nsur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)\nsur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)"
   },
   {
     "objectID": "poo-tp/tp1.html",
     "href": "poo-tp/tp1.html",
     "title": "POO, documentation et tests - TP1",
     "section": "",
-    "text": "Récupérez le sujet sur Moodle\nVous pouvez réaliser ce TP, soit :"
+    "text": "Récupérez le sujet sur Moodle"
   },
   {
     "objectID": "poo-tp/tp1.html#créer-larborscence",

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic DENEUVILLE">
-<meta name="description" content="2023-2024">
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Exercices simples pour apprendre le langage Python">
 
-<title>Remise en jambe STID - TP Noté – Python 1A</title>
+<title>Exercices Algorithmie – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-120d9ffdb366f80f4be3d8d4b9ab4133.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-433c775cf9d4f89e97061b8f24aee672.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-120d9ffdb366f80f4be3d8d4b9ab4133.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-433c775cf9d4f89e97061b8f24aee672.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Python 1A</span>
     </a>
   </div>
@@ -93,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="./index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -103,19 +137,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-remise-en-jambe">    
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/intro.html">
+    <a class="dropdown-item" href="./remise-en-jambe/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp1.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp2/2023/tp2-2023-2024.html">
  <span class="dropdown-text">TP n°2 2023-2024</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
+    <a class="dropdown-item" href="./remise-en-jambe/tp2/2024/tp2-2024-2025.html">
  <span class="dropdown-text">TP n°2 2024-2025</span></a>
   </li>  
     </ul>
@@ -126,35 +160,35 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tp-poo">    
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/intro.html">
+    <a class="dropdown-item" href="./poo-tp/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp1.html">
+    <a class="dropdown-item" href="./poo-tp/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp2.html">
+    <a class="dropdown-item" href="./poo-tp/tp2.html">
  <span class="dropdown-text">TP n°2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp3.html">
+    <a class="dropdown-item" href="./poo-tp/tp3.html">
  <span class="dropdown-text">TP n°3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp4.html">
+    <a class="dropdown-item" href="./poo-tp/tp4.html">
  <span class="dropdown-text">TP n°4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp5.html">
+    <a class="dropdown-item" href="./poo-tp/tp5.html">
  <span class="dropdown-text">TP n°5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp6.html">
+    <a class="dropdown-item" href="./poo-tp/tp6.html">
  <span class="dropdown-text">TP n°6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/td7.html">
+    <a class="dropdown-item" href="./poo-tp/td7.html">
  <span class="dropdown-text">TD n°7</span></a>
   </li>  
     </ul>
@@ -162,15 +196,15 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../tips.html"> 
+    <a class="nav-link" href="./tips.html"> 
 <span class="menu-text">Astuces</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../exercices.html"> 
+    <a class="nav-link active" href="./exercices.html" aria-current="page"> 
 <span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../ressources.html"> 
+    <a class="nav-link" href="./ressources.html"> 
 <span class="menu-text">Ressources</span></a>
   </li>  
   <li class="nav-item compact">
@@ -199,17 +233,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link active" data-scroll-target="#avant-de-commencer">Avant de commencer</a></li>
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1</span> Exercice 1</a>
+  <li><a href="#boucles" id="toc-boucles" class="nav-link active" data-scroll-target="#boucles"><span class="header-section-number">1</span> Boucles</a>
   <ul class="collapse">
-  <li><a href="#contexte" id="toc-contexte" class="nav-link" data-scroll-target="#contexte"><span class="header-section-number">1.1</span> Contexte</a></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo"><span class="header-section-number">1.2</span> Todo</a></li>
+  <li><a href="#compte-à-rebours" id="toc-compte-à-rebours" class="nav-link" data-scroll-target="#compte-à-rebours"><span class="header-section-number">1.1</span> Compte à rebours</a></li>
+  <li><a href="#somme-et-produit" id="toc-somme-et-produit" class="nav-link" data-scroll-target="#somme-et-produit"><span class="header-section-number">1.2</span> Somme et produit</a></li>
+  <li><a href="#tables-de-multiplications" id="toc-tables-de-multiplications" class="nav-link" data-scroll-target="#tables-de-multiplications"><span class="header-section-number">1.3</span> Tables de multiplications</a></li>
   </ul></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2</span> Exercice 2</a>
+  <li><a href="#fonctions" id="toc-fonctions" class="nav-link" data-scroll-target="#fonctions"><span class="header-section-number">2</span> Fonctions</a>
   <ul class="collapse">
-  <li><a href="#contexte-1" id="toc-contexte-1" class="nav-link" data-scroll-target="#contexte-1"><span class="header-section-number">2.1</span> Contexte</a></li>
-  <li><a href="#todo-1" id="toc-todo-1" class="nav-link" data-scroll-target="#todo-1"><span class="header-section-number">2.2</span> Todo</a></li>
-  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">2.3</span> Bonus</a></li>
+  <li><a href="#parité" id="toc-parité" class="nav-link" data-scroll-target="#parité"><span class="header-section-number">2.1</span> Parité</a></li>
+  <li><a href="#année-bissextile" id="toc-année-bissextile" class="nav-link" data-scroll-target="#année-bissextile"><span class="header-section-number">2.2</span> Année bissextile</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -223,12 +256,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Remise en jambe STID - TP Noté</h1>
+<h1 class="title">Exercices Algorithmie</h1>
 </div>
 
 <div>
   <div class="description">
-    2023-2024
+    Exercices simples pour apprendre le langage Python
   </div>
 </div>
 
@@ -238,7 +271,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic DENEUVILLE </p>
+             <p>Ludovic Deneuville </p>
           </div>
   </div>
     
@@ -251,173 +284,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<ul>
-<li>à rendre soit seul, soit par groupe de 2</li>
-<li>Déposez sous Moodle, vos 2 fichiers python :
-<ul>
-<li>ex1.py</li>
-<li>ex2.py</li>
-</ul></li>
-<li>date limite : Mercredi 6 septembre à 17h00</li>
-<li>Commentez et expliquez ce que font vos algorithmes</li>
-</ul>
-<section id="avant-de-commencer" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
-<ul>
-<li><label><input type="checkbox">Créez sur votre disque P, un dossier TP2</label></li>
-<li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
+<section id="boucles" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="boucles"><span class="header-section-number">1</span> Boucles</h2>
+<section id="compte-à-rebours" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="compte-à-rebours"><span class="header-section-number">1.1</span> Compte à rebours</h3>
+<p>Écrivez un code qui permet d’afficher ceci :</p>
 <ul class="task-list">
-<li><label><input type="checkbox">File &gt; Open Folder &gt; TP2</label></li>
+<li><label><input type="checkbox">Avec une boucle for</label></li>
+<li><label><input type="checkbox">Avec une boucle while</label></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>5</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>4</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>3</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>2</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>1</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>boom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="somme-et-produit" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="somme-et-produit"><span class="header-section-number">1.2</span> Somme et produit</h3>
+<p>Écrivez un code qui permet de calculer et d’afficher la somme et le produit des entiers de 1 à 50.</p>
+</section>
+<section id="tables-de-multiplications" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="tables-de-multiplications"><span class="header-section-number">1.3</span> Tables de multiplications</h3>
+<p>Affichez les tables de multiplication de 1 à 9.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>1 x 1 = 1</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>1 x 2 = 2</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>1 x 9 = 9</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>-----------</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>2 x 1 = 2</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>9 x 9 = 81</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="fonctions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="fonctions"><span class="header-section-number">2</span> Fonctions</h2>
+<section id="parité" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="parité"><span class="header-section-number">2.1</span> Parité</h3>
+<p>Écrivez une fonction qui :</p>
+<ul>
+<li>prend en paramètre un entier</li>
+<li>affiche s’il est pair ou impair</li>
+</ul>
+<p>Complétez la fonction :</p>
+<ul>
+<li>vérifiez que le paramètre est de type entier
+<ul>
+<li>sinon affichez un message d’erreur</li>
 </ul></li>
-<li>Dans le dossier TP2, créez 2 sous-dossiers
-<ul class="task-list">
-<li><label><input type="checkbox">src : qui contient les sources Python</label></li>
-<li><label><input type="checkbox">data : qui contient les fichiers de données</label></li>
-</ul></li>
-<li><label><input type="checkbox">Importez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier <code>/data</code></label></li>
-<li><label><input type="checkbox">Dans le sous-dossier <code>/src</code>, créer 2 fichiers : <code>ex1.py</code> et <code>ex2.py</code></label>
-<ul class="task-list">
-<li><label><input type="checkbox">Indiquez en commentaire en haut des 2 fichiers vos noms et prénoms</label></li>
-</ul></li>
+<li>affichez également si le paramètre est un multiple de 3</li>
 </ul>
 </section>
-<section id="exercice-1" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1</span> Exercice 1</h2>
-<section id="contexte" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="contexte"><span class="header-section-number">1.1</span> Contexte</h3>
-<p>Dans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous</p>
-<section id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents" class="level4">
-<h4 class="anchored" data-anchor-id="fonction-1-trouvez-la-première-occurrence-de-4-caractères-consécutifs-différents">Fonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents</h4>
+<section id="année-bissextile" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="année-bissextile"><span class="header-section-number">2.2</span> Année bissextile</h3>
+<p>Écrivez une fonction qui</p>
 <ul>
-<li>En partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents</li>
-<li>Et retournez la position du <strong>dernier caractère</strong> de cette occurrence</li>
+<li>prend en paramètre une année</li>
+<li>retourne <em>True</em> si elle est bissextile, <em>False</em> sinon</li>
 </ul>
-<section id="exemple-1" class="level5">
-<h5 class="anchored" data-anchor-id="exemple-1">Exemple 1</h5>
-<p>Entrée : <code>jgngmnjdyigpmeawqksgcntozdpjiy</code></p>
-<p>Si en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents</p>
-<pre><code>jgngmnjdyigpmeawqksgcntozdpjiy
-
-jgng     -&gt; ko car 2 g
- gngm    -&gt; ko car 2 g
-  ngmn   -&gt; ko car 2 n
-   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 </code></pre>
-</section>
-<section id="autres-exemples" class="level5">
-<h5 class="anchored" data-anchor-id="autres-exemples">Autres exemples</h5>
-<ul>
-<li>v<strong>pqvd</strong>jfvapvbmlfjaxgdkqznphwt : 5</li>
-<li>frfjfx<strong>jxfl</strong>bxenxoervxbdnliftzuhjky : 10</li>
-</ul>
-</section>
-</section>
-<section id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents" class="level4">
-<h4 class="anchored" data-anchor-id="fonction-2-même-question-avec-cette-fois-une-séquence-de-14-caractères-consécutifs-différents">Fonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents</h4>
-<section id="exemple" class="level5">
-<h5 class="anchored" data-anchor-id="exemple">Exemple</h5>
-<p>ruxrxorrixjd<strong>bordjxfhivtzle</strong>kuynbo : 26</p>
-</section>
-</section>
-</section>
-<section id="todo" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="todo"><span class="header-section-number">1.2</span> Todo</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Chargez le fichier de données <a href="./data/code.txt" target="_blank">code.txt</a></label>
-<ul>
-<li>Cherchez une méthode qui permet de réaliser cette opération</li>
-<li>Le fichier texte est composé de caractères alphabétiques</li>
-<li>Stockez le résultat dans une variable</li>
-</ul></li>
-<li><label><input type="checkbox">Réalisez les 2 fonctions demandées</label></li>
-<li><label><input type="checkbox">Appliquez ces fonctions au fichier <code>code.txt</code></label></li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="exercice-2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2</span> Exercice 2</h2>
-<section id="contexte-1" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="contexte-1"><span class="header-section-number">2.1</span> Contexte</h3>
-<p>Vous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :</p>
-<ul>
-<li>lorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent
-<ul>
-<li>exemple : <code>adDz</code> devient <code>az</code> (car <code>dD</code> disparait)</li>
-<li>exemple2 : <code>zrRYye</code> devient <code>ze</code></li>
-</ul></li>
-<li>le comportement doit être récursif
-<ul>
-<li>c’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable</li>
-<li>exemple : <code>zAdDa</code> devient <code>zAa</code> puis devient <code>z</code></li>
-</ul></li>
-</ul>
-<section id="autres-exemples-1" class="level4">
-<h4 class="anchored" data-anchor-id="autres-exemples-1">Autres exemples</h4>
-<ul>
-<li>abCdABcA : ne change pas</li>
-<li>xXx -&gt; x</li>
-<li>abCd<strong>eE</strong>DcAb -&gt; abC<strong>dD</strong>cAb -&gt; ab<strong>Cc</strong>Ab -&gt; abAb</li>
-</ul>
-</section>
-</section>
-<section id="todo-1" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="todo-1"><span class="header-section-number">2.2</span> Todo</h3>
-<p>Créez une fonction qui :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">prend en paramètre une chaîne de caractères</label></li>
-<li><label><input type="checkbox">vérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)</label></li>
-<li><label><input type="checkbox">réduit cette chaîne selon les principes exposés ci-dessus</label></li>
-<li><label><input type="checkbox">retourne la longueur de la chaîne après réduction</label></li>
-</ul>
-<hr>
-<ul class="task-list">
-<li><label><input type="checkbox">chargez le contenu du fichier <a href="./data/reduction.txt" target="_blank">reduction.txt</a> et appliquez la fonction à cette chaîne de caractères</label></li>
-</ul>
-</section>
-<section id="bonus" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="bonus"><span class="header-section-number">2.3</span> Bonus</h3>
-<ul>
-<li>Imaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère</li>
-<li>Cela va modifier la réduction de la chaîne</li>
-<li>exemple :
-<ul>
-<li>chaîne de départ : bcdCaAcADCaAacBC</li>
-<li>si on enlève tous les <strong>a</strong> et les <strong>A</strong>
-<ul>
-<li>bcd<strong>Cc</strong>D<strong>Cc</strong>BC -&gt; bc<strong>dD</strong>BC -&gt; bcBC (taille = 4)</li>
-</ul></li>
-<li>si on enlève tous les <strong>b</strong> et les <strong>B</strong>
-<ul>
-<li>cdC<strong>aA</strong>cADC<strong>aA</strong>a<strong>cC</strong> -&gt; cd<strong>Cc</strong>ADCa -&gt; cdADCa (taille = 6)</li>
-</ul></li>
-<li>si on enlève tous les <strong>c</strong> et les <strong>C</strong>
-<ul>
-<li>bd<strong>aA</strong>AD<strong>aA</strong>aB -&gt; bdADaB (taille = 6)</li>
-</ul></li>
-<li>si on enlève tous les <strong>d</strong> et les <strong>D</strong>
-<ul>
-<li>b<strong>cCaA</strong>cAC<strong>aA</strong>acBC -&gt; bcACacBC (taille : 8)</li>
-</ul></li>
-</ul></li>
-<li>dans l’exemple, la meilleure réduction a été obtenue en retirant la lettre <strong>a</strong> (et <strong>A</strong>) car la chaîne finale est de taille minimale</li>
-</ul>
-<p>Créez une fonction qui :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">prend en entrée une chaîne de caractères</label></li>
-<li><label><input type="checkbox">teste les réductions en retirant un caractère (comme décrit ci-dessus)</label></li>
-<li><label><input type="checkbox">retourne en sortie la taille de la chaîne après application de la meilleure réduction</label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Source">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Source
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Exercices inspirés du site <a href="https://adventofcode.com/" target="_blank">AdventOfCode</a> qui propose chaque année en décembre, un problème à résoudre par jour.</p>
+<p>Une année est bissextile si :</p>
+<ul>
+<li>elle est divisible par 4,</li>
+<li>mais pas divisible par 100, sauf si elle est aussi divisible par 400</li>
+</ul>
 </div>
 </div>
 
