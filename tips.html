@@ -75,8 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-120d9ffdb366f80f4be3d8d4b9ab4133.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-433c775cf9d4f89e97061b8f24aee672.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-957390e16f8056bf57452af51c800dd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-0e737baddcd55aaef238ba6a7f21118c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -236,7 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#afficher-avec-print" id="toc-afficher-avec-print" class="nav-link active" data-scroll-target="#afficher-avec-print"><span class="header-section-number">1</span> Afficher avec print</a></li>
   <li><a href="#listes" id="toc-listes" class="nav-link" data-scroll-target="#listes"><span class="header-section-number">2</span> Listes</a>
   <ul class="collapse">
-  <li><a href="#parcours-de-liste" id="toc-parcours-de-liste" class="nav-link" data-scroll-target="#parcours-de-liste"><span class="header-section-number">2.1</span> Parcours de liste</a></li>
+  <li><a href="#méthodes-utiles" id="toc-méthodes-utiles" class="nav-link" data-scroll-target="#méthodes-utiles"><span class="header-section-number">2.1</span> Méthodes utiles</a></li>
+  <li><a href="#parcours-de-liste" id="toc-parcours-de-liste" class="nav-link" data-scroll-target="#parcours-de-liste"><span class="header-section-number">2.2</span> Parcours de liste</a></li>
   </ul></li>
   <li><a href="#dictionnaire" id="toc-dictionnaire" class="nav-link" data-scroll-target="#dictionnaire"><span class="header-section-number">3</span> Dictionnaire</a>
   <ul class="collapse">
@@ -292,16 +293,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="afficher-avec-print" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="afficher-avec-print"><span class="header-section-number">1</span> Afficher avec print</h2>
-<p>Utiliser les f-strings</p>
-<div id="9fdc4a0b" class="cell" data-execution_count="1">
+<section id="utiliser-les-f-strings" class="level4">
+<h4 class="anchored" data-anchor-id="utiliser-les-f-strings">Utiliser les f-strings</h4>
+<div id="76cc7761" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"il est </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> heures."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>il est 20 heures.</code></pre>
 </div>
 </div>
-<p>Personnaliser le séparateur (par défaut l’espace)</p>
-<div id="e96890a1" class="cell" data-execution_count="2">
+</section>
+<section id="personnaliser-le-séparateur-par-défaut-lespace" class="level4">
+<h4 class="anchored" data-anchor-id="personnaliser-le-séparateur-par-défaut-lespace">Personnaliser le séparateur (par défaut l’espace)</h4>
+<div id="d02411eb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, sep<span class="op">=</span><span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -309,8 +313,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1-2-3-4-5</code></pre>
 </div>
 </div>
-<p>Personnaliser le caractère de fin (par défaut le retour à la ligne `’)</p>
-<div id="55d42afd" class="cell" data-execution_count="3">
+</section>
+<section id="personnaliser-le-caractère-de-fin-par-défaut-le-retour-à-la-ligne" class="level4">
+<h4 class="anchored" data-anchor-id="personnaliser-le-caractère-de-fin-par-défaut-le-retour-à-la-ligne">Personnaliser le caractère de fin (par défaut le retour à la ligne `’)</h4>
+<div id="8a84084a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span>, end<span class="op">=</span><span class="st">" --&gt; "</span>)</span>
@@ -322,42 +328,122 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="afficher-une-ligne-pour-séparer" class="level4">
+<h4 class="anchored" data-anchor-id="afficher-une-ligne-pour-séparer">Afficher une ligne pour séparer</h4>
+<div id="8846b7a6" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--------------------------------------------------</code></pre>
+</div>
+</div>
+</section>
+</section>
 <section id="listes" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="listes"><span class="header-section-number">2</span> Listes</h2>
-<section id="parcours-de-liste" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="parcours-de-liste"><span class="header-section-number">2.1</span> Parcours de liste</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [<span class="st">"Anaïs"</span>, <span class="st">"Benoit"</span>, <span class="st">"Camille"</span>]</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> liste:</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par index</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(liste)):</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[i])</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Index et valeurs</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(liste):</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"index </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="méthodes-utiles" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="méthodes-utiles"><span class="header-section-number">2.1</span> Méthodes utiles</h3>
+<p>La 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 34%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Méthode appliquée</th>
+<th>État de la liste après</th>
+<th>Valeur de retour</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>].<strong>append</strong>(<span class="emoji" data-emoji="mouse">🐭</span>)</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>, <span class="emoji" data-emoji="mouse">🐭</span>]</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>].<strong>pop</strong>()</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>]</td>
+<td><span class="emoji" data-emoji="pig">🐷</span></td>
+</tr>
+<tr class="odd">
+<td><strong>len</strong>([<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>])</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><strong>3</strong></td>
+</tr>
+<tr class="even">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>].<strong>count</strong>(<span class="emoji" data-emoji="mouse">🐭</span>)</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><strong>2</strong></td>
+</tr>
+<tr class="odd">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>].<strong>reverse</strong>()</td>
+<td>[<span class="emoji" data-emoji="pig">🐷</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>]</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td><strong>reversed</strong>([<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>])</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td>[<span class="emoji" data-emoji="pig">🐷</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>]</td>
+</tr>
+<tr class="odd">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>].<strong>index</strong>(<span class="emoji" data-emoji="pig">🐷</span>)</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><strong>2</strong></td>
+</tr>
+<tr class="even">
+<td><span class="emoji" data-emoji="frog">🐸</span> <strong>in</strong> [<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><strong>False</strong></td>
+</tr>
+<tr class="odd">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]<strong>[-1]</strong></td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><span class="emoji" data-emoji="pig">🐷</span></td>
+</tr>
+<tr class="even">
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="frog">🐸</span>, <span class="emoji" data-emoji="pig">🐷</span>]<strong>[1]</strong></td>
+<td>[<span class="emoji" data-emoji="mouse">🐭</span>, <span class="emoji" data-emoji="frog">🐸</span>, <span class="emoji" data-emoji="pig">🐷</span>]</td>
+<td><span class="emoji" data-emoji="frog">🐸</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parcours-de-liste" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="parcours-de-liste"><span class="header-section-number">2.2</span> Parcours de liste</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [<span class="st">"Anaïs"</span>, <span class="st">"Benoit"</span>, <span class="st">"Camille"</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> liste:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par index</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(liste)):</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[i])</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Index et valeurs</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, v <span class="kw">in</span> <span class="bu">enumerate</span>(liste):</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"index </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="dictionnaire" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="dictionnaire"><span class="header-section-number">3</span> Dictionnaire</h2>
 <section id="parcours-de-dictionnaires" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="parcours-de-dictionnaires"><span class="header-section-number">3.1</span> Parcours de dictionnaires</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dico <span class="op">=</span> {<span class="st">"d"</span>:<span class="st">"Dominique"</span>, <span class="st">"e"</span>:<span class="st">"Eva"</span>, <span class="st">"f"</span>:<span class="st">"Fernande"</span>}</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par clés</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> dico.keys():</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : </span><span class="sc">{</span>dico[k]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> dico.values():</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Clés et valeurs</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> dico.items():</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"clé </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dico <span class="op">=</span> {<span class="st">"d"</span>:<span class="st">"Dominique"</span>, <span class="st">"e"</span>:<span class="st">"Eva"</span>, <span class="st">"f"</span>:<span class="st">"Fernande"</span>}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Par clés</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> dico.keys():</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : </span><span class="sc">{</span>dico[k]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Par valeurs</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> v <span class="kw">in</span> dico.values():</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(v)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Clés et valeurs</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> dico.items():</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"clé </span><span class="sc">{</span>k<span class="sc">}</span><span class="ss"> : valeur </span><span class="sc">{</span>v<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="fonctions" class="level2" data-number="4">
@@ -365,65 +451,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Prenons le cas d’une fonction qui va calculer le maximum entre deux entiers <em>a</em> et <em>b</em>.</p>
 <section id="valeur-retournée" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="valeur-retournée"><span class="header-section-number">4.1</span> Valeur retournée</h3>
-<div id="200c1bfe" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> a</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a2827e91" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> a</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>maximum()</code> retourne une valeur qui peut-être stockée :</p>
-<div id="8a56c508" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c1f3ee53" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res</em> a maintenant pour valeur : 8</p>
 </section>
 <section id="simple-affichage" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="simple-affichage"><span class="header-section-number">4.2</span> Simple affichage</h3>
-<div id="415b4cd4" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6f4dbbd6" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>affiche_maximum()</code> effectue le même type d’opérations mais :</p>
 <ul>
 <li>elle ne fait qu’afficher le maximum</li>
 <li>elle ne renvoie pas de résultat</li>
 </ul>
-<div id="e833fb86" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="201d050b" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>Si l’on essaie de stocker le résultat, il vaudra simplement <em>None</em>.</p>
-<div id="efd1f934" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0fe2dfe8" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res2</em> a maintenant pour valeur : None</p>
 </section>
 <section id="valeur-par-défaut" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="valeur-par-défaut"><span class="header-section-number">4.3</span> Valeur par défaut</h3>
 <p>Il est possible de donner aux paramètres une valeur par défaut</p>
-<div id="afda2ee5" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e1bf7143" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d0231000" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="1d204f4b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="43e2fcdc" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ae6fc6fb" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
@@ -432,16 +518,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="multiples-retours" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="multiples-retours"><span class="header-section-number">4.4</span> Multiples retours</h3>
 <p>Une fonction peut retourner plusieurs valeurs.</p>
-<div id="291077e2" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="52b236d6" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="102b692d" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(minimum, maximum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ffa73079" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(minimum, maximum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3 20</code></pre>
 </div>
@@ -450,10 +536,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lambda-fonctions" class="level3" data-number="4.5">
 <h3 data-number="4.5" class="anchored" data-anchor-id="lambda-fonctions"><span class="header-section-number">4.5</span> Lambda fonctions</h3>
 <p>Une manière très concise pour définir des fonctions</p>
-<div id="53ae38e2" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="3ab6f27f" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>36</code></pre>
 </div>
