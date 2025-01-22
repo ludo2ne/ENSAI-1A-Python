@@ -1,0 +1,183 @@
+---
+title: "Trucs et astuces"
+description: "Aides à programmer en python"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Afficher avec print
+
+Utiliser les f-strings
+
+```{python}
+h = 20
+print(f"il est {h} heures.")
+```
+
+Personnaliser le séparateur (par défaut l'espace)
+
+```{python}
+print(1, 2, 3, 4, 5)
+print(1, 2, 3, 4, 5, sep="-")
+```
+
+Personnaliser le caractère de fin (par défaut le retour à la ligne `\n')
+
+```{python}
+print(1)
+print(2)
+print(3, end=" --> ")
+print(4)
+```
+
+## Listes
+
+### Parcours de liste
+
+```{.python}
+liste = ["Anaïs", "Benoit", "Camille"]
+
+# Par valeurs
+for v in liste:
+    print(v)
+
+# Par index
+for i in range(len(liste)):
+    print(liste[i])
+
+# Index et valeurs
+for i, v in enumerate(liste):
+    print(f"index {i} : valeur {v}")
+```
+
+## Dictionnaire
+
+### Parcours de dictionnaires
+
+```{.python}
+dico = {"d":"Dominique", "e":"Eva", "f":"Fernande"}
+
+# Par clés
+for k in dico.keys():
+    print(f"{k} : {dico[k]}")
+
+# Par valeurs
+for v in dico.values():
+    print(v)
+
+# Clés et valeurs
+for k, v in dico.items():
+    print(f"clé {k} : valeur {v}")
+```
+
+
+## Fonctions
+
+Prenons le cas d'une fonction qui va calculer le maximum entre deux entiers *a* et *b*.
+
+### Valeur retournée
+
+```{python}
+def maximum(a, b) -> int:
+    """Retourne le maximum entre a et b"""
+    if a > b:
+        return a
+    return b
+```
+
+La fonction `maximum()` retourne une valeur qui peut-être stockée :
+
+```{python}
+res = maximum(2, 8)
+```
+
+La variable *res* a maintenant pour valeur : `{python} res`
+
+
+### Simple affichage
+
+```{python}
+def affiche_maximum(a, b) -> None:
+    """Affiche le maximum entre a et b"""
+    if a > b:
+        print(a)
+    else:        
+        print(b)
+```
+
+La fonction `affiche_maximum()` effectue le même type d'opérations mais :
+
+- elle ne fait qu'afficher le maximum
+- elle ne renvoie pas de résultat 
+ 
+
+```{python}
+affiche_maximum(2, 8)
+```
+
+Si l'on essaie de stocker le résultat, il vaudra simplement *None*.
+
+```{python}
+#|output: False
+res2 = affiche_maximum(2, 8)
+```
+La variable *res2* a maintenant pour valeur : `{python} res2`
+
+
+### Valeur par défaut
+
+Il est possible de donner aux paramètres une valeur par défaut
+
+```{python}
+def affiche_maximum_def(a, b=0) -> None:
+    """Affiche le maximum entre a et b"""
+    if a > b:
+        print(a)
+    else:        
+        print(b)
+```
+
+```{python}
+affiche_maximum_def(2)
+```
+
+```{python}
+affiche_maximum_def(3)
+```
+
+
+### Multiples retours
+
+Une fonction peut retourner plusieurs valeurs.
+
+```{python}
+def min_max(liste):
+    """Retourne le minimum et le maximum parmi une liste."""
+    return min(liste), max(liste)
+```
+
+
+```{python}
+ma_liste = [4, 8, 20, 19, 12, 3]
+minimum, maximum = min_max(ma_liste)
+
+print(minimum, maximum)
+```
+
+
+### Lambda fonctions
+
+Une manière très concise pour définir des fonctions
+
+```{python}
+carre = lambda x: x**2
+
+print(carre(6))
+```

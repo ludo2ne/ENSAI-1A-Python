@@ -44,6 +44,10 @@ website:
           - href: poo-tp/td7.qmd
             text: "TD n°7"
     right:
+      - href: tips.qmd
+        text: Astuces    
+      - href: exercices.qmd
+        text: Exercices    
       - href: ressources.qmd
         text: Ressources    
       - icon: github

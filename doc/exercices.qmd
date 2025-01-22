@@ -1,0 +1,81 @@
+---
+title: "Exercices Algorithmie"
+description: "Exercices simples pour apprendre le langage Python"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Boucles
+
+### Compte à rebours
+
+Écrivez un code qui permet d'afficher ceci :
+
+- [ ] Avec une boucle for
+- [ ] Avec une boucle while
+
+```{.txt}
+5
+4
+3
+2
+1
+boom
+```
+
+### Somme et produit
+
+Écrivez un code qui permet de calculer et d'afficher la somme et le produit des entiers de 1 à 50.
+
+
+### Tables de multiplications
+
+Affichez les tables de multiplication de 1 à 9.
+
+```{.txt}
+1 x 1 = 1
+1 x 2 = 2
+...
+1 x 9 = 9
+-----------
+2 x 1 = 2
+...
+9 x 9 = 81
+```
+
+
+## Fonctions
+
+### Parité
+
+Écrivez une fonction qui :
+
+- prend en paramètre un entier
+- affiche s'il est pair ou impair
+
+Complétez la fonction :
+
+- vérifiez que le paramètre est de type entier
+  - sinon affichez un message d'erreur
+- affichez également si le paramètre est un multiple de 3
+
+### Année bissextile
+
+Écrivez une fonction qui 
+
+- prend en paramètre une année
+- retourne *True* si elle est bissextile, *False* sinon
+
+::: {.callout-note}
+Une année est bissextile si :
+
+- elle est divisible par 4,
+- mais pas divisible par 100, sauf si elle est aussi divisible par 400
+:::

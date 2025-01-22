@@ -14,20 +14,6 @@ number-depth: 3
 
 - [ ] Récupérez le sujet sur Moodle
 
-::: {.callout-tip}
-Cette page contient des informations complémentaires (et facultatives) pour vous aider à suivre le TP.
-:::
-
-
-Vous pouvez réaliser ce TP, soit :
-
-- sur l'un des Datalab
-  - du [GENES](https://onyxia.lab.groupe-genes.fr/) :arrow_right: [Lancer le service VScode-python](https://onyxia.lab.groupe-genes.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-96a5c8b9&resources.limits.cpu=%C2%AB20000m%C2%BB){target="_blank"}
-  - le [SSP Cloud](https://datalab.sspcloud.fr/){target="_blank"} de l'INSEE :arrow_right: [Lancer le service VScode-python](https://datalab.sspcloud.fr/launcher/ide/vscode-python?name=vscode-python&version=2.1.23&s3=region-ec97c721&resources.limits.cpu=%C2%AB20000m%C2%BB&autoLaunch=true){target="_blank"}
-- sur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)
-- sur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)
-
-
 ## Créer l'arborscence
 
 ```
