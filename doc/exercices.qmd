@@ -68,7 +68,7 @@ Complétez la fonction :
 
 ### Année bissextile
 
-Écrivez une fonction qui 
+Écrivez une fonction qui :
 
 - prend en paramètre une année
 - retourne *True* si elle est bissextile, *False* sinon
@@ -79,3 +79,17 @@ Une année est bissextile si :
 - elle est divisible par 4,
 - mais pas divisible par 100, sauf si elle est aussi divisible par 400
 :::
+
+### Factoriel
+
+Écrivez une fonction qui calcule et retourne le factoriel d'un entier *n* :
+
+- [ ] avec une boucle for
+- [ ] avec une boucle while
+- [ ] en utilisant la récursivité
+
+Écrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :
+
+```{.txt}
+1 1 2 6 24 120 ...
+```

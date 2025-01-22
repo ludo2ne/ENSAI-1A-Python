@@ -14,21 +14,21 @@ number-depth: 3
 
 ## Afficher avec print
 
-Utiliser les f-strings
+#### Utiliser les f-strings
 
 ```{python}
 h = 20
 print(f"il est {h} heures.")
 ```
 
-Personnaliser le séparateur (par défaut l'espace)
+#### Personnaliser le séparateur (par défaut l'espace)
 
 ```{python}
 print(1, 2, 3, 4, 5)
 print(1, 2, 3, 4, 5, sep="-")
 ```
 
-Personnaliser le caractère de fin (par défaut le retour à la ligne `\n')
+#### Personnaliser le caractère de fin (par défaut le retour à la ligne `\n')
 
 ```{python}
 print(1)
@@ -37,7 +37,32 @@ print(3, end=" --> ")
 print(4)
 ```
 
+#### Afficher une ligne pour séparer
+
+```{python}
+print("-" * 50)
+```
+
 ## Listes
+
+### Méthodes utiles
+
+La 3e colonne (valeur de retour) indique la valeur obtenue si l'on stocke le résultat de la méthode, par exemple dans une variable.
+
+| Méthode appliquée                                  | État de la liste après                      | Valeur de retour               |
+|----------------------------------------------------|---------------------------------------------|--------------------------------|
+| [:mouse:, :mouse:, :pig:].**append**(:mouse:)      | [:mouse:, :mouse:, :pig:, :mouse:]          | None                           |
+| [:mouse:, :mouse:, :pig:].**pop**()                | [:mouse:, :mouse:]                          | :pig:                          |
+| **len**([:mouse:, :mouse:, :pig:])                 | [:mouse:, :mouse:, :pig:]                   | **3**                          |
+| [:mouse:, :mouse:, :pig:].**count**(:mouse:)       | [:mouse:, :mouse:, :pig:]                   | **2**                          |
+| [:mouse:, :mouse:, :pig:].**reverse**()            | [:pig:, :mouse:, :mouse:]                   | None                           |
+| **reversed**([:mouse:, :mouse:, :pig:])            | [:mouse:, :mouse:, :pig:]                   | [:pig:, :mouse:, :mouse:]      |
+| [:mouse:, :mouse:, :pig:].**index**(:pig:)         | [:mouse:, :mouse:, :pig:]                   | **2**                          |
+| :frog: **in** [:mouse:, :mouse:, :pig:]            | [:mouse:, :mouse:, :pig:]                   | **False**                      |
+| [:mouse:, :mouse:, :pig:]**[-1]**                  | [:mouse:, :mouse:, :pig:]                   | :pig:                          |
+| [:mouse:, :frog:, :pig:]**[1]**                    | [:mouse:, :frog:, :pig:]                    | :frog:                         | 
+
+
 
 ### Parcours de liste
 
