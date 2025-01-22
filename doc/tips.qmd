@@ -32,7 +32,7 @@ print(1, 2, 3, 4, 5, sep="-")
 
 #### Personnaliser le caractère de fin 
 
-Le caractère final est par défaut le retour à la ligne `\\n'
+Le caractère final est par défaut le retour à la ligne `\n`.
 
 ```{python}
 print(1)
@@ -52,6 +52,8 @@ print("-" * 50)
 ### Méthodes utiles
 
 La 3e colonne (valeur de retour) indique la valeur obtenue si l'on stocke le résultat de la méthode, par exemple dans une variable.
+
+De nombreuses autres méthodes existent.
 
 | Méthode appliquée                                  | État de la liste après                      | Valeur de retour               |
 |----------------------------------------------------|---------------------------------------------|--------------------------------|
