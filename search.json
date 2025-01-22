@@ -263,21 +263,21 @@
     "href": "tips.html",
     "title": "Trucs et astuces",
     "section": "",
-    "text": "h = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\n\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\n\n\n\nLe caractère final est par défaut le retour à la ligne `\\n’\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4\n\n\n\n\n\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
+    "text": "h = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\n\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\n\n\n\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4\n\n\n\n\n\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
   },
   {
     "objectID": "tips.html#afficher-avec-print",
     "href": "tips.html#afficher-avec-print",
     "title": "Trucs et astuces",
     "section": "",
-    "text": "h = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\n\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\n\n\n\nLe caractère final est par défaut le retour à la ligne `\\n’\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4\n\n\n\n\n\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
+    "text": "h = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures.\n\n\n\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1 2 3 4 5\n1-2-3-4-5\n\n\n\n\n\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4\n\n\n\n\n\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
   },
   {
     "objectID": "tips.html#listes",
     "href": "tips.html#listes",
     "title": "Trucs et astuces",
     "section": "2 Listes",
-    "text": "2 Listes\n\n2.1 Méthodes utiles\nLa 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n2.2 Parcours de liste\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")"
+    "text": "2 Listes\n\n2.1 Méthodes utiles\nLa 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\nDe nombreuses autres méthodes existent.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n2.2 Parcours de liste\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")"
   },
   {
     "objectID": "tips.html#dictionnaire",
