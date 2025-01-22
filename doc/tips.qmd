@@ -21,14 +21,18 @@ h = 20
 print(f"il est {h} heures.")
 ```
 
-#### Personnaliser le séparateur (par défaut l'espace)
+#### Personnaliser le séparateur
+
+Le séparateur par défaut est l'espace.
 
 ```{python}
 print(1, 2, 3, 4, 5)
 print(1, 2, 3, 4, 5, sep="-")
 ```
 
-#### Personnaliser le caractère de fin (par défaut le retour à la ligne `\n')
+#### Personnaliser le caractère de fin 
+
+Le caractère final est par défaut le retour à la ligne `\\n'
 
 ```{python}
 print(1)
