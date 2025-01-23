@@ -66,6 +66,20 @@ Complétez la fonction :
   - sinon affichez un message d'erreur
 - affichez également si le paramètre est un multiple de 3
 
+### Factorielle
+
+Écrivez une fonction qui calcule et retourne le factoriel d'un entier *n* :
+
+- [ ] avec une boucle for
+- [ ] avec une boucle while
+- [ ] en utilisant la récursivité
+
+Écrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :
+
+```{.txt}
+1 1 2 6 24 120 ...
+```
+
 ### Année bissextile
 
 Écrivez une fonction qui :
@@ -80,16 +94,47 @@ Une année est bissextile si :
 - mais pas divisible par 100, sauf si elle est aussi divisible par 400
 :::
 
-### Factoriel
+### Fibonacci
 
-Écrivez une fonction qui calcule et retourne le factoriel d'un entier *n* :
+- [ ] Écrivez une fonction qui retourne le *n* ième termes de la suite de Fibonacci
+- [ ] Écrivez une autre fonction qui affiche les *n* premiers termes de la suite de Fibonacci
 
-- [ ] avec une boucle for
-- [ ] avec une boucle while
-- [ ] en utilisant la récursivité
+::: {.callout-note title="Rappel"}
+La suite de Fibonacci $(F_{n})_{n\in \mathbb {N}}$ est définie par :
 
-Écrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :
+- $F_{0} = 0$
+- $F_{1} = 1$ 
+- $F_{n} = F_{n-1} + F_{n-2}$ pour $n \geq 2$
+:::
 
-```{.txt}
-1 1 2 6 24 120 ...
+## Chaines de caractères
+
+### Palindrome
+
+Écrivez une fonction `est_palindrome(texte) -> bool` qui retourne *True* si le paramètre texte est un palindrome (i.e. il se lit de la même manière dans les deux sens)
+
+### Mot de passe
+
+Écrivez une fonction `valider_mot_passe(pwd) -> bool` qui retourne *True* si le mot de passe est valide :
+
+- contient au moins 12 caractères
+- contient au moins une minuscule, une majuscule et un chiffre
+
+Si l'une des condition n'est pas respectée, levez une exception avec un message explicite.
+
+::: {.callout-note title="Lever une exception"}
+```{.python}
+if ma_condition:
+    raise ValueError("Le mot de passe doit contenir au moins 12 caractères.")
 ```
+:::
+
+### Compter les lettres
+
+Écrivez une fonction qui :
+
+- prend en paramètre une chaine de caractère
+- compte le nombre d'occurence de chaque lettre
+- retourne un dictionnaire 
+  - clé : lettre
+  - valeur : nombre d'occurence de la lettre
