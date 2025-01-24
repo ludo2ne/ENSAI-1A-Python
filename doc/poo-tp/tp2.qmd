@@ -71,6 +71,15 @@ mkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/
 
 Il existe également des **formatters** (Black, Ruff) qui à la différence des linters, modifient le code.
 
+
+### Tests Unitaires
+
+<https://ludo2ne.github.io/ENSAI-2A-Projet-info/doc/cours/tests-unitaires.html>
+
+### Exception
+
+:construction:
+
 ## Exercices
 
 ### Exercice 1
@@ -91,7 +100,11 @@ Les doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les 
 
 On préfère exporter les tests dans des modules à part.
 
-Pour lancer les tests avec pytest : `python -m pytest --doctest-modules`
+Pour lancer les tests avec pytest : 
+
+- `python -m pytest` (ou simplement `pytest` s'il a été ajouté au *PATH*)
+- `python -m pytest -v` :arrow_right: v : verbose, i.e. pour avoir plus de détails
+- `python -m pytest --doctest-modules`, pour inclure les doctests
 
 
 ### Exercice 3
