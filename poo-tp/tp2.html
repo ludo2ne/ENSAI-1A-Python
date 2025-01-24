@@ -239,6 +239,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#settings" id="toc-settings" class="nav-link" data-scroll-target="#settings"><span class="header-section-number">3.1</span> Settings</a></li>
   <li><a href="#flake8" id="toc-flake8" class="nav-link" data-scroll-target="#flake8"><span class="header-section-number">3.2</span> Flake8</a></li>
+  <li><a href="#tests-unitaires" id="toc-tests-unitaires" class="nav-link" data-scroll-target="#tests-unitaires"><span class="header-section-number">3.3</span> Tests Unitaires</a></li>
+  <li><a href="#exception" id="toc-exception" class="nav-link" data-scroll-target="#exception"><span class="header-section-number">3.4</span> Exception</a></li>
   </ul></li>
   <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
   <ul class="collapse">
@@ -357,6 +359,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Il existe également des <strong>formatters</strong> (Black, Ruff) qui à la différence des linters, modifient le code.</p>
 </section>
+<section id="tests-unitaires" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="tests-unitaires"><span class="header-section-number">3.3</span> Tests Unitaires</h3>
+<p><a href="https://ludo2ne.github.io/ENSAI-2A-Projet-info/doc/cours/tests-unitaires.html" class="uri">https://ludo2ne.github.io/ENSAI-2A-Projet-info/doc/cours/tests-unitaires.html</a></p>
+</section>
+<section id="exception" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="exception"><span class="header-section-number">3.4</span> Exception</h3>
+<p><span class="emoji" data-emoji="construction">🚧</span></p>
+</section>
 </section>
 <section id="exercices" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
@@ -381,7 +391,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Les doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules.</p>
 <p>On préfère exporter les tests dans des modules à part.</p>
-<p>Pour lancer les tests avec pytest : <code>python -m pytest --doctest-modules</code></p>
+<p>Pour lancer les tests avec pytest :</p>
+<ul>
+<li><code>python -m pytest</code> (ou simplement <code>pytest</code> s’il a été ajouté au <em>PATH</em>)</li>
+<li><code>python -m pytest -v</code> <span class="emoji" data-emoji="arrow_right">➡️</span> v : verbose, i.e.&nbsp;pour avoir plus de détails</li>
+<li><code>python -m pytest --doctest-modules</code>, pour inclure les doctests</li>
+</ul>
 </section>
 <section id="exercice-3" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>

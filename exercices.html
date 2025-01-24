@@ -274,10 +274,11 @@ window.Quarto = {
   <li><a href="#factorielle" id="toc-factorielle" class="nav-link" data-scroll-target="#factorielle"><span class="header-section-number">2.2</span> Factorielle</a></li>
   <li><a href="#année-bissextile" id="toc-année-bissextile" class="nav-link" data-scroll-target="#année-bissextile"><span class="header-section-number">2.3</span> Année bissextile</a></li>
   <li><a href="#fibonacci" id="toc-fibonacci" class="nav-link" data-scroll-target="#fibonacci"><span class="header-section-number">2.4</span> Fibonacci</a></li>
+  <li><a href="#palindrome" id="toc-palindrome" class="nav-link" data-scroll-target="#palindrome"><span class="header-section-number">2.5</span> Palindrome</a></li>
   </ul></li>
   <li><a href="#chaines-de-caractères" id="toc-chaines-de-caractères" class="nav-link" data-scroll-target="#chaines-de-caractères"><span class="header-section-number">3</span> Chaines de caractères</a>
   <ul class="collapse">
-  <li><a href="#palindrome" id="toc-palindrome" class="nav-link" data-scroll-target="#palindrome"><span class="header-section-number">3.1</span> Palindrome</a></li>
+  <li><a href="#palindrome-1" id="toc-palindrome-1" class="nav-link" data-scroll-target="#palindrome-1"><span class="header-section-number">3.1</span> Palindrome</a></li>
   <li><a href="#mot-de-passe" id="toc-mot-de-passe" class="nav-link" data-scroll-target="#mot-de-passe"><span class="header-section-number">3.2</span> Mot de passe</a></li>
   <li><a href="#compter-les-lettres" id="toc-compter-les-lettres" class="nav-link" data-scroll-target="#compter-les-lettres"><span class="header-section-number">3.3</span> Compter les lettres</a></li>
   </ul></li>
@@ -374,7 +375,7 @@ window.Quarto = {
 </section>
 <section id="factorielle" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="factorielle"><span class="header-section-number">2.2</span> Factorielle</h3>
-<p>Écrivez une fonction qui calcule et retourne le factoriel d’un entier <em>n</em> :</p>
+<p>Écrivez trois fonctions qui calculent et retournent le factoriel d’un entier <em>n</em> :</p>
 <ul class="task-list">
 <li><label><input type="checkbox">avec une boucle for</label></li>
 <li><label><input type="checkbox">avec une boucle while</label></li>
@@ -433,11 +434,20 @@ Rappel
 </div>
 </div>
 </section>
+<section id="palindrome" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="palindrome"><span class="header-section-number">2.5</span> Palindrome</h3>
+<p>Un nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.</p>
+<p>Écrivez une fonction qui :</p>
+<ul>
+<li>prend en entrée un entier</li>
+<li>retourne <em>True</em> si le nombre est un palindrome</li>
+</ul>
+</section>
 </section>
 <section id="chaines-de-caractères" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="chaines-de-caractères"><span class="header-section-number">3</span> Chaines de caractères</h2>
-<section id="palindrome" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="palindrome"><span class="header-section-number">3.1</span> Palindrome</h3>
+<section id="palindrome-1" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="palindrome-1"><span class="header-section-number">3.1</span> Palindrome</h3>
 <p>Écrivez une fonction <code>est_palindrome(texte) -&gt; bool</code> qui retourne <em>True</em> si le paramètre texte est un palindrome (i.e.&nbsp;il se lit de la même manière dans les deux sens)</p>
 </section>
 <section id="mot-de-passe" class="level3" data-number="3.2">
@@ -468,11 +478,11 @@ Lever une exception
 <p>Écrivez une fonction qui :</p>
 <ul>
 <li>prend en paramètre une chaine de caractère</li>
-<li>compte le nombre d’occurence de chaque lettre</li>
+<li>compte le nombre d’occurences de chaque lettre</li>
 <li>retourne un dictionnaire
 <ul>
 <li>clé : lettre</li>
-<li>valeur : nombre d’occurence de la lettre</li>
+<li>valeur : nombre d’occurences de la lettre</li>
 </ul></li>
 </ul>
 
