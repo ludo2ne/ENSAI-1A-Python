@@ -129,7 +129,11 @@ Un test unitaire se déroule en 3 étapes :
 - *WHEN* : nous appelons la fonction
 - *THEN* : nous vérifions que le résultat attendu est le même que celui obtenu
 
-De la même manière, il faut créer un test unitaire pour chaque retour possible.
+De la même manière, il faut créer [un test unitaire pour chacun des retours possibles]{.underline} :
+
+- *True*
+- *False*
+- *Exception TypeError*
 
 ```{.python filename="test_est_impair.py"}
 import pytest
