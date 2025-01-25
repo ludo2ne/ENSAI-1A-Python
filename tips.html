@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="afficher-avec-print"><span class="header-section-number">1</span> Afficher avec print</h2>
 <section id="utiliser-les-f-strings" class="level4">
 <h4 class="anchored" data-anchor-id="utiliser-les-f-strings">Utiliser les f-strings</h4>
-<div id="39fe5af9" class="cell" data-execution_count="1">
+<div id="1949c038" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"il est </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> heures."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -306,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="personnaliser-le-séparateur" class="level4">
 <h4 class="anchored" data-anchor-id="personnaliser-le-séparateur">Personnaliser le séparateur</h4>
 <p>Le séparateur par défaut est l’espace.</p>
-<div id="ff7ff3e6" class="cell" data-execution_count="2">
+<div id="9e0b64fd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, sep<span class="op">=</span><span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -318,7 +318,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="personnaliser-le-caractère-de-fin" class="level4">
 <h4 class="anchored" data-anchor-id="personnaliser-le-caractère-de-fin">Personnaliser le caractère de fin</h4>
 <p>Le caractère final est par défaut le retour à la ligne <code>\n</code>.</p>
-<div id="befc8422" class="cell" data-execution_count="3">
+<div id="97c409c5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span>, end<span class="op">=</span><span class="st">" --&gt; "</span>)</span>
@@ -332,7 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="afficher-une-ligne-pour-séparer" class="level4">
 <h4 class="anchored" data-anchor-id="afficher-une-ligne-pour-séparer">Afficher une ligne pour séparer</h4>
-<div id="cd00f58b" class="cell" data-execution_count="4">
+<div id="6f20ed60" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--------------------------------------------------</code></pre>
@@ -454,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Prenons le cas d’une fonction qui va calculer le maximum entre deux entiers <em>a</em> et <em>b</em>.</p>
 <section id="valeur-retournée" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="valeur-retournée"><span class="header-section-number">4.1</span> Valeur retournée</h3>
-<div id="1a2911c8" class="cell" data-execution_count="5">
+<div id="20c1844c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -462,14 +462,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>maximum()</code> retourne une valeur qui peut-être stockée :</p>
-<div id="52e2896e" class="cell" data-execution_count="6">
+<div id="140d24c4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res</em> a maintenant pour valeur : 8</p>
 </section>
 <section id="simple-affichage" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="simple-affichage"><span class="header-section-number">4.2</span> Simple affichage</h3>
-<div id="b46e8390" class="cell" data-execution_count="7">
+<div id="9b1cb6c4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -482,14 +482,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>elle ne fait qu’afficher le maximum</li>
 <li>elle ne renvoie pas de résultat</li>
 </ul>
-<div id="f6cb7659" class="cell" data-execution_count="8">
+<div id="3c45543a" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>Si l’on essaie de stocker le résultat, il vaudra simplement <em>None</em>.</p>
-<div id="ac4ed266" class="cell" data-execution_count="9">
+<div id="cada7310" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res2</em> a maintenant pour valeur : None</p>
@@ -497,7 +497,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="valeur-par-défaut" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="valeur-par-défaut"><span class="header-section-number">4.3</span> Valeur par défaut</h3>
 <p>Il est possible de donner aux paramètres une valeur par défaut</p>
-<div id="6d25b21b" class="cell" data-execution_count="10">
+<div id="8e93d783" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -505,13 +505,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="d9d7fc7b" class="cell" data-execution_count="11">
+<div id="599e36fd" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="06d071a2" class="cell" data-execution_count="12">
+<div id="730ad543" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
@@ -521,12 +521,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="multiples-retours" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="multiples-retours"><span class="header-section-number">4.4</span> Multiples retours</h3>
 <p>Une fonction peut retourner plusieurs valeurs.</p>
-<div id="f105b8d2" class="cell" data-execution_count="13">
+<div id="122b105d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="47b9875d" class="cell" data-execution_count="14">
+<div id="44c9cd48" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -539,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lambda-fonctions" class="level3" data-number="4.5">
 <h3 data-number="4.5" class="anchored" data-anchor-id="lambda-fonctions"><span class="header-section-number">4.5</span> Lambda fonctions</h3>
 <p>Une manière très concise pour définir des fonctions</p>
-<div id="50505653" class="cell" data-execution_count="15">
+<div id="39f9d396" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
