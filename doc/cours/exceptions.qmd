@@ -1,0 +1,132 @@
+---
+title: "Les exceptions"
+description: "Quelle est l'utilité des exceptions"
+author: "Ludovic Deneuville"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+
+Les exceptions en Python sont des événements qui surviennent lors de l'exécution d'un programme, souvent à cause d'une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus.
+
+
+::: {.callout-tip title="Pourquoi utiliser les exceptions ?"}
+- Amélioration de la lisibilité : Le code devient plus propre et lisible en séparant le traitement des erreurs de la logique principale.
+- Gestion des erreurs : Évite les arrêts brutaux en permettant une capture et une gestion des erreurs localisées.
+- Contrôle de flux : Permet de gérer des situations exceptionnelles sans perturber le reste du programme.
+:::
+
+
+## Lever une exception
+
+::: {.callout-important}
+Lever une exception consiste à signaler volontairement un problème lorsqu'une situation anormale est détectée.
+:::
+
+Nous utiliserons comme fil rouge la gestion d'un système de retrait d'argent au distributeur.
+
+Lorsqu'un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.
+
+```{python}
+def verifier_montant(montant):
+    if montant <= 0:
+        raise ValueError("Le montant doit être supérieur à 0.")
+    print(f"Montant {montant} accepté.")
+```
+
+Si l'utilisateur saisit un montant négatif ou nul, une exception `ValueError` est levée, interrompant le programme pour signaler l'erreur.
+
+
+
+## Gérer une exception
+
+::: {.callout-important}
+Gérer une exception consiste à capturer une erreur grâce au bloc `try-except` pour éviter que le programme ne se termine brutalement.
+:::
+
+```{python}
+def retirer_argent(montant):
+    try:
+        verifier_montant(montant)
+        print("Retrait en cours...")
+    except ValueError as e:
+        print(f"Erreur : {e}")
+```
+
+```{python}
+retirer_argent(-50)
+```
+
+Le programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l'exception.
+
+
+## Types d'exception
+
+les types d'exceptions les plus courantes en Python :
+
+- `ValueError` : Lorsque la valeur d'un argument est invalide.
+- `TypeError` : Quand une opération ou une fonction est appliquée à un type inapproprié.
+- `IndexError` : Tentative d'accéder à un indice inexistant dans une liste.
+- `KeyError` : Accès à une clé inexistante dans un dictionnaire.
+
+
+```{.python}
+try:
+    liste = [1, 2, 3]
+    print(liste[5])
+except IndexError as e:
+    print(f"Erreur : {e}")
+```
+
+
+## Exception personnalisée
+
+::: {.callout-note}
+Il est possible de créer ses propres exceptions pour des cas spécifiques à un programme.
+
+Les exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.
+:::
+
+### Création de l'exception
+
+Pour créer une exception personnalisée, il faut créer une classe qui hérite de la classe `Exception`
+
+```{python}
+class SoldeInsuffisantError(Exception):
+    pass
+```
+
+### Utilisation dans une fonction
+
+L'exception que nous venons de créer peut être levée dans la fonction ci-dessous
+
+```{python}
+def verifier_solde(solde, montant):
+    """Vérifie que le montant du retrait demandé est inférieur au solde"""
+    if montant > solde:
+        raise SoldeInsuffisantError("Solde insuffisant pour ce retrait.")
+    print("Retrait autorisé.")
+```
+
+
+### Gestion de l'exception
+
+La fonction `verifier_solde()` peut lever une exception.
+
+Utilisons un bloc *try-except* pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.
+
+```{python}
+try:
+    verifier_solde(100, 200)
+except SoldeInsuffisantError as e:
+    print(f"Erreur : {e}")
+```
+
+
+

@@ -1,6 +1,6 @@
 ---
-title: "POO, documentation et tests - TP2"
-description: "Modules, style de code, exceptions et tests"
+title: "Les tests unitaires"
+description: "Introduction aux TU avec pytest"
 author: "Ludovic Deneuville"
 format:
   html:
@@ -13,46 +13,11 @@ number-depth: 3
 ---
 
 
-## Introduction {.unnumbered}
-
-### Créer l'arborscence {.unnumbered}
-
-Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal *Git Bash* les commandes ci-dessous (*mkdir : make directory*):
-
-```{.bash}
-# Sur la VM ensai
-mkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py
-
-# Sur un Datalab Onyxia
-mkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ex.py
-```
-
-
-### Moodle {.unnumbered}
-
-- [ ] Aller sur la page du [tp2](https://foad-moodle.ensai.fr/course/view.php?id=148&section=3){target="_blank"}
-- [ ] Ouvrez le sujet et enregistrez le dans `/p/Cours1A/IPOO/TP2`
-- [ ] Téléchargez les fichiers *.py* et placez les dans les bons dossiers
-
-
-## Cours
-
-### Linter Flake8
-
-[Flake8](https://flake8.pycqa.org/en/latest/){target="_blank"} est un **Linter** :
-
-- Il analyse le code pour détecter des erreurs, des mauvaises pratiques ou des violations des règles de style
-- Il [ne modifie pas]{.underline} directement le code
-- Il [signale les problèmes]{style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: red;"} pour que l'on puisse ensuite les corriger
-
-Il existe également des **formatters** (Black, Ruff) qui à la différence des linters, modifient le code.
-
-
-### Tests Unitaires
-
 Les **tests unitaires (TU)** sont des tests automatisés qui vérifient le comportement d'une petite unité de code, de manière isolée. Leur objectif est de s'assurer que chaque composant du programme fonctionne comme prévu.
 
-#### Commençons par écrire la fonction
+## La fonction à tester
+
+Commençons par écrire la fonction à tester.
 
 Prenons l'exemple d'une fonction qui prend en paramètre un entier et retourne s'il est impair.
 
@@ -67,7 +32,7 @@ Il ne manque pas quelque chose ???
 
 Mais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc *Examples*)
 
-#### La doc
+## La doc
 
 ```{.python filename="est_impair.py"}
 def est_impair(n) -> bool:
@@ -99,7 +64,7 @@ def est_impair(n) -> bool:
 
 Les doctests c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple *pytest*. Une alternative est d'utiliser *unittest*.
 
-#### Un premier test unitaire avec pytest
+## Un premier test unitaire avec pytest
 
 Testons par exemple un cas nominal : vérifions que `est_impair(3)` retourne *True*.
 
@@ -173,7 +138,7 @@ def test_type_erreur_string():
 - Nous avons besoin d'importer le package *pytest*
 :::
 
-#### Lancer les TU
+## Lancer les TU
 
 Il y a plusieurs possibilités pour lancer les tests unitaires :
 
@@ -187,7 +152,7 @@ Il y a plusieurs possibilités pour lancer les tests unitaires :
 - Via l'interface de VSCode avec l'icone en forme de fiole à gauche
 
 
-#### TU avancés avec pytest.mark.parametrize
+## TU avancés avec pytest.mark.parametrize
 
 *pytest.mark.parametrize* est une fonctionnalité de pytest qui permet d'exécuter un même test plusieurs fois avec différents ensembles de données d'entrée. 
 
@@ -244,9 +209,7 @@ Et de même pour chacune des exceptions :
 | 3.5                 | `TypeError`         | Le paramètre doit être un entier.    |
 
 
-#### Couverture de test
-
-:construction:
+## Couverture de test
 
 La **couverture de tests** (ou *test coverage*) est une mesure qui évalue dans quelle proportion le code d'un programme est exécuté pendant l'exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code. 
 
@@ -254,130 +217,15 @@ Une couverture élevée (proche de 100 %) est généralement un indicateur posit
 
 Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.
 
+Générer la couverture de tests avec *pytest-cov*
 
-### Exception
+```{.bash}
+# Installer les packages necessaires
+pip install pytest pytest-cov
 
-:construction:
+# Générer un rapport de couverture
+pytest --cov
 
-
-## Visual Studio Code
-
-- [ ] Ouvrez Visual Studio Code
-  - [ ] File > Open Folder
-  - [ ] Cliquez une seule fois sur :file_folder: **Exercice_1**
-  - [ ] Cliquez sur [Sélectionner un dossier]{.text-like-button}
-    - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
-
-
-### Settings
-
-- icone :gear: en bas à droite > Settings
-- options à activer :
-  - *files.trimTrailingWhitespace*
-  - *files.insertFinalNewline*
-  - *files.trimFinalNewlines*
-  - *flake8.args*
-    - Add item : *--max-line-length=88*
-  - *editor.rulers* : 88
-  - *python.testing.pytestArgs*
-    - Add item : *--doctest-modules*
-
-2 niveaux :
-
-- User : options appliquées au niveau global
-- Workspace : réglages spécifiques pour l'espace de travail (dossier)
-  - création d'un fichier `.vscode/settings.json` (exportable) qui contient ces réglages
-
-
-
-## Exercices
-
-### Exercice 1
-
-- [ ] Téléchargez le fichier `fonctions.py` sur Moodle
-- [ ] Collez ce fichier dans `/p/Cours1A/IPOO/TP2/Exercice_1`
-- [ ] Allez dans VSCode et ouvrez ce fichier
-- [ ] Ouvrez un nouveau *Terminal* (Terminal > New Terminal)
-- [ ] Suivez les consignes du sujet
-
-### Exercice 2
-
-- [ ] VSCode > File > Open Folder
-  - [ ] Cliquez une seule fois sur :file_folder: **Exercice_2**
-  - [ ] Cliquez sur [Sélectionner un dossier]{.text-like-button}
-
-Les doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules.
-
-On préfère exporter les tests dans des modules à part.
-
-
-
-### Exercice 3
-
-- [ ] VSCode > File > Open Folder
-  - [ ] Cliquez une seule fois sur :file_folder: **Exercice_3**
-  - [ ] Cliquez sur [Sélectionner un dossier]{.text-like-button}
-
-:::{.callout-tip collapse="true"}
-### Aide
-
-- [ ] Vérifier que les 2 paramètres sont des tuples
-- [ ] Vérifier que les 2 paramètres sont des tuples de longueur 3
-- [ ] Vérifier que tous les éléments de ces tuples sont des int ou float
-- [ ] Vérifier que les éléments de *axes* sont strictements positifs
-- [ ] Tester si le point appartient à l'ellipsoïde
-- [ ] Ecrire des tests dans un autre fichier en s'inspirant de l'exercice 2
-:::
-
-
-### Exercice 4
-
-- Inscription
-  - [ ] Vérifier la validité d'une *adresse électronique*
-    - Exemple pour lever une exception
-      ```{.python}
-      if adresse_electronique.count('@') != 1:
-          raise ValueError(
-              "L'adresse électronique doit contenir un seul symbole @."
-          )
-      ```
-  - [ ] Valider que le mot de passe respecte les règles
-  - [ ] Vérifier que le 2e mot de passe saisi est le même
-- [ ] Connexion
-  - `base_de_donnees : list[tuple[str, str]]`
-- [ ] Ecrire les tests
-
-
-## Template doc
-
-Voici un modèle que vous pouvez utiliser pour documenter vos fonctions
-
-```{.python}
-def ma_fonction(param1, param2=valeur_par_defaut) -> type_retour:
-    """description_courte
-
-    description_longue
-
-    Parameters
-    ----------
-    param1 : type (str, int, float, list...)
-        description_param1
-    param2 : type
-        description_param2
-
-    Returns
-    -------
-    type_retour
-        description_retour
-
-    Examples
-    --------
-    >>> 1+1
-    2
-    >>> print("abc")
-    abc
-    >>> ma_fonction(xxx, yyy)
-    valeur_esperee
-    """
-    return None
+# Générer un rapport html (plus complet)
+pytest --cov --cov-report=html
 ```

@@ -1,0 +1,61 @@
+---
+title: "La fonction print"
+description: "Astuces pour utiliser print"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+
+## Utiliser les f-strings
+
+Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.
+
+```{python}
+h = 20
+print(f"il est {h} heures.")
+```
+
+## Personnaliser le séparateur
+
+```{python}
+print(1, 2, 3, 4, 5, sep="-")
+```
+
+Le séparateur par défaut est l'espace.
+
+```{python}
+print(1, 2, 3, 4, 5)
+```
+
+## Personnaliser le caractère de fin 
+
+Le caractère final est par défaut le retour à la ligne `\n`.
+
+```{python}
+print(1)
+print(2)
+print(3, end=" --> ")
+print(4)
+```
+
+## Afficher une ligne pour séparer
+
+```{python}
+print("-" * 50)
+```
+
+## Multi lignes
+
+```{python}
+print("""Maître Corbeau, sur un arbre perché,
+Tenait en son bec un fromage.
+Maître Renard, par l'odeur alléché,
+Lui tint à peu près ce langage""")
+```

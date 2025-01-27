@@ -44,12 +44,22 @@ website:
           - href: poo-tp/td7.qmd
             text: "TD n°7"
     right:
-      - href: tips.qmd
-        text: Astuces    
+      - text: Cours
+        menu:
+          - href: cours/print.qmd
+            text: "La fonction Print"
+          - href: cours/liste-dico.qmd
+            text: "Listes et Dictionnaires"
+          - href: cours/fonctions.qmd
+            text: "Les Fonctions"
+          - href: cours/exceptions.qmd
+            text: "Les Exceptions"
+          - href: cours/tu.qmd
+            text: "Les Tests Unitaires"
+          - href: cours/ressources.qmd
+            text: "Ressources utiles"
       - href: exercices.qmd
-        text: Exercices    
-      - href: ressources.qmd
-        text: Ressources    
+        text: Exercices
       - icon: github
         href: "{{< meta var.url-repo >}}"
         target: "_blank"
