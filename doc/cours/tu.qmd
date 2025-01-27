@@ -64,6 +64,31 @@ def est_impair(n) -> bool:
 
 Les doctests c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple *pytest*. Une alternative est d'utiliser *unittest*.
 
+
+## La méthode naïve
+
+::: {.callout-note}
+Ce que l'on fait tous naturellement !
+
+Nous appelons la fonction et affichons le résultat pour vérifier.
+:::
+
+```{.python}
+print(est_impair(1))
+
+print(est_impair(2))
+
+est_impair("toto")
+```
+
+::: {.callout-tip title="Pourquoi ce n'est pas la bonne méthode"}
+- Pas automatisé : Nécessite une intervention manuelle pour vérifier les résultats
+- Non reproductible : Chaque test doit être relancé à la main
+- Temps perdu : Refaire les tests manuellement est chronophage
+- Oublis possibles : Facile de négliger des cas limites ou des scénarios d'erreur
+:::
+
+
 ## Un premier test unitaire avec pytest
 
 Testons par exemple un cas nominal : vérifions que `est_impair(3)` retourne *True*.
