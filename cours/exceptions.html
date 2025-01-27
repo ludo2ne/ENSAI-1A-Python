@@ -340,7 +340,7 @@ Important
 </div>
 <p>Nous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.</p>
 <p>Lorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.</p>
-<div id="20f363c3" class="cell" data-execution_count="1">
+<div id="ec6120ad" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> verifier_montant(montant):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> montant <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Le montant doit être supérieur à 0."</span>)</span>
@@ -363,7 +363,7 @@ Important
 <p>Gérer une exception consiste à capturer une erreur grâce au bloc <code>try-except</code> pour éviter que le programme ne se termine brutalement.</p>
 </div>
 </div>
-<div id="295e8163" class="cell" data-execution_count="2">
+<div id="2c809710" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retirer_argent(montant):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        verifier_montant(montant)</span>
@@ -371,7 +371,7 @@ Important
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Erreur : </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="1d9698f8" class="cell" data-execution_count="3">
+<div id="c9fece9d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>retirer_argent(<span class="op">-</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Erreur : Le montant doit être supérieur à 0.</code></pre>
@@ -413,7 +413,7 @@ Note
 <section id="création-de-lexception" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="création-de-lexception"><span class="header-section-number">4.1</span> Création de l’exception</h3>
 <p>Pour créer une exception personnalisée, il faut créer une classe qui hérite de la classe <code>Exception</code></p>
-<div id="ee097057" class="cell" data-execution_count="4">
+<div id="e2403b34" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SoldeInsuffisantError(<span class="pp">Exception</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -421,7 +421,7 @@ Note
 <section id="utilisation-dans-une-fonction" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="utilisation-dans-une-fonction"><span class="header-section-number">4.2</span> Utilisation dans une fonction</h3>
 <p>L’exception que nous venons de créer peut être levée dans la fonction ci-dessous</p>
-<div id="8e54f221" class="cell" data-execution_count="5">
+<div id="092f79f0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> verifier_solde(solde, montant):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Vérifie que le montant du retrait demandé est inférieur au solde"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> montant <span class="op">&gt;</span> solde:</span>
@@ -433,7 +433,7 @@ Note
 <h3 data-number="4.3" class="anchored" data-anchor-id="gestion-de-lexception"><span class="header-section-number">4.3</span> Gestion de l’exception</h3>
 <p>La fonction <code>verifier_solde()</code> peut lever une exception.</p>
 <p>Utilisons un bloc <em>try-except</em> pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.</p>
-<div id="efff3363" class="cell" data-execution_count="6">
+<div id="2e6ddc42" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    verifier_solde(<span class="dv">100</span>, <span class="dv">200</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> SoldeInsuffisantError <span class="im">as</span> e:</span>
