@@ -195,17 +195,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../tips.html"> 
-<span class="menu-text">Astuces</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-cours" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Cours</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
+        <li>
+    <a class="dropdown-item" href="../cours/print.html">
+ <span class="dropdown-text">La fonction Print</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/liste-dico.html">
+ <span class="dropdown-text">Listes et Dictionnaires</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/fonctions.html">
+ <span class="dropdown-text">Les Fonctions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/exceptions.html">
+ <span class="dropdown-text">Les Exceptions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/tu.html">
+ <span class="dropdown-text">Les Tests Unitaires</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/ressources.html">
+ <span class="dropdown-text">Ressources utiles</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="../exercices.html"> 
 <span class="menu-text">Exercices</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../ressources.html"> 
-<span class="menu-text">Ressources</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/ludo2ne/ENSAI-1A-Python" target="_blank"> <i class="bi bi-github" role="img">
@@ -474,6 +497,8 @@ Remarques
 <ul>
 <li><code>pytest</code></li>
 <li><code>pytest -v</code> <span class="emoji" data-emoji="arrow_right">➡️</span> v : verbose, pour avoir plus de détails</li>
+<li><code>pytest --tb=short</code> pour afficher une trace courte et résumée (utile pour débugguer)</li>
+<li><code>pytest --maxfail=1</code> pour s’arrêter dès le premier échec</li>
 <li><code>python -m pytest</code> si <em>pytest</em> n’a pas été ajouté au <em>PATH</em></li>
 <li><code>python -m pytest --doctest-modules</code>, pour inclure les doctests</li>
 </ul></li>

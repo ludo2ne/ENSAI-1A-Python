@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic DENEUVILLE">
-<meta name="description" content="2024-2025">
+<meta name="author" content="Ludovic Deneuville">
+<meta name="description" content="Introduction aux TU avec pytest">
 
-<title>Remise en jambe STID - TP Noté – Python 1A</title>
+<title>Les tests unitaires – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,24 +59,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../../">
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-957390e16f8056bf57452af51c800dd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-0e737baddcd55aaef238ba6a7f21118c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-957390e16f8056bf57452af51c800dd0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0e737baddcd55aaef238ba6a7f21118c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="floating nav-fixed">
@@ -116,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Python 1A</span>
     </a>
   </div>
@@ -127,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -137,19 +137,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-remise-en-jambe">    
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/intro.html">
+    <a class="dropdown-item" href="../remise-en-jambe/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp1.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
  <span class="dropdown-text">TP n°2 2023-2024</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
+    <a class="dropdown-item" href="../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
  <span class="dropdown-text">TP n°2 2024-2025</span></a>
   </li>  
     </ul>
@@ -160,35 +160,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tp-poo">    
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/intro.html">
+    <a class="dropdown-item" href="../poo-tp/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp1.html">
+    <a class="dropdown-item" href="../poo-tp/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp2.html">
+    <a class="dropdown-item" href="../poo-tp/tp2.html">
  <span class="dropdown-text">TP n°2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp3.html">
+    <a class="dropdown-item" href="../poo-tp/tp3.html">
  <span class="dropdown-text">TP n°3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp4.html">
+    <a class="dropdown-item" href="../poo-tp/tp4.html">
  <span class="dropdown-text">TP n°4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp5.html">
+    <a class="dropdown-item" href="../poo-tp/tp5.html">
  <span class="dropdown-text">TP n°5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/tp6.html">
+    <a class="dropdown-item" href="../poo-tp/tp6.html">
  <span class="dropdown-text">TP n°6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../poo-tp/td7.html">
+    <a class="dropdown-item" href="../poo-tp/td7.html">
  <span class="dropdown-text">TD n°7</span></a>
   </li>  
     </ul>
@@ -201,33 +201,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="../../../cours/print.html">
+    <a class="dropdown-item" href="../cours/print.html">
  <span class="dropdown-text">La fonction Print</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cours/liste-dico.html">
+    <a class="dropdown-item" href="../cours/liste-dico.html">
  <span class="dropdown-text">Listes et Dictionnaires</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cours/fonctions.html">
+    <a class="dropdown-item" href="../cours/fonctions.html">
  <span class="dropdown-text">Les Fonctions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cours/exceptions.html">
+    <a class="dropdown-item" href="../cours/exceptions.html">
  <span class="dropdown-text">Les Exceptions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cours/tu.html">
+    <a class="dropdown-item" href="../cours/tu.html">
  <span class="dropdown-text">Les Tests Unitaires</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../cours/ressources.html">
+    <a class="dropdown-item" href="../cours/ressources.html">
  <span class="dropdown-text">Ressources utiles</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../exercices.html"> 
+    <a class="nav-link" href="../exercices.html"> 
 <span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item compact">
@@ -256,29 +256,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#consignes" id="toc-consignes" class="nav-link active" data-scroll-target="#consignes">Consignes</a></li>
-  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer">Avant de commencer</a>
-  <ul class="collapse">
-  <li><a href="#créez-votre-espace-de-travail" id="toc-créez-votre-espace-de-travail" class="nav-link" data-scroll-target="#créez-votre-espace-de-travail">Créez votre espace de travail</a></li>
-  <li><a href="#ouvrez-votre-espace-de-travail-dans-visual-studio-code" id="toc-ouvrez-votre-espace-de-travail-dans-visual-studio-code" class="nav-link" data-scroll-target="#ouvrez-votre-espace-de-travail-dans-visual-studio-code">Ouvrez votre espace de travail dans Visual Studio Code</a></li>
-  </ul></li>
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">1</span> Exercice 1</a>
-  <ul class="collapse">
-  <li><a href="#exemple" id="toc-exemple" class="nav-link" data-scroll-target="#exemple"><span class="header-section-number">1.1</span> Exemple</a></li>
-  <li><a href="#travail-à-faire" id="toc-travail-à-faire" class="nav-link" data-scroll-target="#travail-à-faire"><span class="header-section-number">1.2</span> Travail à faire</a></li>
-  </ul></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2</span> Exercice 2</a>
-  <ul class="collapse">
-  <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples"><span class="header-section-number">2.1</span> Exemples</a></li>
-  <li><a href="#travail-à-faire-1" id="toc-travail-à-faire-1" class="nav-link" data-scroll-target="#travail-à-faire-1"><span class="header-section-number">2.2</span> Travail à faire</a></li>
-  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">2.3</span> Bonus</a></li>
-  </ul></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">3</span> Exercice 3</a>
-  <ul class="collapse">
-  <li><a href="#objectif" id="toc-objectif" class="nav-link" data-scroll-target="#objectif"><span class="header-section-number">3.1</span> Objectif</a></li>
-  <li><a href="#exemple-1" id="toc-exemple-1" class="nav-link" data-scroll-target="#exemple-1"><span class="header-section-number">3.2</span> Exemple</a></li>
-  <li><a href="#travail-à-faire-2" id="toc-travail-à-faire-2" class="nav-link" data-scroll-target="#travail-à-faire-2"><span class="header-section-number">3.3</span> Travail à faire</a></li>
-  </ul></li>
+  <li><a href="#la-fonction-à-tester" id="toc-la-fonction-à-tester" class="nav-link active" data-scroll-target="#la-fonction-à-tester"><span class="header-section-number">1</span> La fonction à tester</a></li>
+  <li><a href="#la-doc" id="toc-la-doc" class="nav-link" data-scroll-target="#la-doc"><span class="header-section-number">2</span> La doc</a></li>
+  <li><a href="#un-premier-test-unitaire-avec-pytest" id="toc-un-premier-test-unitaire-avec-pytest" class="nav-link" data-scroll-target="#un-premier-test-unitaire-avec-pytest"><span class="header-section-number">3</span> Un premier test unitaire avec pytest</a></li>
+  <li><a href="#lancer-les-tu" id="toc-lancer-les-tu" class="nav-link" data-scroll-target="#lancer-les-tu"><span class="header-section-number">4</span> Lancer les TU</a></li>
+  <li><a href="#tu-avancés-avec-pytest.mark.parametrize" id="toc-tu-avancés-avec-pytest.mark.parametrize" class="nav-link" data-scroll-target="#tu-avancés-avec-pytest.mark.parametrize"><span class="header-section-number">5</span> TU avancés avec pytest.mark.parametrize</a></li>
+  <li><a href="#couverture-de-test" id="toc-couverture-de-test" class="nav-link" data-scroll-target="#couverture-de-test"><span class="header-section-number">6</span> Couverture de test</a></li>
   </ul>
 </nav>
 </nav>
@@ -291,12 +274,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Remise en jambe STID - TP Noté</h1>
+<h1 class="title">Les tests unitaires</h1>
 </div>
 
 <div>
   <div class="description">
-    2024-2025
+    Introduction aux TU avec pytest
   </div>
 </div>
 
@@ -306,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic DENEUVILLE </p>
+             <p>Ludovic Deneuville </p>
           </div>
   </div>
     
@@ -319,339 +302,261 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="consignes" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="consignes">Consignes</h2>
+<p>Les <strong>tests unitaires (TU)</strong> sont des tests automatisés qui vérifient le comportement d’une petite unité de code, de manière isolée. Leur objectif est de s’assurer que chaque composant du programme fonctionne comme prévu.</p>
+<section id="la-fonction-à-tester" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="la-fonction-à-tester"><span class="header-section-number">1</span> La fonction à tester</h2>
+<p>Commençons par écrire la fonction à tester.</p>
+<p>Prenons l’exemple d’une fonction qui prend en paramètre un entier et retourne s’il est impair.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> est_impair(n) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(n, <span class="bu">int</span>):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Le paramètre doit être un entier."</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Il ne manque pas quelque chose ???</p>
+<p>Mais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc <em>Examples</em>)</p>
+</section>
+<section id="la-doc" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="la-doc"><span class="header-section-number">2</span> La doc</h2>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> est_impair(n) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Détermine si un nombre est impair. </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    n : int</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        Un entier à vérifier.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">    bool</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">        True si `n` est impair, False sinon.</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">        Raises TypeError si n n'est pas un entier.</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; est_impair(5)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    True</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; est_impair(4)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    False</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(n, <span class="bu">int</span>):</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Le paramètre doit être un entier."</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Les doctests c’est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple <em>pytest</em>. Une alternative est d’utiliser <em>unittest</em>.</p>
+</section>
+<section id="un-premier-test-unitaire-avec-pytest" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="un-premier-test-unitaire-avec-pytest"><span class="header-section-number">3</span> Un premier test unitaire avec pytest</h2>
+<p>Testons par exemple un cas nominal : vérifions que <code>est_impair(3)</code> retourne <em>True</em>.</p>
+<p>Créons dans le même dossier, un fichier <code>test_est_impair.py</code>.</p>
+<p>Nous importons le fichier contenant la méthode à tester <em>est_impair.py</em>.</p>
+<p><em>from est_impair import est_impair</em> signifie : depuis (from) le <em>fichier est_impair.py</em> importons la fonction <em>est_impair()</em></p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test_est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="test_est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> est_impair <span class="im">import</span> est_impair</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nombre_impair():</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    nombre <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> est_impair(nombre)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> resultat <span class="kw">is</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Un test unitaire se déroule en 3 étapes :</p>
 <ul>
-<li>À rendre soit seul, soit par groupe de 2</li>
-<li>Déposez sous <u>Moodle</u> (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :
-<ul>
-<li><code>ex1.py</code></li>
-<li><code>ex2.py</code></li>
-<li><code>ex3.py</code></li>
-</ul></li>
-<li>Date limite : 12/09/24 19:00</li>
+<li><em>GIVEN</em> : nous donnons les paramètres à tester</li>
+<li><em>WHEN</em> : nous appelons la fonction</li>
+<li><em>THEN</em> : nous vérifions que le résultat attendu est le même que celui obtenu</li>
 </ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Conseils">
+<p>De la même manière, il faut créer <u>un test unitaire pour chacun des retours possibles</u> :</p>
+<ul>
+<li><em>True</em></li>
+<li><em>False</em></li>
+<li><em>Exception TypeError</em></li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test_est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="test_est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> est_impair <span class="im">import</span> est_impair</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nombre_impair():</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    nombre <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> est_impair(nombre)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> resultat <span class="kw">is</span> <span class="va">True</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nombre_pair():</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    nombre <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> est_impair(nombre)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> resultat <span class="kw">is</span> <span class="va">False</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_type_erreur_string():</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    valeur <span class="op">=</span> <span class="st">"5"</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN/THEN</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(<span class="pp">TypeError</span>, match<span class="op">=</span><span class="st">"Le paramètre doit être un entier."</span>):</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        est_impair(valeur)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled" title="Remarques">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Conseils
+Remarques
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Lisez attentivement et respectez les consignes</li>
-<li>Commentez et expliquez ce que font vos algorithmes</li>
+<li>Pour tester qu’une exception est levée, la syntaxe est légérement différente</li>
+<li>Nous avons besoin d’importer le package <em>pytest</em></li>
 </ul>
 </div>
 </div>
-<p>Vos fichiers devront ressembler à ceci :</p>
+</section>
+<section id="lancer-les-tu" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="lancer-les-tu"><span class="header-section-number">4</span> Lancer les TU</h2>
+<p>Il y a plusieurs possibilités pour lancer les tests unitaires :</p>
+<ul>
+<li>en ligne de commande
+<ul>
+<li><code>pytest</code></li>
+<li><code>pytest -v</code> <span class="emoji" data-emoji="arrow_right">➡️</span> v : verbose, pour avoir plus de détails</li>
+<li><code>pytest --tb=short</code> pour afficher une trace courte et résumée (utile pour débugguer)</li>
+<li><code>pytest --maxfail=1</code> pour s’arrêter dès le premier échec</li>
+<li><code>python -m pytest</code> si <em>pytest</em> n’a pas été ajouté au <em>PATH</em></li>
+<li><code>python -m pytest --doctest-modules</code>, pour inclure les doctests</li>
+</ul></li>
+<li>Via l’interface de VSCode avec l’icone en forme de fiole à gauche</li>
+</ul>
+</section>
+<section id="tu-avancés-avec-pytest.mark.parametrize" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="tu-avancés-avec-pytest.mark.parametrize"><span class="header-section-number">5</span> TU avancés avec pytest.mark.parametrize</h2>
+<p><em>pytest.mark.parametrize</em> est une fonctionnalité de pytest qui permet d’exécuter un même test plusieurs fois avec différents ensembles de données d’entrée.</p>
+<p>Cela remplace la section <em>GIVEN</em> et permet d’éviter la duplication de code pour des cas de test similaires.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
-<pre><strong>ex1.py</strong></pre>
+<pre><strong>test_est_impair.py</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="ex1.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Remise en jambe - TP Noté</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">12/09/2024</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 1 : ?</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 2 : ?</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(?) <span class="op">-&gt;</span> ?:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> coder fonction</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> charger fichier si nécessaire</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># exemple = """coller ici l'exemple"""</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># print(ma_fonction(exemple), ma_fonction(exemple) == "mettez ici le résultat attendu pour l'exemple")</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> ma_fonction(?)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(resultat)  <span class="co"># résultat obtenu : ?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-filename="test_est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> est_impair <span class="im">import</span> est_impair</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"nombre, resultat_attendu"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">3</span>, <span class="va">True</span>),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">2</span>, <span class="va">False</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_est_impair_valeurs_valides(nombre, resultat_attendu):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    resultat_obtenu <span class="op">=</span> est_impair(nombre) </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> resultat_obtenu <span class="op">==</span> resultat_attendu</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"valeur_invalide, type_exception, message"</span>,</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        (<span class="st">"5"</span>, <span class="pp">TypeError</span>, <span class="st">"Le paramètre doit être un entier."</span>),</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        (<span class="fl">3.5</span>, <span class="pp">TypeError</span>, <span class="st">"Le paramètre doit être un entier."</span>),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN / THEN</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(type_exception, match<span class="op">=</span>message):</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        est_impair(valeur_invalide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="avant-de-commencer" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
-<section id="créez-votre-espace-de-travail" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="créez-votre-espace-de-travail">Créez votre espace de travail</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Copiez le dossier <em>U:/Eleves/Informatique/TP2</em></label></li>
-<li><label><input type="checkbox">Collez le dossier <em>TP2</em> dans <em>P:/Cours1A/UE0-Info-Remise-en-jambe/</em></label></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="En ligne de commande">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-En ligne de commande
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>La même chose en lignes de commande :</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Git Bash</code></label>
-<ul>
-<li>Sur le bureau &gt; clic droit &gt; <strong>Git Bash here</strong></li>
-</ul></li>
-<li><label><input type="checkbox">Collez la commande suivante</label>
-<ul>
-<li><code>cp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/</code></li>
-<li>Dans Git Bash <span class="emoji" data-emoji="arrow_right">➡️</span> <em>clic droit &gt; Paste</em> ou <em>MAJ + INSER</em></li>
-</ul></li>
-<li><label><input type="checkbox">Fermez <em>Git Bash</em></label></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="ouvrez-votre-espace-de-travail-dans-visual-studio-code" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="ouvrez-votre-espace-de-travail-dans-visual-studio-code">Ouvrez votre espace de travail dans Visual Studio Code</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <strong>Visual Studio Code</strong></label></li>
-<li><label><input type="checkbox">File &gt; Open Folder</label>
-<ul>
-<li>Allez dans le dossier <em>P:/Cours1A/UE0-Info-Remise-en-jambe/</em></li>
-<li>Cliquez <u>une seule fois</u> sur <em>TP2</em></li>
-<li>Cliquez sur le bouton <span class="text-like-button">Sélectionner un dossier</span></li>
-<li>Votre dossier apparait à gauche dans l’<em>explorer</em></li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="exercice-1" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">1</span> Exercice 1</h2>
-<p>Vous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d’entiers.</p>
-<p>Cette fonction effectue ensuite les actions suivantes :</p>
-<ul>
-<li>Pour chaque ligne, elle fait la différence entre plus grande et plus petite valeur</li>
-<li>Somme les résultats obtenus pour chaque ligne</li>
-<li>Retourne cette somme</li>
-</ul>
-<section id="exemple" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="exemple"><span class="header-section-number">1.1</span> Exemple</h3>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>somme.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb2" data-filename="somme.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>4 1 9 5</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>7 5 3</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>2 4 4 8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Pour comprendre le code ci-dessus, imaginez que pour chaque élément du tableau ci-dessous, vous allez tester <code>assert est_impair(nombre) == resultat_attendu</code></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Ligne</th>
-<th>Min</th>
-<th>Max</th>
-<th>Différence</th>
+<th><strong>Nombre</strong></th>
+<th><strong>Résultat attendu</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ligne 1</td>
-<td>1</td>
-<td>9</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Ligne 2</td>
 <td>3</td>
-<td>7</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Ligne 3</td>
-<td>2</td>
-<td>8</td>
-<td>6</td>
+<td>True</td>
 </tr>
 <tr class="even">
-<td><strong>Total</strong></td>
-<td></td>
-<td></td>
-<td><strong>18</strong></td>
+<td>2</td>
+<td>False</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Résultat : 18</p>
-</div>
-</div>
+<p>Et de même pour chacune des exceptions :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> pytest.raises(type_exception, match<span class="op">=</span>message):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        est_impair(valeur_invalide)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 27%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Valeur invalide</strong></th>
+<th><strong>Type d’exception</strong></th>
+<th><strong>Message</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“5”</td>
+<td><code>TypeError</code></td>
+<td>Le paramètre doit être un entier.</td>
+</tr>
+<tr class="even">
+<td>3.5</td>
+<td><code>TypeError</code></td>
+<td>Le paramètre doit être un entier.</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="travail-à-faire" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="travail-à-faire"><span class="header-section-number">1.2</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Écrivez cette fonction</label></li>
-<li><label><input type="checkbox">Chargez le fichier <a href="./data/somme.txt" target="_blank">somme.txt</a> dans une variable</label></li>
-<li><label><input type="checkbox">Appliquez la fonction au fichier</label>
-<ul>
-<li>Ecrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-</section>
-</section>
-<section id="exercice-2" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2</span> Exercice 2</h2>
-<p>Votre objectif est de compter le nombre de mots de passe valides entre <em>153517</em> et <em>630395</em>.</p>
-<p>Un mot de passe valide vérifie les conditions suivantes :</p>
-<ul>
-<li>taille : 6 digits</li>
-<li>les digits sont rangés dans l’ordre croissant</li>
-<li>il doit y avoir à minima 2 digits de même valeur</li>
-</ul>
-<section id="exemples" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="exemples"><span class="header-section-number">2.1</span> Exemples</h3>
-<ul>
-<li><code>334561</code> : <span class="emoji" data-emoji="x">❌</span> les digits ne sont pas dans l’ordre croissant</li>
-<li><code>456789</code> : <span class="emoji" data-emoji="x">❌</span> absence de 2 digits de même valeur</li>
-<li><code>224789</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> ordre croissant avec 2 digits de même valeur</li>
-<li><code>223344</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> ordre croissant avec au moins 2 digits de même valeur</li>
-</ul>
-</section>
-<section id="travail-à-faire-1" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="travail-à-faire-1"><span class="header-section-number">2.2</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Écrivez une fonction qui prend en paramètre deux entiers et qui :</label>
-<ul>
-<li>vérifie que ces 2 paramètres sont de type <strong>int</strong></li>
-<li>vérifie que ces 2 paramètres contiennent exactement 6 digits</li>
-<li>retourne le nombre de mots de passe valides compris entre ces 2 paramètres</li>
-</ul></li>
-<li><label><input type="checkbox">Appelez cette fonction avec les valeurs <em>153517</em> et <em>630395</em></label>
-<ul>
-<li>Écrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-</section>
-<section id="bonus" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="bonus"><span class="header-section-number">2.3</span> Bonus</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Modifiez votre code (créez une nouvelle fonction) pour faire en sorte d’avoir au moins une paire exactement de digits de même valeur</label>
-<ul>
-<li><span class="emoji" data-emoji="warning">⚠️</span> Ici un triplet ou un quadruplet n’est pas une paire</li>
-</ul></li>
-</ul>
-<hr>
-<ul>
-<li><code>223344</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
-<li><code>222345</code> : <span class="emoji" data-emoji="x">❌</span> car <em>222</em> n’est pas une paire mais un triplet</li>
-<li><code>222244</code> : <span class="emoji" data-emoji="heavy_check_mark">✔️</span> grâce à la paire <em>44</em></li>
-</ul>
-</section>
-</section>
-<section id="exercice-3" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">3</span> Exercice 3</h2>
-<section id="objectif" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="objectif"><span class="header-section-number">3.1</span> Objectif</h3>
-<p>Vous allez recevoir en entrée un fichier contenant une liste d’instructions pour mettre à jour des variables.</p>
-<p>Au départ, toutes les variables utilisées sont initialisées à 0.</p>
-<p>Pour chaque instruction :</p>
-<ul>
-<li>Si la condition est valide, vous appliquez la mise à jour</li>
-<li>Sinon vous passez à l’instruction suivante</li>
-</ul>
-</section>
-<section id="exemple-1" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="exemple-1"><span class="header-section-number">3.2</span> Exemple</h3>
-<p>Voici ci-dessous une liste d’instructions.</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>instructions.txt</strong></pre>
-</div>
-<div class="sourceCode" id="cb3" data-filename="instructions.txt"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>b inc 4 if a &gt; 1</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>a inc 1 if b &lt; 2</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>c dec -5 if a &gt;= 1</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>c inc -10 if c == 5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Votre programme doit lire et appliquer ces instructions dans l’ordre :</p>
-<ul>
-<li><code>b inc 4 if a &gt; 1</code> : signifie que l’on va incrémenter la variable <em>b</em> de 4 si la variable <em>a</em> est strictement supérieure à 1
-<ul>
-<li>or initialement <em>a=0</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <em>a &gt; 1</em> <span class="emoji" data-emoji="x">❌</span> <span class="emoji" data-emoji="arrow_right">➡️</span> la mise à jour de b n’est pas appliquée</li>
-</ul></li>
-<li><code>a inc 1 if b &lt; 2</code> : <em>a</em> est incrémenté de 1 si <em>b</em> est strictement inférieur à 2
-<ul>
-<li><em>b = 0</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <em>b &lt; 2</em> <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = a + 1</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1</em></li>
-</ul></li>
-<li><code>c dec -5 if a &gt;= 1</code>
-<ul>
-<li><em>a = 1</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>c = c - (-5)</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1, c = 5</em></li>
-</ul></li>
-<li><code>c inc -10 if c == 5</code>
-<ul>
-<li><em>c = 5</em> <span class="emoji" data-emoji="arrow_right">➡️</span> condition <span class="emoji" data-emoji="heavy_check_mark">✔️</span> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>c = c + (-10)</em> <span class="emoji" data-emoji="arrow_right">➡️</span> <em>a = 1, c = -5</em></li>
-</ul></li>
-</ul>
-<p>Vous pourriez également rencontrer les opérateurs <code>&lt;=</code> (inférieur ou égal à) ou <code>!=</code> (différent de).</p>
-<p>Le résultat final attendu est le produit de :</p>
-<ul>
-<li>la plus grande valeur d’une variable à la fin (une fois toutes les intructions passées)</li>
-<li>la plus grande valeur d’une variable rencontrée au cours des instructions</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Dans l'exemple">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Dans l’exemple
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>La plus grande valeur à la fin est 1 (<em>a</em>).</li>
-<li>La plus grande valeur au cours des instructions est 5 (<em>c</em> à la 3e étape).</li>
-</ul>
-<p>Le résultat attendu est 1 x 5 = 5.</p>
-</div>
-</div>
-</section>
-<section id="travail-à-faire-2" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="travail-à-faire-2"><span class="header-section-number">3.3</span> Travail à faire</h3>
-<ul class="task-list">
-<li><label><input type="checkbox">Ecrivez une fonction qui répond à ce besoin avec :</label>
-<ul>
-<li>en entrée : une chaine de caractères</li>
-<li>en sortie : retourne le résultat numérique</li>
-</ul></li>
-<li><label><input type="checkbox">Chargez le contenu du fichier <a href="./data/instructions.txt" target="_blank">instructions.txt</a> dans une variable de type <em>str</em></label></li>
-<li><label><input type="checkbox">Appliquez la fonction sur ces données</label>
-<ul>
-<li>Ecrivez en commentaire le résultat obtenu</li>
-</ul></li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Source">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Source
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Exercices inspirés du site <a href="https://adventofcode.com/" target="_blank">AdventOfCode</a> qui propose chaque année en décembre, un problème à résoudre par jour.</p>
-</div>
-</div>
+<section id="couverture-de-test" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="couverture-de-test"><span class="header-section-number">6</span> Couverture de test</h2>
+<p>La <strong>couverture de tests</strong> (ou <em>test coverage</em>) est une mesure qui évalue dans quelle proportion le code d’un programme est exécuté pendant l’exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code.</p>
+<p>Une couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité.</p>
+<p>Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.</p>
+<p>Générer la couverture de tests avec <em>pytest-cov</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer les packages necessaires</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest pytest-cov</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport de couverture</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport html (plus complet)</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span> <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
