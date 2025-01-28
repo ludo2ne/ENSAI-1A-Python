@@ -242,7 +242,7 @@ Une couverture élevée (proche de 100 %) est généralement un indicateur posit
 
 Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.
 
-Générer la couverture de tests avec *pytest-cov*
+Générer la couverture de tests avec *pytest-cov* (possible également avec le package *coverage*).
 
 ```{.bash}
 # Installer les packages necessaires
@@ -254,3 +254,20 @@ pytest --cov
 # Générer un rapport html (plus complet)
 pytest --cov --cov-report=html
 ```
+
+## Exercice {.unnumbered}
+
+Imaginons que vous souhaitez faire évoluer votre fonction *est_impair()*, maintenant elle doit accepter les nombres flottants dont la partie décimale est nulle.
+
+Par exemple :
+
+- `est_impair(2.0)` :arrow_right: True
+- `est_impair(3.0)` :arrow_right: False
+- `est_impair(4.5)` léve toujours une exception TypeError
+
+---
+
+- [ ] Modifiez la fonction *est_impair()*
+- [ ] Vérifiez la couverture de test (elle ne doit plus être à 100 %)
+- [ ] Écrivez le nouveau test unitaire
+- [ ] Vérifiez que la couverture de test est repassée à 100 %
