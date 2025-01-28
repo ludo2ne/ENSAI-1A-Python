@@ -263,6 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lancer-les-tu" id="toc-lancer-les-tu" class="nav-link" data-scroll-target="#lancer-les-tu"><span class="header-section-number">5</span> Lancer les TU</a></li>
   <li><a href="#tu-avancés-avec-pytest.mark.parametrize" id="toc-tu-avancés-avec-pytest.mark.parametrize" class="nav-link" data-scroll-target="#tu-avancés-avec-pytest.mark.parametrize"><span class="header-section-number">6</span> TU avancés avec pytest.mark.parametrize</a></li>
   <li><a href="#couverture-de-test" id="toc-couverture-de-test" class="nav-link" data-scroll-target="#couverture-de-test"><span class="header-section-number">7</span> Couverture de test</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   </ul>
 </nav>
 </nav>
@@ -587,7 +588,7 @@ Remarques
 <p>La <strong>couverture de tests</strong> (ou <em>test coverage</em>) est une mesure qui évalue dans quelle proportion le code d’un programme est exécuté pendant l’exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code.</p>
 <p>Une couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité.</p>
 <p>Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.</p>
-<p>Générer la couverture de tests avec <em>pytest-cov</em></p>
+<p>Générer la couverture de tests avec <em>pytest-cov</em> (possible également avec le package <em>coverage</em>).</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer les packages necessaires</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest pytest-cov</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -596,6 +597,23 @@ Remarques
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport html (plus complet)</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span> <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercice" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
+<p>Imaginons que vous souhaitez faire évoluer votre fonction <em>est_impair()</em>, maintenant elle doit accepter les nombres flottants dont la partie décimale est nulle.</p>
+<p>Par exemple :</p>
+<ul>
+<li><code>est_impair(2.0)</code> <span class="emoji" data-emoji="arrow_right">➡️</span> True</li>
+<li><code>est_impair(3.0)</code> <span class="emoji" data-emoji="arrow_right">➡️</span> False</li>
+<li><code>est_impair(4.5)</code> léve toujours une exception TypeError</li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Modifiez la fonction <em>est_impair()</em></label></li>
+<li><label><input type="checkbox">Vérifiez la couverture de test (elle ne doit plus être à 100 %)</label></li>
+<li><label><input type="checkbox">Écrivez le nouveau test unitaire</label></li>
+<li><label><input type="checkbox">Vérifiez que la couverture de test est repassée à 100 %</label></li>
+</ul>
 
 
 </section>
