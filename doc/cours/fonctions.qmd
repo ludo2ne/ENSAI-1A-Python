@@ -9,7 +9,7 @@ format:
     toc-expand: 3
 from: markdown+emoji
 number-sections: true
-number-depth: 3
+number-depth: 2
 ---
 
 
@@ -115,7 +115,7 @@ carre = lambda x: x**2
 print(carre(6))
 ```
 
-## Template
+## Template {.unnumbered}
 
 Voici un modèle que vous pouvez utiliser pour documenter vos fonctions
 
@@ -139,4 +139,117 @@ def ma_fonction(param1, param2=valeur_par_defaut) -> type_retour:
     """
 
     return None
+```
+
+## Exercices {.unnumbered}
+
+
+### Températures
+
+Écrivez une fonction Python qui prend en entrée une température en **Celsius** et retourne la température correspondante en **Fahrenheit**.
+
+::: {.callout-note}
+$$ F = \frac{9}{5} \times C + 32 $$
+:::
+
+### Parité
+
+Écrivez une fonction qui :
+
+- prend en paramètre un entier
+- affiche s'il est pair ou impair
+
+Complétez la fonction :
+
+- vérifiez que le paramètre est de type entier
+  - sinon affichez un message d'erreur
+- affichez également si le paramètre est un multiple de 3
+
+### Factorielle
+
+Écrivez trois fonctions qui calculent et retournent le factoriel d'un entier *n* :
+
+- [ ] avec une boucle for
+- [ ] avec une boucle while
+- [ ] en utilisant la récursivité
+
+Écrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :
+
+```{.txt}
+1 1 2 6 24 120 ...
+```
+
+### Année bissextile
+
+Écrivez une fonction qui :
+
+- prend en paramètre une année
+- retourne *True* si elle est bissextile, *False* sinon
+
+::: {.callout-note}
+Une année est bissextile si :
+
+- elle est divisible par 4,
+- mais pas divisible par 100, sauf si elle est aussi divisible par 400
+:::
+
+### Fibonacci
+
+- [ ] Écrivez une fonction qui retourne le *n* ième terme de la suite de Fibonacci
+- [ ] Écrivez une autre fonction qui affiche les *n* premiers termes de la suite de Fibonacci
+
+::: {.callout-note title="Rappel"}
+La suite de Fibonacci $(F_{n})_{n\in \mathbb {N}}$ est définie par :
+
+- $F_{0} = 0$
+- $F_{1} = 1$ 
+- $F_{n} = F_{n-1} + F_{n-2}$ pour $n \geq 2$
+:::
+
+### Palindrome
+
+Un nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.
+
+Écrivez une fonction qui :
+
+- prend en entrée un entier
+- retourne *True* si le nombre est un palindrome
+
+Comptez le nombre de palindromes entre 0 et 100 000.
+
+### Crible d'Ératosthène
+
+Créez une fonction qui génére la liste des nombres premiers de 2 à *n* (paramètre de la fonction) en utilisant le crible d'Ératosthène.
+
+::: {.callout-note title="Crible d'Ératosthène"}
+L'idée est de rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens. Nous partons du principe que tous les nombres sont premiers, puis nous éliminons un à un ceux qui ne le sont pas.
+
+- Créez une liste de longueur *n* de booléen valant *True*
+- Mettez à *False* les éléments d'index 0 et 1 car ces deux nombres ne sont pas premiers
+- Mettez à *False* tous les éléments ayant un index multiple de 2
+- Recherchez le prochain nombre encore potentiellement premier supérieur à 2 (i.e. 3) et mettez à *False* tous ses multiples
+- etc.
+
+Récupérez les index ayant pour valeur *True* et retournez cette liste de nombres premiers.
+:::
+
+### Conjecture de Goldbach
+
+La **conjecture de Goldbach** stipule que tout nombre pair supérieur ou égal à 4 peut être écrit comme la somme de deux nombres premiers.
+
+Écrivez une fonction qui vérifie la conjecture de Goldbach pour les entiers de 4 à *n*.
+
+La fonction `verif_Goldbach(20)` retournera un booléen et affichera ce type de message :
+
+```{.txt}
+4 = 2 + 2
+6 = 3 + 3
+8 = 3 + 5
+10 = 3 + 7
+12 = 5 + 7
+14 = 3 + 11
+16 = 3 + 13
+18 = 5 + 13
+20 = 3 + 17
+La conjecture de Goldbach est vérifiée jusqu'à 20.
 ```

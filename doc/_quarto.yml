@@ -56,8 +56,6 @@ website:
             text: "Les Exceptions"
           - href: cours/tu.qmd
             text: "Les Tests Unitaires"
-          - href: cours/ressources.qmd
-            text: "Ressources utiles"
       - href: exercices.qmd
         text: Exercices
       - icon: github

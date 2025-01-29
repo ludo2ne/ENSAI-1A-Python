@@ -130,3 +130,6 @@ except SoldeInsuffisantError as e:
 
 
 
+## Liens {.unnumbered}
+
+- [Python, the right way : Gestion d'exceptions](https://datacrafting.substack.com/p/jour-22-ii-python-the-right-way-gestion){target="_blank"}

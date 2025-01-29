@@ -271,3 +271,9 @@ Par exemple :
 - [ ] Vérifiez la couverture de test (elle ne doit plus être à 100 %)
 - [ ] Écrivez le nouveau test unitaire
 - [ ] Vérifiez que la couverture de test est repassée à 100 %
+
+
+## Liens {.unnumbered}
+
+- [Python, the right way : Tester son code et le TDD](https://datacrafting.substack.com/p/jour-24-ii-python-the-right-way-tester){target="_blank"}
+- [Python, the right way : Pytest](https://datacrafting.substack.com/p/jour-25-ii-python-the-right-way-pytest){target="_blank"}

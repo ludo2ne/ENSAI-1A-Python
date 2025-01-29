@@ -54,6 +54,14 @@ for i, v in enumerate(liste):
     print(f"index {i} : valeur {v}")
 ```
 
+### Compréhension de liste
+
+:construction:
+
+```{.python}
+[i**2 for i in range(10)]
+```
+
 ## Dictionnaire
 
 ### Parcours de dictionnaires
@@ -74,4 +82,8 @@ for k, v in dico.items():
     print(f"clé {k} : valeur {v}")
 ```
 
+
+## Liens {.unnumbered}
+
+- [Structures interessantes](https://blog.amigoscode.com/p/11-data-structures-every-developer){target="_blank"}
 
