@@ -105,6 +105,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -220,10 +249,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../cours/tu.html">
  <span class="dropdown-text">Les Tests Unitaires</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../cours/ressources.html">
- <span class="dropdown-text">Ressources utiles</span></a>
-  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -261,7 +286,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#valeur-par-défaut" id="toc-valeur-par-défaut" class="nav-link" data-scroll-target="#valeur-par-défaut"><span class="header-section-number">3</span> Valeur par défaut</a></li>
   <li><a href="#multiples-retours" id="toc-multiples-retours" class="nav-link" data-scroll-target="#multiples-retours"><span class="header-section-number">4</span> Multiples retours</a></li>
   <li><a href="#lambda-fonctions" id="toc-lambda-fonctions" class="nav-link" data-scroll-target="#lambda-fonctions"><span class="header-section-number">5</span> Lambda fonctions</a></li>
-  <li><a href="#template" id="toc-template" class="nav-link" data-scroll-target="#template"><span class="header-section-number">6</span> Template</a></li>
+  <li><a href="#template" id="toc-template" class="nav-link" data-scroll-target="#template">Template</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices">Exercices</a>
+  <ul class="collapse">
+  <li><a href="#températures" id="toc-températures" class="nav-link" data-scroll-target="#températures">Températures</a></li>
+  <li><a href="#parité" id="toc-parité" class="nav-link" data-scroll-target="#parité">Parité</a></li>
+  <li><a href="#factorielle" id="toc-factorielle" class="nav-link" data-scroll-target="#factorielle">Factorielle</a></li>
+  <li><a href="#année-bissextile" id="toc-année-bissextile" class="nav-link" data-scroll-target="#année-bissextile">Année bissextile</a></li>
+  <li><a href="#fibonacci" id="toc-fibonacci" class="nav-link" data-scroll-target="#fibonacci">Fibonacci</a></li>
+  <li><a href="#palindrome" id="toc-palindrome" class="nav-link" data-scroll-target="#palindrome">Palindrome</a></li>
+  <li><a href="#crible-dératosthène" id="toc-crible-dératosthène" class="nav-link" data-scroll-target="#crible-dératosthène">Crible d’Ératosthène</a></li>
+  <li><a href="#conjecture-de-goldbach" id="toc-conjecture-de-goldbach" class="nav-link" data-scroll-target="#conjecture-de-goldbach">Conjecture de Goldbach</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -305,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="valeur-retournée" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="valeur-retournée"><span class="header-section-number">1</span> Valeur retournée</h2>
 <p>Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers <em>a</em> et <em>b</em>.</p>
-<div id="946edc39" class="cell" data-execution_count="1">
+<div id="3a71de3e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -313,14 +349,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La fonction <code>maximum()</code> retourne une valeur qui peut-être stockée :</p>
-<div id="9edf3743" class="cell" data-execution_count="2">
+<div id="8267cf77" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res</em> a maintenant pour valeur : 8</p>
 </section>
 <section id="simple-affichage" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="simple-affichage"><span class="header-section-number">2</span> Simple affichage</h2>
-<div id="83e89e87" class="cell" data-execution_count="3">
+<div id="fbbba02f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -333,14 +369,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>elle ne fait qu’afficher le maximum</li>
 <li>elle ne renvoie pas de résultat</li>
 </ul>
-<div id="615d7c0e" class="cell" data-execution_count="4">
+<div id="29b639f3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>Si l’on essaie de stocker le résultat, il vaudra simplement <em>None</em>.</p>
-<div id="a7df7537" class="cell" data-execution_count="5">
+<div id="424c6b3a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>La variable <em>res2</em> a maintenant pour valeur : None</p>
@@ -348,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="valeur-par-défaut" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="valeur-par-défaut"><span class="header-section-number">3</span> Valeur par défaut</h2>
 <p>Il est possible de donner aux paramètres une valeur par défaut</p>
-<div id="f374e725" class="cell" data-execution_count="6">
+<div id="671bc8c3" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -356,13 +392,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b48d4322" class="cell" data-execution_count="7">
+<div id="d8b8fdde" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="8517bcad" class="cell" data-execution_count="8">
+<div id="78831bc2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
@@ -372,12 +408,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="multiples-retours" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="multiples-retours"><span class="header-section-number">4</span> Multiples retours</h2>
 <p>Une fonction peut retourner plusieurs valeurs.</p>
-<div id="daf67756" class="cell" data-execution_count="9">
+<div id="bacdedba" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="79d69a15" class="cell" data-execution_count="10">
+<div id="a1de26fc" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -390,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="lambda-fonctions" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="lambda-fonctions"><span class="header-section-number">5</span> Lambda fonctions</h2>
 <p>Une manière très concise pour définir des fonctions</p>
-<div id="fc0adef4" class="cell" data-execution_count="11">
+<div id="e8954adf" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -399,8 +435,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="template" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="template"><span class="header-section-number">6</span> Template</h2>
+<section id="template" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="template">Template</h2>
 <p>Voici un modèle que vous pouvez utiliser pour documenter vos fonctions</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2<span class="op">=</span>valeur_par_defaut) <span class="op">-&gt;</span> type_retour:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
@@ -421,8 +457,156 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="exercices" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="exercices">Exercices</h2>
+<section id="températures" class="level3">
+<h3 class="anchored" data-anchor-id="températures">Températures</h3>
+<p>Écrivez une fonction Python qui prend en entrée une température en <strong>Celsius</strong> et retourne la température correspondante en <strong>Fahrenheit</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[ F = \frac{9}{5} \times C + 32 \]</span></p>
+</div>
+</div>
+</section>
+<section id="parité" class="level3">
+<h3 class="anchored" data-anchor-id="parité">Parité</h3>
+<p>Écrivez une fonction qui :</p>
+<ul>
+<li>prend en paramètre un entier</li>
+<li>affiche s’il est pair ou impair</li>
+</ul>
+<p>Complétez la fonction :</p>
+<ul>
+<li>vérifiez que le paramètre est de type entier
+<ul>
+<li>sinon affichez un message d’erreur</li>
+</ul></li>
+<li>affichez également si le paramètre est un multiple de 3</li>
+</ul>
+</section>
+<section id="factorielle" class="level3">
+<h3 class="anchored" data-anchor-id="factorielle">Factorielle</h3>
+<p>Écrivez trois fonctions qui calculent et retournent le factoriel d’un entier <em>n</em> :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">avec une boucle for</label></li>
+<li><label><input type="checkbox">avec une boucle while</label></li>
+<li><label><input type="checkbox">en utilisant la récursivité</label></li>
+</ul>
+<p>Écrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>1 1 2 6 24 120 ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="année-bissextile" class="level3">
+<h3 class="anchored" data-anchor-id="année-bissextile">Année bissextile</h3>
+<p>Écrivez une fonction qui :</p>
+<ul>
+<li>prend en paramètre une année</li>
+<li>retourne <em>True</em> si elle est bissextile, <em>False</em> sinon</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une année est bissextile si :</p>
+<ul>
+<li>elle est divisible par 4,</li>
+<li>mais pas divisible par 100, sauf si elle est aussi divisible par 400</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fibonacci" class="level3">
+<h3 class="anchored" data-anchor-id="fibonacci">Fibonacci</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">Écrivez une fonction qui retourne le <em>n</em> ième terme de la suite de Fibonacci</label></li>
+<li><label><input type="checkbox">Écrivez une autre fonction qui affiche les <em>n</em> premiers termes de la suite de Fibonacci</label></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled" title="Rappel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Rappel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La suite de Fibonacci <span class="math inline">\((F_{n})_{n\in \mathbb {N}}\)</span> est définie par :</p>
+<ul>
+<li><span class="math inline">\(F_{0} = 0\)</span></li>
+<li><span class="math inline">\(F_{1} = 1\)</span></li>
+<li><span class="math inline">\(F_{n} = F_{n-1} + F_{n-2}\)</span> pour <span class="math inline">\(n \geq 2\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="palindrome" class="level3">
+<h3 class="anchored" data-anchor-id="palindrome">Palindrome</h3>
+<p>Un nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.</p>
+<p>Écrivez une fonction qui :</p>
+<ul>
+<li>prend en entrée un entier</li>
+<li>retourne <em>True</em> si le nombre est un palindrome</li>
+</ul>
+<p>Comptez le nombre de palindromes entre 0 et 100 000.</p>
+</section>
+<section id="crible-dératosthène" class="level3">
+<h3 class="anchored" data-anchor-id="crible-dératosthène">Crible d’Ératosthène</h3>
+<p>Créez une fonction qui génére la liste des nombres premiers de 2 à <em>n</em> (paramètre de la fonction) en utilisant le crible d’Ératosthène.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Crible d'Ératosthène">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Crible d’Ératosthène
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’idée est de rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens. Nous partons du principe que tous les nombres sont premiers, puis nous éliminons un à un ceux qui ne le sont pas.</p>
+<ul>
+<li>Créez une liste de longueur <em>n</em> de booléen valant <em>True</em></li>
+<li>Mettez à <em>False</em> les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers</li>
+<li>Mettez à <em>False</em> tous les éléments ayant un index multiple de 2</li>
+<li>Recherchez le prochain nombre encore potentiellement premier supérieur à 2 (i.e.&nbsp;3) et mettez à <em>False</em> tous ses multiples</li>
+<li>etc.</li>
+</ul>
+<p>Récupérez les index ayant pour valeur <em>True</em> et retournez cette liste de nombres premiers.</p>
+</div>
+</div>
+</section>
+<section id="conjecture-de-goldbach" class="level3">
+<h3 class="anchored" data-anchor-id="conjecture-de-goldbach">Conjecture de Goldbach</h3>
+<p>La <strong>conjecture de Goldbach</strong> stipule que tout nombre pair supérieur ou égal à 4 peut être écrit comme la somme de deux nombres premiers.</p>
+<p>Écrivez une fonction qui vérifie la conjecture de Goldbach pour les entiers de 4 à <em>n</em>.</p>
+<p>La fonction <code>verif_Goldbach(20)</code> retournera un booléen et affichera ce type de message :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>4 = 2 + 2</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>6 = 3 + 3</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>8 = 3 + 5</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>10 = 3 + 7</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>12 = 5 + 7</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>14 = 3 + 11</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>16 = 3 + 13</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>18 = 5 + 13</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>20 = 3 + 17</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>La conjecture de Goldbach est vérifiée jusqu'à 20.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
