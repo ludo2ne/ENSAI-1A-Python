@@ -12,111 +12,35 @@ number-sections: true
 number-depth: 3
 ---
 
-## Créer l'arborscence
 
-```
-└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...
+## Introduction {.unnumbered}
+
+### Créer l'arborscence {.unnumbered}
+
+Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal *Git Bash* les commandes ci-dessous (*mkdir : make directory*):
+
+```{.bash}
+# Sur la VM ensai
+mkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/
+
+# Sur un Datalab Onyxia
+mkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..4}/
 ```
 
-Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l'arborscence ci-dessus.
-Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
+### Moodle {.unnumbered}
 
-- [ ] Ouvrez `Git Bash`
-  - Sur le bureau > clic droit > **Git Bash here**
-- [ ] Collez la commande suivante
-  - `mkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/`
-  - dans Git Bash : clic droit > Paste ou MAJ + INSER
-- [ ] Fermez *Git Bash*
-
-:::{.callout-warning}
-### Utilisez le lecteur **P:**
-
-Il est important de stocker vos fichiers dans votre lecteur `P:` et pas sur votre bureau ou votre disque *C:* car vos fichiers risqueraient de disparaitre !
-:::
-
-## Moodle
-
-- [ ] Aller sur la page du [TP3](https://foad-moodle.ensai.fr/pluginfile.php/27913/mod_resource/content/3/TP3%20-%20Sujet.pdf){.external target="_blank"}
+- [ ] Aller sur la page du [TP3](https://foad-moodle.ensai.fr/pluginfile.php/27913/mod_resource/content/3/TP3%20-%20Sujet.pdf){target="_blank"}
 - [ ] Ouvrez le sujet et enregistrez le dans `/p/Cours1A/IPOO/TP3`
 
 
-## Visual Studio Code
 
-- [ ] Ouvrez Visual Studio Code
-  - [ ] File > Open Folder
-  - [ ] Cliquez [une seule fois]{.underline} sur **Exercice_1**
-  - [ ] Cliquez sur `Sélectionner un dossier`
-    - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
+## Rappels {.unnumbered}
 
-## Exercices
 
-### Exercice 1
-
-- pour lancer les tests (en collant dans un terminal)
-  - `python -m pytest --doctest-modules` 
-- :warning: dans une liste python, le premier élément est à l'index 0
-  - le dernier élément est à l'index `len(liste) - 1`
-
-#### Parcourir des listes
+### Fonction - Template {.unnumbered}
 
 ```{.python}
-liste = ["a", "b", "c", "d", "e"]
-
-# Par index
-for i in range(len(liste)):
-    print(f"index : {i}, valeur : {liste[i]}")
-
-# Par valeurs
-for v in liste:
-    print(v)
-
-# Combiner index et valeurs
-for i, v in enumerate(liste):
-    print(f"index : {i}, valeur : {v}")
-```
-
-
-:::{.callout-tip collapse="true"}
-#### Aide
-
-- pour écrire les tests, voir TP2 > ex2
-- importer un module :arrow_right: CM voir diapo 14
-- commencer à l'index 3 : `liste[3:]`
-
-:::
-
-### Exercice 2
-
-- [ ] VSCode > File > Open Folder
-- [ ] Cliquez [une seule fois]{.underline} sur **Exercice_2**
-- [ ] Cliquez sur `Sélectionner un dossier`
-
-:::{.callout-note}
-La fonction *map(fonction, liste)* permet d'appliquer une fonction à une liste (mais vous n'avez pas le droit de l'utiliser)
-:::
-
-
-## Template doc
-
-Voici un modèle que vous pouvez utiliser pour documenter vos fonctions
-
-```{.python}
-def ma_fonction(param1, param2):
+def ma_fonction(param1, param2=valeur_par_defaut) -> type_retour:
     """description_courte
 
     description_longue
@@ -143,14 +67,10 @@ def ma_fonction(param1, param2):
     valeur_esperee
     """
     return None
-
-
-if __name__ == '__main__':
-    a = ma_fonction(p1, p2)
-    print(a)
 ```
 
-## Template pytest
+
+### TU avec pytest - Modèle {.unnumbered}
 
 ```{.python}
 import pytest
@@ -167,3 +87,79 @@ from mon_fichier import ma_fonction
 def test_ma_fonction(param1, param2, resultat_attendu):
     assert ma_fonction(param1, param2) == resultat_attendu
 ```
+
+- Lancer les TU : `python -m pytest --doctest-modules`
+
+
+
+
+## Exercices
+
+### Exercice 1
+
+
+- [ ] Ouvrez Visual Studio Code
+  - [ ] File > Open Folder
+  - [ ] Cliquez [une seule fois]{.underline} sur **Exercice_1**
+  - [ ] Cliquez sur `Sélectionner un dossier`
+    - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
+
+---
+
+- [ ] Écrivez la fonction *position()*
+- [ ] Écrivez les tests unitaires de la fonction *position()*
+- [ ] Écrivez la fonction *sous_liste()*
+- [ ] Écrivez les tests unitaires de la fonction *sous_liste()*
+
+Quel est le gros souci dans les TU de *sous_liste()* ?
+
+:::{.callout-tip collapse="true" title="Astuces"}
+
+#### Parcourir des listes
+
+```{.python}
+liste = ["a", "b", "c", "d", "e"]
+
+# Par index
+for i in range(0, len(liste)):
+    print(i, liste[i])
+
+# Par valeurs
+for v in liste:
+    print(v)
+
+# Combiner index et valeurs
+for i, v in enumerate(liste):
+    print(f"index : {i}, valeur : {v}")
+```
+
+#### Slicing
+
+```{.python}
+liste = ["a", "b", "c", "d", "e"]
+```
+
+| Opération       | Résultat                    | Explication                                   |
+|-----------------|-----------------------------|-----------------------------------------------|
+| `liste[2:]`     | `['c', 'd', 'e']`           | De l'index 2 jusqu'à la fin                   |
+| `liste[:3]`     | `['a', 'b', 'c']`           | Du début à l'index 2 (3 exclus)               |
+| `liste[1:4]`    | `['b', 'c', 'd']`           | De l'index 1 à 3 (4 exclus)                   |
+| `liste[::2]`    | `['a', 'c', 'e']`           | Un élément sur deux                           |
+| `liste[1::2]`   | `['b', 'd']`                | Un élément sur deux en commençant à l'index 1 |
+| `liste[-3:]`    | `['c', 'd', 'e']`           | Les trois derniers éléments                   |
+| `liste[:-2]`    | `['a', 'b', 'c']`           | Tout sauf les deux derniers                   |
+| `liste[::-1]`   | `['e', 'd', 'c', 'b', 'a']` | Inversion de la liste                         |
+| `liste[::-2]`   | `['e', 'c', 'a']`           | Inversion avec un pas de 2                    |
+
+
+#### Importer un module
+
+`from mon_module import ma_fonction` signifie "depuis le fichier *mon_module.py*, on importe la fonction *ma_fonction*"
+
+:::
+
+### Exercice 2
+
+- [ ] VSCode > File > Open Folder
+- [ ] Cliquez [une seule fois]{.underline} sur **Exercice_2**
+- [ ] Cliquez sur `Sélectionner un dossier`
