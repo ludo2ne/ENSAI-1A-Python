@@ -56,10 +56,37 @@ for i, v in enumerate(liste):
 
 ### Compréhension de liste
 
-:construction:
+La compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d'un itérable.
 
-```{.python}
+#### i² pour i allant de 0 à 9
+
+Vous souhaitez générer la liste des carrés des entiers de 0 à 9.
+
+::: {.callout-note title="Code classique" collapse="true"}
+
+Un code classique serait :
+
+```{python}
+entiers = list(range(10))   # [0, 1, 2, ..., 9]
+carres = []
+
+for el in entiers:
+    carres.append(el ** 2)
+```
+:::
+
+La compréhension de liste permet de faire la même chose avec une écriture plus concise.
+
+```{python}
 [i**2 for i in range(10)]
+```
+
+#### i pour i allant de 0 à 9 si i est pair
+
+Il est également possible d'ajouter une condition.
+
+```{python}
+[i for i in range(10) if i % 2 == 0]
 ```
 
 ## Dictionnaire
