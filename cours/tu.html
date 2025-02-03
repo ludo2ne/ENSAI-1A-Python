@@ -258,7 +258,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#un-premier-test-unitaire-avec-pytest" id="toc-un-premier-test-unitaire-avec-pytest" class="nav-link" data-scroll-target="#un-premier-test-unitaire-avec-pytest"><span class="header-section-number">4</span> Un premier test unitaire avec pytest</a></li>
   <li><a href="#lancer-les-tu" id="toc-lancer-les-tu" class="nav-link" data-scroll-target="#lancer-les-tu"><span class="header-section-number">5</span> Lancer les TU</a></li>
   <li><a href="#tu-avancés-avec-pytest.mark.parametrize" id="toc-tu-avancés-avec-pytest.mark.parametrize" class="nav-link" data-scroll-target="#tu-avancés-avec-pytest.mark.parametrize"><span class="header-section-number">6</span> TU avancés avec pytest.mark.parametrize</a></li>
-  <li><a href="#couverture-de-test" id="toc-couverture-de-test" class="nav-link" data-scroll-target="#couverture-de-test"><span class="header-section-number">7</span> Couverture de test</a></li>
+  <li><a href="#les-mocks" id="toc-les-mocks" class="nav-link" data-scroll-target="#les-mocks"><span class="header-section-number">7</span> Les Mocks</a></li>
+  <li><a href="#before-after" id="toc-before-after" class="nav-link" data-scroll-target="#before-after"><span class="header-section-number">8</span> Before / After</a></li>
+  <li><a href="#couverture-de-test" id="toc-couverture-de-test" class="nav-link" data-scroll-target="#couverture-de-test"><span class="header-section-number">9</span> Couverture de test</a></li>
   <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice">Exercice</a></li>
   <li><a href="#liens" id="toc-liens" class="nav-link" data-scroll-target="#liens">Liens</a></li>
   </ul>
@@ -302,6 +304,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Les <strong>tests unitaires (TU)</strong> sont des tests automatisés qui vérifient le comportement d’une petite unité de code, de manière isolée. Leur objectif est de s’assurer que chaque composant du programme fonctionne comme prévu.</p>
+<p>Un bon test unitaire doit être :</p>
+<ul>
+<li><strong>Isolé</strong> : tester uniquement une unité spécifique de code et ne doit pas dépendre d’autres composants du système.</li>
+<li><strong>Automatisé</strong> : pour pouvoir être exécuté à chaque modification du code, assurant ainsi la détection rapide des régressions.</li>
+<li><strong>Clair et lisible</strong> : facile à comprendre, avec un nom explicite et une logique qui décrit clairement ce qui est testé</li>
+<li><strong>Déterministe</strong> : produire les mêmes résultats chaque fois qu’il est exécuté dans les mêmes conditions</li>
+</ul>
 <section id="la-fonction-à-tester" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="la-fonction-à-tester"><span class="header-section-number">1</span> La fonction à tester</h2>
 <p>Commençons par écrire la fonction à tester.</p>
@@ -580,20 +589,95 @@ Remarques
 </tbody>
 </table>
 </section>
-<section id="couverture-de-test" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="couverture-de-test"><span class="header-section-number">7</span> Couverture de test</h2>
+<section id="les-mocks" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="les-mocks"><span class="header-section-number">7</span> Les Mocks</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Et si tous les tests unitaires effectués jusqu’ici étaient faux…</p>
+<p>Vraiment ??? <span class="emoji" data-emoji="astonished">😲</span></p>
+<p>Oui ils sont tous incorrects, mais pourquoi ?</p>
+</div>
+</div>
+<p>Rappelons-nous le code de notre fonction :</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> est_impair(n) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(n, <span class="bu">int</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Le paramètre doit être un entier."</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Avez-vous confiance en la fonction <code>isinstance()</code> ?</li>
+<li>À priori oui, c’est une fonction native de Python, mais quand même…</li>
+<li>Si jamais elle disfonctionnait, les TU sur notre fonction <code>est_impair()</code> seraient en erreur</li>
+</ul>
+<p>Un test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu’elle utilise.</p>
+<ul>
+<li>Comment faire pour tester uniquement notre fonction ?</li>
+<li>Nous allons figer le résultat renvoyé par <code>isinstance()</code> grâce aux Mocks</li>
+</ul>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>test_est_impair.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="test_est_impair.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_nombre_impair_avec_mock(mocker):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># GIVEN</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    mocker.patch(<span class="st">"est_impair.isinstance"</span>, return_value<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    nombre <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># WHEN</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    resultat <span class="op">=</span> est_impair(nombre)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># THEN</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> resultat <span class="kw">is</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode <code>isinstance()</code> sera appelée dans le module <em>est_impair</em>, elle renverra <em>True</em>, quelque soit ses arguments.</p>
+</section>
+<section id="before-after" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="before-after"><span class="header-section-number">8</span> Before / After</h2>
+<p>Il peut être utile, pour configurer ou mettre au propre, d’exécuter du code :</p>
+<ul>
+<li>Avant ou après tous les tests</li>
+<li>Avant ou après chaque test</li>
+</ul>
+<p>À ajouter si besoin dans le module de test :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"session"</span>, autouse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> before_after_all():</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Avant tous les tests"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Après tous les tests"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span>(scope<span class="op">=</span><span class="st">"function"</span>, autouse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> before_after_each():</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Avant chaque test"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">yield</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Après chaque test"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="couverture-de-test" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="couverture-de-test"><span class="header-section-number">9</span> Couverture de test</h2>
 <p>La <strong>couverture de tests</strong> (ou <em>test coverage</em>) est une mesure qui évalue dans quelle proportion le code d’un programme est exécuté pendant l’exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code.</p>
 <p>Une couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité.</p>
 <p>Il est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.</p>
 <p>Générer la couverture de tests avec <em>pytest-cov</em> (possible également avec le package <em>coverage</em>).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer les packages necessaires</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest pytest-cov</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport de couverture</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport html (plus complet)</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span> <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installer les packages necessaires</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pytest pytest-cov</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport de couverture</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Générer un rapport html (plus complet)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pytest</span> <span class="at">--cov</span> <span class="at">--cov-report</span><span class="op">=</span>html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exercice" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="exercice">Exercice</h2>
