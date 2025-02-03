@@ -15,6 +15,15 @@ number-depth: 3
 
 Les **tests unitaires (TU)** sont des tests automatisés qui vérifient le comportement d'une petite unité de code, de manière isolée. Leur objectif est de s'assurer que chaque composant du programme fonctionne comme prévu.
 
+
+Un bon test unitaire doit être :
+
+- **Isolé** : tester uniquement une unité spécifique de code et ne doit pas dépendre d'autres composants du système.
+- **Automatisé** : pour pouvoir être exécuté à chaque modification du code, assurant ainsi la détection rapide des régressions.
+- **Clair et lisible** : facile à comprendre, avec un nom explicite et une logique qui décrit clairement ce qui est testé
+- **Déterministe** : produire les mêmes résultats chaque fois qu'il est exécuté dans les mêmes conditions
+
+
 ## La fonction à tester
 
 Commençons par écrire la fonction à tester.
@@ -234,6 +243,76 @@ Et de même pour chacune des exceptions :
 | 3.5                 | `TypeError`         | Le paramètre doit être un entier.    |
 
 
+
+
+## Les Mocks
+
+::: {.callout-warning}
+Et si tous les tests unitaires effectués jusqu'ici étaient faux...
+
+Vraiment ??? :astonished:
+
+Oui ils sont tous incorrects, mais pourquoi ?
+:::
+
+Rappelons-nous le code de notre fonction :
+
+```{.python filename="est_impair.py"}
+def est_impair(n) -> bool:
+    if not isinstance(n, int):
+        raise TypeError("Le paramètre doit être un entier.")
+    return n % 2 != 0
+```
+
+- Avez-vous confiance en la fonction `isinstance()` ?
+- À priori oui, c'est une fonction native de Python, mais quand même...
+- Si jamais elle disfonctionnait, les TU sur notre fonction `est_impair()` seraient en erreur
+
+Un test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu'elle utilise.
+
+- Comment faire pour tester uniquement notre fonction ?
+- Nous allons figer le résultat renvoyé par `isinstance()` grâce aux Mocks
+
+```{.python filename="test_est_impair.py"}
+def test_nombre_impair_avec_mock(mocker):
+    # GIVEN
+    mocker.patch("est_impair.isinstance", return_value=True)
+    nombre = 3
+
+    # WHEN
+    resultat = est_impair(nombre)
+
+    # THEN
+    assert resultat is True
+```
+
+Dans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode `isinstance()` sera appelée dans le module *est_impair*, elle renverra *True*, quelque soit ses arguments.
+
+
+## Before / After
+
+Il peut être utile, pour configurer ou mettre au propre, d'exécuter du code :
+
+- Avant ou après tous les tests
+- Avant ou après chaque test
+
+À ajouter si besoin dans le module de test :
+
+```{.python}
+@pytest.fixture(scope="session", autouse=True)
+def before_after_all():
+    print("Avant tous les tests")
+    yield
+    print("Après tous les tests")
+
+
+@pytest.fixture(scope="function", autouse=True)
+def before_after_each():
+    print("Avant chaque test")
+    yield
+    print("Après chaque test")
+```
+
 ## Couverture de test
 
 La **couverture de tests** (ou *test coverage*) est une mesure qui évalue dans quelle proportion le code d'un programme est exécuté pendant l'exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code. 
@@ -277,3 +356,4 @@ Par exemple :
 
 - [Python, the right way : Tester son code et le TDD](https://datacrafting.substack.com/p/jour-24-ii-python-the-right-way-tester){target="_blank"}
 - [Python, the right way : Pytest](https://datacrafting.substack.com/p/jour-25-ii-python-the-right-way-pytest){target="_blank"}
+

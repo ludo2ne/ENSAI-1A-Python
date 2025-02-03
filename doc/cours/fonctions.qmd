@@ -253,3 +253,7 @@ La fonction `verif_Goldbach(20)` retournera un booléen et affichera ce type de 
 20 = 3 + 17
 La conjecture de Goldbach est vérifiée jusqu'à 20.
 ```
+
+### Scores de Rugby
+
+Écrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque *n*.

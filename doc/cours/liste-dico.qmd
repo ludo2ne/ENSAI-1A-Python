@@ -89,6 +89,13 @@ Il est également possible d'ajouter une condition.
 [i for i in range(10) if i % 2 == 0]
 ```
 
+### Slicing
+
+:construction:
+
+<https://koor.fr/Python/Tutorial/python_type_list.wp>
+
+
 ## Dictionnaire
 
 ### Parcours de dictionnaires
