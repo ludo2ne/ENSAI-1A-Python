@@ -28,7 +28,10 @@ Un bon test unitaire doit être :
 
 Commençons par écrire la fonction à tester.
 
-Prenons l'exemple d'une fonction qui prend en paramètre un entier et retourne s'il est impair.
+Prenons l'exemple d'une fonction qui :
+
+- vérifie que le paramètre est un entier
+- retourne s'il est impair
 
 ```{.python filename="est_impair.py"}
 def est_impair(n) -> bool:
@@ -71,7 +74,7 @@ def est_impair(n) -> bool:
     return n % 2 != 0
 ```
 
-Les doctests c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple *pytest*. Une alternative est d'utiliser *unittest*.
+Les [doctests](https://docs.python.org/3/library/doctest.html){target="_blank"} c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple [pytest](https://docs.pytest.org/){target="_blank"}. Une alternative est d'utiliser [unittest](https://docs.python.org/3/library/unittest.html){target="_blank"}.
 
 
 ## La méthode naïve
@@ -174,6 +177,8 @@ def test_type_erreur_string():
 
 ## Lancer les TU
 
+Avant de commencer, il faut installer *pytest* qui n'est pas inclus nativement : `pip install pytest`
+
 Il y a plusieurs possibilités pour lancer les tests unitaires :
 
 - en ligne de commande
@@ -186,7 +191,9 @@ Il y a plusieurs possibilités pour lancer les tests unitaires :
 - Via l'interface de VSCode avec l'icone en forme de fiole à gauche
 
 
-## TU avancés avec pytest.mark.parametrize
+## TU avancés 
+
+### pytest.mark.parametrize
 
 *pytest.mark.parametrize* est une fonctionnalité de pytest qui permet d'exécuter un même test plusieurs fois avec différents ensembles de données d'entrée. 
 
@@ -239,10 +246,45 @@ Et de même pour chacune des exceptions :
 
 | **Valeur invalide** | **Type d'exception** | **Message**                          |
 |---------------------|----------------------|--------------------------------------|
-| "5"                 | `TypeError`         | Le paramètre doit être un entier.    |
-| 3.5                 | `TypeError`         | Le paramètre doit être un entier.    |
+| "5"                 | `TypeError`          | Le paramètre doit être un entier.    |
+| 3.5                 | `TypeError`          | Le paramètre doit être un entier.    |
 
 
+### Fixtures
+
+Si des valeurs sont utilisées plusieurs fois dans tes tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.
+
+Par exemple, si nous voulons éviter de recopier à chaque fois ce message, nous le stockons et pouvons l'utiliser pour toutes les fonctions de notre fichier de test.
+
+```{.python}
+@pytest.fixture
+def message_erreur():
+    return "Le paramètre doit être un entier."
+```
+
+```{.python}
+@pytest.mark.parametrize(
+    "valeur_invalide, type_exception",
+    [
+        ("5", TypeError),
+        (3.5, TypeError),
+    ],
+)
+def test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message_erreur):
+    # WHEN / THEN
+    with pytest.raises(type_exception, match=message_erreur):
+        est_impair(valeur_invalide)
+```
+
+Et si l'on veut définir des fixtures communes pour tous les fichiers de test ?
+
+Dans ce cas positionnez vos fixtures partagées dans un fichier nommé *conftest.py*
+
+```{.python filename="conftest.py"}
+@pytest.fixture
+def ma_liste():
+    return [0, 1, 2, 3]
+```
 
 
 ## Les Mocks
@@ -266,9 +308,14 @@ def est_impair(n) -> bool:
 
 - Avez-vous confiance en la fonction `isinstance()` ?
 - À priori oui, c'est une fonction native de Python, mais quand même...
-- Si jamais elle disfonctionnait, les TU sur notre fonction `est_impair()` seraient en erreur
+- Si jamais elle disfonctionnait ?
+    - les TU sur notre fonction `est_impair()` seraient en erreur
+    - pourtant ce n'est pas le code de notre fonction qui est faux
+    - c'est simplement qu'elle appelle une autre fonction qui serait incorrecte
 
+::: {.callout-important}
 Un test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu'elle utilise.
+:::
 
 - Comment faire pour tester uniquement notre fonction ?
 - Nous allons figer le résultat renvoyé par `isinstance()` grâce aux Mocks
@@ -288,6 +335,18 @@ def test_nombre_impair_avec_mock(mocker):
 
 Dans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode `isinstance()` sera appelée dans le module *est_impair*, elle renverra *True*, quelque soit ses arguments.
 
+
+::: {.callout-tip title="Remarque"}
+Mocker *isinstance()* c'est sans doute être un peu trop perfectionniste. Est-ce qu'il faut aussi mocker `1 + 1` car nous ne sommes pas sur que cela renverra 2 ?
+
+L'exemple ci-dessus était principalement à vertu pédagogique.
+
+Les mocks peuvent également servir par exemple pour :
+
+- simuler une API externe sans faire de requêtes réelles
+- remplacer une base de données ou un fichier
+- vérifier qu'une fonction qui envoie des mails est bien déclenchée sans envoyer réellement de mails
+:::
 
 ## Before / After
 
