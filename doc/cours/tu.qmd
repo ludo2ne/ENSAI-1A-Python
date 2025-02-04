@@ -12,16 +12,23 @@ number-sections: true
 number-depth: 3
 ---
 
+::: {.callout-note title="Pourquoi tester ?"}
+- pour vérifier que le programme fonctionne
+- pour éviter les bugs
+- pour éviter les régressions
+:::
+
 
 Les **tests unitaires (TU)** sont des tests automatisés qui vérifient le comportement d'une petite unité de code, de manière isolée. Leur objectif est de s'assurer que chaque composant du programme fonctionne comme prévu.
 
-
+::: {.callout-tip}
 Un bon test unitaire doit être :
 
 - **Isolé** : tester uniquement une unité spécifique de code et ne doit pas dépendre d'autres composants du système.
 - **Automatisé** : pour pouvoir être exécuté à chaque modification du code, assurant ainsi la détection rapide des régressions.
 - **Clair et lisible** : facile à comprendre, avec un nom explicite et une logique qui décrit clairement ce qui est testé
 - **Déterministe** : produire les mêmes résultats chaque fois qu'il est exécuté dans les mêmes conditions
+:::
 
 
 ## La fonction à tester
@@ -33,18 +40,53 @@ Prenons l'exemple d'une fonction qui :
 - vérifie que le paramètre est un entier
 - retourne s'il est impair
 
-```{.python filename="est_impair.py"}
+```{python filename="est_impair.py"}
 def est_impair(n) -> bool:
     if not isinstance(n, int):
         raise TypeError("Le paramètre doit être un entier.")
     return n % 2 != 0
 ```
 
-Il ne manque pas quelque chose ???
+Parfait, maintenant comment tester ?
+
+### La méthode naïve
+
+::: {.callout-note}
+Ce que l'on fait tous naturellement !
+
+Nous appelons la fonction et affichons le résultat pour vérifier.
+:::
+
+```{python}
+print(est_impair(1))
+```
+
+
+```{python}
+print(est_impair(2))
+```
+
+
+```{python}
+try:
+    est_impair("toto")
+except TypeError as e:
+    print(f"Erreur : {e}")
+```
+
+::: {.callout-tip title="Pourquoi ce n'est pas la bonne méthode"}
+- Pas automatisé : Nécessite une intervention manuelle pour vérifier les résultats
+- Non reproductible : Chaque test doit être relancé à la main
+- Temps perdu : Refaire les tests manuellement est chronophage
+- Oublis possibles : Facile de négliger des cas limites ou des scénarios d'erreur
+:::
+
+
+### La doc
+
+Il ne manque pas quelque chose dans notre fonction ???
 
 Mais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc *Examples*)
-
-## La doc
 
 ```{.python filename="est_impair.py"}
 def est_impair(n) -> bool:
@@ -77,39 +119,19 @@ def est_impair(n) -> bool:
 Les [doctests](https://docs.python.org/3/library/doctest.html){target="_blank"} c'est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple [pytest](https://docs.pytest.org/){target="_blank"}. Une alternative est d'utiliser [unittest](https://docs.python.org/3/library/unittest.html){target="_blank"}.
 
 
-## La méthode naïve
-
-::: {.callout-note}
-Ce que l'on fait tous naturellement !
-
-Nous appelons la fonction et affichons le résultat pour vérifier.
-:::
-
-```{.python}
-print(est_impair(1))
-
-print(est_impair(2))
-
-est_impair("toto")
-```
-
-::: {.callout-tip title="Pourquoi ce n'est pas la bonne méthode"}
-- Pas automatisé : Nécessite une intervention manuelle pour vérifier les résultats
-- Non reproductible : Chaque test doit être relancé à la main
-- Temps perdu : Refaire les tests manuellement est chronophage
-- Oublis possibles : Facile de négliger des cas limites ou des scénarios d'erreur
-:::
-
 
 ## Un premier test unitaire avec pytest
 
-Testons par exemple un cas nominal : vérifions que `est_impair(3)` retourne *True*.
+Testons par exemple un cas nominal :arrow_right: vérifions que `est_impair(3)` retourne *True*.
 
-Créons dans le même dossier, un fichier `test_est_impair.py`. 
+Créons dans le même dossier, un fichier *test_est_impair.py*. 
 
-Nous importons le fichier contenant la méthode à tester *est_impair.py*.
+Nous importons le fichier *est_impair.py* qui contient la méthode à tester.
 
-*from est_impair import est_impair* signifie : depuis (from) le *fichier est_impair.py* importons la fonction *est_impair()*
+`from est_impair import est_impair` signifie : 
+
+- depuis (from) le *fichier est_impair.py* 
+- importons la fonction *est_impair()*
 
 ```{.python filename="test_est_impair.py"}
 from est_impair import est_impair
@@ -252,7 +274,7 @@ Et de même pour chacune des exceptions :
 
 ### Fixtures
 
-Si des valeurs sont utilisées plusieurs fois dans tes tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.
+Si des valeurs sont utilisées plusieurs fois dans les tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.
 
 Par exemple, si nous voulons éviter de recopier à chaque fois ce message, nous le stockons et pouvons l'utiliser pour toutes les fonctions de notre fichier de test.
 
@@ -339,7 +361,7 @@ Dans le test unitaire ci-dessus, le patch signifie que chaque fois que la métho
 ::: {.callout-tip title="Remarque"}
 Mocker *isinstance()* c'est sans doute être un peu trop perfectionniste. Est-ce qu'il faut aussi mocker `1 + 1` car nous ne sommes pas sur que cela renverra 2 ?
 
-L'exemple ci-dessus était principalement à vertu pédagogique.
+L'exemple ci-dessus était principalement à vertu pédagogique pour montrer comment isoler la partie du code que l'on souhaite tester.
 
 Les mocks peuvent également servir par exemple pour :
 
@@ -353,9 +375,10 @@ Les mocks peuvent également servir par exemple pour :
 Il peut être utile, pour configurer ou mettre au propre, d'exécuter du code :
 
 - Avant ou après tous les tests
-- Avant ou après chaque test
+- Avant ou après tous les tests de ce module
+- Avant ou après chaque test de ce module
 
-À ajouter si besoin dans le module de test :
+Dans le module de test, vous pouvez ajouter ce code en remplaçant les prints par les opérations à réaliser.
 
 ```{.python}
 @pytest.fixture(scope="session", autouse=True)
@@ -363,6 +386,13 @@ def before_after_all():
     print("Avant tous les tests")
     yield
     print("Après tous les tests")
+
+
+@pytest.fixture(scope="module", autouse=True)
+def before_after_module():
+    print("Avant tous les tests de ce fichier")
+    yield
+    print("Après tous les tests de ce fichier")
 
 
 @pytest.fixture(scope="function", autouse=True)
