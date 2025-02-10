@@ -1,0 +1,17 @@
+{
+    "files.insertFinalNewline": true,
+    "flake8.args": [
+        "--max-line-length=88"
+    ],
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.pytest_cache": true
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "editor.rulers": [88]
+}

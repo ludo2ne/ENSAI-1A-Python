@@ -19,6 +19,7 @@ Vous trouverez sur ce site des supports pratiques pour les enseignements de Pyth
 - [Introduction à Python 3 pour la programmation scientifique](https://courspython.com/){target="_blank"}, David Cassagne
 - [Python pour la data science](https://pythonds.linogaliana.fr/){target="_blank"}, Lino Galiana (INSEE, ENSAE)
 - [Real Python](https://realpython.com/){target="_blank"}
+- [Cours de Python, Université Paris Diderot)](https://python.sdv.u-paris.fr/)
 
 ### Datavisualisation
 

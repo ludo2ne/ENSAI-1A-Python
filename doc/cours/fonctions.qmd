@@ -257,3 +257,10 @@ La conjecture de Goldbach est vérifiée jusqu'à 20.
 ### Scores de Rugby
 
 Écrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque *n*.
+
+
+### Triplet pythagoricien
+
+a² + b² = c²
+
+a+b+c=1000
