@@ -10,7 +10,6 @@ class JeuDomino:
         """Créé une nouvelle partie de domino
 
         Implémentation de la fonction cree_jeu_dominos() de la partie II.
-
         """
 
         self.__jeu = []  # Tous les Dominos de la pioche
@@ -105,10 +104,7 @@ class JeuDomino:
         """
         return (
             (len(self.__main) == 0)
-            or (
-                (len(self.__jeu) == 0)
-                and not self.bon_jeu(self.__main, self.__dominos_poses)
-            )
+            or ((len(self.__jeu) == 0) and not self.bon_jeu(self.__main, self.__dominos_poses))
             or choix == -1
         )
 
@@ -133,9 +129,7 @@ class JeuDomino:
                     ):
                         self.__dominos_poses.append(domino_pose)
                     else:
-                        self.__dominos_poses.append(
-                            Domino(domino_pose.extr_B, domino_pose.extr_A)
-                        )
+                        self.__dominos_poses.append(Domino(domino_pose.extr_B, domino_pose.extr_A))
 
             # Sinon
             else:
@@ -149,9 +143,7 @@ class JeuDomino:
             print("Vous avez décidé d'arrêter le jeu.")
         elif len(self.__main) == 0:
             print("Vous avez gagné.")
-        elif (len(self.__jeu) == 0) and not self.bon_jeu(
-            self.__main, self.__dominos_poses
-        ):
+        elif (len(self.__jeu) == 0) and not self.bon_jeu(self.__main, self.__dominos_poses):
             print("Vous avez perdu.")
 
 

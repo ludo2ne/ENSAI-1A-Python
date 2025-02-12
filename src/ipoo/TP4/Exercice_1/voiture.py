@@ -1,7 +1,7 @@
 class Voiture:
     """Définition d'une voiture.
 
-    Parameters
+    Attributes
     ----------
     nom : str
         Nom de la voiture.
@@ -24,6 +24,7 @@ class Voiture:
     >>> print(a3)
     Voiture bovelo de couleur jaune roule à 8km/h.
     """
+
     def __init__(self, nom, couleur, vitesse=0):
         self.couleur = couleur
         self.nom = nom
@@ -70,7 +71,7 @@ class Voiture:
         if decrement >= 0:
             self.vitesse = max(0, self.vitesse - decrement)
 
-    def est_arretee(self):
+    def est_arretee(self) -> bool:
         """La voiture est-elle à l'arrêt ?
 
         Returns
@@ -101,3 +102,8 @@ class Voiture:
             v = f"roule à {self.vitesse}km/h"
 
         return f"Voiture {self.nom} de couleur {self.couleur} {v}."
+
+
+if __name__ == "__main__":
+    v1 = Voiture("alice", "jaune")
+    print(v1)

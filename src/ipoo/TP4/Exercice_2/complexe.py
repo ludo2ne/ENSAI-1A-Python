@@ -1,7 +1,7 @@
 class Complexe:
     """Nombre complexe.
 
-    Parameters
+    Attributes
     ----------
     reel : float
         Partie réelle.
@@ -45,7 +45,7 @@ class Complexe:
             return f"{self.reel} + {self.imaginaire}i"
 
     def __repr__(self) -> str:
-        return "Complexe({}, {})".format(self.reel, self.imaginaire)
+        return f"Complexe({self.reel}, {self.imaginaire})"
 
 
 if __name__ == "__main__":
