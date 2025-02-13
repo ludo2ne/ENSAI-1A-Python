@@ -23,7 +23,7 @@ Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un ter
 mkdir -p /p/Cours1A/IPOO/TP4/Exercice_{1..3}/
 
 # Sur un Datalab Onyxia
-mkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..3}/
+mkdir -p /home/onyxia/work/IPOO/TP4/Exercice_{1..3}/
 ```
 
 ### Moodle {.unnumbered}

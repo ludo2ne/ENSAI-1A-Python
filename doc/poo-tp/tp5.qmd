@@ -12,165 +12,25 @@ number-sections: true
 number-depth: 3
 ---
 
-## Créer l'arborscence
 
-```
-└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...
+## Introduction {.unnumbered}
+
+### Créer l'arborscence {.unnumbered}
+
+Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal *Git Bash* les commandes ci-dessous (*mkdir : make directory*):
+
+```{.bash}
+# Sur la VM ensai
+mkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/
+
+# Sur un Datalab Onyxia
+mkdir -p /home/onyxia/work/IPOO/TP5/Exercice_{1..5}/
 ```
 
-Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l'arborscence ci-dessus.
-Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
-
-- [ ] Ouvrez `Git Bash`
-  - Sur le bureau > clic droit > **Git Bash here**
-- [ ] Collez la commande suivante
-  - `mkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/`
-  - dans Git Bash : clic droit > Paste ou MAJ + INSER
-- [ ] Fermez *Git Bash*
-
-:::{.callout-important}
-### Utilisez le lecteur **P:**
-
-Il est important de stocker vos fichiers dans votre lecteur `P:` et pas sur votre bureau ou votre disque *C:* car vos fichiers risqueraient de disparaitre !
-:::
-
-## Moodle
+## Moodle {.unnumbered}
 
 - [ ] Aller sur la page du [TP5](https://foad-moodle.ensai.fr/pluginfile.php/27920/mod_resource/content/4/TP5%20-%20Sujet.pdf){.external target="_blank"}
 - [ ] Ouvrez le sujet et enregistrez le dans `/p/Cours1A/IPOO/TP5`
-
-
-## Rappels
-
-### Classes et Objets
-
-- une `classe` est comme un *"moule"* qui sert à fabriquer des objets
-- un `objet` est une *instance* de classe
-- une classe est composée
-  - d'attributs : ce qu'elle est
-  - de méthodes : ce qu'elle peut faire
-
-:::{.callout-important}
-- un nom de classe s'écrit en *CamelCase* (majuscule à chaque mot)
-- une seule classe par fichier
-  - une classe = un module
-  - le nom du module s'écrit en *snake_case* (mots en minuscules séparés par des _)
-:::
-
-#### Exemple : classe Frac
-
-```{.python filename="frac.py"}
-class Frac:
-    def __init__(self, num, denom=1) -> None:
-        """Constructeur"""        
-        if denom == 0:
-            raise ValueError("le dénominateur ne peut être nul")
-        self.num = num 
-        self.denom = denom
-
-    def add(self, autre_fraction):
-        """Additionne deux fractions"""
-        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom 
-        denominateur = self.denom * autre_fraction.denom 
-        return Frac(numerateur, denominateur)
-
-    def __str__(self) -> str:
-        """Retourne une chaîne affichant la fraction"""
-        return f"{self.num} / {self.denom}"
-```
-
-#### Exemple : Créer des objets Frac
-
-```{.python filename="__main__.py"}
-from frac import Frac
-
-f1 = Frac(1, 2)
-f2 = Frac(1, 4)
-
-f3 = f1.add(f2)
-print(f3)
-```
-
-### Tests
-
-#### Doctest
-
-- écrits dans la documentation sous le mot clé `Examples`
-- aprés les `>>>` : code Python exécuté
-  - si le code renvoie un résultat, écrire ce résultat à la ligne en dessous
-  - sinon, écrire le code suivant
-
-Reprenons la classe *Frac* ci-dessus
-
-```{.python filename="frac.py"}
-class Frac:
-    def __init__(self, num, denom=1) -> None:
-        """Constructeur
-
-        Examples
-        --------        
-        >>> f1 = Frac(1, 2)
-        >>> f1.num, f1.denom
-        (1, 2)
-        >>> f2 = Frac(3)
-        >>> f2.num, f2.denom
-        (3, 0)
-        >>> f4 = Frac(4, 0)
-        Traceback (most recent call last):
-        ...
-        ValueError: le dénominateur ne peut être nul
-        """        
-        if denom == 0:
-            raise ValueError("le dénominateur ne peut être nul")
-        self.num = num 
-        self.denom = denom
-
-    def add(self, autre_fraction):
-        """Additionne deux fractions
-        
-        Examples
-        --------
-        >>> f1 = Frac(1, 2)
-        >>> f2 = Frac(1, 3)
-        >>> f3 = f1.add(f2)
-        >>> f3.num
-        5
-        >>> f3.denom
-        6
-        """
-        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom 
-        denominateur = self.denom * autre_fraction.denom 
-        return Frac(numerateur, denominateur)
-```
-
-#### Lancer les tests 
-
-Plusieurs possibilités :
-
-1. Coller ceci en bas de votre classe, puis cliquer sur l'icone *éxéctuer* :arrow_forward:
-  ```{.python}
-  if __name__ == '__main__':
-      import doctest    
-
-	  doctest.testmod(verbose=True)
-  ```
-2. dans un terminal : `python -m pytest --doctest-modules`
-3. utiliser l'interface de VSCode (à gauche icone Testing en forme de fiole triangulaire)
 
 
 ## Exercices
@@ -184,6 +44,7 @@ Plusieurs possibilités :
     - dans votre *Explorer* à gauche apparait l'arborescence des dossiers et fichiers de **Exercice_1**
 - [ ] créez un fichier `article.py`
   - [ ] dans ce ficher, créez la classe `Article` (vous pouvez utiliser le template de classe ci-dessous)
+- [ ] Lancez les doctests : `python -m pytest --doctest-modules`
 
 
 #### Attributs privés
@@ -239,11 +100,11 @@ class Article:
         self.__prix = prix
 
     def obtenir_prix(self):
-        '''Getter'''
+        """Getter"""
         return self.__prix
 
     def modifier_prix(self, new_prix):
-        '''Setter'''
+        """Setter"""
         if isinstance(new_prix, int) and new_prix > 0:
             self.__prix = new_prix
 ```
@@ -290,7 +151,7 @@ print(a._Article__prix)
 
 
 
-::: {.callout-important title="Public, privé, protected"}
+#### Public, privé, protected
 
 |             | Code UML | Préfixe Python | Description                                                                                                                             |
 |-------------|:--------:|:--------------:|-----------------------------------------------------------------------------------------------------------------------------------------|
@@ -298,7 +159,7 @@ print(a._Article__prix)
 | **Privé**   | `-`      | `__`           | Pas natif en Python. Il ne peut être accédé qu'à l'intérieur de la classe elle-même.                                                   |
 | **Protected** | `#`     | `_`            | Pas natif en Python. Seules la classe possédant l’élément et les classes filles peuvent y accéder.                                     |
 
-: {.striped .hover .success}
+: {.striped .hover}
 
 :::
 
@@ -344,11 +205,15 @@ $$concentration = \frac{volume\_sirop}{volume\_eau + volume\_sirop}$$
 
 
 
-## Template classe
+
+
+## Templates
+
+### Classe
 
 ```{.python}
 class MaClasse:
-	'''titre_ma_classe
+	"""titre_ma_classe
 
 	Description
 
@@ -358,15 +223,11 @@ class MaClasse:
 		desc_attribut_1
         
 	attribut_2 : type_attribut_2
-		desc_attribut_2.
-        Valeur par défaut : False
-        
-	attribut_3 : type_attribut_3
-		desc_attribut_3. Initialisé à 0
-	'''
+		desc_attribut_2
+	"""
 	
 	def __init__(self, parametre_1, parametre_2):
-		'''Constructeur de l'objet
+		"""Constructeur de l'objet
 
 		Parameters
 		----------
@@ -375,13 +236,12 @@ class MaClasse:
             
 		parametre_2 : type_parametre_2
 			desc_parametre_2
-		'''
+		"""
 		self.attribut_1 = parametre_1
 		self.attribut_2 = parametre_2
-		self.attribut_3 = 0
 
 	def ma_methode(self, param1):
-		'''desc_courte_ma_methode
+		"""desc_courte_ma_methode
 
 		desc_longue_ma_methode_facultatif		
 
@@ -400,23 +260,23 @@ class MaClasse:
 		>>> mon_obj = ma_classe("toto")
         >>> mon_obj.ma_methode("xxx")
 		2
-		'''
+		"""
 		return 2
 
 	def __str__(self):
-		'''Conversion de l'objet en chaîne de caractères
+		"""Conversion de l'objet en chaîne de caractères
 		
 		Examples
 		--------
 		>>> mon_obj = ma_classe("toto")
 		>>> print(mon_obj)
 		Classe d'attribut_1 égal à toto
-		'''
+		"""
 		return f"Classe d'attribut_1 égal à {self.attribut_1}"
 ```
 
 
-## Template fonction
+### Fonction
 
 Voici un modèle que vous pouvez utiliser pour documenter vos fonctions
 
@@ -453,22 +313,4 @@ def ma_fonction(param1, param2):
 if __name__ == '__main__':
     a = ma_fonction(p1, p2)
     print(a)
-```
-
-## Template pytest
-
-```{.python}
-import pytest
-from mon_fichier import ma_fonction
-
-@pytest.mark.parametrize(
-    'param1, param2, resultat_attendu',
-    [
-        (1,       1,                2),
-        (1,       2,                3),
-        (2,       2,                4)
-    ]
-)
-def test_ma_fonction(param1, param2, resultat_attendu):
-    assert ma_fonction(param1, param2) == resultat_attendu
 ```
