@@ -1,276 +1,52 @@
 [
   {
-    "objectID": "remise-en-jambe/tp1.html",
-    "href": "remise-en-jambe/tp1.html",
-    "title": "TP Remise en jambe - STID",
+    "objectID": "poo-tp/td7.html",
+    "href": "poo-tp/td7.html",
+    "title": "POO, documentation et tests - TD1",
     "section": "",
-    "text": "Une bonne habitude pour s’y retrouver et de créer une arborscence claire\n└── P:\n    └── Cours1A\n        └── UE0-Info-Remise-en-jambe\n            ├── src\n            │   ├── ex1.py\n            │   ├── ex2.py\n            │   └── ...\nVous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez les commandes suivantes\n\nmkdir -p /p/Cours1A/UE0-Info-Remise-en-jambe/src/\ntouch /p/Cours1A/UE0-Info-Remise-en-jambe/src/ex{1..5}.py\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et non sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !\n\n\n\nOuvrez le logiciel Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans /p/Cours1A/\nCliquez une seule fois sur UE0-Info-Remise-en-jambe\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer\n\n\n\n\n\nCréez à la racine un dossier .vscode\nDans ce dossier, créez un fichier nommé settings.json et collez le contenu ci-dessous\n\n\n\nsettings.json\n\n{\n    \"flake8.args\": [\n        \"--max-line-length=100\"\n    ],\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"ms-python.black-formatter\",\n        \"editor.formatOnSave\": true,\n        \"editor.insertSpaces\": true,\n        \"editor.tabSize\": 4\n    },\n    \"black-formatter.args\": [\"--line-length\", \"100\"],\n    \"python.analysis.extraPaths\": [\n        \"./*\"\n    ],\n    \"python.languageServer\": \"Jedi\",\n    \"python.testing.pytestEnabled\": true,\n    \"files.exclude\": {\n        \"**/__pycache__\": true,\n        \"**/.pytest_cache\": true\n    },\n    \"terminal.integrated.env.windows\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.env.linux\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.defaultProfile.windows\": \"Git Bash\",\n}\n\n\nFermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif\n\n\n\n\n\n\n\nNote\n\n\n\nCe fichier de settings permet d’intégrer à votre espace de travail :\n\nBlack : un formateur automatique de code\nFlake8 : un linter\nGit Bash : comme terminal par défaut\ncacher certains fichiers non utiles"
+    "text": "Lorsqu’un changement dans une classe implique la modiﬁcation du comportement d’une autre classe\nDans l’exemple, l’état de la fenêtre va dépendre de l’attribut outils de la personne\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Personne {\n        - nom: string\n        - age: int\n    }\n\n    class Fenetre {\n        + etat: string\n        + opération(p : Personne)\n    }\n\n    Personne ..&gt; Fenetre\n\n\n\n\n\n\n\n\n\n\nrelation structurelle entre deux classes\nil est possible de naviguer d’un objet d’une classe, à un ou plusieurs objets de l’autre classe\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Personne {\n        - nom: string\n        - age: int\n    }\n    \n    Entreprise \"*\" -- \"*\" Personne : emploie\n\n\n\n\n\n\n\n\n\n\nlorsqu’un élément est constitué d’un autre\nSupprimer l’agrégat (vélo) ne supprime pas le composant (roue)\n\nici on peut imaginer retirer la roue d’un vélo pour la mettre sur un autre vélo\n\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Velo {\n        - couleur: string\n    }\n    \n    class Roue {\n        - taille: int\n    }\n    \n    Velo \"1\" o-- \"2\" Roue : posséde\n\n\n\n\n\n\n\n\n\n\nle composant est détruit lorsque l’agrégat est détruit\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Departement {\n        - nom: string\n    }\n    \n    Entreprise \"1\" *-- \"*\" Departement : a\n\n\n\n\n\n\n\n\n\n\nHéritage\n\n\n\n\n\n\nclassDiagram\n    direction TB\n    class Animal{\n        + age: int\n        + gender: String\n        + isMammal() : bool\n        + mate()\n    }\n    class Duck{\n        + beakColor: String\n        + swim()\n        + quack()\n    }\n    Animal &lt;|-- Duck"
   },
   {
-    "objectID": "remise-en-jambe/tp1.html#avant-de-commencer",
-    "href": "remise-en-jambe/tp1.html#avant-de-commencer",
-    "title": "TP Remise en jambe - STID",
+    "objectID": "poo-tp/td7.html#uml",
+    "href": "poo-tp/td7.html#uml",
+    "title": "POO, documentation et tests - TD1",
     "section": "",
-    "text": "Une bonne habitude pour s’y retrouver et de créer une arborscence claire\n└── P:\n    └── Cours1A\n        └── UE0-Info-Remise-en-jambe\n            ├── src\n            │   ├── ex1.py\n            │   ├── ex2.py\n            │   └── ...\nVous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez les commandes suivantes\n\nmkdir -p /p/Cours1A/UE0-Info-Remise-en-jambe/src/\ntouch /p/Cours1A/UE0-Info-Remise-en-jambe/src/ex{1..5}.py\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et non sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !\n\n\n\nOuvrez le logiciel Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans /p/Cours1A/\nCliquez une seule fois sur UE0-Info-Remise-en-jambe\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer\n\n\n\n\n\nCréez à la racine un dossier .vscode\nDans ce dossier, créez un fichier nommé settings.json et collez le contenu ci-dessous\n\n\n\nsettings.json\n\n{\n    \"flake8.args\": [\n        \"--max-line-length=100\"\n    ],\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"ms-python.black-formatter\",\n        \"editor.formatOnSave\": true,\n        \"editor.insertSpaces\": true,\n        \"editor.tabSize\": 4\n    },\n    \"black-formatter.args\": [\"--line-length\", \"100\"],\n    \"python.analysis.extraPaths\": [\n        \"./*\"\n    ],\n    \"python.languageServer\": \"Jedi\",\n    \"python.testing.pytestEnabled\": true,\n    \"files.exclude\": {\n        \"**/__pycache__\": true,\n        \"**/.pytest_cache\": true\n    },\n    \"terminal.integrated.env.windows\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.env.linux\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.defaultProfile.windows\": \"Git Bash\",\n}\n\n\nFermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif\n\n\n\n\n\n\n\nNote\n\n\n\nCe fichier de settings permet d’intégrer à votre espace de travail :\n\nBlack : un formateur automatique de code\nFlake8 : un linter\nGit Bash : comme terminal par défaut\ncacher certains fichiers non utiles"
+    "text": "Lorsqu’un changement dans une classe implique la modiﬁcation du comportement d’une autre classe\nDans l’exemple, l’état de la fenêtre va dépendre de l’attribut outils de la personne\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Personne {\n        - nom: string\n        - age: int\n    }\n\n    class Fenetre {\n        + etat: string\n        + opération(p : Personne)\n    }\n\n    Personne ..&gt; Fenetre\n\n\n\n\n\n\n\n\n\n\nrelation structurelle entre deux classes\nil est possible de naviguer d’un objet d’une classe, à un ou plusieurs objets de l’autre classe\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Personne {\n        - nom: string\n        - age: int\n    }\n    \n    Entreprise \"*\" -- \"*\" Personne : emploie\n\n\n\n\n\n\n\n\n\n\nlorsqu’un élément est constitué d’un autre\nSupprimer l’agrégat (vélo) ne supprime pas le composant (roue)\n\nici on peut imaginer retirer la roue d’un vélo pour la mettre sur un autre vélo\n\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Velo {\n        - couleur: string\n    }\n    \n    class Roue {\n        - taille: int\n    }\n    \n    Velo \"1\" o-- \"2\" Roue : posséde\n\n\n\n\n\n\n\n\n\n\nle composant est détruit lorsque l’agrégat est détruit\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Departement {\n        - nom: string\n    }\n    \n    Entreprise \"1\" *-- \"*\" Departement : a\n\n\n\n\n\n\n\n\n\n\nHéritage\n\n\n\n\n\n\nclassDiagram\n    direction TB\n    class Animal{\n        + age: int\n        + gender: String\n        + isMammal() : bool\n        + mate()\n    }\n    class Duck{\n        + beakColor: String\n        + swim()\n        + quack()\n    }\n    Animal &lt;|-- Duck"
   },
   {
-    "objectID": "remise-en-jambe/tp1.html#rappels",
-    "href": "remise-en-jambe/tp1.html#rappels",
-    "title": "TP Remise en jambe - STID",
-    "section": "Rappels",
-    "text": "Rappels\n\nListes et boucles\nUne liste en Python est une collection ordonnée et modifiable d’éléments, pouvant contenir des éléments de différents types.\nVoici quelques exemples de boucles pour afficher les éléments de la liste.\nliste = [\"Alice\", \"Benoit\", \"Camille\"]\n\nfor v in liste:\n    print(v)\n\nfor i in range(len(liste)):\n    print(liste[i])\n\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\nindex = 0\nwhile index &lt; len(liste):\n    print(liste[index])\n    index += 1\n\n\nRange\nVous pouvez également étudier le comportement de la fonction range selon son nombre de paramètres\n\nprint(f\"range(10)       : {list(range(10))}\")\nprint(f\"range(2, 10)    : {list(range(2, 10))}\")\nprint(f\"range(5, 10, 2) : {list(range(5, 10, 2))}\")\n\nrange(10)       : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nrange(2, 10)    : [2, 3, 4, 5, 6, 7, 8, 9]\nrange(5, 10, 2) : [5, 7, 9]\n\n\n\n\nDictionnaire\nUn dictionnaire est une collection non ordonnée de paires clé-valeur.\nChaque clé est unique.\n# Créer un dictionnaire\ndico = {1: \"Alice\", 2: \"Benoit\", 3: \"Camille\"}\n\n# Ajouter un élément\ndico[8] = \"Dua\"\n\n# Supprimer un élément à partir de sa clé\ndico.pop(1)\n\n# Parcourir le dictionnaire\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")\n\nfor k in dico.keys():\n    print(k)\n\nfor v in dico.values():\n    print(v)"
-  },
-  {
-    "objectID": "remise-en-jambe/tp1.html#les-variables",
-    "href": "remise-en-jambe/tp1.html#les-variables",
-    "title": "TP Remise en jambe - STID",
-    "section": "1 Les variables",
-    "text": "1 Les variables\n\n1.1 Exercice 1\n\nÀ votre avis que valent les variables first et second à la fin de ces instructions ?\n\nVérifiez\n\n\n\nBloc 1\nfirst = 6 \nsecond = first + 9 \nfirst = second \nsecond = 11\n\n\nBloc 2\nfirst = 7\nsecond = first + 5\nfirst += 2\nsecond = first * 9\n\n\nBloc 3\nfirst = 10\nsecond = first % 3\nsecond = second + 2 \nfirst = second // 2\n\n\n\n1.2 Exercice 2\nAffectez les valeurs des expressions ci-dessous dans une variable, puis affichez le résultat.\n\n\n\n\n\n\nWarning\n\n\n\nCertaines expressions ne sont pas valides, dans ce cas expliquez l’erreur et corrigez l’expression.\n\n\n\n4 - 7\n\"il fait \" + 20 + \" degrés\"\n3 * 2.5 + 4\n\"Je veux avoir \" + 20 + \" en remise à niveau\"\n\n\n\n1.3 Exercice 3\n\nEcrivez un script qui permet d’inverser les valeurs de deux variables suivantes :\n\na = 2\nb = 8\n\n\n\n\n\n\n\n\nPour aller plus loin\n\n\n\n\n\n\nSauriez-vous le faire sans créer aucune autre variable ?\n\n\n\n\n\n\n1.4 Exercice 4\nDéfinissez 4 variables :\n\nidentifiant = ?\nprofil = ?\nphrase_debut = \"Bonjour \"\nphrase_fin = \". Votre profil est : \"\n\nAffichez la texte qui résulte de la concaténation des 4 variables. Par exemple : \"Bonjour Alice. Votre profil est : développeuse\".\n\n\n1.5 Exercice 5\nConsidérons maintenant deux variables numériques entières suivantes :\n\nheure : valeurs comprises entre 0 et 23\nminute : valeurs comprises entre 0 et 59\n\nAjoutons une variable textuelle jour pouvant prendre les valeurs “lundi”, “mardi”, … , “dimanche”.\nPour chacun des cas listés ci-dessous, créez une fonction qui renvoie un booléen si le jour et l’horaire est valide :\n\nUn jour de semaine (hors week-end)\nEn dehors des heures de travail, i.e. soit le week-end, soit avant 8h, soit après 18h\nUn vendredi à partir de 18h30\nN’importe quel jour entre 12h30 et 13h45 inclus\nUn jeudi à n’importe quelle heure ou entre 15h et 18h15 pour n’importe quel autre jour\n\n\n\n\n\n\n\nExemple\n\n\n\n\n\ndef heure_et_minute_pairs(jour, heure, minute) -&gt; bool:\n    \"\"\"Retourne True si heure et minute sont pairs. False sinon\"\"\"\n    if heure % 2 == 0 and minute % 2 == 0:\n        return True\n    return False\n\nif __name__ == \"__main__\":\n    print(heure_et_minute_pairs(\"mardi\", 20, 00))\n    print(heure_et_minute_pairs(\"lundi\", 15, 27))\n    print(heure_et_minute_pairs(\"mardi\", 12, 45))"
-  },
-  {
-    "objectID": "remise-en-jambe/tp1.html#les-collections",
-    "href": "remise-en-jambe/tp1.html#les-collections",
-    "title": "TP Remise en jambe - STID",
-    "section": "2 Les collections",
-    "text": "2 Les collections\n\n2.1 Listes\n\nÀ votre avis, qu’affiche le code suivant ?\n\nVérifiez\n\n\nfrom copy import copy\n\ninitial = [1, 2, 'test', True, 4, 5] \nsecond = initiale\nmy_copy = copy(initiale)\n\ninitial[0] = 42\ninitial[5] = 'another'\n\nprint(initial)\nprint(second)\nprint(my_copy)\n\n\n2.2 Dictionnaires\n\nCopiez le code ci-dessous\n\nremise_a_niveau = {\n    \"UE\" : \"Informatique pour la data science\",\n    \"module\" : \"remise_a_niveau\",\n    \"nb_eleve\": 20,\n    \"eleves\": [\"Alice\", \"Benoit\", \"Camille\"]\n}\n\nAffichez les valeurs associées à toutes les clés du dictionnaire\nAjoutez une élève prénommée Dua\nMettez à 4 la valeur associée à la clé nb_eleve\nAjoutez une clé annee qui vaut la valeur \"2024-2025\""
-  },
-  {
-    "objectID": "remise-en-jambe/tp1.html#conditions",
-    "href": "remise-en-jambe/tp1.html#conditions",
-    "title": "TP Remise en jambe - STID",
-    "section": "3 Conditions",
-    "text": "3 Conditions\n\n\n\n\n\n\nImportant\n\n\n\nÀ partir de maintenant, créez un nouveau fichier .py pour chaque nouvelle fonction.\n\n\n\n3.1 Fonction Pair\n\nDéfinissez une fonction est_pair() qui prend un entier en paramètre et retourne un booléen en sortie\nDéfinissez une fonction est_pair_print() qui prend un entier en paramètre, affiche s’il est pair et ne retourne rien\n\n\n\n3.2 Fizz / Buzz\nÉcrivez une fonction qui prend en entrée un entier et qui va :\n\nécrire FIZZ si cet entier est multiple de 3\nBUZZ s’il est multiple de 5\nFIZZ BUZZ s’il est multiple de 3 et 5\n\nAffichez le nombre dans tous les autres cas."
-  },
-  {
-    "objectID": "remise-en-jambe/tp1.html#boucles",
-    "href": "remise-en-jambe/tp1.html#boucles",
-    "title": "TP Remise en jambe - STID",
-    "section": "4 Boucles",
-    "text": "4 Boucles\n\n4.1 10 premiers entiers\nÉcrivez les 10 premiers entiers positifs :\n\nAvec une boucle for\nAvec une boucle while\n\n\n\n4.2 Fibonacci\n\nÉcrivez une fonction qui affiche les n premiers termes de la suite de Fibonacci\n\n\n\n\n\n\n\nRappel\n\n\n\nLa suite de Fibonacci \\((F_{n})_{n\\in \\mathbb {N}}\\) est définie par :\n\n\\(F_{0} = 0\\)\n\\(F_{1} = 1\\)\n\\(F_{n} = F_{n-1} + F_{n-2}\\) pour \\(n \\geq 2\\)\n\n\n\nLe résultat attendu lorsque vous appelez votre fonction :\n\nafficher_suite_fibonacci(15)  \n\n0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 \n\n\n\n\n\n\n\n\nFonction print\n\n\n\nVous pourriez trouver un peu d’aide en consultant de la documentation sur la fonction print.\n\n\n\n\n4.3 Fibonacci 10.000\nAffichez les termes de la suite de Fibonacci inférieurs à 10 000 :\n\nen utilisant une boucle while\nen utilisant une boucle for\n\n\n\n4.4 Crible d’Ératosthène\nLe crible d’Ératosthène est un algorithme simple pour calculer exhaustivement les nombres premiers inférieurs à une valeur fixée N.\nIl consiste à rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens :\n\nInitialisez une liste de N éléments qui valent tous True (tous les nombres sont potentiellement premiers)\n\nliste = [True, True, True, True, True, True, True...]\n\nMettez à False les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers\n\nliste = [False, False, True, True, True, True, True...]\n\nMettez à False tous les éléments ayant un index multiple de 2\n\nliste = [False, False, True, True, False, True, False...]\n\nPuis recherchez le prochain nombre encore potentiellemnent premier supérieur à 2 ➡️ 3\nMettez à False tous les éléments ayant un index multiple de 3\netc.\nRécupérez les index ayant pour valeur True et affichez ces nombres premiers\n\n\n\nUtilisez le crible d’Ératosthène pour calculer et afficher les nombres premiers plus petits que 1000.\n\n\n\n4.5 Pyramide\n\nDéfinissez une fonction qui affichera n lignes d’un triangle d’étoiles.\n\n\n\nExemple pour n=5\n\n*********\n *******\n  *****\n   ***\n    *\n\n\n\n4.6 Nouvelle base\nEcrivez une fonction qui prend en paramètres :\n\nun entier positif entier_base_10\nun entier nouvelle_base (compris entre 2 et 16)\n\nEt retourne l’écriture de entier_base_10 dans la nouvelle_base\n\n\n4.7 Maximum\n\nEcrivez une fonction qui prend un nombre quelconque de paramètres et retourne la valeur maximale parmi ces paramètres."
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html",
-    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html",
-    "title": "Remise en jambe STID - TP Noté",
+    "objectID": "poo-tp/tp4.html",
+    "href": "poo-tp/tp4.html",
+    "title": "POO, documentation et tests - TP4",
     "section": "",
-    "text": "à rendre soit seul, soit par groupe de 2\nDéposez sous Moodle, vos 2 fichiers python :\n\nex1.py\nex2.py\n\ndate limite : Mercredi 6 septembre à 17h00\nCommentez et expliquez ce que font vos algorithmes"
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP4/Exercice_{1..3}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP4/Exercice_{1..3}/\n\n\n\n\nAller sur la page du TP4\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP4"
   },
   {
-    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#avant-de-commencer",
-    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#avant-de-commencer",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "Avant de commencer",
-    "text": "Avant de commencer\n\nCréez sur votre disque P, un dossier TP2\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder &gt; TP2\n\nDans le dossier TP2, créez 2 sous-dossiers\n\nsrc : qui contient les sources Python\ndata : qui contient les fichiers de données\n\nImportez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier /data\nDans le sous-dossier /src, créer 2 fichiers : ex1.py et ex2.py\n\nIndiquez en commentaire en haut des 2 fichiers vos noms et prénoms"
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-1",
-    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-1",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "1 Exercice 1",
-    "text": "1 Exercice 1\n\n1.1 Contexte\nDans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous\n\nFonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents\n\nEn partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents\nEt retournez la position du dernier caractère de cette occurrence\n\n\nExemple 1\nEntrée : jgngmnjdyigpmeawqksgcntozdpjiy\nSi en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents\njgngmnjdyigpmeawqksgcntozdpjiy\n\njgng     -&gt; ko car 2 g\n gngm    -&gt; ko car 2 g\n  ngmn   -&gt; ko car 2 n\n   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 \n\n\nAutres exemples\n\nvpqvdjfvapvbmlfjaxgdkqznphwt : 5\nfrfjfxjxflbxenxoervxbdnliftzuhjky : 10\n\n\n\n\nFonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents\n\nExemple\nruxrxorrixjdbordjxfhivtzlekuynbo : 26\n\n\n\n\n1.2 Todo\n\nChargez le fichier de données code.txt\n\nCherchez une méthode qui permet de réaliser cette opération\nLe fichier texte est composé de caractères alphabétiques\nStockez le résultat dans une variable\n\nRéalisez les 2 fonctions demandées\nAppliquez ces fonctions au fichier code.txt"
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-2",
-    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-2",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "2 Exercice 2",
-    "text": "2 Exercice 2\n\n2.1 Contexte\nVous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :\n\nlorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent\n\nexemple : adDz devient az (car dD disparait)\nexemple2 : zrRYye devient ze\n\nle comportement doit être récursif\n\nc’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable\nexemple : zAdDa devient zAa puis devient z\n\n\n\nAutres exemples\n\nabCdABcA : ne change pas\nxXx -&gt; x\nabCdeEDcAb -&gt; abCdDcAb -&gt; abCcAb -&gt; abAb\n\n\n\n\n2.2 Todo\nCréez une fonction qui :\n\nprend en paramètre une chaîne de caractères\nvérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)\nréduit cette chaîne selon les principes exposés ci-dessus\nretourne la longueur de la chaîne après réduction\n\n\n\nchargez le contenu du fichier reduction.txt et appliquez la fonction à cette chaîne de caractères\n\n\n\n2.3 Bonus\n\nImaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère\nCela va modifier la réduction de la chaîne\nexemple :\n\nchaîne de départ : bcdCaAcADCaAacBC\nsi on enlève tous les a et les A\n\nbcdCcDCcBC -&gt; bcdDBC -&gt; bcBC (taille = 4)\n\nsi on enlève tous les b et les B\n\ncdCaAcADCaAacC -&gt; cdCcADCa -&gt; cdADCa (taille = 6)\n\nsi on enlève tous les c et les C\n\nbdaAADaAaB -&gt; bdADaB (taille = 6)\n\nsi on enlève tous les d et les D\n\nbcCaAcACaAacBC -&gt; bcACacBC (taille : 8)\n\n\ndans l’exemple, la meilleure réduction a été obtenue en retirant la lettre a (et A) car la chaîne finale est de taille minimale\n\nCréez une fonction qui :\n\nprend en entrée une chaîne de caractères\nteste les réductions en retirant un caractère (comme décrit ci-dessus)\nretourne en sortie la taille de la chaîne après application de la meilleure réduction\n\n\n\n\n\n\n\nSource\n\n\n\nExercices inspirés du site AdventOfCode qui propose chaque année en décembre, un problème à résoudre par jour."
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html",
-    "title": "Remise en jambe STID - TP Noté",
+    "objectID": "poo-tp/tp4.html#introduction",
+    "href": "poo-tp/tp4.html#introduction",
+    "title": "POO, documentation et tests - TP4",
     "section": "",
-    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP4/Exercice_{1..3}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP4/Exercice_{1..3}/\n\n\n\n\nAller sur la page du TP4\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP4"
   },
   {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#consignes",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#consignes",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "",
-    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
+    "objectID": "poo-tp/tp4.html#cours",
+    "href": "poo-tp/tp4.html#cours",
+    "title": "POO, documentation et tests - TP4",
+    "section": "1 Cours",
+    "text": "1 Cours\n\n1.1 Classes et Objets\n\nune classe est comme un “moule” qui sert à fabriquer des objets\nun objet est une instance de classe\n\nil est créé via un appel au constructeur\n\nune classe est composée\n\nd’attributs : ce qu’elle est\nde méthodes : ce qu’elle peut faire\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nun nom de classe s’écrit en CamelCase (majuscule à chaque mot)\nune seule classe par module\n\n(module : fichier, package : dossier)\nle nom du module s’écrit en snake_case (mots en minuscules séparés par des underscores : _)\n\n\n\n\n\n\n1.2 Exemple de classe\n\nDéfinir la classe Frac\n\n\nfrac.py\n\nclass Frac:\n    def __init__(self, num, denom=1) -&gt; None:\n        \"\"\"Constructeur\"\"\"\n        self.num = num \n        self.denom = denom\n\n    def add(self, autre_fraction) -&gt; \"Frac\":\n        \"\"\"Additionne deux fractions\"\"\"\n        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom \n        denominateur = self.denom * autre_fraction.denom \n        return Frac(numerateur, denominateur)\n\n    def __str__(self) -&gt; str:\n        \"\"\"Retourne une chaîne affichant la fraction\"\"\"\n        return f\"{self.num} / {self.denom}\"\n\n\n\nUtiliser la classe Frac pour créer des objets\n\n\n__main__.py\n\nfrom frac import Frac\n\nf1 = Frac(1, 2)\nf2 = Frac(1, 4)\n\nf3 = f1.add(f2)\nprint(f3)\n\n\n\n\n1.3 self\nDans la définition d’une classe, self représente l’instance actuelle :\n\nself.denom : représente l’attirbut denom de l’objet\ndef add(self, autre_fraction) : dans la définition de chaque méthode, le premier paramètre sera self\ncependant lors de l’appel de la méthode self n’apparait pas : f1.add(f2)\n\n\n\n1.4 Méthodes\nLes méthodes de classe sont des fonctions qui s’appliquent à un objet :\n\nla syntaxe est la suivante : mon_objet.ma_methode()\nà ne pas confondre avec les fonctions classiques ma_fonction(mon_objet)\n\nCes méthodes peuvent :\n\nobtenir / modifier les valeurs des attributs de l’objet\nretourner une valeur, un objet ou rien\n\n\n\n\n\n\n\n\n\nMéthode\nDescription\nType de retour\n\n\n\n\n__init__(self, num, den)\nInitialise un objet de type Fraction.\nNone\n\n\nget_numerateur(self)\nRetourne le numérateur de la fraction.\nint\n\n\nget_denominateur(self)\nRetourne le dénominateur de la fraction.\nint\n\n\nset_numerateur(self, num)\nModifie le numérateur de la fraction.\nNone\n\n\nset_denominateur(self, den)\nModifie le dénominateur de la fraction.\nNone\n\n\n__str__(self)\nReprésentation en chaîne de caractères (ex: 3/4).\nstr\n\n\nsimplifier(self)\nSimplifie la fraction en divisant par le PGCD.\nFraction\n\n\nto_decimal(self)\nRetourne la valeur décimale de la fraction.\nfloat\n\n\ninverse(self)\nRetourne une nouvelle fraction inversée.\nFraction\n\n\nadd(self, autre_fraction)\nAddition avec une autre fraction.\nFraction"
   },
   {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#avant-de-commencer",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#avant-de-commencer",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "Avant de commencer",
-    "text": "Avant de commencer\n\nCréez votre espace de travail\n\nCopiez le dossier U:/Eleves/Informatique/TP2\nCollez le dossier TP2 dans P:/Cours1A/UE0-Info-Remise-en-jambe/\n\n\n\n\n\n\n\nEn ligne de commande\n\n\n\n\n\nLa même chose en lignes de commande :\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\ncp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\nOuvrez votre espace de travail dans Visual Studio Code\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans le dossier P:/Cours1A/UE0-Info-Remise-en-jambe/\nCliquez une seule fois sur TP2\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer"
+    "objectID": "poo-tp/tp4.html#templates",
+    "href": "poo-tp/tp4.html#templates",
+    "title": "POO, documentation et tests - TP4",
+    "section": "2 Templates",
+    "text": "2 Templates\n\n2.1 Classe\nclass MaClasse:\n    \"\"\"titre_ma_classe\n\n    Description\n\n    Attributes\n    ----------\n    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)\n        desc_attribut_1\n        \n    attribut_2 : type_attribut_2\n        desc_attribut_2\n    \"\"\"\n    \n    def __init__(self, parametre_1, parametre_2):\n        \"\"\"Constructeur de l'objet\n\n        Parameters\n        ----------\n        parametre_1 : type_parametre_1\n            desc_parametre_1\n            \n        parametre_2 : type_parametre_2\n            desc_parametre_2\n        \"\"\"\n        self.attribut_1 = parametre_1\n        self.attribut_2 = parametre_2\n\n    def ma_methode(self, param1):\n        \"\"\"desc_courte_ma_methode\n\n        desc_longue_ma_methode_facultatif       \n\n        Parameters\n        ----------\n        param1 : type\n            desc_param_1\n            \n        Returns\n        -------\n        type\n            desc_retour\n\n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; mon_obj.ma_methode(\"xxx\")\n        2\n        \"\"\"\n        return 2\n\n    def __str__(self):\n        \"\"\"Conversion de l'objet en chaîne de caractères\n        \n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; print(mon_obj)\n        Classe d'attribut_1 égal à toto\n        \"\"\"\n        return f\"Classe d'attribut_1 égal à {self.attribut_1}\"\n\n\n2.2 Fonction\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2):\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nif __name__ == '__main__':\n    a = ma_fonction(p1, p2)\n    print(a)\n\n\n2.3 TU avec pytest\nimport pytest\nfrom mon_fichier import ma_fonction\n\n@pytest.mark.parametrize(\n    'param1, param2, resultat_attendu',\n    [\n        (1,       1,                2),\n        (1,       2,                3),\n        (2,       2,                4)\n    ]\n)\ndef test_ma_fonction(param1, param2, resultat_attendu):\n    assert ma_fonction(param1, param2) == resultat_attendu"
   },
   {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-1",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-1",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "1 Exercice 1",
-    "text": "1 Exercice 1\nVous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d’entiers.\nCette fonction effectue ensuite les actions suivantes :\n\nPour chaque ligne, elle fait la différence entre plus grande et plus petite valeur\nSomme les résultats obtenus pour chaque ligne\nRetourne cette somme\n\n\n1.1 Exemple\n\n\nsomme.txt\n\n4 1 9 5\n7 5 3\n2 4 4 8\n\n\n\n\nLigne\nMin\nMax\nDifférence\n\n\n\n\nLigne 1\n1\n9\n8\n\n\nLigne 2\n3\n7\n4\n\n\nLigne 3\n2\n8\n6\n\n\nTotal\n\n\n18\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nRésultat : 18\n\n\n\n\n1.2 Travail à faire\n\nÉcrivez cette fonction\nChargez le fichier somme.txt dans une variable\nAppliquez la fonction au fichier\n\nEcrivez en commentaire le résultat obtenu"
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-2",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-2",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "2 Exercice 2",
-    "text": "2 Exercice 2\nVotre objectif est de compter le nombre de mots de passe valides entre 153517 et 630395.\nUn mot de passe valide vérifie les conditions suivantes :\n\ntaille : 6 digits\nles digits sont rangés dans l’ordre croissant\nil doit y avoir à minima 2 digits de même valeur\n\n\n2.1 Exemples\n\n334561 : ❌ les digits ne sont pas dans l’ordre croissant\n456789 : ❌ absence de 2 digits de même valeur\n224789 : ✔️ ordre croissant avec 2 digits de même valeur\n223344 : ✔️ ordre croissant avec au moins 2 digits de même valeur\n\n\n\n2.2 Travail à faire\n\nÉcrivez une fonction qui prend en paramètre deux entiers et qui :\n\nvérifie que ces 2 paramètres sont de type int\nvérifie que ces 2 paramètres contiennent exactement 6 digits\nretourne le nombre de mots de passe valides compris entre ces 2 paramètres\n\nAppelez cette fonction avec les valeurs 153517 et 630395\n\nÉcrivez en commentaire le résultat obtenu\n\n\n\n\n2.3 Bonus\n\nModifiez votre code (créez une nouvelle fonction) pour faire en sorte d’avoir au moins une paire exactement de digits de même valeur\n\n⚠️ Ici un triplet ou un quadruplet n’est pas une paire\n\n\n\n\n223344 : ✔️\n222345 : ❌ car 222 n’est pas une paire mais un triplet\n222244 : ✔️ grâce à la paire 44"
-  },
-  {
-    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-3",
-    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-3",
-    "title": "Remise en jambe STID - TP Noté",
-    "section": "3 Exercice 3",
-    "text": "3 Exercice 3\n\n3.1 Objectif\nVous allez recevoir en entrée un fichier contenant une liste d’instructions pour mettre à jour des variables.\nAu départ, toutes les variables utilisées sont initialisées à 0.\nPour chaque instruction :\n\nSi la condition est valide, vous appliquez la mise à jour\nSinon vous passez à l’instruction suivante\n\n\n\n3.2 Exemple\nVoici ci-dessous une liste d’instructions.\n\n\ninstructions.txt\n\nb inc 4 if a &gt; 1\na inc 1 if b &lt; 2\nc dec -5 if a &gt;= 1\nc inc -10 if c == 5\n\nVotre programme doit lire et appliquer ces instructions dans l’ordre :\n\nb inc 4 if a &gt; 1 : signifie que l’on va incrémenter la variable b de 4 si la variable a est strictement supérieure à 1\n\nor initialement a=0 ➡️ condition a &gt; 1 ❌ ➡️ la mise à jour de b n’est pas appliquée\n\na inc 1 if b &lt; 2 : a est incrémenté de 1 si b est strictement inférieur à 2\n\nb = 0 ➡️ condition b &lt; 2 ✔️ ➡️ a = a + 1 ➡️ a = 1\n\nc dec -5 if a &gt;= 1\n\na = 1 ➡️ condition ✔️ ➡️ c = c - (-5) ➡️ a = 1, c = 5\n\nc inc -10 if c == 5\n\nc = 5 ➡️ condition ✔️ ➡️ c = c + (-10) ➡️ a = 1, c = -5\n\n\nVous pourriez également rencontrer les opérateurs &lt;= (inférieur ou égal à) ou != (différent de).\nLe résultat final attendu est le produit de :\n\nla plus grande valeur d’une variable à la fin (une fois toutes les intructions passées)\nla plus grande valeur d’une variable rencontrée au cours des instructions\n\n\n\n\n\n\n\nDans l’exemple\n\n\n\n\nLa plus grande valeur à la fin est 1 (a).\nLa plus grande valeur au cours des instructions est 5 (c à la 3e étape).\n\nLe résultat attendu est 1 x 5 = 5.\n\n\n\n\n3.3 Travail à faire\n\nEcrivez une fonction qui répond à ce besoin avec :\n\nen entrée : une chaine de caractères\nen sortie : retourne le résultat numérique\n\nChargez le contenu du fichier instructions.txt dans une variable de type str\nAppliquez la fonction sur ces données\n\nEcrivez en commentaire le résultat obtenu\n\n\n\n\n\n\n\n\nSource\n\n\n\nExercices inspirés du site AdventOfCode qui propose chaque année en décembre, un problème à résoudre par jour."
-  },
-  {
-    "objectID": "cours/exceptions.html",
-    "href": "cours/exceptions.html",
-    "title": "Les exceptions",
-    "section": "",
-    "text": "Les exceptions en Python sont des événements qui surviennent lors de l’exécution d’un programme, souvent à cause d’une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus."
-  },
-  {
-    "objectID": "cours/exceptions.html#lever-une-exception",
-    "href": "cours/exceptions.html#lever-une-exception",
-    "title": "Les exceptions",
-    "section": "1 Lever une exception",
-    "text": "1 Lever une exception\n\n\n\n\n\n\nImportant\n\n\n\nLever une exception consiste à signaler volontairement un problème lorsqu’une situation anormale est détectée.\n\n\nNous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.\nLorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.\n\ndef verifier_montant(montant):\n    if montant &lt;= 0:\n        raise ValueError(\"Le montant doit être supérieur à 0.\")\n    print(f\"Montant {montant} accepté.\")\n\nSi l’utilisateur saisit un montant négatif ou nul, une exception ValueError est levée, interrompant le programme pour signaler l’erreur."
-  },
-  {
-    "objectID": "cours/exceptions.html#gérer-une-exception",
-    "href": "cours/exceptions.html#gérer-une-exception",
-    "title": "Les exceptions",
-    "section": "2 Gérer une exception",
-    "text": "2 Gérer une exception\n\n\n\n\n\n\nImportant\n\n\n\nGérer une exception consiste à capturer une erreur grâce au bloc try-except pour éviter que le programme ne se termine brutalement.\n\n\n\ndef retirer_argent(montant):\n    try:\n        verifier_montant(montant)\n        print(\"Retrait en cours...\")\n    except ValueError as e:\n        print(f\"Erreur : {e}\")\n\n\nretirer_argent(-50)\n\nErreur : Le montant doit être supérieur à 0.\n\n\nLe programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l’exception."
-  },
-  {
-    "objectID": "cours/exceptions.html#types-dexception",
-    "href": "cours/exceptions.html#types-dexception",
-    "title": "Les exceptions",
-    "section": "3 Types d’exception",
-    "text": "3 Types d’exception\nles types d’exceptions les plus courantes en Python :\n\nValueError : Lorsque la valeur d’un argument est invalide.\nTypeError : Quand une opération ou une fonction est appliquée à un type inapproprié.\nIndexError : Tentative d’accéder à un indice inexistant dans une liste.\nKeyError : Accès à une clé inexistante dans un dictionnaire.\n\ntry:\n    liste = [1, 2, 3]\n    print(liste[5])\nexcept IndexError as e:\n    print(f\"Erreur : {e}\")"
-  },
-  {
-    "objectID": "cours/exceptions.html#exception-personnalisée",
-    "href": "cours/exceptions.html#exception-personnalisée",
-    "title": "Les exceptions",
-    "section": "4 Exception personnalisée",
-    "text": "4 Exception personnalisée\n\n\n\n\n\n\nNote\n\n\n\nIl est possible de créer ses propres exceptions pour des cas spécifiques à un programme.\nLes exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.\n\n\n\n4.1 Création de l’exception\nPour créer une exception personnalisée, il faut créer une classe qui hérite de la classe Exception\n\nclass SoldeInsuffisantError(Exception):\n    pass\n\n\n\n4.2 Utilisation dans une fonction\nL’exception que nous venons de créer peut être levée dans la fonction ci-dessous\n\ndef verifier_solde(solde, montant):\n    \"\"\"Vérifie que le montant du retrait demandé est inférieur au solde\"\"\"\n    if montant &gt; solde:\n        raise SoldeInsuffisantError(\"Solde insuffisant pour ce retrait.\")\n    print(\"Retrait autorisé.\")\n\n\n\n4.3 Gestion de l’exception\nLa fonction verifier_solde() peut lever une exception.\nUtilisons un bloc try-except pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.\n\ntry:\n    verifier_solde(100, 200)\nexcept SoldeInsuffisantError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Solde insuffisant pour ce retrait."
-  },
-  {
-    "objectID": "cours/exceptions.html#liens",
-    "href": "cours/exceptions.html#liens",
-    "title": "Les exceptions",
-    "section": "Liens",
-    "text": "Liens\n\nPython, the right way : Gestion d’exceptions"
-  },
-  {
-    "objectID": "cours/tu.html",
-    "href": "cours/tu.html",
-    "title": "Les tests unitaires",
-    "section": "",
-    "text": "Pourquoi tester ?\n\n\n\n\npour vérifier que le programme fonctionne\npour éviter les bugs\npour éviter les régressions\nLes tests unitaires (TU) sont des tests automatisés qui vérifient le comportement d’une petite unité de code, de manière isolée. Leur objectif est de s’assurer que chaque composant du programme fonctionne comme prévu."
-  },
-  {
-    "objectID": "cours/tu.html#la-fonction-à-tester",
-    "href": "cours/tu.html#la-fonction-à-tester",
-    "title": "Les tests unitaires",
-    "section": "1 La fonction à tester",
-    "text": "1 La fonction à tester\nCommençons par écrire la fonction à tester.\nPrenons l’exemple d’une fonction qui :\n\nvérifie que le paramètre est un entier\nretourne s’il est impair\n\n\ndef est_impair(n) -&gt; bool:\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\nParfait, maintenant comment tester ?\n\n1.1 La méthode naïve\n\n\n\n\n\n\nNote\n\n\n\nCe que l’on fait tous naturellement !\nNous appelons la fonction et affichons le résultat pour vérifier.\n\n\n\nprint(est_impair(1))\n\nTrue\n\n\n\nprint(est_impair(2))\n\nFalse\n\n\n\ntry:\n    est_impair(\"toto\")\nexcept TypeError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Le paramètre doit être un entier.\n\n\n\n\n\n\n\n\nPourquoi ce n’est pas la bonne méthode\n\n\n\n\nPas automatisé : Nécessite une intervention manuelle pour vérifier les résultats\nNon reproductible : Chaque test doit être relancé à la main\nTemps perdu : Refaire les tests manuellement est chronophage\nOublis possibles : Facile de négliger des cas limites ou des scénarios d’erreur\n\n\n\n\n\n1.2 La doc\nIl ne manque pas quelque chose dans notre fonction ???\nMais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc Examples)\n\n\nest_impair.py\n\ndef est_impair(n) -&gt; bool:\n    \"\"\"\n    Détermine si un nombre est impair. \n\n    Parameters\n    ----------\n    n : int\n        Un entier à vérifier.\n\n    Returns\n    -------\n    bool\n        True si `n` est impair, False sinon.\n        Raises TypeError si n n'est pas un entier.\n\n    Examples\n    --------\n    &gt;&gt;&gt; est_impair(5)\n    True\n    &gt;&gt;&gt; est_impair(4)\n    False\n    \"\"\"\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\nLes doctests c’est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple pytest. Une alternative est d’utiliser unittest."
-  },
-  {
-    "objectID": "cours/tu.html#un-premier-test-unitaire-avec-pytest",
-    "href": "cours/tu.html#un-premier-test-unitaire-avec-pytest",
-    "title": "Les tests unitaires",
-    "section": "2 Un premier test unitaire avec pytest",
-    "text": "2 Un premier test unitaire avec pytest\nTestons par exemple un cas nominal ➡️ vérifions que est_impair(3) retourne True.\nCréons dans le même dossier, un fichier test_est_impair.py.\nNous importons le fichier est_impair.py qui contient la méthode à tester.\nfrom est_impair import est_impair signifie :\n\ndepuis (from) le fichier est_impair.py\nimportons la fonction est_impair()\n\n\n\ntest_est_impair.py\n\nfrom est_impair import est_impair\n\ndef test_nombre_impair():\n    # GIVEN\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\nUn test unitaire se déroule en 3 étapes :\n\nGIVEN : nous donnons les paramètres à tester\nWHEN : nous appelons la fonction\nTHEN : nous vérifions que le résultat attendu est le même que celui obtenu\n\nDe la même manière, il faut créer un test unitaire pour chacun des retours possibles :\n\nTrue\nFalse\nException TypeError\n\n\n\ntest_est_impair.py\n\nimport pytest\nfrom est_impair import est_impair\n\ndef test_nombre_impair():\n    # GIVEN\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\ndef test_nombre_pair():\n    # GIVEN\n    nombre = 2\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is False\n\ndef test_type_erreur_string():\n    # GIVEN\n    valeur = \"5\"\n\n    # WHEN/THEN\n    with pytest.raises(TypeError, match=\"Le paramètre doit être un entier.\"):\n        est_impair(valeur)\n\n\n\n\n\n\n\nRemarques\n\n\n\n\nPour tester qu’une exception est levée, la syntaxe est légérement différente\nNous avons besoin d’importer le package pytest"
-  },
-  {
-    "objectID": "cours/tu.html#lancer-les-tu",
-    "href": "cours/tu.html#lancer-les-tu",
-    "title": "Les tests unitaires",
-    "section": "3 Lancer les TU",
-    "text": "3 Lancer les TU\nAvant de commencer, il faut installer pytest qui n’est pas inclus nativement : pip install pytest\nIl y a plusieurs possibilités pour lancer les tests unitaires :\n\nen ligne de commande\n\npytest\npytest -v ➡️ v : verbose, pour avoir plus de détails\npytest --tb=short pour afficher une trace courte et résumée (utile pour débugguer)\npytest --maxfail=1 pour s’arrêter dès le premier échec\npython -m pytest si pytest n’a pas été ajouté au PATH\npython -m pytest --doctest-modules, pour inclure les doctests\n\nVia l’interface de VSCode avec l’icone en forme de fiole à gauche"
-  },
-  {
-    "objectID": "cours/tu.html#tu-avancés",
-    "href": "cours/tu.html#tu-avancés",
-    "title": "Les tests unitaires",
-    "section": "4 TU avancés",
-    "text": "4 TU avancés\n\n4.1 pytest.mark.parametrize\npytest.mark.parametrize est une fonctionnalité de pytest qui permet d’exécuter un même test plusieurs fois avec différents ensembles de données d’entrée.\nCela remplace la section GIVEN et permet d’éviter la duplication de code pour des cas de test similaires.\n\n\ntest_est_impair.py\n\nimport pytest\nfrom est_impair import est_impair\n\n@pytest.mark.parametrize(\n    \"nombre, resultat_attendu\",\n    [\n        (3, True),\n        (2, False),\n    ],\n)\ndef test_est_impair_valeurs_valides(nombre, resultat_attendu):\n    # WHEN\n    resultat_obtenu = est_impair(nombre) \n\n    # THEN\n    assert resultat_obtenu == resultat_attendu\n\n@pytest.mark.parametrize(\n    \"valeur_invalide, type_exception, message\",\n    [\n        (\"5\", TypeError, \"Le paramètre doit être un entier.\"),\n        (3.5, TypeError, \"Le paramètre doit être un entier.\"),\n    ],\n)\ndef test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message):\n    # WHEN / THEN\n    with pytest.raises(type_exception, match=message):\n        est_impair(valeur_invalide)\n\nPour comprendre le code ci-dessus, imaginez que pour chaque élément du tableau ci-dessous, vous allez tester assert est_impair(nombre) == resultat_attendu\n\n\n\nNombre\nRésultat attendu\n\n\n\n\n3\nTrue\n\n\n2\nFalse\n\n\n\nEt de même pour chacune des exceptions :\n    with pytest.raises(type_exception, match=message):\n        est_impair(valeur_invalide)\n\n\n\n\n\n\n\n\nValeur invalide\nType d’exception\nMessage\n\n\n\n\n“5”\nTypeError\nLe paramètre doit être un entier.\n\n\n3.5\nTypeError\nLe paramètre doit être un entier.\n\n\n\n\n\n4.2 Fixtures\nSi des valeurs sont utilisées plusieurs fois dans les tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.\nPar exemple, si nous voulons éviter de recopier à chaque fois ce message, nous le stockons et pouvons l’utiliser pour toutes les fonctions de notre fichier de test.\n@pytest.fixture\ndef message_erreur():\n    return \"Le paramètre doit être un entier.\"\n@pytest.mark.parametrize(\n    \"valeur_invalide, type_exception\",\n    [\n        (\"5\", TypeError),\n        (3.5, TypeError),\n    ],\n)\ndef test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message_erreur):\n    # WHEN / THEN\n    with pytest.raises(type_exception, match=message_erreur):\n        est_impair(valeur_invalide)\nEt si l’on veut définir des fixtures communes pour tous les fichiers de test ?\nDans ce cas positionnez vos fixtures partagées dans un fichier nommé conftest.py\n\n\nconftest.py\n\n@pytest.fixture\ndef ma_liste():\n    return [0, 1, 2, 3]"
-  },
-  {
-    "objectID": "cours/tu.html#les-mocks",
-    "href": "cours/tu.html#les-mocks",
-    "title": "Les tests unitaires",
-    "section": "5 Les Mocks",
-    "text": "5 Les Mocks\n\n\n\n\n\n\nWarning\n\n\n\nEt si tous les tests unitaires effectués jusqu’ici étaient faux…\nVraiment ??? 😲\nOui ils sont tous incorrects, mais pourquoi ?\n\n\nRappelons-nous le code de notre fonction :\n\n\nest_impair.py\n\ndef est_impair(n) -&gt; bool:\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\n\nAvez-vous confiance en la fonction isinstance() ?\nÀ priori oui, c’est une fonction native de Python, mais quand même…\nSi jamais elle disfonctionnait ?\n\nles TU sur notre fonction est_impair() seraient en erreur\npourtant ce n’est pas le code de notre fonction qui est faux\nc’est simplement qu’elle appelle une autre fonction qui serait incorrecte\n\n\n\n\n\n\n\n\nImportant\n\n\n\nUn test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu’elle utilise.\n\n\n\nComment faire pour tester uniquement notre fonction ?\nNous allons figer le résultat renvoyé par isinstance() grâce aux Mocks\n\n\n\ntest_est_impair.py\n\ndef test_nombre_impair_avec_mock(mocker):\n    # GIVEN\n    mocker.patch(\"est_impair.isinstance\", return_value=True)\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\nDans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode isinstance() sera appelée dans le module est_impair, elle renverra True, quelque soit ses arguments.\n\n\n\n\n\n\nRemarque\n\n\n\nMocker isinstance() c’est sans doute être un peu trop perfectionniste. Est-ce qu’il faut aussi mocker 1 + 1 car nous ne sommes pas sur que cela renverra 2 ?\nL’exemple ci-dessus était principalement à vertu pédagogique pour montrer comment isoler la partie du code que l’on souhaite tester.\nLes mocks peuvent également servir par exemple pour :\n\nsimuler une API externe sans faire de requêtes réelles\nremplacer une base de données ou un fichier\nvérifier qu’une fonction qui envoie des mails est bien déclenchée sans envoyer réellement de mails"
-  },
-  {
-    "objectID": "cours/tu.html#before-after",
-    "href": "cours/tu.html#before-after",
-    "title": "Les tests unitaires",
-    "section": "6 Before / After",
-    "text": "6 Before / After\nIl peut être utile, pour configurer ou mettre au propre, d’exécuter du code :\n\nAvant ou après tous les tests\nAvant ou après tous les tests de ce module\nAvant ou après chaque test de ce module\n\nDans le module de test, vous pouvez ajouter ce code en remplaçant les prints par les opérations à réaliser.\n@pytest.fixture(scope=\"session\", autouse=True)\ndef before_after_all():\n    print(\"Avant tous les tests\")\n    yield\n    print(\"Après tous les tests\")\n\n\n@pytest.fixture(scope=\"module\", autouse=True)\ndef before_after_module():\n    print(\"Avant tous les tests de ce fichier\")\n    yield\n    print(\"Après tous les tests de ce fichier\")\n\n\n@pytest.fixture(scope=\"function\", autouse=True)\ndef before_after_each():\n    print(\"Avant chaque test\")\n    yield\n    print(\"Après chaque test\")"
-  },
-  {
-    "objectID": "cours/tu.html#couverture-de-test",
-    "href": "cours/tu.html#couverture-de-test",
-    "title": "Les tests unitaires",
-    "section": "7 Couverture de test",
-    "text": "7 Couverture de test\nLa couverture de tests (ou test coverage) est une mesure qui évalue dans quelle proportion le code d’un programme est exécuté pendant l’exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code.\nUne couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité.\nIl est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.\nGénérer la couverture de tests avec pytest-cov (possible également avec le package coverage).\n# Installer les packages necessaires\npip install pytest pytest-cov\n\n# Générer un rapport de couverture\npytest --cov\n\n# Générer un rapport html (plus complet)\npytest --cov --cov-report=html"
-  },
-  {
-    "objectID": "cours/tu.html#exercice",
-    "href": "cours/tu.html#exercice",
-    "title": "Les tests unitaires",
-    "section": "Exercice",
-    "text": "Exercice\nImaginons que vous souhaitez faire évoluer votre fonction est_impair(), maintenant elle doit accepter les nombres flottants dont la partie décimale est nulle.\nPar exemple :\n\nest_impair(2.0) ➡️ True\nest_impair(3.0) ➡️ False\nest_impair(4.5) léve toujours une exception TypeError\n\n\n\nModifiez la fonction est_impair()\nVérifiez la couverture de test (elle ne doit plus être à 100 %)\nÉcrivez le nouveau test unitaire\nVérifiez que la couverture de test est repassée à 100 %"
-  },
-  {
-    "objectID": "cours/tu.html#liens",
-    "href": "cours/tu.html#liens",
-    "title": "Les tests unitaires",
-    "section": "Liens",
-    "text": "Liens\n\nPython, the right way : Tester son code et le TDD\nPython, the right way : Pytest"
-  },
-  {
-    "objectID": "cours/print.html",
-    "href": "cours/print.html",
-    "title": "La fonction print",
-    "section": "",
-    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
-  },
-  {
-    "objectID": "cours/print.html#utiliser-les-f-strings",
-    "href": "cours/print.html#utiliser-les-f-strings",
-    "title": "La fonction print",
-    "section": "",
-    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
-  },
-  {
-    "objectID": "cours/print.html#personnaliser-le-séparateur",
-    "href": "cours/print.html#personnaliser-le-séparateur",
-    "title": "La fonction print",
-    "section": "2 Personnaliser le séparateur",
-    "text": "2 Personnaliser le séparateur\n\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1-2-3-4-5\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\n\n1 2 3 4 5"
-  },
-  {
-    "objectID": "cours/print.html#personnaliser-le-caractère-de-fin",
-    "href": "cours/print.html#personnaliser-le-caractère-de-fin",
-    "title": "La fonction print",
-    "section": "3 Personnaliser le caractère de fin",
-    "text": "3 Personnaliser le caractère de fin\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
-  },
-  {
-    "objectID": "cours/print.html#afficher-une-ligne-pour-séparer",
-    "href": "cours/print.html#afficher-une-ligne-pour-séparer",
-    "title": "La fonction print",
-    "section": "4 Afficher une ligne pour séparer",
-    "text": "4 Afficher une ligne pour séparer\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
-  },
-  {
-    "objectID": "cours/print.html#multi-lignes",
-    "href": "cours/print.html#multi-lignes",
-    "title": "La fonction print",
-    "section": "5 Multi lignes",
-    "text": "5 Multi lignes\n\nprint(\"\"\"Maître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage\"\"\")\n\nMaître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage"
+    "objectID": "poo-tp/tp4.html#exercices",
+    "href": "poo-tp/tp4.html#exercices",
+    "title": "POO, documentation et tests - TP4",
+    "section": "3 Exercices",
+    "text": "3 Exercices\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n3.1 Exercice 1\n\nCréez un fichier voiture.py\n\nCodez le constructeur\nCodez les méthodes\nCopiez les doctests ci-dessous\n\n&gt;&gt;&gt; a1 = Voiture('titine', 'bleue') \n&gt;&gt;&gt; a2 = Voiture('quatrelle','verte') \n&gt;&gt;&gt; a2.accelere(18) \n&gt;&gt;&gt; a3 = Voiture('bovelo','jaune')\n&gt;&gt;&gt; a3.accelere(8)\n&gt;&gt;&gt; print(a1)\nVoiture titine de couleur bleue à l'arrêt.\n&gt;&gt;&gt; print(a2)\nVoiture quatrelle de couleur verte roule à 10km/h.\n&gt;&gt;&gt; print(a3)\nVoiture bovelo de couleur jaune roule à 8km/h.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nPour lancer les tests, plusieurs possibilités :\n\nColler ceci en bas de votre classe, puis cliquer sur l’icone éxéctuer ▶️\n\nif __name__ == '__main__':\n    import doctest    \n\n    doctest.testmod(verbose=True)\n\ndans un terminal : python -m pytest --doctest-modules\nutiliser l’interface de VSCode (à gauche icone Testing en forme de fiole)\n\n\n\n\n\n\n3.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier\n\n\n\nCréez un fichier complexe.py\nCodez le constructeur\nCodez les méthodes\n\n\n\n\n\n\n\nRemarque\n\n\n\nEn supposant que c1 et c2 sont deux instances de Complexe, ces deux lignes de code font exactement la même chose et renvoient le même résultat :\n\nc1.__add__(c2)\nc1 + c2\n\n\n\n\n\n3.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\nPartie 1 : Créez un fichier domino.py qui contient la classe Domino\nPartie 2 : Créez un fichier jeu_domino.py qui contient la classe JeuDomino"
   },
   {
     "objectID": "poo-tp/tp1.html",
@@ -306,69 +82,6 @@
     "title": "POO, documentation et tests - TP1",
     "section": "4 Aides",
     "text": "4 Aides\n\n4.1 Parcours de listes\nLa fonction enumerate() permet de boucler sur une liste en utilisant à la fois l’index et la valeur des éléments.\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\nSi vous avez une erreur d’index, vous pouvez encapsuler votre code dans un bloc try/except.\ntry:\n    if liste1[i] &gt; 0:\n    ...\nexcept IndexError:\n    print(f\"Index error : {i}\")\n\n\n4.2 Parcours de dictionnaires\ndico = {\"d\":\"Dominique\", \"e\":\"Eva\", \"f\":\"Fernande\"}\n\n# Par clés\nfor k in dico.keys():\n    print(f\"{k} : {dico[k]}\")\n\n# Par valeurs\nfor v in dico.values():\n    print(v)\n\n# Clés et valeurs\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")"
-  },
-  {
-    "objectID": "poo-tp/intro.html",
-    "href": "poo-tp/intro.html",
-    "title": "POO, documentation et tests",
-    "section": "",
-    "text": "Important\n\n\n\nLes cours et les sujets des TP sont disponibles sur Moodle.\nLe contenu de ce site vient en complément (pour vous aider) mais ne se substitue en aucun cas aux supports donnés par votre professeur."
-  },
-  {
-    "objectID": "poo-tp/intro.html#cours",
-    "href": "poo-tp/intro.html#cours",
-    "title": "POO, documentation et tests",
-    "section": "1 Cours",
-    "text": "1 Cours\nLe programme est le suivant :\n\nDocumentation du code\nExceptions\nTests unitaires avec pytest\nDécouverte du paradigme objet\nModélisation UML"
-  },
-  {
-    "objectID": "poo-tp/intro.html#tp",
-    "href": "poo-tp/intro.html#tp",
-    "title": "POO, documentation et tests",
-    "section": "2 TP",
-    "text": "2 TP\n6 TP et 1 TD de 3h chacun :\n\nTP1 : Programmation Python et Visual Studio Code\nTP2 : Modules, style de code, exceptions et tests\nTP3 : Structures hétérogènes de données et tests\nTP4 : Classes, objets, attributs et méthodes en Python\nTP5 : Classes et diagrammes UML\nTP6 : Relations entre classes\nTD7 : Héritages, relations, UML, modélisation\n\nVous pouvez réaliser les TP, soit :\n\nsur l’un des Datalab\n\ndu GENES ➡️ Lancer le service VScode-python\nle SSP Cloud de l’INSEE ➡️ Lancer le service VScode-python\n\nsur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)\nsur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)"
-  },
-  {
-    "objectID": "poo-tp/tp2.html",
-    "href": "poo-tp/tp2.html",
-    "title": "POO, documentation et tests - TP2",
-    "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ex.py\n\n\n\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans les bons dossiers"
-  },
-  {
-    "objectID": "poo-tp/tp2.html#introduction",
-    "href": "poo-tp/tp2.html#introduction",
-    "title": "POO, documentation et tests - TP2",
-    "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ex.py\n\n\n\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans les bons dossiers"
-  },
-  {
-    "objectID": "poo-tp/tp2.html#cours",
-    "href": "poo-tp/tp2.html#cours",
-    "title": "POO, documentation et tests - TP2",
-    "section": "1 Cours",
-    "text": "1 Cours\n\n1.1 Linter Flake8\nFlake8 est un Linter :\n\nIl analyse le code pour détecter des erreurs, des mauvaises pratiques ou des violations des règles de style\nIl ne modifie pas directement le code\nIl signale les problèmes pour que l’on puisse ensuite les corriger\n\nIl existe également des formatters (Black, Ruff) qui à la différence des linters, modifient le code.\n\n\n1.2 Tests Unitaires\ncf. partie Cours\n\n\n1.3 Exceptions\ncf. partie Cours"
-  },
-  {
-    "objectID": "poo-tp/tp2.html#visual-studio-code",
-    "href": "poo-tp/tp2.html#visual-studio-code",
-    "title": "POO, documentation et tests - TP2",
-    "section": "2 Visual Studio Code",
-    "text": "2 Visual Studio Code\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur 📁 Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n\n2.1 Settings\n\nicone ⚙️ en bas à droite &gt; Settings\noptions à activer :\n\nfiles.trimTrailingWhitespace\nfiles.insertFinalNewline\nfiles.trimFinalNewlines\nflake8.args\n\nAdd item : –max-line-length=88\n\neditor.rulers : 88\npython.testing.pytestArgs\n\nAdd item : –doctest-modules\n\n\n\n2 niveaux :\n\nUser : options appliquées au niveau global\nWorkspace : réglages spécifiques pour l’espace de travail (dossier)\n\ncréation d’un fichier .vscode/settings.json (exportable) qui contient ces réglages"
-  },
-  {
-    "objectID": "poo-tp/tp2.html#exercices",
-    "href": "poo-tp/tp2.html#exercices",
-    "title": "POO, documentation et tests - TP2",
-    "section": "3 Exercices",
-    "text": "3 Exercices\n\n3.1 Exercice 1\n\nTéléchargez le fichier fonctions.py sur Moodle\nCollez ce fichier dans /p/Cours1A/IPOO/TP2/Exercice_1\nAllez dans VSCode et ouvrez ce fichier\nOuvrez un nouveau Terminal (Terminal &gt; New Terminal)\nSuivez les consignes du sujet\n\n\n\n3.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_2\nCliquez sur Sélectionner un dossier\n\n\nLes doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules.\nOn préfère exporter les tests dans des modules à part.\n\n\n3.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nVérifier que les 2 paramètres sont des tuples\nVérifier que les 2 paramètres sont des tuples de longueur 3\nVérifier que tous les éléments de ces tuples sont des int ou float\nVérifier que les éléments de axes sont strictements positifs\nTester si le point appartient à l’ellipsoïde\nEcrire des tests dans un autre fichier en s’inspirant de l’exercice 2\n\n\n\n\n\n\n3.4 Exercice 4\n\nInscription\n\nVérifier la validité d’une adresse électronique\n\nExemple pour lever une exception\nif adresse_electronique.count('@') != 1:\n    raise ValueError(\n        \"L'adresse électronique doit contenir un seul symbole @.\"\n    )\n\nValider que le mot de passe respecte les règles\nVérifier que le 2e mot de passe saisi est le même\n\nConnexion\n\nbase_de_donnees : list[tuple[str, str]]\n\nEcrire les tests"
-  },
-  {
-    "objectID": "poo-tp/tp2.html#template-doc",
-    "href": "poo-tp/tp2.html#template-doc",
-    "title": "POO, documentation et tests - TP2",
-    "section": "4 Template doc",
-    "text": "4 Template doc\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None"
   },
   {
     "objectID": "poo-tp/tp6.html",
@@ -448,137 +161,235 @@
     "text": "2 Chaines de caractères\n\n2.1 Palindrome\nÉcrivez une fonction est_palindrome(texte) -&gt; bool qui retourne True si le paramètre texte est un palindrome (i.e. il se lit de la même manière dans les deux sens)\n\n\n2.2 Mot de passe\nÉcrivez une fonction valider_mot_passe(pwd) -&gt; bool qui retourne True si le mot de passe est valide :\n\ncontient au moins 12 caractères\ncontient au moins une minuscule, une majuscule et un chiffre\n\nSi l’une des condition n’est pas respectée, levez une exception avec un message explicite.\n\n\n\n\n\n\nLever une exception\n\n\n\nif ma_condition:\n    raise ValueError(\"Le mot de passe doit contenir au moins 12 caractères.\")\n\n\n\n\n2.3 Compter les lettres\nÉcrivez une fonction qui :\n\nprend en paramètre une chaine de caractère\ncompte le nombre d’occurences de chaque lettre\nretourne un dictionnaire\n\nclé : lettre\nvaleur : nombre d’occurences de la lettre"
   },
   {
-    "objectID": "poo-tp/tp4.html",
-    "href": "poo-tp/tp4.html",
-    "title": "POO, documentation et tests - TP4",
+    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html",
+    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html",
+    "title": "Remise en jambe STID - TP Noté",
     "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP4/Exercice_{1..3}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..3}/\n\n\n\n\nAller sur la page du TP4\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP4"
+    "text": "à rendre soit seul, soit par groupe de 2\nDéposez sous Moodle, vos 2 fichiers python :\n\nex1.py\nex2.py\n\ndate limite : Mercredi 6 septembre à 17h00\nCommentez et expliquez ce que font vos algorithmes"
   },
   {
-    "objectID": "poo-tp/tp4.html#introduction",
-    "href": "poo-tp/tp4.html#introduction",
-    "title": "POO, documentation et tests - TP4",
+    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#avant-de-commencer",
+    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#avant-de-commencer",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "Avant de commencer",
+    "text": "Avant de commencer\n\nCréez sur votre disque P, un dossier TP2\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder &gt; TP2\n\nDans le dossier TP2, créez 2 sous-dossiers\n\nsrc : qui contient les sources Python\ndata : qui contient les fichiers de données\n\nImportez depuis Moodle les 2 fichiers de données et déposez les dans le sous-dossier /data\nDans le sous-dossier /src, créer 2 fichiers : ex1.py et ex2.py\n\nIndiquez en commentaire en haut des 2 fichiers vos noms et prénoms"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-1",
+    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-1",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "1 Exercice 1",
+    "text": "1 Exercice 1\n\n1.1 Contexte\nDans cet exercice, vous allez créer 2 fonctions qui prendront en entrée une chaîne de caractères et réaliseront les traitements ci-dessous\n\nFonction 1 : Trouvez la première occurrence de 4 caractères consécutifs différents\n\nEn partant du début du texte, trouvez la première occurrence de 4 caractères consécutifs différents\nEt retournez la position du dernier caractère de cette occurrence\n\n\nExemple 1\nEntrée : jgngmnjdyigpmeawqksgcntozdpjiy\nSi en partant du début, nous étudions les suites de 4 caractères consécutifs à la recherche de la 1ere en contenant 4 différents\njgngmnjdyigpmeawqksgcntozdpjiy\n\njgng     -&gt; ko car 2 g\n gngm    -&gt; ko car 2 g\n  ngmn   -&gt; ko car 2 n\n   gmnj  -&gt; OK donc résultat : 7 car le dernier des 4 caractères (j) est en position 7 \n\n\nAutres exemples\n\nvpqvdjfvapvbmlfjaxgdkqznphwt : 5\nfrfjfxjxflbxenxoervxbdnliftzuhjky : 10\n\n\n\n\nFonction 2 : Même question avec cette fois une séquence de 14 caractères consécutifs différents\n\nExemple\nruxrxorrixjdbordjxfhivtzlekuynbo : 26\n\n\n\n\n1.2 Todo\n\nChargez le fichier de données code.txt\n\nCherchez une méthode qui permet de réaliser cette opération\nLe fichier texte est composé de caractères alphabétiques\nStockez le résultat dans une variable\n\nRéalisez les 2 fonctions demandées\nAppliquez ces fonctions au fichier code.txt"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-2",
+    "href": "remise-en-jambe/tp2/2023/tp2-2023-2024.html#exercice-2",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "2 Exercice 2",
+    "text": "2 Exercice 2\n\n2.1 Contexte\nVous allez devoir réduire une chaîne de caractères alphabétiques selon les règles suivantes :\n\nlorsque 2 lettres contiguës représentent le même caractère avec une minuscule et une majuscule (peu importe l’ordre), elles disparaissent\n\nexemple : adDz devient az (car dD disparait)\nexemple2 : zrRYye devient ze\n\nle comportement doit être récursif\n\nc’est à dire qu’il faut réduire la chaîne tant qu’elle n’est pas stable\nexemple : zAdDa devient zAa puis devient z\n\n\n\nAutres exemples\n\nabCdABcA : ne change pas\nxXx -&gt; x\nabCdeEDcAb -&gt; abCdDcAb -&gt; abCcAb -&gt; abAb\n\n\n\n\n2.2 Todo\nCréez une fonction qui :\n\nprend en paramètre une chaîne de caractères\nvérifie que cette chaîne est composée uniquement de caractères alphabétiques (a..z et A..Z)\nréduit cette chaîne selon les principes exposés ci-dessus\nretourne la longueur de la chaîne après réduction\n\n\n\nchargez le contenu du fichier reduction.txt et appliquez la fonction à cette chaîne de caractères\n\n\n\n2.3 Bonus\n\nImaginez que l’on retire toutes les occurrences (majuscules et minuscules) d’un même caractère\nCela va modifier la réduction de la chaîne\nexemple :\n\nchaîne de départ : bcdCaAcADCaAacBC\nsi on enlève tous les a et les A\n\nbcdCcDCcBC -&gt; bcdDBC -&gt; bcBC (taille = 4)\n\nsi on enlève tous les b et les B\n\ncdCaAcADCaAacC -&gt; cdCcADCa -&gt; cdADCa (taille = 6)\n\nsi on enlève tous les c et les C\n\nbdaAADaAaB -&gt; bdADaB (taille = 6)\n\nsi on enlève tous les d et les D\n\nbcCaAcACaAacBC -&gt; bcACacBC (taille : 8)\n\n\ndans l’exemple, la meilleure réduction a été obtenue en retirant la lettre a (et A) car la chaîne finale est de taille minimale\n\nCréez une fonction qui :\n\nprend en entrée une chaîne de caractères\nteste les réductions en retirant un caractère (comme décrit ci-dessus)\nretourne en sortie la taille de la chaîne après application de la meilleure réduction\n\n\n\n\n\n\n\nSource\n\n\n\nExercices inspirés du site AdventOfCode qui propose chaque année en décembre, un problème à résoudre par jour."
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html",
+    "title": "Remise en jambe STID - TP Noté",
     "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP4/Exercice_{1..3}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..3}/\n\n\n\n\nAller sur la page du TP4\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP4"
+    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
   },
   {
-    "objectID": "poo-tp/tp4.html#cours",
-    "href": "poo-tp/tp4.html#cours",
-    "title": "POO, documentation et tests - TP4",
-    "section": "1 Cours",
-    "text": "1 Cours\n\n1.1 Classes et Objets\n\nune classe est comme un “moule” qui sert à fabriquer des objets\nun objet est une instance de classe\n\nil est créé via un appel au constructeur\n\nune classe est composée\n\nd’attributs : ce qu’elle est\nde méthodes : ce qu’elle peut faire\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nun nom de classe s’écrit en CamelCase (majuscule à chaque mot)\nune seule classe par module\n\n(module : fichier, package : dossier)\nle nom du module s’écrit en snake_case (mots en minuscules séparés par des underscores : _)\n\n\n\n\n\n\n1.2 Exemple de classe\n\nDéfinir la classe Frac\n\n\nfrac.py\n\nclass Frac:\n    def __init__(self, num, denom=1) -&gt; None:\n        \"\"\"Constructeur\"\"\"\n        self.num = num \n        self.denom = denom\n\n    def add(self, autre_fraction) -&gt; \"Frac\":\n        \"\"\"Additionne deux fractions\"\"\"\n        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom \n        denominateur = self.denom * autre_fraction.denom \n        return Frac(numerateur, denominateur)\n\n    def __str__(self) -&gt; str:\n        \"\"\"Retourne une chaîne affichant la fraction\"\"\"\n        return f\"{self.num} / {self.denom}\"\n\n\n\nUtiliser la classe Frac pour créer des objets\n\n\n__main__.py\n\nfrom frac import Frac\n\nf1 = Frac(1, 2)\nf2 = Frac(1, 4)\n\nf3 = f1.add(f2)\nprint(f3)\n\n\n\n\n1.3 self\nDans la définition d’une classe, self représente l’instance actuelle :\n\nself.denom : représente l’attirbut denom de l’objet\ndef add(self, autre_fraction) : dans la définition de chaque méthode, le premier paramètre sera self\ncependant lors de l’appel de la méthode self n’apparait pas : f1.add(f2)\n\n\n\n1.4 Méthodes\nLes méthodes de classe sont des fonctions qui s’appliquent à un objet :\n\nla syntaxe est la suivante : mon_objet.ma_methode()\nà ne pas confondre avec les fonctions classiques ma_fonction(mon_objet)\n\nCes méthodes peuvent :\n\nobtenir / modifier les valeurs des attributs de l’objet\nretourner une valeur, un objet ou rien\n\n\n\n\n\n\n\n\n\nMéthode\nDescription\nType de retour\n\n\n\n\n__init__(self, num, den)\nInitialise un objet de type Fraction.\nNone\n\n\nget_numerateur(self)\nRetourne le numérateur de la fraction.\nint\n\n\nget_denominateur(self)\nRetourne le dénominateur de la fraction.\nint\n\n\nset_numerateur(self, num)\nModifie le numérateur de la fraction.\nNone\n\n\nset_denominateur(self, den)\nModifie le dénominateur de la fraction.\nNone\n\n\n__str__(self)\nReprésentation en chaîne de caractères (ex: 3/4).\nstr\n\n\nsimplifier(self)\nSimplifie la fraction en divisant par le PGCD.\nFraction\n\n\nto_decimal(self)\nRetourne la valeur décimale de la fraction.\nfloat\n\n\ninverse(self)\nRetourne une nouvelle fraction inversée.\nFraction\n\n\nadd(self, autre_fraction)\nAddition avec une autre fraction.\nFraction"
-  },
-  {
-    "objectID": "poo-tp/tp4.html#templates",
-    "href": "poo-tp/tp4.html#templates",
-    "title": "POO, documentation et tests - TP4",
-    "section": "2 Templates",
-    "text": "2 Templates\n\n2.1 Classe\nclass MaClasse:\n    \"\"\"titre_ma_classe\n\n    Description\n\n    Attributes\n    ----------\n    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)\n        desc_attribut_1\n        \n    attribut_2 : type_attribut_2\n        desc_attribut_2\n    \"\"\"\n    \n    def __init__(self, parametre_1, parametre_2):\n        \"\"\"Constructeur de l'objet\n\n        Parameters\n        ----------\n        parametre_1 : type_parametre_1\n            desc_parametre_1\n            \n        parametre_2 : type_parametre_2\n            desc_parametre_2\n        \"\"\"\n        self.attribut_1 = parametre_1\n        self.attribut_2 = parametre_2\n\n    def ma_methode(self, param1):\n        \"\"\"desc_courte_ma_methode\n\n        desc_longue_ma_methode_facultatif       \n\n        Parameters\n        ----------\n        param1 : type\n            desc_param_1\n            \n        Returns\n        -------\n        type\n            desc_retour\n\n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; mon_obj.ma_methode(\"xxx\")\n        2\n        \"\"\"\n        return 2\n\n    def __str__(self):\n        \"\"\"Conversion de l'objet en chaîne de caractères\n        \n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; print(mon_obj)\n        Classe d'attribut_1 égal à toto\n        \"\"\"\n        return f\"Classe d'attribut_1 égal à {self.attribut_1}\"\n\n\n2.2 Fonction\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2):\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nif __name__ == '__main__':\n    a = ma_fonction(p1, p2)\n    print(a)\n\n\n2.3 TU avec pytest\nimport pytest\nfrom mon_fichier import ma_fonction\n\n@pytest.mark.parametrize(\n    'param1, param2, resultat_attendu',\n    [\n        (1,       1,                2),\n        (1,       2,                3),\n        (2,       2,                4)\n    ]\n)\ndef test_ma_fonction(param1, param2, resultat_attendu):\n    assert ma_fonction(param1, param2) == resultat_attendu"
-  },
-  {
-    "objectID": "poo-tp/tp4.html#exercices",
-    "href": "poo-tp/tp4.html#exercices",
-    "title": "POO, documentation et tests - TP4",
-    "section": "3 Exercices",
-    "text": "3 Exercices\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n3.1 Exercice 1\n\nCréez un fichier voiture.py\n\nCodez le constructeur\nCodez les méthodes\nCopiez les doctests ci-dessous\n\n&gt;&gt;&gt; a1 = Voiture('titine', 'bleue') \n&gt;&gt;&gt; a2 = Voiture('quatrelle','verte') \n&gt;&gt;&gt; a2.accelere(18) \n&gt;&gt;&gt; a3 = Voiture('bovelo','jaune')\n&gt;&gt;&gt; a3.accelere(8)\n&gt;&gt;&gt; print(a1)\nVoiture titine de couleur bleue à l'arrêt.\n&gt;&gt;&gt; print(a2)\nVoiture quatrelle de couleur verte roule à 10km/h.\n&gt;&gt;&gt; print(a3)\nVoiture bovelo de couleur jaune roule à 8km/h.\n\n\n\n\n\n\n\nTip\n\n\n\n\n\nPour lancer les tests, plusieurs possibilités :\n\nColler ceci en bas de votre classe, puis cliquer sur l’icone éxéctuer ▶️\n\nif __name__ == '__main__':\n    import doctest    \n\n    doctest.testmod(verbose=True)\n\ndans un terminal : python -m pytest --doctest-modules\nutiliser l’interface de VSCode (à gauche icone Testing en forme de fiole)\n\n\n\n\n\n\n3.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier\n\n\n\nCréez un fichier complexe.py\nCodez le constructeur\nCodez les méthodes\n\n\n\n\n\n\n\nRemarque\n\n\n\nEn supposant que c1 et c2 sont deux instances de Complexe, ces deux lignes de code font exactement la même chose et renvoient le même résultat :\n\nc1.__add__(c2)\nc1 + c2\n\n\n\n\n\n3.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\nPartie 1 : Créez un fichier domino.py qui contient la classe Domino\nPartie 2 : Créez un fichier jeu_domino.py qui contient la classe JeuDomino"
-  },
-  {
-    "objectID": "poo-tp/tp3.html",
-    "href": "poo-tp/tp3.html",
-    "title": "POO, documentation et tests - TP3",
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#consignes",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#consignes",
+    "title": "Remise en jambe STID - TP Noté",
     "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..4}/\n\n\n\n\nAller sur la page du TP3\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP3"
+    "text": "À rendre soit seul, soit par groupe de 2\nDéposez sous Moodle (Compléments d’informatique et d’économie), vos 3 fichiers Python nommés :\n\nex1.py\nex2.py\nex3.py\n\nDate limite : 12/09/24 19:00\n\n\n\n\n\n\n\nConseils\n\n\n\n\nLisez attentivement et respectez les consignes\nCommentez et expliquez ce que font vos algorithmes\n\n\n\nVos fichiers devront ressembler à ceci :\n\n\nex1.py\n\n\"\"\"\nRemise en jambe - TP Noté\n12/09/2024\nÉlève 1 : ?\nÉlève 2 : ?\n\"\"\"\n\ndef ma_fonction(?) -&gt; ?:\n    # TODO coder fonction\n\n\nif __name__ == \"__main__\":\n\n    # TODO charger fichier si nécessaire\n\n    # exemple = \"\"\"coller ici l'exemple\"\"\"\n    # print(ma_fonction(exemple), ma_fonction(exemple) == \"mettez ici le résultat attendu pour l'exemple\")\n\n    resultat = ma_fonction(?)\n    print(resultat)  # résultat obtenu : ?"
   },
   {
-    "objectID": "poo-tp/tp3.html#introduction",
-    "href": "poo-tp/tp3.html#introduction",
-    "title": "POO, documentation et tests - TP3",
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#avant-de-commencer",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#avant-de-commencer",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "Avant de commencer",
+    "text": "Avant de commencer\n\nCréez votre espace de travail\n\nCopiez le dossier U:/Eleves/Informatique/TP2\nCollez le dossier TP2 dans P:/Cours1A/UE0-Info-Remise-en-jambe/\n\n\n\n\n\n\n\nEn ligne de commande\n\n\n\n\n\nLa même chose en lignes de commande :\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\ncp -r /u/Eleves/Informatique/TP2 /p/Cours1A/UE0-Info-Remise-en-jambe/\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\nOuvrez votre espace de travail dans Visual Studio Code\n\nOuvrez Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans le dossier P:/Cours1A/UE0-Info-Remise-en-jambe/\nCliquez une seule fois sur TP2\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-1",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-1",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "1 Exercice 1",
+    "text": "1 Exercice 1\nVous allez coder une fonction qui reçoit en entrée une chaine de caractères représentant des lignes d’entiers.\nCette fonction effectue ensuite les actions suivantes :\n\nPour chaque ligne, elle fait la différence entre plus grande et plus petite valeur\nSomme les résultats obtenus pour chaque ligne\nRetourne cette somme\n\n\n1.1 Exemple\n\n\nsomme.txt\n\n4 1 9 5\n7 5 3\n2 4 4 8\n\n\n\n\nLigne\nMin\nMax\nDifférence\n\n\n\n\nLigne 1\n1\n9\n8\n\n\nLigne 2\n3\n7\n4\n\n\nLigne 3\n2\n8\n6\n\n\nTotal\n\n\n18\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nRésultat : 18\n\n\n\n\n1.2 Travail à faire\n\nÉcrivez cette fonction\nChargez le fichier somme.txt dans une variable\nAppliquez la fonction au fichier\n\nEcrivez en commentaire le résultat obtenu"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-2",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-2",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "2 Exercice 2",
+    "text": "2 Exercice 2\nVotre objectif est de compter le nombre de mots de passe valides entre 153517 et 630395.\nUn mot de passe valide vérifie les conditions suivantes :\n\ntaille : 6 digits\nles digits sont rangés dans l’ordre croissant\nil doit y avoir à minima 2 digits de même valeur\n\n\n2.1 Exemples\n\n334561 : ❌ les digits ne sont pas dans l’ordre croissant\n456789 : ❌ absence de 2 digits de même valeur\n224789 : ✔️ ordre croissant avec 2 digits de même valeur\n223344 : ✔️ ordre croissant avec au moins 2 digits de même valeur\n\n\n\n2.2 Travail à faire\n\nÉcrivez une fonction qui prend en paramètre deux entiers et qui :\n\nvérifie que ces 2 paramètres sont de type int\nvérifie que ces 2 paramètres contiennent exactement 6 digits\nretourne le nombre de mots de passe valides compris entre ces 2 paramètres\n\nAppelez cette fonction avec les valeurs 153517 et 630395\n\nÉcrivez en commentaire le résultat obtenu\n\n\n\n\n2.3 Bonus\n\nModifiez votre code (créez une nouvelle fonction) pour faire en sorte d’avoir au moins une paire exactement de digits de même valeur\n\n⚠️ Ici un triplet ou un quadruplet n’est pas une paire\n\n\n\n\n223344 : ✔️\n222345 : ❌ car 222 n’est pas une paire mais un triplet\n222244 : ✔️ grâce à la paire 44"
+  },
+  {
+    "objectID": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-3",
+    "href": "remise-en-jambe/tp2/2024/tp2-2024-2025.html#exercice-3",
+    "title": "Remise en jambe STID - TP Noté",
+    "section": "3 Exercice 3",
+    "text": "3 Exercice 3\n\n3.1 Objectif\nVous allez recevoir en entrée un fichier contenant une liste d’instructions pour mettre à jour des variables.\nAu départ, toutes les variables utilisées sont initialisées à 0.\nPour chaque instruction :\n\nSi la condition est valide, vous appliquez la mise à jour\nSinon vous passez à l’instruction suivante\n\n\n\n3.2 Exemple\nVoici ci-dessous une liste d’instructions.\n\n\ninstructions.txt\n\nb inc 4 if a &gt; 1\na inc 1 if b &lt; 2\nc dec -5 if a &gt;= 1\nc inc -10 if c == 5\n\nVotre programme doit lire et appliquer ces instructions dans l’ordre :\n\nb inc 4 if a &gt; 1 : signifie que l’on va incrémenter la variable b de 4 si la variable a est strictement supérieure à 1\n\nor initialement a=0 ➡️ condition a &gt; 1 ❌ ➡️ la mise à jour de b n’est pas appliquée\n\na inc 1 if b &lt; 2 : a est incrémenté de 1 si b est strictement inférieur à 2\n\nb = 0 ➡️ condition b &lt; 2 ✔️ ➡️ a = a + 1 ➡️ a = 1\n\nc dec -5 if a &gt;= 1\n\na = 1 ➡️ condition ✔️ ➡️ c = c - (-5) ➡️ a = 1, c = 5\n\nc inc -10 if c == 5\n\nc = 5 ➡️ condition ✔️ ➡️ c = c + (-10) ➡️ a = 1, c = -5\n\n\nVous pourriez également rencontrer les opérateurs &lt;= (inférieur ou égal à) ou != (différent de).\nLe résultat final attendu est le produit de :\n\nla plus grande valeur d’une variable à la fin (une fois toutes les intructions passées)\nla plus grande valeur d’une variable rencontrée au cours des instructions\n\n\n\n\n\n\n\nDans l’exemple\n\n\n\n\nLa plus grande valeur à la fin est 1 (a).\nLa plus grande valeur au cours des instructions est 5 (c à la 3e étape).\n\nLe résultat attendu est 1 x 5 = 5.\n\n\n\n\n3.3 Travail à faire\n\nEcrivez une fonction qui répond à ce besoin avec :\n\nen entrée : une chaine de caractères\nen sortie : retourne le résultat numérique\n\nChargez le contenu du fichier instructions.txt dans une variable de type str\nAppliquez la fonction sur ces données\n\nEcrivez en commentaire le résultat obtenu\n\n\n\n\n\n\n\n\nSource\n\n\n\nExercices inspirés du site AdventOfCode qui propose chaque année en décembre, un problème à résoudre par jour."
+  },
+  {
+    "objectID": "remise-en-jambe/tp1.html",
+    "href": "remise-en-jambe/tp1.html",
+    "title": "TP Remise en jambe - STID",
     "section": "",
-    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..4}/\n\n\n\n\nAller sur la page du TP3\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP3"
+    "text": "Une bonne habitude pour s’y retrouver et de créer une arborscence claire\n└── P:\n    └── Cours1A\n        └── UE0-Info-Remise-en-jambe\n            ├── src\n            │   ├── ex1.py\n            │   ├── ex2.py\n            │   └── ...\nVous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez les commandes suivantes\n\nmkdir -p /p/Cours1A/UE0-Info-Remise-en-jambe/src/\ntouch /p/Cours1A/UE0-Info-Remise-en-jambe/src/ex{1..5}.py\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et non sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !\n\n\n\nOuvrez le logiciel Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans /p/Cours1A/\nCliquez une seule fois sur UE0-Info-Remise-en-jambe\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer\n\n\n\n\n\nCréez à la racine un dossier .vscode\nDans ce dossier, créez un fichier nommé settings.json et collez le contenu ci-dessous\n\n\n\nsettings.json\n\n{\n    \"flake8.args\": [\n        \"--max-line-length=100\"\n    ],\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"ms-python.black-formatter\",\n        \"editor.formatOnSave\": true,\n        \"editor.insertSpaces\": true,\n        \"editor.tabSize\": 4\n    },\n    \"black-formatter.args\": [\"--line-length\", \"100\"],\n    \"python.analysis.extraPaths\": [\n        \"./*\"\n    ],\n    \"python.languageServer\": \"Jedi\",\n    \"python.testing.pytestEnabled\": true,\n    \"files.exclude\": {\n        \"**/__pycache__\": true,\n        \"**/.pytest_cache\": true\n    },\n    \"terminal.integrated.env.windows\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.env.linux\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.defaultProfile.windows\": \"Git Bash\",\n}\n\n\nFermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif\n\n\n\n\n\n\n\nNote\n\n\n\nCe fichier de settings permet d’intégrer à votre espace de travail :\n\nBlack : un formateur automatique de code\nFlake8 : un linter\nGit Bash : comme terminal par défaut\ncacher certains fichiers non utiles"
   },
   {
-    "objectID": "poo-tp/tp3.html#rappels",
-    "href": "poo-tp/tp3.html#rappels",
-    "title": "POO, documentation et tests - TP3",
+    "objectID": "remise-en-jambe/tp1.html#avant-de-commencer",
+    "href": "remise-en-jambe/tp1.html#avant-de-commencer",
+    "title": "TP Remise en jambe - STID",
+    "section": "",
+    "text": "Une bonne habitude pour s’y retrouver et de créer une arborscence claire\n└── P:\n    └── Cours1A\n        └── UE0-Info-Remise-en-jambe\n            ├── src\n            │   ├── ex1.py\n            │   ├── ex2.py\n            │   └── ...\nVous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez les commandes suivantes\n\nmkdir -p /p/Cours1A/UE0-Info-Remise-en-jambe/src/\ntouch /p/Cours1A/UE0-Info-Remise-en-jambe/src/ex{1..5}.py\nDans Git Bash ➡️ clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et non sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !\n\n\n\nOuvrez le logiciel Visual Studio Code\nFile &gt; Open Folder\n\nAllez dans /p/Cours1A/\nCliquez une seule fois sur UE0-Info-Remise-en-jambe\nCliquez sur le bouton Sélectionner un dossier\nVotre dossier apparait à gauche dans l’explorer\n\n\n\n\n\nCréez à la racine un dossier .vscode\nDans ce dossier, créez un fichier nommé settings.json et collez le contenu ci-dessous\n\n\n\nsettings.json\n\n{\n    \"flake8.args\": [\n        \"--max-line-length=100\"\n    ],\n    \"[python]\": {\n        \"editor.defaultFormatter\": \"ms-python.black-formatter\",\n        \"editor.formatOnSave\": true,\n        \"editor.insertSpaces\": true,\n        \"editor.tabSize\": 4\n    },\n    \"black-formatter.args\": [\"--line-length\", \"100\"],\n    \"python.analysis.extraPaths\": [\n        \"./*\"\n    ],\n    \"python.languageServer\": \"Jedi\",\n    \"python.testing.pytestEnabled\": true,\n    \"files.exclude\": {\n        \"**/__pycache__\": true,\n        \"**/.pytest_cache\": true\n    },\n    \"terminal.integrated.env.windows\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.env.linux\": {\n        \"PYTHONPATH\": \"${workspaceFolder}/src\"\n    },\n    \"terminal.integrated.defaultProfile.windows\": \"Git Bash\",\n}\n\n\nFermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif\n\n\n\n\n\n\n\nNote\n\n\n\nCe fichier de settings permet d’intégrer à votre espace de travail :\n\nBlack : un formateur automatique de code\nFlake8 : un linter\nGit Bash : comme terminal par défaut\ncacher certains fichiers non utiles"
+  },
+  {
+    "objectID": "remise-en-jambe/tp1.html#rappels",
+    "href": "remise-en-jambe/tp1.html#rappels",
+    "title": "TP Remise en jambe - STID",
     "section": "Rappels",
-    "text": "Rappels\n\nFonction - Template\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nTU avec pytest - Modèle\nimport pytest\nfrom mon_fichier import ma_fonction\n\n@pytest.mark.parametrize(\n    'param1, param2, resultat_attendu',\n    [\n        (1,       1,                2),\n        (1,       2,                3),\n        (2,       2,                4)\n    ]\n)\ndef test_ma_fonction(param1, param2, resultat_attendu):\n    assert ma_fonction(param1, param2) == resultat_attendu\n\nLancer les TU : python -m pytest --doctest-modules"
+    "text": "Rappels\n\nListes et boucles\nUne liste en Python est une collection ordonnée et modifiable d’éléments, pouvant contenir des éléments de différents types.\nVoici quelques exemples de boucles pour afficher les éléments de la liste.\nliste = [\"Alice\", \"Benoit\", \"Camille\"]\n\nfor v in liste:\n    print(v)\n\nfor i in range(len(liste)):\n    print(liste[i])\n\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\nindex = 0\nwhile index &lt; len(liste):\n    print(liste[index])\n    index += 1\n\n\nRange\nVous pouvez également étudier le comportement de la fonction range selon son nombre de paramètres\n\nprint(f\"range(10)       : {list(range(10))}\")\nprint(f\"range(2, 10)    : {list(range(2, 10))}\")\nprint(f\"range(5, 10, 2) : {list(range(5, 10, 2))}\")\n\nrange(10)       : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\nrange(2, 10)    : [2, 3, 4, 5, 6, 7, 8, 9]\nrange(5, 10, 2) : [5, 7, 9]\n\n\n\n\nDictionnaire\nUn dictionnaire est une collection non ordonnée de paires clé-valeur.\nChaque clé est unique.\n# Créer un dictionnaire\ndico = {1: \"Alice\", 2: \"Benoit\", 3: \"Camille\"}\n\n# Ajouter un élément\ndico[8] = \"Dua\"\n\n# Supprimer un élément à partir de sa clé\ndico.pop(1)\n\n# Parcourir le dictionnaire\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")\n\nfor k in dico.keys():\n    print(k)\n\nfor v in dico.values():\n    print(v)"
   },
   {
-    "objectID": "poo-tp/tp3.html#exercices",
-    "href": "poo-tp/tp3.html#exercices",
-    "title": "POO, documentation et tests - TP3",
-    "section": "1 Exercices",
-    "text": "1 Exercices\n\n1.1 Exercice 1\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n\n\nÉcrivez la fonction position()\nÉcrivez les tests unitaires de la fonction position()\nÉcrivez la fonction sous_liste()\nÉcrivez les tests unitaires de la fonction sous_liste()\n\nQuel est le gros souci dans les TU de sous_liste() ?\n\n\n\n\n\n\nAstuces\n\n\n\n\n\n\nParcourir des listes\nliste = [\"a\", \"b\", \"c\", \"d\", \"e\"]\n\n# Par index\nfor i in range(0, len(liste)):\n    print(i, liste[i])\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Combiner index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index : {i}, valeur : {v}\")\n\n\nSlicing\nliste = [\"a\", \"b\", \"c\", \"d\", \"e\"]\n\n\n\n\n\n\n\n\nOpération\nRésultat\nExplication\n\n\n\n\nliste[2:]\n['c', 'd', 'e']\nDe l’index 2 jusqu’à la fin\n\n\nliste[:3]\n['a', 'b', 'c']\nDu début à l’index 2 (3 exclus)\n\n\nliste[1:4]\n['b', 'c', 'd']\nDe l’index 1 à 3 (4 exclus)\n\n\nliste[::2]\n['a', 'c', 'e']\nUn élément sur deux\n\n\nliste[1::2]\n['b', 'd']\nUn élément sur deux en commençant à l’index 1\n\n\nliste[-3:]\n['c', 'd', 'e']\nLes trois derniers éléments\n\n\nliste[:-2]\n['a', 'b', 'c']\nTout sauf les deux derniers\n\n\nliste[::-1]\n['e', 'd', 'c', 'b', 'a']\nInversion de la liste\n\n\nliste[::-2]\n['e', 'c', 'a']\nInversion avec un pas de 2\n\n\n\n\n\nImporter un module\nfrom mon_module import ma_fonction signifie “depuis le fichier mon_module.py, on importe la fonction ma_fonction”\n\n\n\n\n\n\n1.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier"
+    "objectID": "remise-en-jambe/tp1.html#les-variables",
+    "href": "remise-en-jambe/tp1.html#les-variables",
+    "title": "TP Remise en jambe - STID",
+    "section": "1 Les variables",
+    "text": "1 Les variables\n\n1.1 Exercice 1\n\nÀ votre avis que valent les variables first et second à la fin de ces instructions ?\n\nVérifiez\n\n\n\nBloc 1\nfirst = 6 \nsecond = first + 9 \nfirst = second \nsecond = 11\n\n\nBloc 2\nfirst = 7\nsecond = first + 5\nfirst += 2\nsecond = first * 9\n\n\nBloc 3\nfirst = 10\nsecond = first % 3\nsecond = second + 2 \nfirst = second // 2\n\n\n\n1.2 Exercice 2\nAffectez les valeurs des expressions ci-dessous dans une variable, puis affichez le résultat.\n\n\n\n\n\n\nWarning\n\n\n\nCertaines expressions ne sont pas valides, dans ce cas expliquez l’erreur et corrigez l’expression.\n\n\n\n4 - 7\n\"il fait \" + 20 + \" degrés\"\n3 * 2.5 + 4\n\"Je veux avoir \" + 20 + \" en remise à niveau\"\n\n\n\n1.3 Exercice 3\n\nEcrivez un script qui permet d’inverser les valeurs de deux variables suivantes :\n\na = 2\nb = 8\n\n\n\n\n\n\n\n\nPour aller plus loin\n\n\n\n\n\n\nSauriez-vous le faire sans créer aucune autre variable ?\n\n\n\n\n\n\n1.4 Exercice 4\nDéfinissez 4 variables :\n\nidentifiant = ?\nprofil = ?\nphrase_debut = \"Bonjour \"\nphrase_fin = \". Votre profil est : \"\n\nAffichez la texte qui résulte de la concaténation des 4 variables. Par exemple : \"Bonjour Alice. Votre profil est : développeuse\".\n\n\n1.5 Exercice 5\nConsidérons maintenant deux variables numériques entières suivantes :\n\nheure : valeurs comprises entre 0 et 23\nminute : valeurs comprises entre 0 et 59\n\nAjoutons une variable textuelle jour pouvant prendre les valeurs “lundi”, “mardi”, … , “dimanche”.\nPour chacun des cas listés ci-dessous, créez une fonction qui renvoie un booléen si le jour et l’horaire est valide :\n\nUn jour de semaine (hors week-end)\nEn dehors des heures de travail, i.e. soit le week-end, soit avant 8h, soit après 18h\nUn vendredi à partir de 18h30\nN’importe quel jour entre 12h30 et 13h45 inclus\nUn jeudi à n’importe quelle heure ou entre 15h et 18h15 pour n’importe quel autre jour\n\n\n\n\n\n\n\nExemple\n\n\n\n\n\ndef heure_et_minute_pairs(jour, heure, minute) -&gt; bool:\n    \"\"\"Retourne True si heure et minute sont pairs. False sinon\"\"\"\n    if heure % 2 == 0 and minute % 2 == 0:\n        return True\n    return False\n\nif __name__ == \"__main__\":\n    print(heure_et_minute_pairs(\"mardi\", 20, 00))\n    print(heure_et_minute_pairs(\"lundi\", 15, 27))\n    print(heure_et_minute_pairs(\"mardi\", 12, 45))"
   },
   {
-    "objectID": "poo-tp/tp5.html",
-    "href": "poo-tp/tp5.html",
-    "title": "POO, documentation et tests - TP5",
+    "objectID": "remise-en-jambe/tp1.html#les-collections",
+    "href": "remise-en-jambe/tp1.html#les-collections",
+    "title": "TP Remise en jambe - STID",
+    "section": "2 Les collections",
+    "text": "2 Les collections\n\n2.1 Listes\n\nÀ votre avis, qu’affiche le code suivant ?\n\nVérifiez\n\n\nfrom copy import copy\n\ninitial = [1, 2, 'test', True, 4, 5] \nsecond = initiale\nmy_copy = copy(initiale)\n\ninitial[0] = 42\ninitial[5] = 'another'\n\nprint(initial)\nprint(second)\nprint(my_copy)\n\n\n2.2 Dictionnaires\n\nCopiez le code ci-dessous\n\nremise_a_niveau = {\n    \"UE\" : \"Informatique pour la data science\",\n    \"module\" : \"remise_a_niveau\",\n    \"nb_eleve\": 20,\n    \"eleves\": [\"Alice\", \"Benoit\", \"Camille\"]\n}\n\nAffichez les valeurs associées à toutes les clés du dictionnaire\nAjoutez une élève prénommée Dua\nMettez à 4 la valeur associée à la clé nb_eleve\nAjoutez une clé annee qui vaut la valeur \"2024-2025\""
+  },
+  {
+    "objectID": "remise-en-jambe/tp1.html#conditions",
+    "href": "remise-en-jambe/tp1.html#conditions",
+    "title": "TP Remise en jambe - STID",
+    "section": "3 Conditions",
+    "text": "3 Conditions\n\n\n\n\n\n\nImportant\n\n\n\nÀ partir de maintenant, créez un nouveau fichier .py pour chaque nouvelle fonction.\n\n\n\n3.1 Fonction Pair\n\nDéfinissez une fonction est_pair() qui prend un entier en paramètre et retourne un booléen en sortie\nDéfinissez une fonction est_pair_print() qui prend un entier en paramètre, affiche s’il est pair et ne retourne rien\n\n\n\n3.2 Fizz / Buzz\nÉcrivez une fonction qui prend en entrée un entier et qui va :\n\nécrire FIZZ si cet entier est multiple de 3\nBUZZ s’il est multiple de 5\nFIZZ BUZZ s’il est multiple de 3 et 5\n\nAffichez le nombre dans tous les autres cas."
+  },
+  {
+    "objectID": "remise-en-jambe/tp1.html#boucles",
+    "href": "remise-en-jambe/tp1.html#boucles",
+    "title": "TP Remise en jambe - STID",
+    "section": "4 Boucles",
+    "text": "4 Boucles\n\n4.1 10 premiers entiers\nÉcrivez les 10 premiers entiers positifs :\n\nAvec une boucle for\nAvec une boucle while\n\n\n\n4.2 Fibonacci\n\nÉcrivez une fonction qui affiche les n premiers termes de la suite de Fibonacci\n\n\n\n\n\n\n\nRappel\n\n\n\nLa suite de Fibonacci \\((F_{n})_{n\\in \\mathbb {N}}\\) est définie par :\n\n\\(F_{0} = 0\\)\n\\(F_{1} = 1\\)\n\\(F_{n} = F_{n-1} + F_{n-2}\\) pour \\(n \\geq 2\\)\n\n\n\nLe résultat attendu lorsque vous appelez votre fonction :\n\nafficher_suite_fibonacci(15)  \n\n0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 \n\n\n\n\n\n\n\n\nFonction print\n\n\n\nVous pourriez trouver un peu d’aide en consultant de la documentation sur la fonction print.\n\n\n\n\n4.3 Fibonacci 10.000\nAffichez les termes de la suite de Fibonacci inférieurs à 10 000 :\n\nen utilisant une boucle while\nen utilisant une boucle for\n\n\n\n4.4 Crible d’Ératosthène\nLe crible d’Ératosthène est un algorithme simple pour calculer exhaustivement les nombres premiers inférieurs à une valeur fixée N.\nIl consiste à rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens :\n\nInitialisez une liste de N éléments qui valent tous True (tous les nombres sont potentiellement premiers)\n\nliste = [True, True, True, True, True, True, True...]\n\nMettez à False les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers\n\nliste = [False, False, True, True, True, True, True...]\n\nMettez à False tous les éléments ayant un index multiple de 2\n\nliste = [False, False, True, True, False, True, False...]\n\nPuis recherchez le prochain nombre encore potentiellemnent premier supérieur à 2 ➡️ 3\nMettez à False tous les éléments ayant un index multiple de 3\netc.\nRécupérez les index ayant pour valeur True et affichez ces nombres premiers\n\n\n\nUtilisez le crible d’Ératosthène pour calculer et afficher les nombres premiers plus petits que 1000.\n\n\n\n4.5 Pyramide\n\nDéfinissez une fonction qui affichera n lignes d’un triangle d’étoiles.\n\n\n\nExemple pour n=5\n\n*********\n *******\n  *****\n   ***\n    *\n\n\n\n4.6 Nouvelle base\nEcrivez une fonction qui prend en paramètres :\n\nun entier positif entier_base_10\nun entier nouvelle_base (compris entre 2 et 16)\n\nEt retourne l’écriture de entier_base_10 dans la nouvelle_base\n\n\n4.7 Maximum\n\nEcrivez une fonction qui prend un nombre quelconque de paramètres et retourne la valeur maximale parmi ces paramètres."
+  },
+  {
+    "objectID": "cours/tu.html",
+    "href": "cours/tu.html",
+    "title": "Les tests unitaires",
     "section": "",
-    "text": "└── P\n    └── Cours1A\n        └── IPOO\n            ├── TP1\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   │   └── ex.py\n            │   ├── ...\n            │   └── Exercice_7\n            │       └── ex.py\n            ├── TP2\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   ├── ...\nPour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et pas sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !"
+    "text": "Pourquoi tester ?\n\n\n\n\npour vérifier que le programme fonctionne\npour éviter les bugs\npour éviter les régressions\nLes tests unitaires (TU) sont des tests automatisés qui vérifient le comportement d’une petite unité de code, de manière isolée. Leur objectif est de s’assurer que chaque composant du programme fonctionne comme prévu."
   },
   {
-    "objectID": "poo-tp/tp5.html#créer-larborscence",
-    "href": "poo-tp/tp5.html#créer-larborscence",
-    "title": "POO, documentation et tests - TP5",
+    "objectID": "cours/tu.html#la-fonction-à-tester",
+    "href": "cours/tu.html#la-fonction-à-tester",
+    "title": "Les tests unitaires",
+    "section": "1 La fonction à tester",
+    "text": "1 La fonction à tester\nCommençons par écrire la fonction à tester.\nPrenons l’exemple d’une fonction qui :\n\nvérifie que le paramètre est un entier\nretourne s’il est impair\n\n\ndef est_impair(n) -&gt; bool:\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\nParfait, maintenant comment tester ?\n\n1.1 La méthode naïve\n\n\n\n\n\n\nNote\n\n\n\nCe que l’on fait tous naturellement !\nNous appelons la fonction et affichons le résultat pour vérifier.\n\n\n\nprint(est_impair(1))\n\nTrue\n\n\n\nprint(est_impair(2))\n\nFalse\n\n\n\ntry:\n    est_impair(\"toto\")\nexcept TypeError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Le paramètre doit être un entier.\n\n\n\n\n\n\n\n\nPourquoi ce n’est pas la bonne méthode\n\n\n\n\nPas automatisé : Nécessite une intervention manuelle pour vérifier les résultats\nNon reproductible : Chaque test doit être relancé à la main\nTemps perdu : Refaire les tests manuellement est chronophage\nOublis possibles : Facile de négliger des cas limites ou des scénarios d’erreur\n\n\n\n\n\n1.2 La doc\nIl ne manque pas quelque chose dans notre fonction ???\nMais oui bien sûr la doc ! Profitons-en pour écrire des doctests (bloc Examples)\n\n\nest_impair.py\n\ndef est_impair(n) -&gt; bool:\n    \"\"\"\n    Détermine si un nombre est impair. \n\n    Parameters\n    ----------\n    n : int\n        Un entier à vérifier.\n\n    Returns\n    -------\n    bool\n        True si `n` est impair, False sinon.\n        Raises TypeError si n n'est pas un entier.\n\n    Examples\n    --------\n    &gt;&gt;&gt; est_impair(5)\n    True\n    &gt;&gt;&gt; est_impair(4)\n    False\n    \"\"\"\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\nLes doctests c’est pas mal mais il y a des outils beaucoup plus puissants pour réaliser des tests unitaires en Python, par exemple pytest. Une alternative est d’utiliser unittest."
+  },
+  {
+    "objectID": "cours/tu.html#un-premier-test-unitaire-avec-pytest",
+    "href": "cours/tu.html#un-premier-test-unitaire-avec-pytest",
+    "title": "Les tests unitaires",
+    "section": "2 Un premier test unitaire avec pytest",
+    "text": "2 Un premier test unitaire avec pytest\nTestons par exemple un cas nominal ➡️ vérifions que est_impair(3) retourne True.\nCréons dans le même dossier, un fichier test_est_impair.py.\nNous importons le fichier est_impair.py qui contient la méthode à tester.\nfrom est_impair import est_impair signifie :\n\ndepuis (from) le fichier est_impair.py\nimportons la fonction est_impair()\n\n\n\ntest_est_impair.py\n\nfrom est_impair import est_impair\n\ndef test_nombre_impair():\n    # GIVEN\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\nUn test unitaire se déroule en 3 étapes :\n\nGIVEN : nous donnons les paramètres à tester\nWHEN : nous appelons la fonction\nTHEN : nous vérifions que le résultat attendu est le même que celui obtenu\n\nDe la même manière, il faut créer un test unitaire pour chacun des retours possibles :\n\nTrue\nFalse\nException TypeError\n\n\n\ntest_est_impair.py\n\nimport pytest\nfrom est_impair import est_impair\n\ndef test_nombre_impair():\n    # GIVEN\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\ndef test_nombre_pair():\n    # GIVEN\n    nombre = 2\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is False\n\ndef test_type_erreur_string():\n    # GIVEN\n    valeur = \"5\"\n\n    # WHEN/THEN\n    with pytest.raises(TypeError, match=\"Le paramètre doit être un entier.\"):\n        est_impair(valeur)\n\n\n\n\n\n\n\nRemarques\n\n\n\n\nPour tester qu’une exception est levée, la syntaxe est légérement différente\nNous avons besoin d’importer le package pytest"
+  },
+  {
+    "objectID": "cours/tu.html#lancer-les-tu",
+    "href": "cours/tu.html#lancer-les-tu",
+    "title": "Les tests unitaires",
+    "section": "3 Lancer les TU",
+    "text": "3 Lancer les TU\nAvant de commencer, il faut installer pytest qui n’est pas inclus nativement : pip install pytest\nIl y a plusieurs possibilités pour lancer les tests unitaires :\n\nen ligne de commande\n\npytest\npytest -v ➡️ v : verbose, pour avoir plus de détails\npytest --tb=short pour afficher une trace courte et résumée (utile pour débugguer)\npytest --maxfail=1 pour s’arrêter dès le premier échec\npython -m pytest si pytest n’a pas été ajouté au PATH\npython -m pytest --doctest-modules, pour inclure les doctests\n\nVia l’interface de VSCode avec l’icone en forme de fiole à gauche"
+  },
+  {
+    "objectID": "cours/tu.html#tu-avancés",
+    "href": "cours/tu.html#tu-avancés",
+    "title": "Les tests unitaires",
+    "section": "4 TU avancés",
+    "text": "4 TU avancés\n\n4.1 pytest.mark.parametrize\npytest.mark.parametrize est une fonctionnalité de pytest qui permet d’exécuter un même test plusieurs fois avec différents ensembles de données d’entrée.\nCela remplace la section GIVEN et permet d’éviter la duplication de code pour des cas de test similaires.\n\n\ntest_est_impair.py\n\nimport pytest\nfrom est_impair import est_impair\n\n@pytest.mark.parametrize(\n    \"nombre, resultat_attendu\",\n    [\n        (3, True),\n        (2, False),\n    ],\n)\ndef test_est_impair_valeurs_valides(nombre, resultat_attendu):\n    # WHEN\n    resultat_obtenu = est_impair(nombre) \n\n    # THEN\n    assert resultat_obtenu == resultat_attendu\n\n@pytest.mark.parametrize(\n    \"valeur_invalide, type_exception, message\",\n    [\n        (\"5\", TypeError, \"Le paramètre doit être un entier.\"),\n        (3.5, TypeError, \"Le paramètre doit être un entier.\"),\n    ],\n)\ndef test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message):\n    # WHEN / THEN\n    with pytest.raises(type_exception, match=message):\n        est_impair(valeur_invalide)\n\nPour comprendre le code ci-dessus, imaginez que pour chaque élément du tableau ci-dessous, vous allez tester assert est_impair(nombre) == resultat_attendu\n\n\n\nNombre\nRésultat attendu\n\n\n\n\n3\nTrue\n\n\n2\nFalse\n\n\n\nEt de même pour chacune des exceptions :\n    with pytest.raises(type_exception, match=message):\n        est_impair(valeur_invalide)\n\n\n\n\n\n\n\n\nValeur invalide\nType d’exception\nMessage\n\n\n\n\n“5”\nTypeError\nLe paramètre doit être un entier.\n\n\n3.5\nTypeError\nLe paramètre doit être un entier.\n\n\n\n\n\n4.2 Fixtures\nSi des valeurs sont utilisées plusieurs fois dans les tests, les fixtures permettent de les définir une seule fois et de les réutiliser facilement.\nPar exemple, si nous voulons éviter de recopier à chaque fois ce message, nous le stockons et pouvons l’utiliser pour toutes les fonctions de notre fichier de test.\n@pytest.fixture\ndef message_erreur():\n    return \"Le paramètre doit être un entier.\"\n@pytest.mark.parametrize(\n    \"valeur_invalide, type_exception\",\n    [\n        (\"5\", TypeError),\n        (3.5, TypeError),\n    ],\n)\ndef test_est_impair_valeurs_invalides(valeur_invalide, type_exception, message_erreur):\n    # WHEN / THEN\n    with pytest.raises(type_exception, match=message_erreur):\n        est_impair(valeur_invalide)\nEt si l’on veut définir des fixtures communes pour tous les fichiers de test ?\nDans ce cas positionnez vos fixtures partagées dans un fichier nommé conftest.py\n\n\nconftest.py\n\n@pytest.fixture\ndef ma_liste():\n    return [0, 1, 2, 3]"
+  },
+  {
+    "objectID": "cours/tu.html#les-mocks",
+    "href": "cours/tu.html#les-mocks",
+    "title": "Les tests unitaires",
+    "section": "5 Les Mocks",
+    "text": "5 Les Mocks\n\n\n\n\n\n\nWarning\n\n\n\nEt si tous les tests unitaires effectués jusqu’ici étaient faux…\nVraiment ??? 😲\nOui ils sont tous incorrects, mais pourquoi ?\n\n\nRappelons-nous le code de notre fonction :\n\n\nest_impair.py\n\ndef est_impair(n) -&gt; bool:\n    if not isinstance(n, int):\n        raise TypeError(\"Le paramètre doit être un entier.\")\n    return n % 2 != 0\n\n\nAvez-vous confiance en la fonction isinstance() ?\nÀ priori oui, c’est une fonction native de Python, mais quand même…\nSi jamais elle disfonctionnait ?\n\nles TU sur notre fonction est_impair() seraient en erreur\npourtant ce n’est pas le code de notre fonction qui est faux\nc’est simplement qu’elle appelle une autre fonction qui serait incorrecte\n\n\n\n\n\n\n\n\nImportant\n\n\n\nUn test unitaire sur une fonction ne doit pas dépendre du bon fonctionnement des autres fonctions qu’elle utilise.\n\n\n\nComment faire pour tester uniquement notre fonction ?\nNous allons figer le résultat renvoyé par isinstance() grâce aux Mocks\n\n\n\ntest_est_impair.py\n\ndef test_nombre_impair_avec_mock(mocker):\n    # GIVEN\n    mocker.patch(\"est_impair.isinstance\", return_value=True)\n    nombre = 3\n\n    # WHEN\n    resultat = est_impair(nombre)\n\n    # THEN\n    assert resultat is True\n\nDans le test unitaire ci-dessus, le patch signifie que chaque fois que la méthode isinstance() sera appelée dans le module est_impair, elle renverra True, quelque soit ses arguments.\n\n\n\n\n\n\nRemarque\n\n\n\nMocker isinstance() c’est sans doute être un peu trop perfectionniste. Est-ce qu’il faut aussi mocker 1 + 1 car nous ne sommes pas sur que cela renverra 2 ?\nL’exemple ci-dessus était principalement à vertu pédagogique pour montrer comment isoler la partie du code que l’on souhaite tester.\nLes mocks peuvent également servir par exemple pour :\n\nsimuler une API externe sans faire de requêtes réelles\nremplacer une base de données ou un fichier\nvérifier qu’une fonction qui envoie des mails est bien déclenchée sans envoyer réellement de mails"
+  },
+  {
+    "objectID": "cours/tu.html#before-after",
+    "href": "cours/tu.html#before-after",
+    "title": "Les tests unitaires",
+    "section": "6 Before / After",
+    "text": "6 Before / After\nIl peut être utile, pour configurer ou mettre au propre, d’exécuter du code :\n\nAvant ou après tous les tests\nAvant ou après tous les tests de ce module\nAvant ou après chaque test de ce module\n\nDans le module de test, vous pouvez ajouter ce code en remplaçant les prints par les opérations à réaliser.\n@pytest.fixture(scope=\"session\", autouse=True)\ndef before_after_all():\n    print(\"Avant tous les tests\")\n    yield\n    print(\"Après tous les tests\")\n\n\n@pytest.fixture(scope=\"module\", autouse=True)\ndef before_after_module():\n    print(\"Avant tous les tests de ce fichier\")\n    yield\n    print(\"Après tous les tests de ce fichier\")\n\n\n@pytest.fixture(scope=\"function\", autouse=True)\ndef before_after_each():\n    print(\"Avant chaque test\")\n    yield\n    print(\"Après chaque test\")"
+  },
+  {
+    "objectID": "cours/tu.html#couverture-de-test",
+    "href": "cours/tu.html#couverture-de-test",
+    "title": "Les tests unitaires",
+    "section": "7 Couverture de test",
+    "text": "7 Couverture de test\nLa couverture de tests (ou test coverage) est une mesure qui évalue dans quelle proportion le code d’un programme est exécuté pendant l’exécution des tests. Elle permet de vérifier si les tests couvrent toutes les parties critiques du code.\nUne couverture élevée (proche de 100 %) est généralement un indicateur positif, mais elle ne garantit pas que les tests sont de bonne qualité.\nIl est essentiel de combiner une couverture élevée avec des tests pertinents pour détecter les bugs.\nGénérer la couverture de tests avec pytest-cov (possible également avec le package coverage).\n# Installer les packages necessaires\npip install pytest pytest-cov\n\n# Générer un rapport de couverture\npytest --cov\n\n# Générer un rapport html (plus complet)\npytest --cov --cov-report=html"
+  },
+  {
+    "objectID": "cours/tu.html#exercice",
+    "href": "cours/tu.html#exercice",
+    "title": "Les tests unitaires",
+    "section": "Exercice",
+    "text": "Exercice\nImaginons que vous souhaitez faire évoluer votre fonction est_impair(), maintenant elle doit accepter les nombres flottants dont la partie décimale est nulle.\nPar exemple :\n\nest_impair(2.0) ➡️ True\nest_impair(3.0) ➡️ False\nest_impair(4.5) léve toujours une exception TypeError\n\n\n\nModifiez la fonction est_impair()\nVérifiez la couverture de test (elle ne doit plus être à 100 %)\nÉcrivez le nouveau test unitaire\nVérifiez que la couverture de test est repassée à 100 %"
+  },
+  {
+    "objectID": "cours/tu.html#liens",
+    "href": "cours/tu.html#liens",
+    "title": "Les tests unitaires",
+    "section": "Liens",
+    "text": "Liens\n\nPython, the right way : Tester son code et le TDD\nPython, the right way : Pytest"
+  },
+  {
+    "objectID": "cours/exceptions.html",
+    "href": "cours/exceptions.html",
+    "title": "Les exceptions",
     "section": "",
-    "text": "└── P\n    └── Cours1A\n        └── IPOO\n            ├── TP1\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   │   └── ex.py\n            │   ├── ...\n            │   └── Exercice_7\n            │       └── ex.py\n            ├── TP2\n            │   ├── Exercice_1\n            │   │   └── ex.py\n            │   ├── Exercice_2\n            │   ├── ...\nPour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (mkdir : make directory):\n\nOuvrez Git Bash\n\nSur le bureau &gt; clic droit &gt; Git Bash here\n\nCollez la commande suivante\n\nmkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/\ndans Git Bash : clic droit &gt; Paste ou MAJ + INSER\n\nFermez Git Bash\n\n\n\n\n\n\n\nUtilisez le lecteur P:\n\n\n\nIl est important de stocker vos fichiers dans votre lecteur P: et pas sur votre bureau ou votre disque C: car vos fichiers risqueraient de disparaitre !"
+    "text": "Les exceptions en Python sont des événements qui surviennent lors de l’exécution d’un programme, souvent à cause d’une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus."
   },
   {
-    "objectID": "poo-tp/tp5.html#moodle",
-    "href": "poo-tp/tp5.html#moodle",
-    "title": "POO, documentation et tests - TP5",
-    "section": "2 Moodle",
-    "text": "2 Moodle\n\nAller sur la page du TP5\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP5"
+    "objectID": "cours/exceptions.html#lever-une-exception",
+    "href": "cours/exceptions.html#lever-une-exception",
+    "title": "Les exceptions",
+    "section": "1 Lever une exception",
+    "text": "1 Lever une exception\n\n\n\n\n\n\nImportant\n\n\n\nLever une exception consiste à signaler volontairement un problème lorsqu’une situation anormale est détectée.\n\n\nNous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.\nLorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.\n\ndef verifier_montant(montant):\n    if montant &lt;= 0:\n        raise ValueError(\"Le montant doit être supérieur à 0.\")\n    print(f\"Montant {montant} accepté.\")\n\nSi l’utilisateur saisit un montant négatif ou nul, une exception ValueError est levée, interrompant le programme pour signaler l’erreur."
   },
   {
-    "objectID": "poo-tp/tp5.html#rappels",
-    "href": "poo-tp/tp5.html#rappels",
-    "title": "POO, documentation et tests - TP5",
-    "section": "3 Rappels",
-    "text": "3 Rappels\n\n3.1 Classes et Objets\n\nune classe est comme un “moule” qui sert à fabriquer des objets\nun objet est une instance de classe\nune classe est composée\n\nd’attributs : ce qu’elle est\nde méthodes : ce qu’elle peut faire\n\n\n\n\n\n\n\n\nImportant\n\n\n\n\nun nom de classe s’écrit en CamelCase (majuscule à chaque mot)\nune seule classe par fichier\n\nune classe = un module\nle nom du module s’écrit en snake_case (mots en minuscules séparés par des _)\n\n\n\n\n\nExemple : classe Frac\n\n\nfrac.py\n\nclass Frac:\n    def __init__(self, num, denom=1) -&gt; None:\n        \"\"\"Constructeur\"\"\"        \n        if denom == 0:\n            raise ValueError(\"le dénominateur ne peut être nul\")\n        self.num = num \n        self.denom = denom\n\n    def add(self, autre_fraction):\n        \"\"\"Additionne deux fractions\"\"\"\n        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom \n        denominateur = self.denom * autre_fraction.denom \n        return Frac(numerateur, denominateur)\n\n    def __str__(self) -&gt; str:\n        \"\"\"Retourne une chaîne affichant la fraction\"\"\"\n        return f\"{self.num} / {self.denom}\"\n\n\n\nExemple : Créer des objets Frac\n\n\n__main__.py\n\nfrom frac import Frac\n\nf1 = Frac(1, 2)\nf2 = Frac(1, 4)\n\nf3 = f1.add(f2)\nprint(f3)\n\n\n\n\n3.2 Tests\n\nDoctest\n\nécrits dans la documentation sous le mot clé Examples\naprés les &gt;&gt;&gt; : code Python exécuté\n\nsi le code renvoie un résultat, écrire ce résultat à la ligne en dessous\nsinon, écrire le code suivant\n\n\nReprenons la classe Frac ci-dessus\n\n\nfrac.py\n\nclass Frac:\n    def __init__(self, num, denom=1) -&gt; None:\n        \"\"\"Constructeur\n\n        Examples\n        --------        \n        &gt;&gt;&gt; f1 = Frac(1, 2)\n        &gt;&gt;&gt; f1.num, f1.denom\n        (1, 2)\n        &gt;&gt;&gt; f2 = Frac(3)\n        &gt;&gt;&gt; f2.num, f2.denom\n        (3, 0)\n        &gt;&gt;&gt; f4 = Frac(4, 0)\n        Traceback (most recent call last):\n        ...\n        ValueError: le dénominateur ne peut être nul\n        \"\"\"        \n        if denom == 0:\n            raise ValueError(\"le dénominateur ne peut être nul\")\n        self.num = num \n        self.denom = denom\n\n    def add(self, autre_fraction):\n        \"\"\"Additionne deux fractions\n        \n        Examples\n        --------\n        &gt;&gt;&gt; f1 = Frac(1, 2)\n        &gt;&gt;&gt; f2 = Frac(1, 3)\n        &gt;&gt;&gt; f3 = f1.add(f2)\n        &gt;&gt;&gt; f3.num\n        5\n        &gt;&gt;&gt; f3.denom\n        6\n        \"\"\"\n        numerateur = self.num * autre_fraction.denom + autre_fraction.num * self.denom \n        denominateur = self.denom * autre_fraction.denom \n        return Frac(numerateur, denominateur)\n\n\n\nLancer les tests\nPlusieurs possibilités :\n\nColler ceci en bas de votre classe, puis cliquer sur l’icone éxéctuer ▶️\n\nif __name__ == '__main__':\n    import doctest    \n\n    doctest.testmod(verbose=True)\n\ndans un terminal : python -m pytest --doctest-modules\nutiliser l’interface de VSCode (à gauche icone Testing en forme de fiole triangulaire)"
+    "objectID": "cours/exceptions.html#gérer-une-exception",
+    "href": "cours/exceptions.html#gérer-une-exception",
+    "title": "Les exceptions",
+    "section": "2 Gérer une exception",
+    "text": "2 Gérer une exception\n\n\n\n\n\n\nImportant\n\n\n\nGérer une exception consiste à capturer une erreur grâce au bloc try-except pour éviter que le programme ne se termine brutalement.\n\n\n\ndef retirer_argent(montant):\n    try:\n        verifier_montant(montant)\n        print(\"Retrait en cours...\")\n    except ValueError as e:\n        print(f\"Erreur : {e}\")\n\n\nretirer_argent(-50)\n\nErreur : Le montant doit être supérieur à 0.\n\n\nLe programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l’exception."
   },
   {
-    "objectID": "poo-tp/tp5.html#exercices",
-    "href": "poo-tp/tp5.html#exercices",
-    "title": "POO, documentation et tests - TP5",
-    "section": "4 Exercices",
-    "text": "4 Exercices\n\n4.1 Exercice 1\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\ncréez un fichier article.py\n\ndans ce ficher, créez la classe Article (vous pouvez utiliser le template de classe ci-dessous)\n\n\n\nAttributs privés\nEn rendant les attributs de classe privés, vous pouvez contrôler strictement l’accès à ces attributs.\nVous pouvez fournir des méthodes spécifiques : “getter” et “setter”, pour manipuler ces attributs de manière contrôlée et sûre.\nExemple :\n\n\n\n\n\n\n\n\nPublic\n\n\n\nAvec un attribut public, aucun controle n’est effectué sur prix.\nIl est alors possible à l’extérieur de l’objet de :\n\nobtenir sa valeur\nmodifier sa valeur, et même son type\n\n\n\narticle.py\n\nclass Article:\n    def __init__(self, prix):\n        self.prix = prix\n\n\n\nmain.py\n\na = Article(5)\n\na.prix = \"toto\"\na.prix = True\n\nprint(a.prix)\n# True\n\n\n\n\n\n\n\n\n\n\nPrivé\n\n\n\nAvec un attribut privé, il est possible de mettre en place des controles\n\n\narticle.py\n\nclass Article:\n    def __init__(self, prix):\n        self.__prix = prix\n\n    def obtenir_prix(self):\n        '''Getter'''\n        return self.__prix\n\n    def modifier_prix(self, new_prix):\n        '''Setter'''\n        if isinstance(new_prix, int) and new_prix &gt; 0:\n            self.__prix = new_prix\n\n\n\nmain.py\n\na = Article(5)\n\n# print(a.__prix)\n# 'Article' object has no attribute '__prix'\n\na.modifier_prix(10)\nprint(a.obtenir_prix())\n# 10\n\n\n\n\n\n\n\n\n\n\n\nPour aller plus loin\n\n\n\n\n\nQuand vous déclarez un attribut privé dans votre constructeur, Python va renommer votre attribut en ajoutant un préfixe _ClassName\nDans l’exemple ci-dessus, l’attribut __prix deviendra _Article__prix.\na = Article(5)\nprint(a._Article__prix)\n# 5\nSi vous tentez de modifier l’attribut __prix, cela va en fait créer un nouvel attribut\na = Article(5)\na.__prix = 10\nprint(a.__prix)\n# 10\nprint(a._Article__prix)\n# 5\n\n\n\n\n\n\n\n\n\nPublic, privé, protected\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode UML\nPréfixe Python\nDescription\n\n\n\n\nPublic\n+\n\nPar défaut, tous les attributs et méthodes dans une classe Python sont considérés comme publics. Cela signifie qu’ils peuvent être accédés depuis l’extérieur de la classe.\n\n\nPrivé\n-\n__\nPas natif en Python. Il ne peut être accédé qu’à l’intérieur de la classe elle-même.\n\n\nProtected\n#\n_\nPas natif en Python. Seules la classe possédant l’élément et les classes filles peuvent y accéder.\n\n\n\n\n\n\n\n\n4.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier\nCréer le fichier flacon.py contenant la classe Flacon\n\ncorrection UML : la méthode remplir() renvoie un booléen\n\nN’oubliez pas la doc et les tests\n\nPour celles et ceux qui veulent tenter de nouvelles expériences, écrivez les doctests avant de coder vos fonctions\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nméthode remplir() : pensez à bien effectuer toutes les vérifications\nméthode transvaser() : gardez bien en tête les 2 égalités suivantes pour vos calculs\n\n\\[volume = volume\\_eau + volume\\_sirop\\]\n\\[concentration = \\frac{volume\\_sirop}{volume\\_eau + volume\\_sirop}\\]\n\n\n\n\n\n4.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_3\nCliquez sur Sélectionner un dossier\nCréer le fichier point.py contenant la classe Point\n\nles attributs sont privés\n\nN’oubliez pas la doc et les tests !\nCréer le fichier ligne_polygonale.py contenant la classe LignePolygonale\n\nImportez la classe Point avec from point import Point\n\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nModule math"
+    "objectID": "cours/exceptions.html#types-dexception",
+    "href": "cours/exceptions.html#types-dexception",
+    "title": "Les exceptions",
+    "section": "3 Types d’exception",
+    "text": "3 Types d’exception\nles types d’exceptions les plus courantes en Python :\n\nValueError : Lorsque la valeur d’un argument est invalide.\nTypeError : Quand une opération ou une fonction est appliquée à un type inapproprié.\nIndexError : Tentative d’accéder à un indice inexistant dans une liste.\nKeyError : Accès à une clé inexistante dans un dictionnaire.\n\ntry:\n    liste = [1, 2, 3]\n    print(liste[5])\nexcept IndexError as e:\n    print(f\"Erreur : {e}\")"
   },
   {
-    "objectID": "poo-tp/tp5.html#template-classe",
-    "href": "poo-tp/tp5.html#template-classe",
-    "title": "POO, documentation et tests - TP5",
-    "section": "5 Template classe",
-    "text": "5 Template classe\nclass MaClasse:\n    '''titre_ma_classe\n\n    Description\n\n    Attributes\n    ----------\n    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)\n        desc_attribut_1\n        \n    attribut_2 : type_attribut_2\n        desc_attribut_2.\n        Valeur par défaut : False\n        \n    attribut_3 : type_attribut_3\n        desc_attribut_3. Initialisé à 0\n    '''\n    \n    def __init__(self, parametre_1, parametre_2):\n        '''Constructeur de l'objet\n\n        Parameters\n        ----------\n        parametre_1 : type_parametre_1\n            desc_parametre_1\n            \n        parametre_2 : type_parametre_2\n            desc_parametre_2\n        '''\n        self.attribut_1 = parametre_1\n        self.attribut_2 = parametre_2\n        self.attribut_3 = 0\n\n    def ma_methode(self, param1):\n        '''desc_courte_ma_methode\n\n        desc_longue_ma_methode_facultatif       \n\n        Parameters\n        ----------\n        param1 : type\n            desc_param_1\n            \n        Returns\n        -------\n        type\n            desc_retour\n\n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; mon_obj.ma_methode(\"xxx\")\n        2\n        '''\n        return 2\n\n    def __str__(self):\n        '''Conversion de l'objet en chaîne de caractères\n        \n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; print(mon_obj)\n        Classe d'attribut_1 égal à toto\n        '''\n        return f\"Classe d'attribut_1 égal à {self.attribut_1}\""
+    "objectID": "cours/exceptions.html#exception-personnalisée",
+    "href": "cours/exceptions.html#exception-personnalisée",
+    "title": "Les exceptions",
+    "section": "4 Exception personnalisée",
+    "text": "4 Exception personnalisée\n\n\n\n\n\n\nNote\n\n\n\nIl est possible de créer ses propres exceptions pour des cas spécifiques à un programme.\nLes exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.\n\n\n\n4.1 Création de l’exception\nPour créer une exception personnalisée, il faut créer une classe qui hérite de la classe Exception\n\nclass SoldeInsuffisantError(Exception):\n    pass\n\n\n\n4.2 Utilisation dans une fonction\nL’exception que nous venons de créer peut être levée dans la fonction ci-dessous\n\ndef verifier_solde(solde, montant):\n    \"\"\"Vérifie que le montant du retrait demandé est inférieur au solde\"\"\"\n    if montant &gt; solde:\n        raise SoldeInsuffisantError(\"Solde insuffisant pour ce retrait.\")\n    print(\"Retrait autorisé.\")\n\n\n\n4.3 Gestion de l’exception\nLa fonction verifier_solde() peut lever une exception.\nUtilisons un bloc try-except pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.\n\ntry:\n    verifier_solde(100, 200)\nexcept SoldeInsuffisantError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Solde insuffisant pour ce retrait."
   },
   {
-    "objectID": "poo-tp/tp5.html#template-fonction",
-    "href": "poo-tp/tp5.html#template-fonction",
-    "title": "POO, documentation et tests - TP5",
-    "section": "6 Template fonction",
-    "text": "6 Template fonction\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2):\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nif __name__ == '__main__':\n    a = ma_fonction(p1, p2)\n    print(a)"
-  },
-  {
-    "objectID": "poo-tp/tp5.html#template-pytest",
-    "href": "poo-tp/tp5.html#template-pytest",
-    "title": "POO, documentation et tests - TP5",
-    "section": "7 Template pytest",
-    "text": "7 Template pytest\nimport pytest\nfrom mon_fichier import ma_fonction\n\n@pytest.mark.parametrize(\n    'param1, param2, resultat_attendu',\n    [\n        (1,       1,                2),\n        (1,       2,                3),\n        (2,       2,                4)\n    ]\n)\ndef test_ma_fonction(param1, param2, resultat_attendu):\n    assert ma_fonction(param1, param2) == resultat_attendu"
-  },
-  {
-    "objectID": "poo-tp/td7.html",
-    "href": "poo-tp/td7.html",
-    "title": "POO, documentation et tests - TD1",
-    "section": "",
-    "text": "Lorsqu’un changement dans une classe implique la modiﬁcation du comportement d’une autre classe\nDans l’exemple, l’état de la fenêtre va dépendre de l’attribut outils de la personne\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Personne {\n        - nom: string\n        - age: int\n    }\n\n    class Fenetre {\n        + etat: string\n        + opération(p : Personne)\n    }\n\n    Personne ..&gt; Fenetre\n\n\n\n\n\n\n\n\n\n\nrelation structurelle entre deux classes\nil est possible de naviguer d’un objet d’une classe, à un ou plusieurs objets de l’autre classe\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Personne {\n        - nom: string\n        - age: int\n    }\n    \n    Entreprise \"*\" -- \"*\" Personne : emploie\n\n\n\n\n\n\n\n\n\n\nlorsqu’un élément est constitué d’un autre\nSupprimer l’agrégat (vélo) ne supprime pas le composant (roue)\n\nici on peut imaginer retirer la roue d’un vélo pour la mettre sur un autre vélo\n\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Velo {\n        - couleur: string\n    }\n    \n    class Roue {\n        - taille: int\n    }\n    \n    Velo \"1\" o-- \"2\" Roue : posséde\n\n\n\n\n\n\n\n\n\n\nle composant est détruit lorsque l’agrégat est détruit\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Departement {\n        - nom: string\n    }\n    \n    Entreprise \"1\" *-- \"*\" Departement : a\n\n\n\n\n\n\n\n\n\n\nHéritage\n\n\n\n\n\n\nclassDiagram\n    direction TB\n    class Animal{\n        + age: int\n        + gender: String\n        + isMammal() : bool\n        + mate()\n    }\n    class Duck{\n        + beakColor: String\n        + swim()\n        + quack()\n    }\n    Animal &lt;|-- Duck"
-  },
-  {
-    "objectID": "poo-tp/td7.html#uml",
-    "href": "poo-tp/td7.html#uml",
-    "title": "POO, documentation et tests - TD1",
-    "section": "",
-    "text": "Lorsqu’un changement dans une classe implique la modiﬁcation du comportement d’une autre classe\nDans l’exemple, l’état de la fenêtre va dépendre de l’attribut outils de la personne\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Personne {\n        - nom: string\n        - age: int\n    }\n\n    class Fenetre {\n        + etat: string\n        + opération(p : Personne)\n    }\n\n    Personne ..&gt; Fenetre\n\n\n\n\n\n\n\n\n\n\nrelation structurelle entre deux classes\nil est possible de naviguer d’un objet d’une classe, à un ou plusieurs objets de l’autre classe\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Personne {\n        - nom: string\n        - age: int\n    }\n    \n    Entreprise \"*\" -- \"*\" Personne : emploie\n\n\n\n\n\n\n\n\n\n\nlorsqu’un élément est constitué d’un autre\nSupprimer l’agrégat (vélo) ne supprime pas le composant (roue)\n\nici on peut imaginer retirer la roue d’un vélo pour la mettre sur un autre vélo\n\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Velo {\n        - couleur: string\n    }\n    \n    class Roue {\n        - taille: int\n    }\n    \n    Velo \"1\" o-- \"2\" Roue : posséde\n\n\n\n\n\n\n\n\n\n\nle composant est détruit lorsque l’agrégat est détruit\n\n\n\n\n\n\nclassDiagram\n    direction LR\n    class Entreprise {\n        - nom: string\n        - adresse: string\n    }\n    \n    class Departement {\n        - nom: string\n    }\n    \n    Entreprise \"1\" *-- \"*\" Departement : a\n\n\n\n\n\n\n\n\n\n\nHéritage\n\n\n\n\n\n\nclassDiagram\n    direction TB\n    class Animal{\n        + age: int\n        + gender: String\n        + isMammal() : bool\n        + mate()\n    }\n    class Duck{\n        + beakColor: String\n        + swim()\n        + quack()\n    }\n    Animal &lt;|-- Duck"
+    "objectID": "cours/exceptions.html#liens",
+    "href": "cours/exceptions.html#liens",
+    "title": "Les exceptions",
+    "section": "Liens",
+    "text": "Liens\n\nPython, the right way : Gestion d’exceptions"
   },
   {
     "objectID": "cours/fonctions.html",
@@ -637,6 +448,48 @@
     "text": "Exercices\n\nTempératures\nÉcrivez une fonction Python qui prend en entrée une température en Celsius et retourne la température correspondante en Fahrenheit.\n\n\n\n\n\n\nNote\n\n\n\n\\[ F = \\frac{9}{5} \\times C + 32 \\]\n\n\n\n\nParité\nÉcrivez une fonction qui :\n\nprend en paramètre un entier\naffiche s’il est pair ou impair\n\nComplétez la fonction :\n\nvérifiez que le paramètre est de type entier\n\nsinon affichez un message d’erreur\n\naffichez également si le paramètre est un multiple de 3\n\n\n\nFactorielle\nÉcrivez trois fonctions qui calculent et retournent le factoriel d’un entier n :\n\navec une boucle for\navec une boucle while\nen utilisant la récursivité\n\nÉcrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :\n1 1 2 6 24 120 ...\n\n\nAnnée bissextile\nÉcrivez une fonction qui :\n\nprend en paramètre une année\nretourne True si elle est bissextile, False sinon\n\n\n\n\n\n\n\nNote\n\n\n\nUne année est bissextile si :\n\nelle est divisible par 4,\nmais pas divisible par 100, sauf si elle est aussi divisible par 400\n\n\n\n\n\nFibonacci\n\nÉcrivez une fonction qui retourne le n ième terme de la suite de Fibonacci\nÉcrivez une autre fonction qui affiche les n premiers termes de la suite de Fibonacci\n\n\n\n\n\n\n\nRappel\n\n\n\nLa suite de Fibonacci \\((F_{n})_{n\\in \\mathbb {N}}\\) est définie par :\n\n\\(F_{0} = 0\\)\n\\(F_{1} = 1\\)\n\\(F_{n} = F_{n-1} + F_{n-2}\\) pour \\(n \\geq 2\\)\n\n\n\n\n\nPalindrome\nUn nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.\nÉcrivez une fonction qui :\n\nprend en entrée un entier\nretourne True si le nombre est un palindrome\n\nComptez le nombre de palindromes entre 0 et 100 000.\n\n\nCrible d’Ératosthène\nCréez une fonction qui génére la liste des nombres premiers de 2 à n (paramètre de la fonction) en utilisant le crible d’Ératosthène.\n\n\n\n\n\n\nCrible d’Ératosthène\n\n\n\nL’idée est de rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens. Nous partons du principe que tous les nombres sont premiers, puis nous éliminons un à un ceux qui ne le sont pas.\n\nCréez une liste de longueur n de booléen valant True\nMettez à False les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers\nMettez à False tous les éléments ayant un index multiple de 2\nRecherchez le prochain nombre encore potentiellement premier supérieur à 2 (i.e. 3) et mettez à False tous ses multiples\netc.\n\nRécupérez les index ayant pour valeur True et retournez cette liste de nombres premiers.\n\n\n\n\nConjecture de Goldbach\nLa conjecture de Goldbach stipule que tout nombre pair supérieur ou égal à 4 peut être écrit comme la somme de deux nombres premiers.\nÉcrivez une fonction qui vérifie la conjecture de Goldbach pour les entiers de 4 à n.\nLa fonction verif_Goldbach(20) retournera un booléen et affichera ce type de message :\n4 = 2 + 2\n6 = 3 + 3\n8 = 3 + 5\n10 = 3 + 7\n12 = 5 + 7\n14 = 3 + 11\n16 = 3 + 13\n18 = 5 + 13\n20 = 3 + 17\nLa conjecture de Goldbach est vérifiée jusqu'à 20.\n\n\nScores de Rugby\nÉcrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque n.\n\n\nTriplet pythagoricien\na² + b² = c²\na+b+c=1000"
   },
   {
+    "objectID": "cours/print.html",
+    "href": "cours/print.html",
+    "title": "La fonction print",
+    "section": "",
+    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
+  },
+  {
+    "objectID": "cours/print.html#utiliser-les-f-strings",
+    "href": "cours/print.html#utiliser-les-f-strings",
+    "title": "La fonction print",
+    "section": "",
+    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
+  },
+  {
+    "objectID": "cours/print.html#personnaliser-le-séparateur",
+    "href": "cours/print.html#personnaliser-le-séparateur",
+    "title": "La fonction print",
+    "section": "2 Personnaliser le séparateur",
+    "text": "2 Personnaliser le séparateur\n\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1-2-3-4-5\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\n\n1 2 3 4 5"
+  },
+  {
+    "objectID": "cours/print.html#personnaliser-le-caractère-de-fin",
+    "href": "cours/print.html#personnaliser-le-caractère-de-fin",
+    "title": "La fonction print",
+    "section": "3 Personnaliser le caractère de fin",
+    "text": "3 Personnaliser le caractère de fin\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
+  },
+  {
+    "objectID": "cours/print.html#afficher-une-ligne-pour-séparer",
+    "href": "cours/print.html#afficher-une-ligne-pour-séparer",
+    "title": "La fonction print",
+    "section": "4 Afficher une ligne pour séparer",
+    "text": "4 Afficher une ligne pour séparer\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
+  },
+  {
+    "objectID": "cours/print.html#multi-lignes",
+    "href": "cours/print.html#multi-lignes",
+    "title": "La fonction print",
+    "section": "5 Multi lignes",
+    "text": "5 Multi lignes\n\nprint(\"\"\"Maître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage\"\"\")\n\nMaître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage"
+  },
+  {
     "objectID": "cours/liste-dico.html",
     "href": "cours/liste-dico.html",
     "title": "Listes et Dictionnaires",
@@ -665,18 +518,11 @@
     "text": "Liens\n\nStructures interessantes"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Programmation avec Python",
+    "objectID": "remise-en-jambe/intro.html",
+    "href": "remise-en-jambe/intro.html",
+    "title": "Remise en jambe - STID",
     "section": "",
-    "text": "Vous trouverez sur ce site des supports pratiques pour les enseignements de Python en première année à l’ENSAI."
-  },
-  {
-    "objectID": "index.html#ressources-utiles",
-    "href": "index.html#ressources-utiles",
-    "title": "Programmation avec Python",
-    "section": "Ressources utiles",
-    "text": "Ressources utiles\n\nPython\n\nDocumentation officielle de Python 3.10\nIntroduction à Python 3 pour la programmation scientifique, David Cassagne\nPython pour la data science, Lino Galiana (INSEE, ENSAE)\nReal Python\nCours de Python, Université Paris Diderot)\n\n\n\nDatavisualisation\n\nPython Graph Gallery, Yan Holtz"
+    "text": "Cet enseignement vise à rafraîchir les connaissances en Python et algorithmie.\nIl est composé d’un TP encadré de 3h pour revoir les notions élémentaires suivantes :\n\nvariables\ncollections\nconditions\nboucles\nfonctions\n\nEnsuite, lors d’un second TP de 3h (qui lui sera noté), les élèves devront résoudre des problèmes d’algorithmie."
   },
   {
     "objectID": "remise-en-jambe/tp2/2023/TP noté 2023-2024 - 2e session.html",
@@ -707,10 +553,143 @@
     "text": "Le but va être d’écrire une fonction qui :\n\nprend en entrée une chaine de caractères\npour chaque ligne, vérifie la validité de la ligne (voir exemple ci-dessous)\nretourne le nombre de lignes valides\n\n\n\n\n1-2 a: abcdefgh\n1-3 z: abcdef\n2-4 x: xxxxxxx\nCe qui est avant les “:” représente la règle. Ce qui est après est la chaine sur laquelle on vérifie si la règle est respectée.\n\nligne 1 :\n\nrègle 1-2 a : la chaine doit contenir entre 1 et 2 “a”\nchaine abcdefgh contient 1 “a” donc est valide\n\nligne 2 :\n\nrègle 1-3 z : la chaine doit contenir entre 1 et 3 “z”\nchaine abcdef ne contient aucun “z” donc elle n’est pas valide\n\nligne 3 :\n\nrègle 2-4 x : la chaine doit contenir entre 2 et 4 “x”\nchaine xxxxxxx contient 7 “x” donc elle n’est pas valide\n\n\n\n\n\n\nÉcrivez la fonction demandée ci-dessus\nAppliquez cette fonction au fichier data/valid.txt\n\nÉcrivez en commentaires le résultat que vous avez trouvé\n\nÉcrivez une seconde fonction\n\nqui repart du même principe que la première\ncompte les lignes valides uniquement si plusieurs lignes consécutives sont valides\nc’est à dire qu’une ligne vaut 1 si :\n\nelle est valide\nla ligne précédente et/ou la ligne suivante est valide\n\nune ligne invalide vaut 0\nune ligne valide mais isolée vaut 0\n\nAppliquez cette 2e fonction au fichier valid.txt\n\nÉcrivez en commentaires le résultat que vous avez trouvé\n\n\nExemple pour la 2e fonction :\n1-2 a: a       \n1-3 z: zzz     \n1-4 t: tt      \n3-4 x: ggggg   \n1-2 b: b       \n3-4 x: ggggg   \nLe résultat attendu est 3 car :\n``` 1-2 a: a -&gt; ligne valide avec voisine valide : 1 1-3 z: zzz -&gt; ligne valide avec voisine valide : 1 1-4 t: tt -&gt; ligne valide avec voisine valide : 1\n3-4 x: ggggg -&gt; ligne invalide : 0 1-2 b: b -&gt; ligne valide mais isolée : 0 3-4 x: ggggg -&gt; ligne invalide : 0"
   },
   {
-    "objectID": "remise-en-jambe/intro.html",
-    "href": "remise-en-jambe/intro.html",
-    "title": "Remise en jambe - STID",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Programmation avec Python",
     "section": "",
-    "text": "Cet enseignement vise à rafraîchir les connaissances en Python et algorithmie.\nIl est composé d’un TP encadré de 3h pour revoir les notions élémentaires suivantes :\n\nvariables\ncollections\nconditions\nboucles\nfonctions\n\nEnsuite, lors d’un second TP de 3h (qui lui sera noté), les élèves devront résoudre des problèmes d’algorithmie."
+    "text": "Vous trouverez sur ce site des supports pratiques pour les enseignements de Python en première année à l’ENSAI."
+  },
+  {
+    "objectID": "index.html#ressources-utiles",
+    "href": "index.html#ressources-utiles",
+    "title": "Programmation avec Python",
+    "section": "Ressources utiles",
+    "text": "Ressources utiles\n\nPython\n\nDocumentation officielle de Python 3.10\nIntroduction à Python 3 pour la programmation scientifique, David Cassagne\nPython pour la data science, Lino Galiana (INSEE, ENSAE)\nReal Python\nCours de Python, Université Paris Diderot)\n\n\n\nDatavisualisation\n\nPython Graph Gallery, Yan Holtz"
+  },
+  {
+    "objectID": "poo-tp/tp5.html",
+    "href": "poo-tp/tp5.html",
+    "title": "POO, documentation et tests - TP5",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP5/Exercice_{1..5}/"
+  },
+  {
+    "objectID": "poo-tp/tp5.html#introduction",
+    "href": "poo-tp/tp5.html#introduction",
+    "title": "POO, documentation et tests - TP5",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP5/Exercice_{1..5}/"
+  },
+  {
+    "objectID": "poo-tp/tp5.html#moodle",
+    "href": "poo-tp/tp5.html#moodle",
+    "title": "POO, documentation et tests - TP5",
+    "section": "Moodle",
+    "text": "Moodle\n\nAller sur la page du TP5\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP5"
+  },
+  {
+    "objectID": "poo-tp/tp5.html#exercices",
+    "href": "poo-tp/tp5.html#exercices",
+    "title": "POO, documentation et tests - TP5",
+    "section": "1 Exercices",
+    "text": "1 Exercices\n\n1.1 Exercice 1\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\ncréez un fichier article.py\n\ndans ce ficher, créez la classe Article (vous pouvez utiliser le template de classe ci-dessous)\n\nLancez les doctests : python -m pytest --doctest-modules\n\n\nAttributs privés\nEn rendant les attributs de classe privés, vous pouvez contrôler strictement l’accès à ces attributs.\nVous pouvez fournir des méthodes spécifiques : “getter” et “setter”, pour manipuler ces attributs de manière contrôlée et sûre.\nExemple :\n\n\n\n\n\n\n\n\nPublic\n\n\n\nAvec un attribut public, aucun controle n’est effectué sur prix.\nIl est alors possible à l’extérieur de l’objet de :\n\nobtenir sa valeur\nmodifier sa valeur, et même son type\n\n\n\narticle.py\n\nclass Article:\n    def __init__(self, prix):\n        self.prix = prix\n\n\n\nmain.py\n\na = Article(5)\n\na.prix = \"toto\"\na.prix = True\n\nprint(a.prix)\n# True\n\n\n\n\n\n\n\n\n\n\nPrivé\n\n\n\nAvec un attribut privé, il est possible de mettre en place des controles\n\n\narticle.py\n\nclass Article:\n    def __init__(self, prix):\n        self.__prix = prix\n\n    def obtenir_prix(self):\n        \"\"\"Getter\"\"\"\n        return self.__prix\n\n    def modifier_prix(self, new_prix):\n        \"\"\"Setter\"\"\"\n        if isinstance(new_prix, int) and new_prix &gt; 0:\n            self.__prix = new_prix\n\n\n\nmain.py\n\na = Article(5)\n\n# print(a.__prix)\n# 'Article' object has no attribute '__prix'\n\na.modifier_prix(10)\nprint(a.obtenir_prix())\n# 10\n\n\n\n\n\n\n\n\n\n\n\nPour aller plus loin\n\n\n\n\n\nQuand vous déclarez un attribut privé dans votre constructeur, Python va renommer votre attribut en ajoutant un préfixe _ClassName\nDans l’exemple ci-dessus, l’attribut __prix deviendra _Article__prix.\na = Article(5)\nprint(a._Article__prix)\n# 5\nSi vous tentez de modifier l’attribut __prix, cela va en fait créer un nouvel attribut\na = Article(5)\na.__prix = 10\nprint(a.__prix)\n# 10\nprint(a._Article__prix)\n# 5\n\n\n\n\n\nPublic, privé, protected\n\n\n\n\n\n\n\n\n\n\nCode UML\nPréfixe Python\nDescription\n\n\n\n\nPublic\n+\n\nPar défaut, tous les attributs et méthodes dans une classe Python sont considérés comme publics. Cela signifie qu’ils peuvent être accédés depuis l’extérieur de la classe.\n\n\nPrivé\n-\n__\nPas natif en Python. Il ne peut être accédé qu’à l’intérieur de la classe elle-même.\n\n\nProtected\n#\n_\nPas natif en Python. Seules la classe possédant l’élément et les classes filles peuvent y accéder.\n\n\n\n:::\n\n\n\n1.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier\nCréer le fichier flacon.py contenant la classe Flacon\n\ncorrection UML : la méthode remplir() renvoie un booléen\n\nN’oubliez pas la doc et les tests\n\nPour celles et ceux qui veulent tenter de nouvelles expériences, écrivez les doctests avant de coder vos fonctions\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nméthode remplir() : pensez à bien effectuer toutes les vérifications\nméthode transvaser() : gardez bien en tête les 2 égalités suivantes pour vos calculs\n\n\\[volume = volume\\_eau + volume\\_sirop\\]\n\\[concentration = \\frac{volume\\_sirop}{volume\\_eau + volume\\_sirop}\\]\n\n\n\n\n\n1.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_3\nCliquez sur Sélectionner un dossier\nCréer le fichier point.py contenant la classe Point\n\nles attributs sont privés\n\nN’oubliez pas la doc et les tests !\nCréer le fichier ligne_polygonale.py contenant la classe LignePolygonale\n\nImportez la classe Point avec from point import Point\n\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nModule math"
+  },
+  {
+    "objectID": "poo-tp/tp5.html#templates",
+    "href": "poo-tp/tp5.html#templates",
+    "title": "POO, documentation et tests - TP5",
+    "section": "2 Templates",
+    "text": "2 Templates\n\n2.1 Classe\nclass MaClasse:\n    \"\"\"titre_ma_classe\n\n    Description\n\n    Attributes\n    ----------\n    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)\n        desc_attribut_1\n        \n    attribut_2 : type_attribut_2\n        desc_attribut_2\n    \"\"\"\n    \n    def __init__(self, parametre_1, parametre_2):\n        \"\"\"Constructeur de l'objet\n\n        Parameters\n        ----------\n        parametre_1 : type_parametre_1\n            desc_parametre_1\n            \n        parametre_2 : type_parametre_2\n            desc_parametre_2\n        \"\"\"\n        self.attribut_1 = parametre_1\n        self.attribut_2 = parametre_2\n\n    def ma_methode(self, param1):\n        \"\"\"desc_courte_ma_methode\n\n        desc_longue_ma_methode_facultatif       \n\n        Parameters\n        ----------\n        param1 : type\n            desc_param_1\n            \n        Returns\n        -------\n        type\n            desc_retour\n\n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; mon_obj.ma_methode(\"xxx\")\n        2\n        \"\"\"\n        return 2\n\n    def __str__(self):\n        \"\"\"Conversion de l'objet en chaîne de caractères\n        \n        Examples\n        --------\n        &gt;&gt;&gt; mon_obj = ma_classe(\"toto\")\n        &gt;&gt;&gt; print(mon_obj)\n        Classe d'attribut_1 égal à toto\n        \"\"\"\n        return f\"Classe d'attribut_1 égal à {self.attribut_1}\"\n\n\n2.2 Fonction\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2):\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nif __name__ == '__main__':\n    a = ma_fonction(p1, p2)\n    print(a)"
+  },
+  {
+    "objectID": "poo-tp/tp3.html",
+    "href": "poo-tp/tp3.html",
+    "title": "POO, documentation et tests - TP3",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..4}/\n\n\n\n\nAller sur la page du TP3\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP3"
+  },
+  {
+    "objectID": "poo-tp/tp3.html#introduction",
+    "href": "poo-tp/tp3.html#introduction",
+    "title": "POO, documentation et tests - TP3",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP3/Exercice_{1..4}/\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP3/Exercice_{1..4}/\n\n\n\n\nAller sur la page du TP3\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP3"
+  },
+  {
+    "objectID": "poo-tp/tp3.html#rappels",
+    "href": "poo-tp/tp3.html#rappels",
+    "title": "POO, documentation et tests - TP3",
+    "section": "Rappels",
+    "text": "Rappels\n\nFonction - Template\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None\n\n\nTU avec pytest - Modèle\nimport pytest\nfrom mon_fichier import ma_fonction\n\n@pytest.mark.parametrize(\n    'param1, param2, resultat_attendu',\n    [\n        (1,       1,                2),\n        (1,       2,                3),\n        (2,       2,                4)\n    ]\n)\ndef test_ma_fonction(param1, param2, resultat_attendu):\n    assert ma_fonction(param1, param2) == resultat_attendu\n\nLancer les TU : python -m pytest --doctest-modules"
+  },
+  {
+    "objectID": "poo-tp/tp3.html#exercices",
+    "href": "poo-tp/tp3.html#exercices",
+    "title": "POO, documentation et tests - TP3",
+    "section": "1 Exercices",
+    "text": "1 Exercices\n\n1.1 Exercice 1\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n\n\nÉcrivez la fonction position()\nÉcrivez les tests unitaires de la fonction position()\nÉcrivez la fonction sous_liste()\nÉcrivez les tests unitaires de la fonction sous_liste()\n\nQuel est le gros souci dans les TU de sous_liste() ?\n\n\n\n\n\n\nAstuces\n\n\n\n\n\n\nParcourir des listes\nliste = [\"a\", \"b\", \"c\", \"d\", \"e\"]\n\n# Par index\nfor i in range(0, len(liste)):\n    print(i, liste[i])\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Combiner index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index : {i}, valeur : {v}\")\n\n\nSlicing\nliste = [\"a\", \"b\", \"c\", \"d\", \"e\"]\n\n\n\n\n\n\n\n\nOpération\nRésultat\nExplication\n\n\n\n\nliste[2:]\n['c', 'd', 'e']\nDe l’index 2 jusqu’à la fin\n\n\nliste[:3]\n['a', 'b', 'c']\nDu début à l’index 2 (3 exclus)\n\n\nliste[1:4]\n['b', 'c', 'd']\nDe l’index 1 à 3 (4 exclus)\n\n\nliste[::2]\n['a', 'c', 'e']\nUn élément sur deux\n\n\nliste[1::2]\n['b', 'd']\nUn élément sur deux en commençant à l’index 1\n\n\nliste[-3:]\n['c', 'd', 'e']\nLes trois derniers éléments\n\n\nliste[:-2]\n['a', 'b', 'c']\nTout sauf les deux derniers\n\n\nliste[::-1]\n['e', 'd', 'c', 'b', 'a']\nInversion de la liste\n\n\nliste[::-2]\n['e', 'c', 'a']\nInversion avec un pas de 2\n\n\n\n\n\nImporter un module\nfrom mon_module import ma_fonction signifie “depuis le fichier mon_module.py, on importe la fonction ma_fonction”\n\n\n\n\n\n\n1.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\nCliquez une seule fois sur Exercice_2\nCliquez sur Sélectionner un dossier"
+  },
+  {
+    "objectID": "poo-tp/intro.html",
+    "href": "poo-tp/intro.html",
+    "title": "POO, documentation et tests",
+    "section": "",
+    "text": "Important\n\n\n\nLes cours et les sujets des TP sont disponibles sur Moodle.\nLe contenu de ce site vient en complément (pour vous aider) mais ne se substitue en aucun cas aux supports donnés par votre professeur."
+  },
+  {
+    "objectID": "poo-tp/intro.html#cours",
+    "href": "poo-tp/intro.html#cours",
+    "title": "POO, documentation et tests",
+    "section": "1 Cours",
+    "text": "1 Cours\nLe programme est le suivant :\n\nDocumentation du code\nExceptions\nTests unitaires avec pytest\nDécouverte du paradigme objet\nModélisation UML"
+  },
+  {
+    "objectID": "poo-tp/intro.html#tp",
+    "href": "poo-tp/intro.html#tp",
+    "title": "POO, documentation et tests",
+    "section": "2 TP",
+    "text": "2 TP\n6 TP et 1 TD de 3h chacun :\n\nTP1 : Programmation Python et Visual Studio Code\nTP2 : Modules, style de code, exceptions et tests\nTP3 : Structures hétérogènes de données et tests\nTP4 : Classes, objets, attributs et méthodes en Python\nTP5 : Classes et diagrammes UML\nTP6 : Relations entre classes\nTD7 : Héritages, relations, UML, modélisation\n\nVous pouvez réaliser les TP, soit :\n\nsur l’un des Datalab\n\ndu GENES ➡️ Lancer le service VScode-python\nle SSP Cloud de l’INSEE ➡️ Lancer le service VScode-python\n\nsur votre VM ENSAI (depuis les postes clients légers des salles info ou en vous connectant à votre VM après avoir installé VMWare)\nsur votre machine personnelle, en installant python et VScode (voir mail de votre professeur)"
+  },
+  {
+    "objectID": "poo-tp/tp2.html",
+    "href": "poo-tp/tp2.html",
+    "title": "POO, documentation et tests - TP2",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ex.py\n\n\n\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans les bons dossiers"
+  },
+  {
+    "objectID": "poo-tp/tp2.html#introduction",
+    "href": "poo-tp/tp2.html#introduction",
+    "title": "POO, documentation et tests - TP2",
+    "section": "",
+    "text": "Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal Git Bash les commandes ci-dessous (mkdir : make directory):\n# Sur la VM ensai\nmkdir -p /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ && touch /p/Cours1A/IPOO/TP2/Exercice_{1..5}/ex.py\n\n# Sur un Datalab Onyxia\nmkdir -p /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ && touch /home/onyxia/work/IPOO/TP2/Exercice_{1..5}/ex.py\n\n\n\n\nAller sur la page du tp2\nOuvrez le sujet et enregistrez le dans /p/Cours1A/IPOO/TP2\nTéléchargez les fichiers .py et placez les dans les bons dossiers"
+  },
+  {
+    "objectID": "poo-tp/tp2.html#cours",
+    "href": "poo-tp/tp2.html#cours",
+    "title": "POO, documentation et tests - TP2",
+    "section": "1 Cours",
+    "text": "1 Cours\n\n1.1 Linter Flake8\nFlake8 est un Linter :\n\nIl analyse le code pour détecter des erreurs, des mauvaises pratiques ou des violations des règles de style\nIl ne modifie pas directement le code\nIl signale les problèmes pour que l’on puisse ensuite les corriger\n\nIl existe également des formatters (Black, Ruff) qui à la différence des linters, modifient le code.\n\n\n1.2 Tests Unitaires\ncf. partie Cours\n\n\n1.3 Exceptions\ncf. partie Cours"
+  },
+  {
+    "objectID": "poo-tp/tp2.html#visual-studio-code",
+    "href": "poo-tp/tp2.html#visual-studio-code",
+    "title": "POO, documentation et tests - TP2",
+    "section": "2 Visual Studio Code",
+    "text": "2 Visual Studio Code\n\nOuvrez Visual Studio Code\n\nFile &gt; Open Folder\nCliquez une seule fois sur 📁 Exercice_1\nCliquez sur Sélectionner un dossier\n\ndans votre Explorer à gauche apparait l’arborescence des dossiers et fichiers de Exercice_1\n\n\n\n\n2.1 Settings\n\nicone ⚙️ en bas à droite &gt; Settings\noptions à activer :\n\nfiles.trimTrailingWhitespace\nfiles.insertFinalNewline\nfiles.trimFinalNewlines\nflake8.args\n\nAdd item : –max-line-length=88\n\neditor.rulers : 88\npython.testing.pytestArgs\n\nAdd item : –doctest-modules\n\n\n\n2 niveaux :\n\nUser : options appliquées au niveau global\nWorkspace : réglages spécifiques pour l’espace de travail (dossier)\n\ncréation d’un fichier .vscode/settings.json (exportable) qui contient ces réglages"
+  },
+  {
+    "objectID": "poo-tp/tp2.html#exercices",
+    "href": "poo-tp/tp2.html#exercices",
+    "title": "POO, documentation et tests - TP2",
+    "section": "3 Exercices",
+    "text": "3 Exercices\n\n3.1 Exercice 1\n\nTéléchargez le fichier fonctions.py sur Moodle\nCollez ce fichier dans /p/Cours1A/IPOO/TP2/Exercice_1\nAllez dans VSCode et ouvrez ce fichier\nOuvrez un nouveau Terminal (Terminal &gt; New Terminal)\nSuivez les consignes du sujet\n\n\n\n3.2 Exercice 2\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_2\nCliquez sur Sélectionner un dossier\n\n\nLes doctest vus au TP1 ne sont pas utilisés en pratique car cela surcharge les modules.\nOn préfère exporter les tests dans des modules à part.\n\n\n3.3 Exercice 3\n\nVSCode &gt; File &gt; Open Folder\n\nCliquez une seule fois sur 📁 Exercice_3\nCliquez sur Sélectionner un dossier\n\n\n\n\n\n\n\n\nAide\n\n\n\n\n\n\nVérifier que les 2 paramètres sont des tuples\nVérifier que les 2 paramètres sont des tuples de longueur 3\nVérifier que tous les éléments de ces tuples sont des int ou float\nVérifier que les éléments de axes sont strictements positifs\nTester si le point appartient à l’ellipsoïde\nEcrire des tests dans un autre fichier en s’inspirant de l’exercice 2\n\n\n\n\n\n\n3.4 Exercice 4\n\nInscription\n\nVérifier la validité d’une adresse électronique\n\nExemple pour lever une exception\nif adresse_electronique.count('@') != 1:\n    raise ValueError(\n        \"L'adresse électronique doit contenir un seul symbole @.\"\n    )\n\nValider que le mot de passe respecte les règles\nVérifier que le 2e mot de passe saisi est le même\n\nConnexion\n\nbase_de_donnees : list[tuple[str, str]]\n\nEcrire les tests"
+  },
+  {
+    "objectID": "poo-tp/tp2.html#template-doc",
+    "href": "poo-tp/tp2.html#template-doc",
+    "title": "POO, documentation et tests - TP2",
+    "section": "4 Template doc",
+    "text": "4 Template doc\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n\n    Examples\n    --------\n    &gt;&gt;&gt; 1+1\n    2\n    &gt;&gt;&gt; print(\"abc\")\n    abc\n    &gt;&gt;&gt; ma_fonction(xxx, yyy)\n    valeur_esperee\n    \"\"\"\n    return None"
   }
 ]

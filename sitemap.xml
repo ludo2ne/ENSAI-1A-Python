@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp1.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2023/tp2-2023-2024.html</loc>
-    <lastmod>2025-02-12T07:27:53.998Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2024/tp2-2024-2025.html</loc>
-    <lastmod>2025-02-12T07:27:53.998Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/exceptions.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/tu.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/print.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp1.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/intro.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp2.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp6.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/exercices.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/td7.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp4.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp3.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp1.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp5.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp6.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
   </url>
   <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/td7.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/exercices.html</loc>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2023/tp2-2023-2024.html</loc>
+    <lastmod>2025-02-13T14:40:08.532Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2024/tp2-2024-2025.html</loc>
+    <lastmod>2025-02-13T14:40:08.533Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp1.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/tu.html</loc>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/exceptions.html</loc>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/fonctions.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/print.html</loc>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-1A-Python/cours/liste-dico.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/index.html</loc>
-    <lastmod>2025-02-12T07:27:53.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2023/TP noté 2023-2024 - 2e session.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
+    <lastmod>2025-02-13T14:40:08.530Z</lastmod>
   </url>
   <url>
     <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/intro.html</loc>
-    <lastmod>2025-02-12T07:27:53.997Z</lastmod>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/remise-en-jambe/tp2/2023/TP noté 2023-2024 - 2e session.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/index.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp5.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp3.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/intro.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ludo2ne.github.io/ENSAI-1A-Python/poo-tp/tp2.html</loc>
+    <lastmod>2025-02-13T14:40:08.531Z</lastmod>
   </url>
 </urlset>
