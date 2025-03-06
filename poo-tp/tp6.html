@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,12 +71,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-57f86f76a34a3b5fcd4725c815234fdf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-ebe4cc08c959f78266c1f62ba9a6f235.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-bd706bf7cc79ec682822fd2bf903aab3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-903665f6a46130ffbaec3b80528a79ef.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -252,23 +252,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#créer-larborscence" id="toc-créer-larborscence" class="nav-link active" data-scroll-target="#créer-larborscence"><span class="header-section-number">1</span> Créer l’arborscence</a></li>
-  <li><a href="#moodle" id="toc-moodle" class="nav-link" data-scroll-target="#moodle"><span class="header-section-number">2</span> Moodle</a></li>
-  <li><a href="#rappels" id="toc-rappels" class="nav-link" data-scroll-target="#rappels"><span class="header-section-number">3</span> Rappels</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#lancer-les-tests" id="toc-lancer-les-tests" class="nav-link" data-scroll-target="#lancer-les-tests"><span class="header-section-number">3.1</span> Lancer les tests</a></li>
-  <li><a href="#attributs-privés" id="toc-attributs-privés" class="nav-link" data-scroll-target="#attributs-privés"><span class="header-section-number">3.2</span> Attributs privés</a></li>
-  <li><a href="#héritage-et-classes-abstraites" id="toc-héritage-et-classes-abstraites" class="nav-link" data-scroll-target="#héritage-et-classes-abstraites"><span class="header-section-number">3.3</span> Héritage et classes abstraites</a></li>
+  <li><a href="#créer-larborscence" id="toc-créer-larborscence" class="nav-link" data-scroll-target="#créer-larborscence">Créer l’arborscence</a></li>
   </ul></li>
-  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">4</span> Exercices</a>
+  <li><a href="#moodle" id="toc-moodle" class="nav-link" data-scroll-target="#moodle">Moodle</a></li>
+  <li><a href="#cours" id="toc-cours" class="nav-link" data-scroll-target="#cours"><span class="header-section-number">1</span> Cours</a>
   <ul class="collapse">
-  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">4.1</span> Exercice 1</a></li>
-  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">4.2</span> Exercice 2</a></li>
-  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">4.3</span> Exercice 3</a></li>
+  <li><a href="#héritage-et-classes-abstraites" id="toc-héritage-et-classes-abstraites" class="nav-link" data-scroll-target="#héritage-et-classes-abstraites"><span class="header-section-number">1.1</span> Héritage et classes abstraites</a></li>
   </ul></li>
-  <li><a href="#template-classe" id="toc-template-classe" class="nav-link" data-scroll-target="#template-classe"><span class="header-section-number">5</span> Template classe</a></li>
-  <li><a href="#template-fonction" id="toc-template-fonction" class="nav-link" data-scroll-target="#template-fonction"><span class="header-section-number">6</span> Template fonction</a></li>
-  <li><a href="#template-pytest" id="toc-template-pytest" class="nav-link" data-scroll-target="#template-pytest"><span class="header-section-number">7</span> Template pytest</a></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">2</span> Exercices</a>
+  <ul class="collapse">
+  <li><a href="#exercice-1" id="toc-exercice-1" class="nav-link" data-scroll-target="#exercice-1"><span class="header-section-number">2.1</span> Exercice 1</a></li>
+  <li><a href="#exercice-2" id="toc-exercice-2" class="nav-link" data-scroll-target="#exercice-2"><span class="header-section-number">2.2</span> Exercice 2</a></li>
+  <li><a href="#exercice-3" id="toc-exercice-3" class="nav-link" data-scroll-target="#exercice-3"><span class="header-section-number">2.3</span> Exercice 3</a></li>
+  </ul></li>
+  <li><a href="#templates" id="toc-templates" class="nav-link" data-scroll-target="#templates"><span class="header-section-number">3</span> Templates</a>
+  <ul class="collapse">
+  <li><a href="#classe" id="toc-classe" class="nav-link" data-scroll-target="#classe"><span class="header-section-number">3.1</span> Classe</a></li>
+  <li><a href="#fonction" id="toc-fonction" class="nav-link" data-scroll-target="#fonction"><span class="header-section-number">3.2</span> Fonction</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -309,245 +312,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="créer-larborscence" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="créer-larborscence"><span class="header-section-number">1</span> Créer l’arborscence</h2>
-<pre><code>└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...</code></pre>
-<p>Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l’arborscence ci-dessus. Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (<em>mkdir : make directory</em>):</p>
-<ul class="task-list">
-<li><label><input type="checkbox">Ouvrez <code>Git Bash</code></label>
-<ul>
-<li>Sur le bureau &gt; clic droit &gt; <strong>Git Bash here</strong></li>
-</ul></li>
-<li><label><input type="checkbox">Collez la commande suivante</label>
-<ul>
-<li><code>mkdir -p /p/Cours1A/IPOO/TP6/Exercice_{1..3}/</code></li>
-<li>dans Git Bash : clic droit &gt; Paste ou MAJ + INSER</li>
-</ul></li>
-<li><label><input type="checkbox">Fermez <em>Git Bash</em></label></li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Utilisez le lecteur <strong>P:</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Il est important de stocker vos fichiers dans votre lecteur <code>P:</code> et pas sur votre bureau ou votre disque <em>C:</em> car vos fichiers risqueraient de disparaitre !</p>
-</div>
-</div>
+<section id="introduction" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="créer-larborscence" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="créer-larborscence">Créer l’arborscence</h3>
+<p>Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal <em>Git Bash</em> les commandes ci-dessous (<em>mkdir : make directory</em>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sur la VM ensai</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> /p/Cours1A/IPOO/TP6/Exercice_{1..3}/</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Sur un Datalab Onyxia</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> /home/onyxia/work/IPOO/TP6/Exercice_{1..3}/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="moodle" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="moodle"><span class="header-section-number">2</span> Moodle</h2>
+</section>
+<section id="moodle" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="moodle">Moodle</h2>
 <ul class="task-list">
 <li><label><input type="checkbox">Aller sur la page du <a href="https://foad-moodle.ensai.fr/pluginfile.php/33287/mod_resource/content/2/TP6%20-%20Sujet.pdf" class="external" target="_blank">TP6</a></label></li>
 <li><label><input type="checkbox">Ouvrez le sujet et enregistrez le dans <code>/p/Cours1A/IPOO/TP6</code></label></li>
 <li><label><input type="checkbox">Téléchargez le dossier <code>Exercice_2</code></label></li>
 </ul>
 </section>
-<section id="rappels" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rappels"><span class="header-section-number">3</span> Rappels</h2>
-<section id="lancer-les-tests" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="lancer-les-tests"><span class="header-section-number">3.1</span> Lancer les tests</h3>
-<p>Plusieurs possibilités :</p>
-<ol type="1">
-<li>Coller ceci en bas de votre classe, puis cliquer sur l’icone <em>éxéctuer</em> <span class="emoji" data-emoji="arrow_forward">▶️</span></li>
-</ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> doctest    </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    doctest.testmod(verbose<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="2" type="1">
-<li>dans un terminal : <code>python -m pytest --doctest-modules</code></li>
-<li>utiliser l’interface de VSCode (à gauche icone Testing en forme de fiole triangulaire)</li>
-</ol>
-</section>
-<section id="attributs-privés" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="attributs-privés"><span class="header-section-number">3.2</span> Attributs privés</h3>
-<p>En rendant les attributs de classe privés, vous pouvez contrôler strictement l’accès à ces attributs.<br>
-Vous pouvez fournir des méthodes spécifiques : “getter” et “setter”, pour manipuler ces attributs de manière contrôlée et sûre.</p>
-<p>Exemple :</p>
-<div class="columns">
-<div class="column">
-<div class="callout callout-style-default callout-important callout-titled" title="Public">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Public
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Avec un attribut <code>public</code>, aucun controle n’est effectué sur <em>prix</em>.<br>
-Il est alors possible à l’extérieur de l’objet de :</p>
-<ul>
-<li>obtenir sa valeur</li>
-<li>modifier sa valeur, et même son type</li>
-</ul>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>article.py</strong></pre>
-</div>
-<div class="sourceCode" id="cb3" data-filename="article.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Article:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prix):</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prix <span class="op">=</span> prix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>main.py</strong></pre>
-</div>
-<div class="sourceCode" id="cb4" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Article(<span class="dv">5</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>a.prix <span class="op">=</span> <span class="st">"toto"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>a.prix <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.prix)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div><div class="column">
-<div class="callout callout-style-default callout-important callout-titled" title="Privé">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Privé
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Avec un attribut <code>privé</code>, il est possible de mettre en place des controles</p>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>article.py</strong></pre>
-</div>
-<div class="sourceCode" id="cb5" data-filename="article.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Article:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prix):</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__prix <span class="op">=</span> prix</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> obtenir_prix(<span class="va">self</span>):</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">'''Getter'''</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.__prix</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> modifier_prix(<span class="va">self</span>, new_prix):</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">'''Setter'''</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">isinstance</span>(new_prix, <span class="bu">int</span>) <span class="kw">and</span> new_prix <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__prix <span class="op">=</span> new_prix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="code-with-filename">
-<div class="code-with-filename-file">
-<pre><strong>main.py</strong></pre>
-</div>
-<div class="sourceCode" id="cb6" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Article(<span class="dv">5</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># print(a.__prix)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 'Article' object has no attribute '__prix'</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>a.modifier_prix(<span class="dv">10</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.obtenir_prix())</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled" title="Pour aller plus loin">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pour aller plus loin
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Quand vous déclarez un attribut privé dans votre constructeur, Python va renommer votre attribut en ajoutant un préfixe <em>_ClassName</em></p>
-<p>Dans l’exemple ci-dessus, l’attribut <em>__prix</em> deviendra <em>_Article__prix</em>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Article(<span class="dv">5</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a._Article__prix)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Si vous tentez de modifier l’attribut <em>__prix</em>, cela va en fait créer un nouvel attribut</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> Article(<span class="dv">5</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a.__prix <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a.__prix)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 10</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a._Article__prix)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled" title="Public, privé, protected">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Public, privé, protected
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<table class="table-striped table-hover table-success caption-top table">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 9%">
-<col style="width: 77%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: center;">Code UML</th>
-<th style="text-align: center;">Préfixe Python</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Public</strong></td>
-<td style="text-align: center;"><code>+</code></td>
-<td style="text-align: center;"></td>
-<td>Par défaut, tous les attributs et méthodes dans une classe Python sont considérés comme publics. Cela signifie qu’ils peuvent être accédés depuis l’extérieur de la classe.</td>
-</tr>
-<tr class="even">
-<td><strong>Privé</strong></td>
-<td style="text-align: center;"><code>-</code></td>
-<td style="text-align: center;"><code>__</code></td>
-<td>Pas natif en Python. Il ne peut être accédé qu’à l’intérieur de la classe elle-même.</td>
-</tr>
-<tr class="odd">
-<td><strong>Protected</strong></td>
-<td style="text-align: center;"><code>#</code></td>
-<td style="text-align: center;"><code>_</code></td>
-<td>Pas natif en Python. Seules la classe possédant l’élément et les classes filles peuvent y accéder.</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="héritage-et-classes-abstraites" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="héritage-et-classes-abstraites"><span class="header-section-number">3.3</span> Héritage et classes abstraites</h3>
+<section id="cours" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="cours"><span class="header-section-number">1</span> Cours</h2>
+<section id="héritage-et-classes-abstraites" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="héritage-et-classes-abstraites"><span class="header-section-number">1.1</span> Héritage et classes abstraites</h3>
 <p>Une classe abstraite ne peut pas être instanciée, c’est à dire qu’on ne peut pas créer d’objets de cette classe.</p>
 <p>L’intérêt est de fournir un socle commun à des classes filles.</p>
 <p>Exemple :</p>
@@ -561,38 +349,51 @@ Public, privé, protected
 <li>ce qui veut dire que <u>toutes</u> les classes filles devront redéfinir cette méthode</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vehicule(ABC):</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nb_roues):</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nb_roues <span class="op">=</span> nb_roues</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture(Vehicule):</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, marque, nb_roues):</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(nb_roues<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.marque <span class="op">=</span> marque</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">+=</span> <span class="dv">20</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Velo(Vehicule):</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, porte_bagages, nb_roues):</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(nb_roues<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.porte_bagages <span class="op">=</span> porte_bagages</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">+=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>vehicule.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="vehicule.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vehicule(ABC):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nb_roues):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.nb_roues <span class="op">=</span> nb_roues</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>voiture.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="voiture.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Voiture(Vehicule):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, marque, nb_roues):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(nb_roues<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.marque <span class="op">=</span> marque</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">+=</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>velo.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="velo.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Velo(Vehicule):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, porte_bagages, nb_roues):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(nb_roues<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.porte_bagages <span class="op">=</span> porte_bagages</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> accelerer(<span class="va">self</span>):</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.vitesse <span class="op">+=</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
-<section id="exercices" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="exercices"><span class="header-section-number">4</span> Exercices</h2>
-<section id="exercice-1" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">4.1</span> Exercice 1</h3>
+<section id="exercices" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exercices"><span class="header-section-number">2</span> Exercices</h2>
+<section id="exercice-1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="exercice-1"><span class="header-section-number">2.1</span> Exercice 1</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">Ouvrez Visual Studio Code</label>
 <ul class="task-list">
@@ -625,17 +426,68 @@ Caution
 </div>
 </div>
 <ul class="task-list">
-<li><label><input type="checkbox">Créez la classe <code>Emploi</code> dans un fichier <code>emploi.py</code></label></li>
+<li><label><input type="checkbox">Créez la classe <code>Emploi</code></label>
+<ul>
+<li>avec ses attributs et méthodes</li>
+</ul></li>
+<li><label><input type="checkbox">Types de relations entre les trois classes ?</label>
+<ul>
+<li>Que peut-on dire de la classe Emploi ?</li>
+</ul></li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour vérifier si votre code est correct, vous pouvez utiliser ce code même si ce n’est pas une bonne pratique.</p>
+<p>Le mieux est de faire des TU !</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>main.py</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="main.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> emploi <span class="im">import</span> Emploi</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> entreprise <span class="im">import</span> Entreprise</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> personne <span class="im">import</span> Personne</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>personne <span class="op">=</span> Personne(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Dupont'</span>, <span class="st">'Marie'</span>, <span class="dv">23</span>, <span class="st">"Diplôme d'ingénieur de l'ENSAI"</span>, <span class="st">""</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>entreprise <span class="op">=</span> Entreprise(<span class="st">'Entreprise préférée'</span>, <span class="st">'Lyon'</span>, <span class="dv">23_000_000</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>emploi <span class="op">=</span> Emploi(personne, entreprise, <span class="st">'CDI'</span>, <span class="st">'2022/09/01'</span>, <span class="va">None</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expérience professionnelle :</span><span class="ch">\n</span><span class="sc">{</span>personne<span class="sc">.</span>experience_professionnelle<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Est-ce que la personne a déjà démissionné ?"</span>, personne._demission)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combien d'employés ont démissionné de l'entreprise ?"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      entreprise._nombre_demissions)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>emploi.rupture_contrat(<span class="st">'2023/08/31'</span>, <span class="st">'démission'</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Est-ce que la personne a déjà démissionné ?"</span>, personne._demission)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Combien d'employés ont démissionné de l'entreprise ?"</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      entreprise._nombre_demissions)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expérience professionnelle :</span><span class="ch">\n</span><span class="sc">{</span>personne<span class="sc">.</span>experience_professionnelle<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="exercice-2" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">4.2</span> Exercice 2</h3>
+<section id="exercice-2" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="exercice-2"><span class="header-section-number">2.2</span> Exercice 2</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
 <li><label><input type="checkbox">Cliquez <u>une seule fois</u> sur <strong>Exercice_2</strong></label></li>
 <li><label><input type="checkbox">Cliquez sur <code>Sélectionner un dossier</code></label></li>
 <li><label><input type="checkbox">Recherchez dans les fichiers les <code># TODO</code> et complétez</label></li>
 </ul>
+<p>Pour <a href="../cours/tu.html#lancer-les-tu">Lancer les tests unitaires</a> avec pytest.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Aide">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -647,20 +499,27 @@ Aide
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p><label><input type="checkbox">Commencez par les classes <code>Aeroport</code>, <code>Compagnie</code> et <code>Vol</code></label></p></li>
-<li><p>Dans les constructeurs, vérifier tous les types</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(nom, <span class="bu">str</span>):</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Le nom doit être une chaîne de caractères."</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.nom <span class="op">=</span> nom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><label><input type="checkbox">Commencez par les classes <code>Aeroport</code>, <code>Compagnie</code> puis <code>Vol</code></label></p>
+<ul>
+<li>pour lancer les TU sur <em>Aeroport</em>
+<ul>
+<li>positionnez-vous dans le bon dossier</li>
+<li>lancez <code>python -m pytest --tb=short test_aeroport.py</code></li>
+</ul></li>
+</ul></li>
+<li><p>Dans les constructeurs, vérifiez tous les types</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, nom)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(nom, <span class="bu">str</span>):</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">TypeError</span>(<span class="st">"Le nom doit être une chaîne de caractères."</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.nom <span class="op">=</span> nom</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p><label><input type="checkbox">N’oubliez pas les <u>imports</u></label></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> aeroport <span class="im">import</span> Aeroport</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> aeroport <span class="im">import</span> Aeroport</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </div>
 </div>
 </section>
-<section id="exercice-3" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">4.3</span> Exercice 3</h3>
+<section id="exercice-3" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="exercice-3"><span class="header-section-number">2.3</span> Exercice 3</h3>
 <ul class="task-list">
 <li><label><input type="checkbox">VSCode &gt; File &gt; Open Folder</label></li>
 <li><label><input type="checkbox">Cliquez <u>une seule fois</u> sur <strong>Exercice_3</strong></label></li>
@@ -669,7 +528,7 @@ Aide
 <li><label><input type="checkbox">Codez les classes</label></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -678,141 +537,123 @@ Tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>une classe abstraite hérite de <em>ABC</em></li>
 <li>une méthode abstraite est précédée par le décorateur <em><span class="citation" data-cites="abstractmethod">@abstractmethod</span></em></li>
 <li>le mot clé <code>super()</code> permet de faire référence à la classe mère</li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="template-classe" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="template-classe"><span class="header-section-number">5</span> Template classe</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MaClasse:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''titre_ma_classe</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Description</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Attributes</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_attribut_1</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">    attribut_2 : type_attribut_2</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_attribut_2.</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">        Valeur par défaut : False</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">    attribut_3 : type_attribut_3</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_attribut_3. Initialisé à 0</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parametre_1, parametre_2):</span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">'''Constructeur de l'objet</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="co">        parametre_1 : type_parametre_1</span></span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_parametre_1</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co">            </span></span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co">        parametre_2 : type_parametre_2</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_parametre_2</span></span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a><span class="co">        '''</span></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribut_1 <span class="op">=</span> parametre_1</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribut_2 <span class="op">=</span> parametre_2</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribut_3 <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> ma_methode(<span class="va">self</span>, param1):</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">'''desc_courte_ma_methode</span></span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_longue_ma_methode_facultatif       </span></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co">        param1 : type</span></span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_param_1</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a><span class="co">            </span></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns</span></span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a><span class="co">        -------</span></span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a><span class="co">        type</span></span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_retour</span></span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a><span class="co">        Examples</span></span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a><span class="co">        --------</span></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj = ma_classe("toto")</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj.ma_methode("xxx")</span></span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a><span class="co">        2</span></span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a><span class="co">        '''</span></span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>        <span class="co">'''Conversion de l'objet en chaîne de caractères</span></span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a><span class="co">        Examples</span></span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a><span class="co">        --------</span></span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj = ma_classe("toto")</span></span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; print(mon_obj)</span></span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a><span class="co">        Classe d'attribut_1 égal à toto</span></span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a><span class="co">        '''</span></span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Classe d'attribut_1 égal à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>attribut_1<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="templates" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="templates"><span class="header-section-number">3</span> Templates</h2>
+<section id="classe" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="classe"><span class="header-section-number">3.1</span> Classe</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MaClasse:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""titre_ma_classe</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Description</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Attributes</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">    attribut_1 : type_attribut_1 (str, int, float, list, bool, function...)</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_attribut_1</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">    attribut_2 : type_attribut_2</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_attribut_2</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parametre_1, parametre_2):</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Constructeur de l'objet</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">        parametre_1 : type_parametre_1</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_parametre_1</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="co">            </span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">        parametre_2 : type_parametre_2</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_parametre_2</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribut_1 <span class="op">=</span> parametre_1</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribut_2 <span class="op">=</span> parametre_2</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> ma_methode(<span class="va">self</span>, param1):</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""desc_courte_ma_methode</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co">        desc_longue_ma_methode_facultatif       </span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">        Parameters</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co">        ----------</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">        param1 : type</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_param_1</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">            </span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">        -------</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="co">        type</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="co">            desc_retour</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co">        Examples</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a><span class="co">        --------</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj = ma_classe("toto")</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj.ma_methode("xxx")</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="co">        2</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Conversion de l'objet en chaîne de caractères</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="co">        Examples</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a><span class="co">        --------</span></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; mon_obj = ma_classe("toto")</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="co">        &gt;&gt;&gt; print(mon_obj)</span></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a><span class="co">        Classe d'attribut_1 égal à toto</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="co">        """</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Classe d'attribut_1 égal à </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>attribut_1<span class="sc">}</span><span class="ss">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="template-fonction" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="template-fonction"><span class="header-section-number">6</span> Template fonction</h2>
+<section id="fonction" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fonction"><span class="header-section-number">3.2</span> Fonction</h3>
 <p>Voici un modèle que vous pouvez utiliser pour documenter vos fonctions</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">    description_longue</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">    param1 : type (str, int, float, list...)</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param1</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">    param2 : type</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param2</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">    type_retour</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">        description_retour</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; 1+1</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">    2</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; print("abc")</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co">    abc</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; ma_fonction(xxx, yyy)</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co">    valeur_esperee</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> ma_fonction(p1, p2)</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction(param1, param2):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""description_courte</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">    description_longue</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">    param1 : type (str, int, float, list...)</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param1</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">    param2 : type</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">        description_param2</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">    type_retour</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">        description_retour</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Examples</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">    --------</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; 1+1</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co">    2</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; print("abc")</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">    abc</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co">    &gt;&gt;&gt; ma_fonction(xxx, yyy)</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co">    valeur_esperee</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> ma_fonction(p1, p2)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
-<section id="template-pytest" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="template-pytest"><span class="header-section-number">7</span> Template pytest</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mon_fichier <span class="im">import</span> ma_fonction</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.mark.parametrize</span>(</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'param1, param2, resultat_attendu'</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    [</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>,       <span class="dv">1</span>,                <span class="dv">2</span>),</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">1</span>,       <span class="dv">2</span>,                <span class="dv">3</span>),</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        (<span class="dv">2</span>,       <span class="dv">2</span>,                <span class="dv">4</span>)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_ma_fonction(param1, param2, resultat_attendu):</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> ma_fonction(param1, param2) <span class="op">==</span> resultat_attendu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
 </section>
 
 </main> <!-- /main -->
