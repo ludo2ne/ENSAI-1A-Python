@@ -12,183 +12,27 @@ number-sections: true
 number-depth: 3
 ---
 
-## Créer l'arborscence
+## Introduction {.unnumbered}
 
-```
-└── P
-    └── Cours1A
-        └── IPOO
-            ├── TP1
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   │   └── ex.py
-            │   ├── ...
-            │   └── Exercice_7
-            │       └── ex.py
-            ├── TP2
-            │   ├── Exercice_1
-            │   │   └── ex.py
-            │   ├── Exercice_2
-            │   ├── ...
+### Créer l'arborscence {.unnumbered}
+
+Vous pouvez créer chaque dossier et fichier à la main, ou utiliser dans un terminal *Git Bash* les commandes ci-dessous (*mkdir : make directory*):
+
+```{.bash}
+# Sur la VM ensai
+mkdir -p /p/Cours1A/IPOO/TP5/Exercice_{1..5}/
+
+# Sur un Datalab Onyxia
+mkdir -p /home/onyxia/work/IPOO/TP5/Exercice_{1..5}/
 ```
 
-Pour prendre la bonne habitude de bien ranger vos fichiers, vous allez créer l'arborscence ci-dessus.
-Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
-
-- [ ] Ouvrez `Git Bash`
-  - Sur le bureau > clic droit > **Git Bash here**
-- [ ] Collez la commande suivante
-  - `mkdir -p /p/Cours1A/IPOO/TP6/Exercice_{1..3}/`
-  - dans Git Bash : clic droit > Paste ou MAJ + INSER
-- [ ] Fermez *Git Bash*
-
-:::{.callout-important}
-### Utilisez le lecteur **P:**
-
-Il est important de stocker vos fichiers dans votre lecteur `P:` et pas sur votre bureau ou votre disque *C:* car vos fichiers risqueraient de disparaitre !
-:::
-
-## Moodle
+## Moodle {.unnumbered}
 
 - [ ] Aller sur la page du [TP6](https://foad-moodle.ensai.fr/pluginfile.php/33287/mod_resource/content/2/TP6%20-%20Sujet.pdf){.external target="_blank"}
 - [ ] Ouvrez le sujet et enregistrez le dans `/p/Cours1A/IPOO/TP6`
 - [ ] Téléchargez le dossier `Exercice_2`
 
-
-## Rappels
-
-### Lancer les tests
-
-Plusieurs possibilités :
-
-1. Coller ceci en bas de votre classe, puis cliquer sur l'icone *éxéctuer* :arrow_forward:
-  ```{.python}
-  if __name__ == '__main__':
-      import doctest    
-
-	  doctest.testmod(verbose=True)
-  ```
-2. dans un terminal : `python -m pytest --doctest-modules`
-3. utiliser l'interface de VSCode (à gauche icone Testing en forme de fiole triangulaire)
-
-
-### Attributs privés
-
-En rendant les attributs de classe privés, vous pouvez contrôler strictement l'accès à ces attributs.  
-Vous pouvez fournir des méthodes spécifiques : "getter" et "setter", pour manipuler ces attributs de manière contrôlée et sûre.
-
-Exemple :
-
-
-:::: {.columns}
-
-::: {.column}
-
-
-::: {.callout-important title="Public"}
-
-Avec un attribut `public`, aucun controle n'est effectué sur *prix*.  
-Il est alors possible à l'extérieur de l'objet de :
-
-- obtenir sa valeur
-- modifier sa valeur, et même son type
-
-```{.python filename="article.py"}
-class Article:
-    def __init__(self, prix):
-        self.prix = prix
-```
-
-```{.python filename="main.py"}
-a = Article(5)
-
-a.prix = "toto"
-a.prix = True
-
-print(a.prix)
-# True
-```
-:::
-
-:::
-
-
-::: {.column}
-
-::: {.callout-important title="Privé"}
-
-Avec un attribut `privé`, il est possible de mettre en place des controles
-
-```{.python filename="article.py"}
-class Article:
-    def __init__(self, prix):
-        self.__prix = prix
-
-    def obtenir_prix(self):
-        '''Getter'''
-        return self.__prix
-
-    def modifier_prix(self, new_prix):
-        '''Setter'''
-        if isinstance(new_prix, int) and new_prix > 0:
-            self.__prix = new_prix
-```
-
-```{.python filename="main.py"}
-a = Article(5)
-
-# print(a.__prix)
-# 'Article' object has no attribute '__prix'
-
-a.modifier_prix(10)
-print(a.obtenir_prix())
-# 10
-```
-:::
-
-:::
-
-::::
-
-
-::: {.callout-note collapse="true" title="Pour aller plus loin"}
-Quand vous déclarez un attribut privé dans votre constructeur, Python va renommer votre attribut en ajoutant un préfixe *\_ClassName*
-
-Dans l'exemple ci-dessus, l'attribut *\_\_prix* deviendra *\_Article\_\_prix*.
-
-```{.python}
-a = Article(5)
-print(a._Article__prix)
-# 5
-```
-
-Si vous tentez de modifier l'attribut *\_\_prix*, cela va en fait créer un nouvel attribut
-
-```{.python}
-a = Article(5)
-a.__prix = 10
-print(a.__prix)
-# 10
-print(a._Article__prix)
-# 5
-```
-:::
-
-
-
-::: {.callout-important title="Public, privé, protected"}
-
-|             | Code UML | Préfixe Python | Description                                                                                                                             |
-|-------------|:--------:|:--------------:|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Public**  | `+`      |                | Par défaut, tous les attributs et méthodes dans une classe Python sont considérés comme publics. Cela signifie qu'ils peuvent être accédés depuis l'extérieur de la classe. |
-| **Privé**   | `-`      | `__`           | Pas natif en Python. Il ne peut être accédé qu'à l'intérieur de la classe elle-même.                                                   |
-| **Protected** | `#`     | `_`            | Pas natif en Python. Seules la classe possédant l’élément et les classes filles peuvent y accéder.                                     |
-
-: {.striped .hover .success}
-
-:::
-
+## Cours
 
 ### Héritage et classes abstraites
 
@@ -205,7 +49,7 @@ Exemple :
 - la méthode *accelerer()* est déclarée abstraite dans la classe mère
   - ce qui veut dire que [toutes]{.underline} les classes filles devront redéfinir cette méthode
 
-```{.python}
+```{.python filename="vehicule.py"}
 from abc import ABC, abstractmethod
 
 class Vehicule(ABC):
@@ -216,7 +60,9 @@ class Vehicule(ABC):
     @abstractmethod
     def accelerer(self):
         pass
+```
 
+```{.python filename="voiture.py"}
 class Voiture(Vehicule):
     def __init__(self, marque, nb_roues):
         super().__init__(nb_roues=4)
@@ -224,7 +70,9 @@ class Voiture(Vehicule):
 
     def accelerer(self):
         self.vitesse += 20
-        
+```
+
+```{.python filename="velo.py"}
 class Velo(Vehicule):
     def __init__(self, porte_bagages, nb_roues):
         super().__init__(nb_roues=2)
@@ -248,13 +96,49 @@ class Velo(Vehicule):
   - [ ] ils contiennent respectivement les classes `Personne` et `Entreprise`
 
 ::: {.callout-caution}
-
 - attributs publics : arguments des constructeurs des classes
 - attributs protégés : initialisés dans les constructeurs
-
 :::
 
-- [ ] Créez la classe `Emploi` dans un fichier `emploi.py`
+- [ ] Créez la classe `Emploi`
+  - avec ses attributs et méthodes
+- [ ] Types de relations entre les trois classes ?
+  - Que peut-on dire de la classe Emploi ?
+
+::: {.callout-tip}
+
+Pour vérifier si votre code est correct, vous pouvez utiliser ce code même si ce n'est pas une bonne pratique.
+
+Le mieux est de faire des TU !
+
+```{.python filename="main.py"}
+from emploi import Emploi
+from entreprise import Entreprise
+from personne import Personne
+
+personne = Personne(
+    'Dupont', 'Marie', 23, "Diplôme d'ingénieur de l'ENSAI", ""
+)
+
+entreprise = Entreprise('Entreprise préférée', 'Lyon', 23_000_000)
+
+emploi = Emploi(personne, entreprise, 'CDI', '2022/09/01', None)
+
+print(f"Expérience professionnelle :\n{personne.experience_professionnelle}")
+print("Est-ce que la personne a déjà démissionné ?", personne._demission)
+print("Combien d'employés ont démissionné de l'entreprise ?",
+      entreprise._nombre_demissions)
+print()
+
+emploi.rupture_contrat('2023/08/31', 'démission')
+
+print("Est-ce que la personne a déjà démissionné ?", personne._demission)
+print("Combien d'employés ont démissionné de l'entreprise ?",
+      entreprise._nombre_demissions)
+print(f"Expérience professionnelle :\n{personne.experience_professionnelle}")
+```
+
+:::
 
 
 ### Exercice 2
@@ -264,10 +148,16 @@ class Velo(Vehicule):
 - [ ] Cliquez sur `Sélectionner un dossier`
 - [ ] Recherchez dans les fichiers les `# TODO` et complétez
 
-:::{.callout-tip title="Aide"}
 
-- [ ] Commencez par les classes `Aeroport`, `Compagnie` et `Vol`
-- Dans les constructeurs, vérifier tous les types
+Pour [Lancer les tests unitaires](../cours/tu.html#lancer-les-tu) avec pytest.
+
+
+:::{.callout-tip title="Aide"}
+- [ ] Commencez par les classes `Aeroport`, `Compagnie` puis `Vol`
+  - pour lancer les TU sur *Aeroport*
+    - positionnez-vous dans le bon dossier
+    - lancez `python -m pytest --tb=short test_aeroport.py`
+- Dans les constructeurs, vérifiez tous les types
   ```{.python}
   def __init__(self, nom)
       if not isinstance(nom, str):
@@ -278,7 +168,6 @@ class Velo(Vehicule):
   ```{.python}  
   from aeroport import Aeroport
   ```
-
 :::
 
 
@@ -305,11 +194,14 @@ from abc import ABC, abstractmethod
 
 
 
-## Template classe
+
+## Templates
+
+### Classe
 
 ```{.python}
 class MaClasse:
-	'''titre_ma_classe
+	"""titre_ma_classe
 
 	Description
 
@@ -319,15 +211,11 @@ class MaClasse:
 		desc_attribut_1
         
 	attribut_2 : type_attribut_2
-		desc_attribut_2.
-        Valeur par défaut : False
-        
-	attribut_3 : type_attribut_3
-		desc_attribut_3. Initialisé à 0
-	'''
+		desc_attribut_2
+	"""
 	
 	def __init__(self, parametre_1, parametre_2):
-		'''Constructeur de l'objet
+		"""Constructeur de l'objet
 
 		Parameters
 		----------
@@ -336,13 +224,12 @@ class MaClasse:
             
 		parametre_2 : type_parametre_2
 			desc_parametre_2
-		'''
+		"""
 		self.attribut_1 = parametre_1
 		self.attribut_2 = parametre_2
-		self.attribut_3 = 0
 
 	def ma_methode(self, param1):
-		'''desc_courte_ma_methode
+		"""desc_courte_ma_methode
 
 		desc_longue_ma_methode_facultatif		
 
@@ -361,23 +248,23 @@ class MaClasse:
 		>>> mon_obj = ma_classe("toto")
         >>> mon_obj.ma_methode("xxx")
 		2
-		'''
+		"""
 		return 2
 
 	def __str__(self):
-		'''Conversion de l'objet en chaîne de caractères
+		"""Conversion de l'objet en chaîne de caractères
 		
 		Examples
 		--------
 		>>> mon_obj = ma_classe("toto")
 		>>> print(mon_obj)
 		Classe d'attribut_1 égal à toto
-		'''
+		"""
 		return f"Classe d'attribut_1 égal à {self.attribut_1}"
 ```
 
 
-## Template fonction
+### Fonction
 
 Voici un modèle que vous pouvez utiliser pour documenter vos fonctions
 
@@ -414,22 +301,4 @@ def ma_fonction(param1, param2):
 if __name__ == '__main__':
     a = ma_fonction(p1, p2)
     print(a)
-```
-
-## Template pytest
-
-```{.python}
-import pytest
-from mon_fichier import ma_fonction
-
-@pytest.mark.parametrize(
-    'param1, param2, resultat_attendu',
-    [
-        (1,       1,                2),
-        (1,       2,                3),
-        (2,       2,                4)
-    ]
-)
-def test_ma_fonction(param1, param2, resultat_attendu):
-    assert ma_fonction(param1, param2) == resultat_attendu
 ```
