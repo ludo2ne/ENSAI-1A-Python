@@ -9,6 +9,12 @@ Enseignements ENSAI de 1ère année en Python.
 - [ ] Fiche Pandas
   - https://pythonds.linogaliana.fr/content/manipulation/02_pandas_intro.html
   - TP Johann
+  
+### Explorer
+
+- Skimpy
+- import fireducks as pd
+- marimo
 
 ## :rocket: Publier les pages
 

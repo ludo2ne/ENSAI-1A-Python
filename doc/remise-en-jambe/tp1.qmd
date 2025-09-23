@@ -1,7 +1,7 @@
 ---
-title: "TP Remise en jambe - STID"
+title: "TP Remise en jambe - SD"
 description: "Bases de Python et d'algorithmique"
-author: "Hong-Phuong DANG, Rémi PEPIN, Ludovic DENEUVILLE"
+author: "Ludovic DENEUVILLE"
 format:
   html:
     toc: true
@@ -14,323 +14,342 @@ number-depth: 3
 
 ## Avant de commencer {.unnumbered}
 
-Une bonne habitude pour s'y retrouver et de créer une arborscence claire
+Vous allez travailler sur le logiciel Visual Studio Code disponible sur les datalab :
 
-```{.default}
-└── P:
-    └── Cours1A
-        └── UE0-Info-Remise-en-jambe
-            ├── src
-            │   ├── ex1.py
-            │   ├── ex2.py
-            │   └── ...
-```
+- [ ] Connectez-vous à un datalab
+  - <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
+  - <https://datalab.sspcloud.fr/>{target="_blank"} (create an account using `firstname.lastname@eleve.ensai.fr`)
+- [ ] Lancez, puis ouvrez un service Vscode-python
 
-Vous pouvez créer chaque dossier et fichier à la main, ou utiliser les commandes ci-dessous (*mkdir : make directory*):
+Dans votre navigateur, vous arrivez sur VSCode.
 
-- [ ] Ouvrez `Git Bash`
-  - Sur le bureau > clic droit > **Git Bash here**
-- [ ] Collez les commandes suivantes
-  - `mkdir -p /p/Cours1A/UE0-Info-Remise-en-jambe/src/`
-  - `touch /p/Cours1A/UE0-Info-Remise-en-jambe/src/ex{1..5}.py`
-  - Dans Git Bash :arrow_right: *clic droit > Paste* ou *MAJ + INSER*
-- [ ] Fermez *Git Bash*
+Vous pouvez si vous le souhaitez choisir un thème (dark, light...).
 
-:::{.callout-important title="Utilisez le lecteur P:"}
-Il est important de stocker vos fichiers dans votre lecteur `P:` et non sur votre bureau ou votre disque *C:* car vos fichiers risqueraient de disparaitre !
+
+> *En cas de besoin, VSCode est également installé sur vos VM ENSAI.*
+
+### L'interface VSCode {.unnumbered}
+
+**Visual Studio Code (VS Code)** est un éditeur de code moderne, gratuit et léger, qui permet d'écrire, exécuter et déboguer des programmes. Avec *VSCode Server*, on peut l'utiliser dans un navigateur web tout en gardant la puissance d'un serveur distant.
+
+Son [interface](https://code.visualstudio.com/docs/getstarted/userinterface){target="_blank"} est composée de plusieurs parties principales :
+
+- **Barre latérale gauche** : permet d'accéder aux fichiers du projet, à la recherche, au contrôle de version, au débogage et aux extensions.
+- **Explorateur de fichiers** : affiche l'arborescence des dossiers et fichiers du projet.
+- **Éditeur central** : zone principale où l'on écrit et modifie le code.
+- **Barre de statut (en bas)** : donne des informations (erreurs, langage utilisé...).
+- **Terminal intégré** : en bas, permet de lancer des commandes (comme exécuter un script Python).
+
+En haut de la barre latérale gauche, vous pouvez cliquer sur les 3 petits traits horizontaux pour accéder aux différents menus : File, Edit, Run, Terminal...
+
+De nombreuses extensions sont disponibles pour VSCode. Par exemple, nous allons utiliser [Ruff](https://docs.astral.sh/ruff/){target="_blank"} pour mettre en forme votre code.
+
+- [ ] Désinstallez l'extension Flake8
+  - Dans la barre latérale gauche > Extensions
+- [ ] Installez Ruff
+
+
+### Cloner un dépôt {.unnumbered}
+
+Vous n'allez pas coder à partir d'une feuille blanche.
+
+Votre base de départ sera ce dépôt de code <https://github.com/ludo2ne/ENSAI-1A-SD-TP>{target="_blank"}, dont vous allez créer un clone.
+
+- [ ] Ouvrez un terminal
+  - 3 petits traits horizontaux > Terminal > New
+  - ou CTRL + ù
+- [ ] Créez un clone de ce dépôt git : `git clone https://github.com/ludo2ne/ENSAI-1A-SD-TP.git`
+- [ ] Ouvrez le dossier du dépôt cloné, 3 possibilités :
+  - File > Open Folder : /home/onyxia/work/ENSAI-1A-SD-TP
+  - dans le terminal : `code-server ENSAI-1A-SD-TP`
+  - Modifiez l'url : `https://...user.lab.sspcloud.fr/?folder=/home/onyxia/work/ENSAI-1A-SD-TP`
+
+
+Ce dépôt contient :
+
+- **src/** : dossiers contenant les codes sources du TP (fichiers Python...)
+- **README.md** : description générale du projet, instructions pour démarrer
+- **LICENSE** : spécifie ce qu'on peut faire légalement avec le code : le réutiliser, le modifier, le distribuer
+- **.gitignore** : indique à Git quels fichiers ou dossiers ne doivent pas être versionnés
+- **.vscode/settings.json** : fichier de configuration pour VS Code
+  - exemple : `editor.formatOnSave: true`
+
+
+## Python
+
+Passons maintenant au code Python.
+
+::: {.callout-note title="Pourquoi apprendre Python ?"}
+- Langage polyvalent et populaire
+- Facilité d'apprentissage et de lecture, syntaxe claire et concise
+- Large communauté et nombreuses ressources
+- Nombreux packages (pandas, polars, numpy, matplotlib...)
+
+Python est un langage [interprété]{.underline} : le code est lu et exécuté directement ligne par ligne par un interpréteur.
 :::
 
-- [ ] Ouvrez le logiciel Visual Studio Code
-- [ ] File > Open Folder
-  - Allez dans `/p/Cours1A/`
-  - Cliquez [une seule fois]{.underline} sur `UE0-Info-Remise-en-jambe`
-  - Cliquez sur le bouton [Sélectionner un dossier]{.text-like-button}
-  - Votre dossier apparait à gauche dans l'*explorer*
+### Typage dynamique
 
-### Paramétrage VSCode {.unnumbered}
+Nul besoin d'indiquer le type des variables. Il est déterminé automatiquement au moment de l'exécution.
 
-- [ ] Créez à la racine un dossier `.vscode`
-- [ ] Dans ce dossier, créez un fichier nommé `settings.json` et collez le contenu ci-dessous
+De plus une même variable peut changer de type sans quel 'on ait besoin de le préciser.
 
-```{.json filename="settings.json"}
-{
-    "flake8.args": [
-        "--max-line-length=100"
-    ],
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.black-formatter",
-        "editor.formatOnSave": true,
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4
-    },
-    "black-formatter.args": ["--line-length", "100"],
-    "python.analysis.extraPaths": [
-        "./*"
-    ],
-    "python.languageServer": "Jedi",
-    "python.testing.pytestEnabled": true,
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.pytest_cache": true
-    },
-    "terminal.integrated.env.windows": {
-        "PYTHONPATH": "${workspaceFolder}/src"
-    },
-    "terminal.integrated.env.linux": {
-        "PYTHONPATH": "${workspaceFolder}/src"
-    },
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-}
+```{.python}
+a = 1
+print(type(a))
+
+a = "youpi"
+print(type(a))
 ```
 
-- [ ] Fermez, puis ré-ouvrez VSCode pour que le paramétrage soit actif
+### Règles de base et bonnes pratiques
 
-::: {.callout-note}
-Ce fichier de settings permet d'intégrer à votre espace de travail :
+- L'indentation (4 espaces) est obligatoire pour structurer le code
+- Les noms sont sensibles à la casse : *Variable ≠ variable*
+- Utilisez des noms de variables clairs et en minuscule_avec_underscores : *ma_variable*
+- Les lignes commentées commencent par *#*
 
-- **Black** : un formateur automatique de code
-- **Flake8** : un linter
-- **Git Bash** : comme terminal par défaut
-- cacher certains fichiers non utiles
-:::
 
-## Rappels {.unnumbered}
-
-### Listes et boucles {.unnumbered}
+## Listes et boucles
 
 Une liste en Python est une collection ordonnée et modifiable d'éléments, pouvant contenir des éléments de différents types.
 
-Voici quelques exemples de boucles pour afficher les éléments de la liste.
-
 ```{.python}
-liste = ["Alice", "Benoit", "Camille"]
+# Création d'une liste
+liste = ["Alice", "Benoit", "Camille", "Diane"]
 
+liste.pop()           # Supprimer le dernier élément
+liste.append(5.2)     # Ajouter un élément à la fin
+
+nb_elements = len(liste)
+
+if nb_elements == 0:
+    print("La liste est vide")
+elif not nb_elements > 0:
+    print("Il y a un petit souci avec la fonction len")
+else:
+    print(f"Il y a {nb_elements} éléments dans la liste")
+
+# Parcours par valeurs
 for v in liste:
     print(v)
 
+# Parcours par index
 for i in range(len(liste)):
     print(liste[i])
 
+# Parcours par index et valeurs
 for i, v in enumerate(liste):
     print(f"index {i} : valeur {v}")
 
+# Parcours par index avec une boucle While
 index = 0
 while index < len(liste):
     print(liste[index])
     index += 1
 ```
 
-### Range {.unnumbered}
-
-Vous pouvez également étudier le comportement de la fonction [range](https://www.w3schools.com/python/ref_func_range.asp){target="_blank"} selon son nombre de paramètres
-
-```{python}
+::: {.callout-tip title="La fonction range()"}
+```{.python}
 print(f"range(10)       : {list(range(10))}")
 print(f"range(2, 10)    : {list(range(2, 10))}")
 print(f"range(5, 10, 2) : {list(range(5, 10, 2))}")
 ```
-
-### Dictionnaire {.unnumbered}
-
-Un dictionnaire est une collection non ordonnée de paires clé-valeur. 
-
-Chaque clé est unique.
-
-```{.python}
-# Créer un dictionnaire
-dico = {1: "Alice", 2: "Benoit", 3: "Camille"}
-
-# Ajouter un élément
-dico[8] = "Dua"
-
-# Supprimer un élément à partir de sa clé
-dico.pop(1)
-
-# Parcourir le dictionnaire
-for k, v in dico.items():
-    print(f"clé {k} : valeur {v}")
-
-for k in dico.keys():
-    print(k)
-
-for v in dico.values():
-    print(v)
-```
-
-
-## Les variables
-
-### Exercice 1
-
-- [ ] À votre avis que valent les variables *first* et *second* à la fin de ces instructions ? 
-  - Vérifiez
-
-#### Bloc 1
-
-```{.python}
-first = 6 
-second = first + 9 
-first = second 
-second = 11
-```
-
-#### Bloc 2
-
-```{.python}
-first = 7
-second = first + 5
-first += 2
-second = first * 9
-```
-
-#### Bloc 3
-
-```{.python}
-first = 10
-second = first % 3
-second = second + 2 
-first = second // 2
-```
-
-### Exercice 2
-
-Affectez les valeurs des expressions ci-dessous dans une variable, puis affichez le résultat. 
-
-::: {.callout-warning}
-Certaines expressions ne sont pas valides, dans ce cas expliquez l'erreur et corrigez l'expression.
 :::
 
-- [ ] `4 - 7`
-- [ ] `"il fait " + 20 + " degrés"`
-- [ ] `3 * 2.5 + 4`
-- [ ] `"Je veux avoir " + 20 + " en remise à niveau"`
 
+### Exercice
 
-### Exercice 3
+- [ ] Dans le dossier *src*, créez un fichier *boucles.py*
+- [ ] Créez une liste *l10* contenant tous les entiers de 0 à 10
+- [ ] Créez une liste *l10desc* contenant tous les entiers de 10 à 10
 
-- [ ] Ecrivez un script qui permet d'inverser les valeurs de deux variables suivantes :
-  - a = 2
-  - b = 8
-
-::: {.callout-note title="Pour aller plus loin" collapse="true"}
-- [ ] Sauriez-vous le faire sans créer aucune autre variable ?
-:::
-
-### Exercice 4
-
-Définissez 4 variables :
-
-- identifiant = ?
-- profil = ?
-- phrase_debut = `"Bonjour "`
-- phrase_fin = `". Votre profil est : "`
-
-Affichez la texte qui résulte de la concaténation des 4 variables. Par exemple : `"Bonjour Alice. Votre profil est : développeuse"`.
-
-
-### Exercice 5
-
-Considérons maintenant deux variables numériques entières suivantes :
-
-- `heure` : valeurs comprises entre 0 et 23
-- `minute` : valeurs comprises entre 0 et 59
-
-Ajoutons une variable textuelle `jour` pouvant prendre les valeurs "lundi", "mardi", ... , "dimanche".
-
-Pour chacun des cas listés ci-dessous, créez une fonction qui renvoie un booléen si le jour et l'horaire est valide :
-
-- [ ] Un jour de semaine (hors week-end)
-- [ ] En dehors des heures de travail, i.e. soit le week-end, soit avant 8h, soit après 18h
-- [ ] Un vendredi à partir de 18h30
-- [ ] N'importe quel jour entre 12h30 et 13h45 inclus
-- [ ] Un jeudi à n'importe quelle heure ou entre 15h et 18h15 pour n'importe quel autre jour
-
-::: {.callout-tip title="Exemple" collapse="true"}
-```{.python}
-def heure_et_minute_pairs(jour, heure, minute) -> bool:
-    """Retourne True si heure et minute sont pairs. False sinon"""
-    if heure % 2 == 0 and minute % 2 == 0:
-        return True
-    return False
-
-if __name__ == "__main__":
-    print(heure_et_minute_pairs("mardi", 20, 00))
-    print(heure_et_minute_pairs("lundi", 15, 27))
-    print(heure_et_minute_pairs("mardi", 12, 45))
-```
-:::
-
-## Les collections
-
-### Listes
-
-- [ ] À votre avis, qu'affiche le code suivant ? 
-  - Vérifiez
+Pour générer un nombre aléatoire entre 1 et 9, utilisez le package *random*.
 
 ```{.python}
-from copy import copy
+import random
 
-initial = [1, 2, 'test', True, 4, 5] 
-second = initiale
-my_copy = copy(initiale)
-
-initial[0] = 42
-initial[5] = 'another'
-
-print(initial)
-print(second)
-print(my_copy)
+random.randint(1, 9)
 ```
 
-### Dictionnaires
+- [ ] Créer une liste *l20rand* contenant 20 entiers dont les valeurs sont comprises entre 1 et 9
+- [ ] Affichez les éléments de la liste pour lesquels valeur = index
+- [ ] Multipliez les éléments impairs de  *l20rand* par 2
+- [ ] Supprimez les doublons de *l20rand*
+- [ ] Ordonnez *l20rand* par ordre croissant
 
-- [ ] Copiez le code ci-dessous
+Tentons maintenant de copier la liste.
 
-```{.python}
-remise_a_niveau = {
-    "UE" : "Informatique pour la data science",
-    "module" : "remise_a_niveau",
-    "nb_eleve": 20,
-    "eleves": ["Alice", "Benoit", "Camille"]
+- [ ] Créez la liste *l20copy = l20rand*
+- [ ] Supprimez le dernier élément de *l20copy*
+- [ ] Affichez *l20rand*
+  - Vous trouvez ça normal ?
+
+
+## Dictionnaire et autres
+
+Un dictionnaire est une structure de données qui associe des paires clé–valeur.
+
+Il permet un accès rapide aux valeurs en utilisant leur clé.
+
+```{.python} 
+ingredients = {"Fraise": 5, "Beurre": "100g", "Moutarde": "5g"}
+
+ingredients["Sel"] = True    # Ajouter un élément
+ingredients["Fraise"] = 10   # Modifier un élément
+ingredients.pop("Moutarde")  # Supprimer
+
+for k, v in ingredients.items():
+    print(f"La clé {k} a pour valeur {v}")
+```
+
+Autres Collections utiles :
+
+- **Set** : collection non ordonnée de valeurs uniques
+  ```{.python} 
+  premiers = {2, 3, 5, 7, 11, 13}
+  ```
+- **Tuple** : collection ordonnée de valeurs immuables
+  ```{.python} 
+  coord = (-1, 5, 4)
+  ```
+
+
+### Exercice
+
+- [ ] Créez un fichier *dico.py* avec ce code :
+
+```{.python filename="dico.py"}
+recette = {
+    "nom": "Tartine Fraise-Moutarde",
+    "instructions": [
+        "Laver et couper les fraises.",
+        "Étaler le beurre sur une tartine.",
+        "Ajouter les fraises.",
+    ],
+    "ingredients": {"Fraise": 5, "Beurre": "100g"},
 }
 ```
 
-- [ ] Affichez les valeurs associées à toutes les clés du dictionnaire
-- [ ] Ajoutez une élève prénommée *Dua*
-- [ ] Mettez à 4 la valeur associée à la clé *nb_eleve*
-- [ ] Ajoutez une clé annee qui vaut la valeur `"2024-2025"`
+- [ ] Donnez une note sur 20 à votre recette
+- [ ] Ajoutez 5g de Moutarde comme ingrédient
+- [ ] Modifiez la quantité de Beurre
+- [ ] Ajoutez à la fin des instructions : "Assaisonner légèrement avec la moutarde."
+- [ ] Affichez la liste des ingrédients
 
-## Conditions
 
-::: {.callout-important}
-À partir de maintenant, créez un nouveau fichier *.py* pour chaque nouvelle fonction.
-:::
 
-### Fonction Pair
+## Fonctions
+
+Vous devez écrire cette fonction : $f(x) = \frac{5}{x}$ en Python
+
+Définissons, puis utilisons cette fonction :
+
+```{.python}
+def diviser_cinq_par(nombre):
+    return 5 / nombre
+
+print(diviser_cinq_par(3))
+```
+
+Que se passe-t-il si `nombre=0` ? Il faut gérer ce cas, par exemple :
+
+```{.python}
+def diviser_cinq_par(nombre):
+    if nombre != 0:
+        return 5 / nombre
+    else:
+        return None
+        
+print(diviser_cinq_par(0))
+```
+
+Ici, vous vous rendez compte que le *else* est facultatif.
+
+```{.python}
+def diviser_cinq_par(nombre):
+    if nombre == 0:
+        return None
+    return 5 / nombre
+```
+
+Quand une fonction devient plus complexe, il est important de documenter et d'indiquer les types attendus pour les paramètres et pour le retour.
+
+```{.python}
+def diviser_cinq_par(nombre: float) -> float | None:
+    """Divise 5 par un nombre donné.
+
+    Parameters
+    ----------
+    nombre : float
+        Le nombre par lequel 5 sera divisé.
+
+    Returns
+    -------
+    float | None
+        Le résultat de la division de 5 par nombre.
+        Retourne None si nombre est égal à 0.
+    """
+    if nombre == 0:
+        return None
+    return 5 / nombre
+
+print(diviser_cinq_par("toto"))
+```
+
+Cependant, l'ajout des types de paramètres est purement indicatif. Si l'on veut intégrer des restrictions, il faut vérifier les types dans le code:
+
+```{.python}
+def diviser_cinq_par(nombre: float) -> float | None:
+    """Divise 5 par un nombre donné.
+    """
+    if not isinstance(nombre, (int, float)):
+        return None
+    if nombre == 0:
+        return None
+    return 5 / nombre
+
+```
+
+Enfin retourner *None* n'est pas très parlant, nous pouvons utiliser des Exceptions:
+
+
+```{.python}
+def diviser_cinq_par(nombre: float) -> float:
+    """Divise 5 par un nombre donné.
+    """
+    if not isinstance(nombre, (int, float)):
+        raise TypeError("L'argument doit être un nombre (int ou float).")
+    if nombre == 0:
+        raise ZeroDivisionError("Division par zéro interdite.")
+    return 5 / nombre
+
+# Exemple d'utilisation
+try:
+    resultat = diviser_cinq_par(0)
+    print("Résultat :", resultat)
+except ZeroDivisionError as e:
+    print("Erreur :", e)
+except TypeError as e:
+    print("Erreur de type :", e)
+```
+
+### Exercices
+
+#### Fonction Pair
 
 - [ ] Définissez une fonction `est_pair()` qui prend un entier en paramètre et retourne un booléen en sortie
 - [ ] Définissez une fonction `est_pair_print()` qui prend un entier en paramètre, affiche s'il est pair et ne retourne rien
 
-### Fizz / Buzz
+#### Factorielle
 
-Écrivez une fonction qui prend en entrée un entier et qui va :
+Écrivez trois fonctions qui calculent et retournent le factoriel d'un entier n :
 
-- écrire *FIZZ* si cet entier est multiple de 3
-- *BUZZ* s'il est multiple de 5
-- *FIZZ BUZZ* s'il est multiple de 3 et 5
+- [ ] avec une boucle for
+- [ ] avec une boucle while
+- [ ] en utilisant la récursivité
 
-Affichez le nombre dans tous les autres cas.
-
-## Boucles
-
-### 10 premiers entiers
-
-Écrivez les 10 premiers entiers positifs :
-
-- [ ] Avec une boucle *for*
-- [ ] Avec une boucle *while*
-
-### Fibonacci
+#### Fibonacci
 
 - [ ] Écrivez une fonction qui affiche les *n* premiers termes de la suite de Fibonacci
 
@@ -363,41 +382,33 @@ def afficher_suite_fibonacci(n) -> None:
 afficher_suite_fibonacci(15)  
 ```
 
-::: {.callout-tip title="Fonction print"}
-Vous pourriez trouver un peu d'aide en consultant de la [documentation sur la fonction print](https://www.w3schools.com/python/ref_func_print.asp){target="_blank"}.
-:::
+#### Brute force
+
+- [ ] Écrivez une fonction qui permet de tester toutes les combinaisons possible d'un mot de passe à 6 chiffres
+- [ ] Trouvez le mot de passe correspondant à ce hash : `c8d278dd28e1c4ac23774d004bce1d74`
+
+```{.python}
+import hashlib
+
+pwd = "123456"
+print(hashlib.md5(pwd.encode()).hexdigest())
+```
 
 
-### Fibonacci 10.000
+#### Rugby
 
-Affichez les termes de la suite de Fibonacci inférieurs à 10 000 :
+Au rugby, les façons de marquer des points sont :
 
-- [ ] en utilisant une boucle *while*
-- [ ] en utilisant une boucle *for*
-
-
-### Crible d'Ératosthène
-
-Le crible d'Ératosthène est un algorithme simple pour calculer exhaustivement les nombres premiers inférieurs à une valeur fixée N. 
-
-Il consiste à rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens :
-
-- Initialisez une liste de *N* éléments qui valent tous **True** (tous les nombres sont potentiellement premiers)
-  - `liste = [True, True, True, True, True, True, True...]`
-- Mettez à **False** les éléments d'index *0* et *1* car ces deux nombres ne sont pas premiers
-  - `liste = [False, False, True, True, True, True, True...]`
-- Mettez à **False** tous les éléments ayant un index multiple de 2
-  - `liste = [False, False, True, True, False, True, False...]`
-- Puis recherchez le prochain nombre encore potentiellemnent premier supérieur à 2 :arrow_right: 3
-- Mettez à **False** tous les éléments ayant un index multiple de 3
-- etc.
-- Récupérez les index ayant pour valeur *True* et affichez ces nombres premiers
+- Essai : 5 points
+- Essai transformé : 7 points
+- Pénalité ou Drop : 3 points
 
 ---
 
-- [ ] Utilisez le crible d'Ératosthène pour calculer et afficher les nombres premiers plus petits que 1000.
+- [ ] Écrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque n
 
-### Pyramide
+
+#### Pyramide
 
 - [ ] Définissez une fonction qui affichera *n* lignes d'un triangle d'étoiles. 
 
@@ -409,15 +420,6 @@ Il consiste à rayer progressivement les nombres qui ne sont pas premiers dans u
     *
 ```
 
-### Nouvelle base
-
-Ecrivez une fonction qui prend en paramètres :
-
-- un entier positif *entier_base_10*
-- un entier *nouvelle_base* (compris entre 2 et 16)
-
-Et retourne l'écriture de *entier_base_10* dans la *nouvelle_base*
-
-### Maximum
+#### Maximum
 
 - [ ] Ecrivez une fonction qui prend [un nombre quelconque]{.underline} de paramètres et retourne la valeur maximale parmi ces paramètres.
