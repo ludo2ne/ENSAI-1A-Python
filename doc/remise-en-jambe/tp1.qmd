@@ -14,12 +14,12 @@ number-depth: 3
 
 ## Avant de commencer {.unnumbered}
 
-Vous allez travailler sur le logiciel Visual Studio Code disponible sur les datalab :
+Vous allez travailler sur le logiciel [Visual Studio Code](https://code.visualstudio.com/){target="_blank"} disponible sur les datalab :
 
 - [ ] Connectez-vous à un datalab
   - <https://onyxia.lab.groupe-genes.fr/>{target="_blank"}
   - <https://datalab.sspcloud.fr/>{target="_blank"} (create an account using `firstname.lastname@eleve.ensai.fr`)
-- [ ] Lancez, puis ouvrez un service Vscode-python
+- [ ] Lancez, puis ouvrez un service **Vscode-python**
 
 Dans votre navigateur, vous arrivez sur VSCode.
 
@@ -185,8 +185,25 @@ Tentons maintenant de copier la liste.
 - [ ] Affichez *l20rand*
   - Vous trouvez ça normal ?
 
+::: {.callout-tip collapse="true"}
+Lorsque vous fâites `liste1 = liste2`, vous ne créez pas une copie de la liste originale.
 
-## Dictionnaire et autres
+Vous avez simplement deux variables qui pointent vers le même espace mémoire.
+
+Pour créer une copie, plusieurs possibilités :
+
+```{.python}
+liste1 = [1, 2, 3, 4]
+liste2 = list(liste1)
+liste3 = liste1.copy()
+```
+:::
+
+Une chaine de caractère peut être traitée comme une liste immuable de caractères.
+
+- [ ] Comptez le nombre de `e` dans la phrase `I can see that you're giving up It should not mean that much to me`
+
+## Dictionnaire et autres conteneurs
 
 Un dictionnaire est une structure de données qui associe des paires clé–valeur.
 
@@ -217,6 +234,7 @@ Autres Collections utiles :
 
 ### Exercice
 
+- [ ] Comptez et affichez le nombre d'occurences de chaque caractère de cette phrase `I can see that you're giving up It should not mean that much to me`
 - [ ] Créez un fichier *dico.py* avec ce code :
 
 ```{.python filename="dico.py"}
@@ -252,7 +270,9 @@ def diviser_cinq_par(nombre):
 print(diviser_cinq_par(3))
 ```
 
-Que se passe-t-il si `nombre=0` ? Il faut gérer ce cas, par exemple :
+Ok ça fonctionne dans le cas général.
+
+Mais que se passe-t-il si `nombre=0` ? Il faut gérer ce cas, par exemple :
 
 ```{.python}
 def diviser_cinq_par(nombre):
@@ -273,7 +293,11 @@ def diviser_cinq_par(nombre):
     return 5 / nombre
 ```
 
-Quand une fonction devient plus complexe, il est important de documenter et d'indiquer les types attendus pour les paramètres et pour le retour.
+Quand une fonction devient plus complexe, il est important de documenter i.e. :
+
+- expliquer ce que fait la fonction
+- indiquer les types des paramètres
+- indiquer le type de valeur retournée
 
 ```{.python}
 def diviser_cinq_par(nombre: float) -> float | None:
@@ -297,7 +321,9 @@ def diviser_cinq_par(nombre: float) -> float | None:
 print(diviser_cinq_par("toto"))
 ```
 
-Cependant, l'ajout des types de paramètres est purement indicatif. Si l'on veut intégrer des restrictions, il faut vérifier les types dans le code:
+Cependant, l'ajout des types de paramètres est purement indicatif.
+
+Si l'on veut intégrer des restrictions, il faut vérifier les types dans le code :
 
 ```{.python}
 def diviser_cinq_par(nombre: float) -> float | None:
@@ -339,7 +365,7 @@ except TypeError as e:
 #### Fonction Pair
 
 - [ ] Définissez une fonction `est_pair()` qui prend un entier en paramètre et retourne un booléen en sortie
-- [ ] Définissez une fonction `est_pair_print()` qui prend un entier en paramètre, affiche s'il est pair et ne retourne rien
+- [ ] Définissez une fonction `est_pair_print()` qui prend un entier en paramètre et affiche s'il est pair
 
 #### Factorielle
 
