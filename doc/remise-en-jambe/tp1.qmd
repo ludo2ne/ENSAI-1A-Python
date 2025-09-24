@@ -150,6 +150,12 @@ while index < len(liste):
 ```
 
 ::: {.callout-tip title="La fonction range()"}
+`range(start, stop, step)` sert à générer une suite de nombres entiers.
+
+- start : début (par défaut *0*)
+- stop : fin (exclu, on s'arrête juste avant)
+- step : le pas (par défaut *1*)
+
 ```{.python}
 print(f"range(10)       : {list(range(10))}")
 print(f"range(2, 10)    : {list(range(2, 10))}")
@@ -160,9 +166,9 @@ print(f"range(5, 10, 2) : {list(range(5, 10, 2))}")
 
 ### Exercice
 
-- [ ] Dans le dossier *src*, créez un fichier *boucles.py*
+- [ ] Dans le dossier *src*, créez un fichier *listes.py*
 - [ ] Créez une liste *l10* contenant tous les entiers de 0 à 10
-- [ ] Créez une liste *l10desc* contenant tous les entiers de 10 à 10
+- [ ] Créez une liste *l10desc* contenant tous les entiers de 10 à 0
 
 Pour générer un nombre aléatoire entre 1 et 9, utilisez le package *random*.
 
@@ -172,7 +178,7 @@ import random
 random.randint(1, 9)
 ```
 
-- [ ] Créer une liste *l20rand* contenant 20 entiers dont les valeurs sont comprises entre 1 et 9
+- [ ] Créez une liste *l20rand* contenant 20 entiers dont les valeurs sont comprises entre 1 et 9
 - [ ] Affichez les éléments de la liste pour lesquels valeur = index
 - [ ] Multipliez les éléments impairs de  *l20rand* par 2
 - [ ] Supprimez les doublons de *l20rand*
