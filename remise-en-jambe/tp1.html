@@ -664,6 +664,12 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p><code>range(start, stop, step)</code> sert à générer une suite de nombres entiers.</p>
+<ul>
+<li>start : début (par défaut <em>0</em>)</li>
+<li>stop : fin (exclu, on s’arrête juste avant)</li>
+<li>step : le pas (par défaut <em>1</em>)</li>
+</ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(10)       : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>))<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(2, 10)    : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">10</span>))<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"range(5, 10, 2) : </span><span class="sc">{</span><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">2</span>))<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -672,16 +678,16 @@ window.Quarto = {
 <section id="exercice" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="exercice"><span class="header-section-number">2.1</span> Exercice</h3>
 <ul class="task-list">
-<li><label><input type="checkbox">Dans le dossier <em>src</em>, créez un fichier <em>boucles.py</em></label></li>
+<li><label><input type="checkbox">Dans le dossier <em>src</em>, créez un fichier <em>listes.py</em></label></li>
 <li><label><input type="checkbox">Créez une liste <em>l10</em> contenant tous les entiers de 0 à 10</label></li>
-<li><label><input type="checkbox">Créez une liste <em>l10desc</em> contenant tous les entiers de 10 à 10</label></li>
+<li><label><input type="checkbox">Créez une liste <em>l10desc</em> contenant tous les entiers de 10 à 0</label></li>
 </ul>
 <p>Pour générer un nombre aléatoire entre 1 et 9, utilisez le package <em>random</em>.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>random.randint(<span class="dv">1</span>, <span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul class="task-list">
-<li><label><input type="checkbox">Créer une liste <em>l20rand</em> contenant 20 entiers dont les valeurs sont comprises entre 1 et 9</label></li>
+<li><label><input type="checkbox">Créez une liste <em>l20rand</em> contenant 20 entiers dont les valeurs sont comprises entre 1 et 9</label></li>
 <li><label><input type="checkbox">Affichez les éléments de la liste pour lesquels valeur = index</label></li>
 <li><label><input type="checkbox">Multipliez les éléments impairs de <em>l20rand</em> par 2</label></li>
 <li><label><input type="checkbox">Supprimez les doublons de <em>l20rand</em></label></li>
@@ -888,7 +894,7 @@ Tip
 </div>
 </div>
 <p>Le résultat attendu lorsque vous appelez votre fonction :</p>
-<div id="a6b57b19" class="cell" data-execution_count="2">
+<div id="24f26b72" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>afficher_suite_fibonacci(<span class="dv">15</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 </code></pre>
