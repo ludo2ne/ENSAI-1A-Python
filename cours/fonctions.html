@@ -509,7 +509,7 @@ window.Quarto = {
 <section id="valeur-retournée" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="valeur-retournée"><span class="header-section-number">1</span> Valeur retournée</h2>
 <p>Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers <em>a</em> et <em>b</em>.</p>
-<div id="b756ee31" class="cell" data-execution_count="1">
+<div id="a2a1a0d6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maximum(a, b) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le maximum entre a et b"""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -517,14 +517,14 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La fonction <code>maximum()</code> retourne une valeur qui peut-être stockée :</p>
-<div id="11dd905d" class="cell" data-execution_count="2">
+<div id="9d99d9f2" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La variable <em>res</em> a maintenant pour valeur : 8</p>
 </section>
 <section id="simple-affichage" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="simple-affichage"><span class="header-section-number">2</span> Simple affichage</h2>
-<div id="ab6b734b" class="cell" data-execution_count="3">
+<div id="da14af7d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum(a, b) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -537,14 +537,14 @@ window.Quarto = {
 <li>elle ne fait qu’afficher le maximum</li>
 <li>elle ne renvoie pas de résultat</li>
 </ul>
-<div id="c3d2e3d5" class="cell" data-execution_count="4">
+<div id="ae130af6" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p>Si l’on essaie de stocker le résultat, il vaudra simplement <em>None</em>.</p>
-<div id="a5ba451a" class="cell" data-execution_count="5">
+<div id="5fba4c57" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> affiche_maximum(<span class="dv">2</span>, <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La variable <em>res2</em> a maintenant pour valeur : None</p>
@@ -552,7 +552,7 @@ window.Quarto = {
 <section id="valeur-par-défaut" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="valeur-par-défaut"><span class="header-section-number">3</span> Valeur par défaut</h2>
 <p>Il est possible de donner aux paramètres une valeur par défaut</p>
-<div id="ec705a3c" class="cell" data-execution_count="6">
+<div id="57172f6a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> affiche_maximum_def(a, b<span class="op">=</span><span class="dv">0</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Affiche le maximum entre a et b"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="op">&gt;</span> b:</span>
@@ -560,13 +560,13 @@ window.Quarto = {
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:        </span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="99fab35f" class="cell" data-execution_count="7">
+<div id="797e4ccd" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="99a523a3" class="cell" data-execution_count="8">
+<div id="fc97d002" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>affiche_maximum_def(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
@@ -576,12 +576,12 @@ window.Quarto = {
 <section id="multiples-retours" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="multiples-retours"><span class="header-section-number">4</span> Multiples retours</h2>
 <p>Une fonction peut retourner plusieurs valeurs.</p>
-<div id="0183f902" class="cell" data-execution_count="9">
+<div id="4fc9b34a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> min_max(liste):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Retourne le minimum et le maximum parmi une liste."""</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">min</span>(liste), <span class="bu">max</span>(liste)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="82b31821" class="cell" data-execution_count="10">
+<div id="7609bdc0" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ma_liste <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">12</span>, <span class="dv">3</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>minimum, maximum <span class="op">=</span> min_max(ma_liste)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -594,7 +594,7 @@ window.Quarto = {
 <section id="lambda-fonctions" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="lambda-fonctions"><span class="header-section-number">5</span> Lambda fonctions</h2>
 <p>Une manière très concise pour définir des fonctions</p>
-<div id="92faaec1" class="cell" data-execution_count="11">
+<div id="2ed37e4e" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>carre <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(carre(<span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
