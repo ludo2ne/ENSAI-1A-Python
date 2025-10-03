@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Astuces pour utiliser print">
+<meta name="author" content="Ludovic DENEUVILLE">
+<meta name="description" content="2025-2026">
 
-<title>La fonction print – Python 1A</title>
+<title>Remise en jambe STID - TP Noté – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,26 +60,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b66d9f3da4d84aca26cc7cc1c94b0445.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-d3daa1d1ef55350d6f5c3e6cec97cbbd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-707d8167ce6003fca903bfe2be84ab7f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-b66d9f3da4d84aca26cc7cc1c94b0445.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-d3daa1d1ef55350d6f5c3e6cec97cbbd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,8 +108,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="floating nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
@@ -279,9 +308,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Python 1A</span>
     </a>
   </div>
@@ -292,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img">
+    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
@@ -302,23 +331,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-remise-en-jambe">    
         <li>
-    <a class="dropdown-item" href="../remise-en-jambe/intro.html">
+    <a class="dropdown-item" href="../../../remise-en-jambe/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../remise-en-jambe/tp1.html">
+    <a class="dropdown-item" href="../../../remise-en-jambe/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../remise-en-jambe/tp2/2025/tp2-2025-2026.html">
+    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2025/tp2-2025-2026.html">
  <span class="dropdown-text">TP n°2 2025-2026</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
+    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2024/tp2-2024-2025.html">
  <span class="dropdown-text">TP n°2 2024-2025</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
+    <a class="dropdown-item" href="../../../remise-en-jambe/tp2/2023/tp2-2023-2024.html">
  <span class="dropdown-text">TP n°2 2023-2024</span></a>
   </li>  
     </ul>
@@ -329,35 +358,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tp-poo">    
         <li>
-    <a class="dropdown-item" href="../poo-tp/intro.html">
+    <a class="dropdown-item" href="../../../poo-tp/intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp1.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp1.html">
  <span class="dropdown-text">TP n°1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp2.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp2.html">
  <span class="dropdown-text">TP n°2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp3.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp3.html">
  <span class="dropdown-text">TP n°3</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp4.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp4.html">
  <span class="dropdown-text">TP n°4</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp5.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp5.html">
  <span class="dropdown-text">TP n°5</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/tp6.html">
+    <a class="dropdown-item" href="../../../poo-tp/tp6.html">
  <span class="dropdown-text">TP n°6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../poo-tp/td7.html">
+    <a class="dropdown-item" href="../../../poo-tp/td7.html">
  <span class="dropdown-text">TD n°7</span></a>
   </li>  
     </ul>
@@ -370,29 +399,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-cours">    
         <li>
-    <a class="dropdown-item" href="../cours/print.html">
+    <a class="dropdown-item" href="../../../cours/print.html">
  <span class="dropdown-text">La fonction Print</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cours/liste-dico.html">
+    <a class="dropdown-item" href="../../../cours/liste-dico.html">
  <span class="dropdown-text">Listes et Dictionnaires</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cours/fonctions.html">
+    <a class="dropdown-item" href="../../../cours/fonctions.html">
  <span class="dropdown-text">Les Fonctions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cours/exceptions.html">
+    <a class="dropdown-item" href="../../../cours/exceptions.html">
  <span class="dropdown-text">Les Exceptions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../cours/tu.html">
+    <a class="dropdown-item" href="../../../cours/tu.html">
  <span class="dropdown-text">Les Tests Unitaires</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../exercices.html"> 
+    <a class="nav-link" href="../../../exercices.html"> 
 <span class="menu-text">Exercices</span></a>
   </li>  
   <li class="nav-item compact">
@@ -421,11 +450,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#utiliser-les-f-strings" id="toc-utiliser-les-f-strings" class="nav-link active" data-scroll-target="#utiliser-les-f-strings"><span class="header-section-number">1</span> Utiliser les f-strings</a></li>
-  <li><a href="#personnaliser-le-séparateur" id="toc-personnaliser-le-séparateur" class="nav-link" data-scroll-target="#personnaliser-le-séparateur"><span class="header-section-number">2</span> Personnaliser le séparateur</a></li>
-  <li><a href="#personnaliser-le-caractère-de-fin" id="toc-personnaliser-le-caractère-de-fin" class="nav-link" data-scroll-target="#personnaliser-le-caractère-de-fin"><span class="header-section-number">3</span> Personnaliser le caractère de fin</a></li>
-  <li><a href="#afficher-une-ligne-pour-séparer" id="toc-afficher-une-ligne-pour-séparer" class="nav-link" data-scroll-target="#afficher-une-ligne-pour-séparer"><span class="header-section-number">4</span> Afficher une ligne pour séparer</a></li>
-  <li><a href="#multi-lignes" id="toc-multi-lignes" class="nav-link" data-scroll-target="#multi-lignes"><span class="header-section-number">5</span> Multi lignes</a></li>
+  <li><a href="#consignes" id="toc-consignes" class="nav-link active" data-scroll-target="#consignes">Consignes</a></li>
+  <li><a href="#avant-de-commencer" id="toc-avant-de-commencer" class="nav-link" data-scroll-target="#avant-de-commencer">Avant de commencer</a></li>
+  <li><a href="#exercice" id="toc-exercice" class="nav-link" data-scroll-target="#exercice"><span class="header-section-number">1</span> Exercice</a>
+  <ul class="collapse">
+  <li><a href="#données" id="toc-données" class="nav-link" data-scroll-target="#données"><span class="header-section-number">1.1</span> Données</a></li>
+  <li><a href="#fichier-de-données" id="toc-fichier-de-données" class="nav-link" data-scroll-target="#fichier-de-données"><span class="header-section-number">1.2</span> Fichier de données</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">1.3</span> Questions</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -439,12 +471,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">La fonction print</h1>
+<h1 class="title">Remise en jambe STID - TP Noté</h1>
 </div>
 
 <div>
   <div class="description">
-    Astuces pour utiliser print
+    2025-2026
   </div>
 </div>
 
@@ -454,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Ludovic Deneuville </p>
+             <p>Ludovic DENEUVILLE </p>
           </div>
   </div>
     
@@ -467,73 +499,267 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="utiliser-les-f-strings" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="utiliser-les-f-strings"><span class="header-section-number">1</span> Utiliser les f-strings</h2>
-<p>Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.</p>
-<div id="7da1ba2d" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"il est </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> heures."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>il est 20 heures.</code></pre>
+<section id="consignes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="consignes">Consignes</h2>
+<ul>
+<li>À rendre soit seul, soit par groupe de 2</li>
+<li>Déposez sous <u>Moodle</u> (Compléments d’informatique et d’économie), vos fichiers <em>.py</em></li>
+<li>Date limite : 03/10/2025 19:00</li>
+<li>Vous avez le droit d’utiliser internet <u>mais pas l’IAgen</u></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Conseils">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Conseils
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Lisez attentivement et respectez les consignes</li>
+<li>Commentez et expliquez ce que font vos algorithmes</li>
+<li>Privilégiez la qualité à la quantité</li>
+<li>Notez les résultats obtenus en commentaire</li>
+</ul>
+</div>
+</div>
+<p>Votre fichier devra ressembler à ceci :</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ex1.py</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-filename="ex1.py"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">Remise en jambe - TP Noté</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">03/10/2025</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 1 : ?</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">Élève 2 : ?</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ma_fonction1(?) <span class="op">-&gt;</span> ?:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co"> coder fonction</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    q1 <span class="op">=</span> ma_fonction1(?)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Question 1 : "</span>, q1)  <span class="co"># résultat obtenu : ?</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    q2 <span class="op">=</span> ma_fonction2(?)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Question 2 : "</span>, q2)  <span class="co"># résultat obtenu : ?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Commencez par définir les fonctions dont vous avez besoin, et ensuite appelez-les dans le bloc <code>main</code>.</p>
+<p>Votre code devra être formatté avec Ruff ou Black, soit en utilisant les settings VSCode comme au TP1, soit avec l’une de ces commandes :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install ruff black    <span class="co"># install both packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use it</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">black</span> <span class="op">&lt;</span>filename.py<span class="op">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">ruff</span> format <span class="op">&lt;</span>filename.py<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="personnaliser-le-séparateur" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="personnaliser-le-séparateur"><span class="header-section-number">2</span> Personnaliser le séparateur</h2>
-<div id="f3fffa6c" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, sep<span class="op">=</span><span class="st">"-"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1-2-3-4-5</code></pre>
-</div>
-</div>
-<p>Le séparateur par défaut est l’espace.</p>
-<div id="7f6b7d56" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1 2 3 4 5</code></pre>
-</div>
-</div>
+<section id="avant-de-commencer" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="avant-de-commencer">Avant de commencer</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Connectez-vous à un datalab</label></li>
+<li><label><input type="checkbox">Lancez un service VSCode-python</label></li>
+<li><label><input type="checkbox">Sauvegardez réguliérement votre code</label>
+<ul>
+<li>copiez-le dans un fichier local</li>
+</ul></li>
+</ul>
 </section>
-<section id="personnaliser-le-caractère-de-fin" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="personnaliser-le-caractère-de-fin"><span class="header-section-number">3</span> Personnaliser le caractère de fin</h2>
-<p>Le caractère final est par défaut le retour à la ligne <code>\n</code>.</p>
-<div id="ecf44aae" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span>, end<span class="op">=</span><span class="st">" --&gt; "</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1
-2
-3 --&gt; 4</code></pre>
-</div>
-</div>
+<section id="exercice" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="exercice"><span class="header-section-number">1</span> Exercice</h2>
+<section id="données" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="données"><span class="header-section-number">1.1</span> Données</h3>
+<p>Votre jeux de données est une chaine de caractères composées de :</p>
+<ul>
+<li><strong>u</strong> : Up (déplacement d’une unité vers le haut)</li>
+<li><strong>d</strong> : Down</li>
+<li><strong>l</strong> : Left</li>
+<li><strong>r</strong> : Right</li>
+</ul>
+<p>Chaque caractère représente un déplacement dans le plan 2D à partir de l’origine (0,0).</p>
+<p>Exemple : la chaîne <code>uur</code> correspond à la suite de déplacements jusqu’en (1, 2) :</p>
+<ul>
+<li>départ en (0,0)</li>
+<li>après u <span class="emoji" data-emoji="arrow_right">➡️</span> (0,1)</li>
+<li>après u <span class="emoji" data-emoji="arrow_right">➡️</span> (0,2)</li>
+<li>après r <span class="emoji" data-emoji="arrow_right">➡️</span> (1,2)</li>
+</ul>
 </section>
-<section id="afficher-une-ligne-pour-séparer" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="afficher-une-ligne-pour-séparer"><span class="header-section-number">4</span> Afficher une ligne pour séparer</h2>
-<div id="091d1ff8" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>--------------------------------------------------</code></pre>
-</div>
-</div>
+<section id="fichier-de-données" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="fichier-de-données"><span class="header-section-number">1.2</span> Fichier de données</h3>
+<p>La séquence a utiliser est dans ce fichier <a href="./data/sequence.txt" target="_blank">sequence.txt</a>.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Ouvrez, lisez ce fichier et chargez son contenu dans une variable</label></li>
+<li><label><input type="checkbox">Vérifiez que le fichier ne contient que des données propres</label></li>
+</ul>
 </section>
-<section id="multi-lignes" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="multi-lignes"><span class="header-section-number">5</span> Multi lignes</h2>
-<div id="d5abd6f8" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"""Maître Corbeau, sur un arbre perché,</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">Tenait en son bec un fromage.</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">Maître Renard, par l'odeur alléché,</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">Lui tint à peu près ce langage"""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Maître Corbeau, sur un arbre perché,
-Tenait en son bec un fromage.
-Maître Renard, par l'odeur alléché,
-Lui tint à peu près ce langage</code></pre>
+<section id="questions" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="questions"><span class="header-section-number">1.3</span> Questions</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Pour chaque question, vous écrirez une fonction qui permet d’y répondre</li>
+<li>Vous utiliserez la séquence fournie dans l’énoncé (excepté pour la première question)</li>
+</ul>
+</div>
+</div>
+<p><span class="emoji" data-emoji="bulb">💡</span> Testez vos fonctions avec des exemples bien choisis, avant d’appliquer à la séquence fournie.</p>
+<section id="génération-de-données" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="génération-de-données"><span class="header-section-number">1.3.1</span> Génération de données</h4>
+<blockquote class="blockquote">
+<p>Dans un fichier nommé gen.py</p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox">Écrivez une fonction qui génére <em>n</em> déplacements aléatoires parmi <em>u, d, l, r</em></label>
+<ul>
+<li>entrée : un entier n</li>
+<li>sortie : chaîne de caractères</li>
+</ul></li>
+</ul>
+</section>
+<section id="comptage" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="comptage"><span class="header-section-number">1.3.2</span> Comptage</h4>
+<blockquote class="blockquote">
+<p>Dans un fichier nommé partie1.py</p>
+</blockquote>
+<ul class="task-list">
+<li><label><input type="checkbox">Écrivez une fonction de comptage qui :</label>
+<ul>
+<li>prend une séquence de déplacements</li>
+<li>retourne un dictionnaire indiquant combien de fois chaque direction (u, d, l, r) apparaît</li>
+</ul></li>
+</ul>
+</section>
+<section id="point-darrivée" class="level4" data-number="1.3.3">
+<h4 data-number="1.3.3" class="anchored" data-anchor-id="point-darrivée"><span class="header-section-number">1.3.3</span> Point d’arrivée</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">À quel point (x, y) arrive-t-on après tous les déplacements ?</label></li>
+</ul>
+</section>
+<section id="bornes-atteintes" class="level4" data-number="1.3.4">
+<h4 data-number="1.3.4" class="anchored" data-anchor-id="bornes-atteintes"><span class="header-section-number">1.3.4</span> Bornes atteintes</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Quelles sont les coordonnées extrêmes atteintes ?</label></li>
+</ul>
+<p>i.e.&nbsp;le maximum et le minimum pour x et y.</p>
+</section>
+<section id="plus-longue-série-consécutive" class="level4" data-number="1.3.5">
+<h4 data-number="1.3.5" class="anchored" data-anchor-id="plus-longue-série-consécutive"><span class="header-section-number">1.3.5</span> Plus longue série consécutive</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Quelle est la plus longue série de déplacements consécutifs dans la même direction ?</label></li>
+<li><label><input type="checkbox">Quelle est cette direction ?</label></li>
+</ul>
+</section>
+<section id="points-fortement-visités" class="level4" data-number="1.3.6">
+<h4 data-number="1.3.6" class="anchored" data-anchor-id="points-fortement-visités"><span class="header-section-number">1.3.6</span> Points fortement visités</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Quels sont les points qui ont été visités 20 fois ou plus ?</label></li>
+</ul>
+</section>
+<section id="accélération" class="level4" data-number="1.3.7">
+<h4 data-number="1.3.7" class="anchored" data-anchor-id="accélération"><span class="header-section-number">1.3.7</span> Accélération</h4>
+<blockquote class="blockquote">
+<p>Dans un fichier nommé partie2.py</p>
+</blockquote>
+<p>Dans cette question, chaque déplacement peut être accompagné d’une accélération si l’on va plusieurs fois consécutivement dans la même direction.</p>
+<p>La distance parcourue augmente de 1 tant que nous allons dans la même direction.</p>
+<p>Exemple : <code>uuuulu</code></p>
+<ul>
+<li><em>u</em> : y augmente de 1</li>
+<li><em>u</em> : y augmente de 2</li>
+<li><em>u</em> : y augmente de 3</li>
+<li><em>u</em> : y augmente de 4</li>
+<li><em>l</em> : x diminue de 1</li>
+<li><em>u</em> : y augmente de 1</li>
+</ul>
+<p>En appliquant cette règle :</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Quel sera le point d’arrivée ?</label></li>
+</ul>
+</section>
+<section id="déplacements-inutiles" class="level4" data-number="1.3.8">
+<h4 data-number="1.3.8" class="anchored" data-anchor-id="déplacements-inutiles"><span class="header-section-number">1.3.8</span> Déplacements inutiles</h4>
+<p>Nous souhaitons simplifier la séquence en supprimant uniquement les allers-retours immédiats, c’est-à-dire deux déplacements consécutifs qui s’annulent.</p>
+<p>Par exemple si l’on fait Up puis Down, cela fait deux mouvements pour rien.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Supprimez lorsque deux déplacements consécutifs s’annulent</label>
+<ul>
+<li>ne modifiez pas la variable initiale</li>
+</ul></li>
+</ul>
+</section>
+<section id="partir-un-jour-sans-retour" class="level4" data-number="1.3.9">
+<h4 data-number="1.3.9" class="anchored" data-anchor-id="partir-un-jour-sans-retour"><span class="header-section-number">1.3.9</span> Partir un jour sans retour</h4>
+<ul class="task-list">
+<li><label><input type="checkbox">Trouvez la sous-séquence la plus longue sans jamais revenir sur un point déjà visité ?</label></li>
+</ul>
+</section>
+<section id="test-statistique" class="level4" data-number="1.3.10">
+<h4 data-number="1.3.10" class="anchored" data-anchor-id="test-statistique"><span class="header-section-number">1.3.10</span> Test statistique</h4>
+<p>Nous souhaitons vérifier si la séquence été générée de manière aléatoire uniforme, c’est-à-dire avec la même probabilité pour chaque direction.</p>
+<p>Pour cela, nous allons utiliser un <u>test du χ²</u>.</p>
+<p><u>Hypothèses</u> :</p>
+<ul>
+<li><strong>H₀ (hypothèse nulle)</strong> : la séquence est uniforme (chaque direction a une probabilité 0.25)</li>
+<li><strong>H₁ (hypothèse alternative)</strong> : la séquence n’est pas uniforme (au moins une direction est sur- ou sous-représentée)</li>
+</ul>
+<p>Nous choisissons la marge d’erreur usuelle : α = 0.05. Cela signifie que nous acceptons un risque de rejeter H₀ dans 5 % des cas alors qu’elle est vraie.</p>
+<p>Calculons la <u>Statistique de test</u> :</p>
+<p><span class="math display">\[T = \sum_{o \in \text{observed}} \frac{(o - expected)^2}{expected}\]</span></p>
+<p>avec <span class="math inline">\(expected = \frac{n}{4}\)</span> puisque chaque direction est supposée équiprobable.</p>
+<p>Sous H₀, <span class="math inline">\(T\)</span> suit la loi du χ² à 3 degrés de liberté (4 catégories - 1)</p>
+<p>La <u>p-valeur</u> correspond à la probabilité d’obtenir une statistique au moins aussi extrême que <span class="math inline">\(T\)</span> sous H₀</p>
+<p><span class="math display">\[p_\text{val} = 1 - F_{\chi^2_{(3)}}(T)\]</span></p>
+<p>où <span class="math inline">\(F_{\chi^2_{(3)}}(T)\)</span> est la fonction de répartition de la loi du khi-deux à 3 degrés de liberté.</p>
+<p>Si la p_value &lt; 0.05 (la marge d’erreur), nous rejettons H₀. Sinon nous l’acceptons</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Écrivez une fonction qui réalise ce test</label>
+<ul>
+<li>elle prend en paramètre la séquence</li>
+<li>retourne la p-valeur et un booléen pour dire si la séquence est valide i.e.&nbsp;parfaitement aléatoire</li>
+</ul></li>
+</ul>
+</section>
+<section id="exploration-dun-espace-borné" class="level4" data-number="1.3.11">
+<h4 data-number="1.3.11" class="anchored" data-anchor-id="exploration-dun-espace-borné"><span class="header-section-number">1.3.11</span> Exploration d’un espace borné</h4>
+<p>On considère maintenant un plan discret borné carré de 10 x 10 :</p>
+<ul>
+<li>x et y peuvent varier entre -5 exclu et 5 inclus i.e.&nbsp;<span class="math inline">\(x, y \in \{-4, -3, \dots, 5\}\)</span></li>
+<li>si un déplacement fait sortir de cette zone, il est ignoré
+<ul>
+<li>la position reste inchangée</li>
+<li>nous passons au déplacement suivant</li>
+</ul></li>
+</ul>
+<hr>
+<ul class="task-list">
+<li><label><input type="checkbox">Combien de déplacements sont nécéssaires pour visiter toute la zone</label>
+<ul>
+<li>ne comptez pas les déplacements ignorés</li>
+</ul></li>
+</ul>
+</section>
+<section id="à-votre-avis" class="level4" data-number="1.3.12">
+<h4 data-number="1.3.12" class="anchored" data-anchor-id="à-votre-avis"><span class="header-section-number">1.3.12</span> À votre avis</h4>
+<p>Cette question ne rapporte pas de point, répondez simplement selon votre intuition</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Avec une infinité de déplacements aléatoires, est-ce que tous les points (avec coordonnées entières) du plan seraient visités ?</label></li>
+</ul>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
