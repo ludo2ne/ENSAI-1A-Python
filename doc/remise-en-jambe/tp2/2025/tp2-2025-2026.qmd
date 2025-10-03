@@ -1,0 +1,236 @@
+---
+title: "Remise en jambe STID - TP Noté"
+description: "2025-2026"
+author: "Ludovic DENEUVILLE"
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 4
+---
+
+
+## Consignes {.unnumbered}
+
+- À rendre soit seul, soit par groupe de 2
+- Déposez sous [Moodle]{.underline} (Compléments d'informatique et d'économie), vos fichiers *.py*
+- Date limite : 03/10/2025 19:00
+- Vous avez le droit d'utiliser internet [mais pas l'IAgen]{.underline}
+
+::: {.callout-tip title="Conseils"}
+- Lisez attentivement et respectez les consignes
+- Commentez et expliquez ce que font vos algorithmes
+- Privilégiez la qualité à la quantité
+- Notez les résultats obtenus en commentaire
+:::
+
+
+Votre fichier devra ressembler à ceci :
+
+```{.python filename="ex1.py"}
+"""
+Remise en jambe - TP Noté
+03/10/2025
+Élève 1 : ?
+Élève 2 : ?
+"""
+
+def ma_fonction1(?) -> ?:
+    # TODO coder fonction
+
+
+if __name__ == "__main__":
+
+    q1 = ma_fonction1(?)
+    print("Question 1 : ", q1)  # résultat obtenu : ?
+    
+    q2 = ma_fonction2(?)
+    print("Question 2 : ", q2)  # résultat obtenu : ?
+```
+
+Commencez par définir les fonctions dont vous avez besoin, et ensuite appelez-les dans le bloc `main`.
+
+Votre code devra être formatté avec Ruff ou Black, soit en utilisant les settings VSCode comme au TP1, soit avec l'une de ces commandes :
+
+```{.bash}
+pip install ruff black    # install both packages
+
+# Use it
+black <filename.py>
+ruff format <filename.py>
+```
+
+## Avant de commencer {.unnumbered}
+
+- [ ] Connectez-vous à un datalab
+- [ ] Lancez un service VSCode-python
+- [ ] Sauvegardez réguliérement votre code
+  - copiez-le dans un fichier local
+
+## Exercice 
+
+### Données
+
+Votre jeux de données est une chaine de caractères composées de :
+
+- **u** : Up (déplacement d'une unité vers le haut)
+- **d** : Down
+- **l** : Left
+- **r** : Right
+
+Chaque caractère représente un déplacement dans le plan 2D à partir de l'origine (0,0).
+
+Exemple : la chaîne `uur` correspond à la suite de déplacements jusqu'en (1, 2) :
+
+- départ en (0,0)
+- après u :arrow_right: (0,1)
+- après u :arrow_right: (0,2)
+- après r :arrow_right: (1,2)
+
+### Fichier de données
+
+La séquence a utiliser est dans ce fichier [sequence.txt](./data/sequence.txt){target="_blank"}.
+
+- [ ] Ouvrez, lisez ce fichier et chargez son contenu dans une variable
+- [ ] Vérifiez que le fichier ne contient que des données propres
+
+### Questions
+
+::: {.callout-important}
+- Pour chaque question, vous écrirez une fonction qui permet d'y répondre
+- Vous utiliserez la séquence fournie dans l'énoncé (excepté pour la première question)
+:::
+
+:bulb: Testez vos fonctions avec des exemples bien choisis, avant d'appliquer à la séquence fournie. 
+
+#### Génération de données
+
+> Dans un fichier nommé gen.py
+
+- [ ] Écrivez une fonction qui génére *n* déplacements aléatoires parmi *u, d, l, r*
+  - entrée : un entier n
+  - sortie : chaîne de caractères
+
+#### Comptage
+
+> Dans un fichier nommé partie1.py
+
+- [ ] Écrivez une fonction de comptage qui :
+  - prend une séquence de déplacements 
+  - retourne un dictionnaire indiquant combien de fois chaque direction (u, d, l, r) apparaît
+
+
+#### Point d'arrivée
+
+- [ ] À quel point (x, y) arrive-t-on après tous les déplacements ?
+
+#### Bornes atteintes
+
+- [ ] Quelles sont les coordonnées extrêmes atteintes ?
+
+i.e. le maximum et le minimum pour x et y.
+
+#### Plus longue série consécutive
+
+- [ ] Quelle est la plus longue série de déplacements consécutifs dans la même direction ?
+- [ ] Quelle est cette direction ?
+
+#### Points fortement visités
+
+- [ ] Quels sont les points qui ont été visités 20 fois ou plus ?
+
+
+#### Accélération
+
+> Dans un fichier nommé partie2.py
+
+Dans cette question, chaque déplacement peut être accompagné d'une accélération si l'on va plusieurs fois consécutivement dans la même direction.
+
+La distance parcourue augmente de 1 tant que nous allons dans la même direction.
+
+Exemple : `uuuulu`
+
+- *u* : y augmente de 1
+- *u* : y augmente de 2
+- *u* : y augmente de 3
+- *u* : y augmente de 4
+- *l* : x diminue de 1
+- *u* : y augmente de 1
+
+En appliquant cette règle :
+
+- [ ] Quel sera le point d'arrivée ?
+
+
+#### Déplacements inutiles
+
+Nous souhaitons simplifier la séquence en supprimant uniquement les allers-retours immédiats, c'est-à-dire deux déplacements consécutifs qui s'annulent. 
+
+Par exemple si l'on fait Up puis Down, cela fait deux mouvements pour rien.
+
+- [ ] Supprimez lorsque deux déplacements consécutifs s'annulent
+  - ne modifiez pas la variable initiale
+
+
+#### Partir un jour sans retour
+
+- [ ] Trouvez la sous-séquence la plus longue sans jamais revenir sur un point déjà visité ?
+
+#### Test statistique
+
+Nous souhaitons vérifier si la séquence été générée de manière aléatoire uniforme, c'est-à-dire avec la même probabilité pour chaque direction.
+
+Pour cela, nous allons utiliser un [test du χ²]{.underline}.
+
+[Hypothèses]{.underline} :
+
+- **H₀ (hypothèse nulle)** : la séquence est uniforme (chaque direction a une probabilité 0.25)
+- **H₁ (hypothèse alternative)** : la séquence n'est pas uniforme (au moins une direction est sur- ou sous-représentée)
+
+Nous choisissons la marge d'erreur usuelle : α = 0.05. Cela signifie que nous acceptons un risque de rejeter H₀ dans 5 % des cas alors qu'elle est vraie.
+
+Calculons la [Statistique de test]{.underline} :
+
+$$T = \sum_{o \in \text{observed}} \frac{(o - expected)^2}{expected}$$
+
+avec $expected = \frac{n}{4}$ puisque chaque direction est supposée équiprobable.
+
+Sous H₀, $T$ suit la loi du χ² à 3 degrés de liberté (4 catégories - 1)
+
+La [p-valeur]{.underline}  correspond à la probabilité d'obtenir une statistique au moins aussi extrême que $T$ sous H₀
+
+$$p_\text{val} = 1 - F_{\chi^2_{(3)}}(T)$$
+
+où $F_{\chi^2_{(3)}}(T)$ est la fonction de répartition de la loi du khi-deux à 3 degrés de liberté.
+
+Si la p_value < 0.05 (la marge d'erreur), nous rejettons H₀. Sinon nous l'acceptons
+
+- [ ] Écrivez une fonction qui réalise ce test
+  - elle prend en paramètre la séquence
+  - retourne la p-valeur et un booléen pour dire si la séquence est valide i.e. parfaitement aléatoire
+
+
+#### Exploration d'un espace borné
+
+
+On considère maintenant un plan discret borné carré de 10 x 10 :
+
+- x et y peuvent varier entre -5 exclu et 5 inclus i.e. $x, y \in \{-4, -3, \dots, 5\}$
+- si un déplacement fait sortir de cette zone, il est ignoré
+  - la position reste inchangée
+  - nous passons au déplacement suivant
+
+---
+
+- [ ] Combien de déplacements sont nécéssaires pour visiter toute la zone
+  - ne comptez pas les déplacements ignorés
+
+
+#### À votre avis
+
+Cette question ne rapporte pas de point, répondez simplement selon votre intuition
+
+- [ ] Avec une infinité de déplacements aléatoires, est-ce que tous les points (avec coordonnées entières) du plan seraient visités ?
