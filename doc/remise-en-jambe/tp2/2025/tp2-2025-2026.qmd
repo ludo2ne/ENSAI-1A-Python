@@ -74,7 +74,7 @@ ruff format <filename.py>
 
 ### Données
 
-Votre jeux de données est une chaine de caractères composées de :
+Votre jeu de données est une chaine de caractères composées de :
 
 - **u** : Up (déplacement d'une unité vers le haut)
 - **d** : Down
@@ -92,7 +92,7 @@ Exemple : la chaîne `uur` correspond à la suite de déplacements jusqu'en (1, 
 
 ### Fichier de données
 
-La séquence a utiliser est dans ce fichier [sequence.txt](./data/sequence.txt){target="_blank"}.
+La séquence à utiliser est dans ce fichier [sequence.txt](./data/sequence.txt){target="_blank"}.
 
 - [ ] Ouvrez, lisez ce fichier et chargez son contenu dans une variable
 - [ ] Vérifiez que le fichier ne contient que des données propres
@@ -165,7 +165,7 @@ En appliquant cette règle :
 - [ ] Quel sera le point d'arrivée ?
 
 
-#### Déplacements inutiles
+#### Allers-retours directs
 
 Nous souhaitons simplifier la séquence en supprimant uniquement les allers-retours immédiats, c'est-à-dire deux déplacements consécutifs qui s'annulent. 
 
@@ -198,15 +198,15 @@ $$T = \sum_{o \in \text{observed}} \frac{(o - expected)^2}{expected}$$
 
 avec $expected = \frac{n}{4}$ puisque chaque direction est supposée équiprobable.
 
-Sous H₀, $T$ suit la loi du χ² à 3 degrés de liberté (4 catégories - 1)
+Sous H₀, $T$ suit la loi du χ² à 3 degrés de liberté (4 catégories - 1).
 
-La [p-valeur]{.underline}  correspond à la probabilité d'obtenir une statistique au moins aussi extrême que $T$ sous H₀
+La [p-valeur]{.underline}  correspond à la probabilité d'obtenir une statistique au moins aussi extrême que $T$ sous H₀ :
 
 $$p_\text{val} = 1 - F_{\chi^2_{(3)}}(T)$$
 
 où $F_{\chi^2_{(3)}}(T)$ est la fonction de répartition de la loi du khi-deux à 3 degrés de liberté.
 
-Si la p_value < 0.05 (la marge d'erreur), nous rejettons H₀. Sinon nous l'acceptons
+Si la p_value < α, nous rejettons H₀. Sinon nous l'acceptons
 
 - [ ] Écrivez une fonction qui réalise ce test
   - elle prend en paramètre la séquence
