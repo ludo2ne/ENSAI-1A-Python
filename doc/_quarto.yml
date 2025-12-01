@@ -58,6 +58,8 @@ website:
             text: "Les Exceptions"
           - href: cours/tu.qmd
             text: "Les Tests Unitaires"
+          - href: cours/poo.qmd
+            text: "La POO"
       - href: exercices.qmd
         text: Exercices
       - icon: github

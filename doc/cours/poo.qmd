@@ -1,0 +1,401 @@
+---
+title: "Introduction à la POO"
+description: "Programmation orientée objet"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+
+La **programmation orientée objet** (POO) est une manière d'organiser son code en regroupant :
+
+- des **données** :arrow_right: les *attributs*
+- des **comportements** :arrow_right: les *méthodes*
+
+dans un même bloc logique appelé une **classe**.
+
+Cela permet de :
+
+- mieux organiser le code
+- réutiliser ce que l'on écrit
+- représenter des objets du monde réel
+- éviter de répéter du code
+
+
+## Classe et Objet
+
+Une **classe** est une description de ce que seront les objets. Nous pouvons considérer une classe comme un plan, un modèle, un moule...
+
+Lorsque nous définissons une classe, nous spécifions pour les objets qui seront construits à partir de cette classe :
+
+- les attributs qu'ils auront
+- les méthodes qu'ils pourront utiliser
+
+Un **objet** est créé à partir d'une classe, c'est une instance de classe :
+
+- Nous donnons des valeurs à ses attributs
+- Il peut exécuter les méthodes définies par la classe
+
+
+## Exemple central : la classe Personne
+
+Créons une classe qui représente une personne
+
+Une personne peut avoir :
+
+- un prénom
+- un âge
+
+Et elle peut faire des actions :
+
+- fêter son anniversaire
+- returner un message de présentation
+
+
+## Le constructeur
+
+Le **constructeur** (`__init__`) est une méthode spéciale. Il permet de créer (instancier) un objet à partir de la classe.
+
+```{.python}
+class Personne:
+    def __init__(self, prenom, age):
+        self.prenom = prenom
+        self.age = age
+```
+
+Il initialise les valeurs des attributs de l'objet.
+
+::: {.callout-tip title="self"}
+Le mot clé *self* représente l'objet lui même. Par exemple `self.prenom` :arrow_right: le prénom de l'objet.
+
+Remarque : sauf cas particulier, toutes les méthodes d'une classe auront *self* comme premier paramètre
+:::
+
+
+## Les attributs
+
+Les **attributs** sont les données internes d'un objet.
+
+Dans notre exemple, une personne a un `prenom` et un `age`.
+
+
+## Paramètres du constructeur et attributs
+
+Reprenons le constructeur ci-dessus pour différencier paramètres du constructeur et attributs.
+
+```{.python}
+class Personne:
+    def __init__(self, prenom, age):
+        self.prenom = prenom
+        self.age = age
+```
+
+- Dans la ligne  `def __init__(self, prenom, age)`, *prenom* et *age* sont des paramètres du constructeur
+- `self.prenom` et `self.age` sont les attributs
+
+Généralement, nous affectons aux attributs la valeur des paramètres du constructeur.
+
+C'est le cas ci-dessus mais ce n'est pas obligatoire, nous le verons par la suite.
+
+### Appel du constructeur
+
+Pour créer un objet de la classe *Personne*, ce code appelle le constructeur.
+
+```{.python}
+p = Personne("Laury", 35)
+```
+
+::: {.callout-warning title="Remarque"}
+- *self* apparait uniquement lorsque nous déclarons une méthode
+  - jamais lors des appels à ces méthodes (constructeur inclus)
+:::
+
+Ensuite, vous pouvez accéder aux valeurs des attributs de *p* :
+
+```{.python}
+print(p.prenom)
+print(p.age)
+```
+
+### Paramètres optionnels
+
+Modifions légérement le constructeur :
+
+```{.python}
+class Personne:
+    def __init__(self, prenom, age=0):
+        self.prenom = prenom
+        self.age = age
+```
+
+Le paramètre *age* a été modifié en `age=0`. Cela signifie que si l'âge n'est pas renseigné alors sa valeur par défaut sera 0.
+
+```{.python}
+p1 = Personne("Valérie")
+print(p1.age)               # 0
+
+p2 = Personne("Laury", 35)
+print(p2.age)               # 35
+```
+
+::: {.callout-caution}
+- Le constructeur peut maintenant être appelé avec 1 ou 2 paramètres
+- Les paramètres avec des valeurs par défaut doivent être positionnés à la fin
+:::
+
+### Attribut sans paramètre
+
+Il est possible de créer un attribut qui ne nécessite pas de paramètre de constructeur.
+
+Modifions une nouvelle fois le constructeur.
+
+```{.python}
+class Personne:
+    def __init__(self, prenom):
+        self.prenom = prenom
+        self.age = 0
+```
+
+- age n'est plus un paramètre du constructeur
+- par contre age est toujours un attribut et toutes les personnes créées auront `self.age = 0`
+
+
+
+
+
+## Méthodes
+
+Une **méthode** est une fonction définie dans une classe et qui agit sur un objet.
+
+Elle peut éventuellement :
+
+- prendre des paramétres
+- modifier les attributs de l'objet
+- retourner des valeurs
+
+La méthode *se_presenter()* ne prend aucun paramètre, ne modifie pas l'objet et retourne une valeur. 
+
+```{.python}
+def se_presenter(self):
+    return f"Bonjour, je m'appelle {self.prenom} et j'ai {self.age} ans."
+```
+
+La méthode *anniversaire()*, ne prend aucun paramètre, modifie l'objet (incrémente l'attribut age) et ne retourne rien.
+
+```{.python}
+def anniversaire(self):
+    self.age += 1
+```
+
+Variante de la méthode précédente qui cette fois retourne également quelque chose.
+
+```{.python}
+def anniversaire_message(self):
+    self.age += 1
+    return f"Joyeux anniversaire {self.prenom}"
+```
+
+Enfin une méthode qui prend un paramètre, ne modifie aucun attribut et retourne quelque chose.
+
+```{.python}
+def est_majeure(self, age_majorite):
+    return self.age >= age_majorite
+```
+
+::: {.callout-note title="La classe Personne" collapse="true"}
+```{.python}
+class Personne:
+    def __init__(self, prenom, age=0):
+        self.prenom = prenom
+        self.age = age
+
+    def se_presenter(self):
+        return f"Bonjour, je m'appelle {self.prenom} et j'ai {self.age} ans."
+
+    def anniversaire(self):
+        self.age += 1
+
+    def anniversaire_message(self):
+        self.age += 1
+        return f"Joyeux anniversaire {self.prenom}"
+
+    def est_majeure(self, age_majorite):
+        return self.age >= age_majorite
+```
+:::
+
+
+
+## Héritage
+
+L'héritage permet de **créer une classe qui réutilise et étend une autre classe**.
+
+Exemple : une classe `Etudiant` qui est une `Personne` **avec un attribut supplémentaire**.
+
+```{.python}
+class Etudiant(Personne):
+    def __init__(self, prenom, age, filiere):
+        super().__init__(prenom, age)          # appel du constructeur parent
+        self.filiere = filiere
+
+    def se_presenter(self):
+        return f"Bonjour, je m'appelle {self.prenom}, j'ai {self.age} ans et j'étudie en {self.filiere}."
+```
+
+
+### Classe abstraite
+
+Une **classe abstraite** est une classe qu'on ne peut pas instancier directement.
+Elle sert de **modèle** pour d'autres classes.
+
+On l'utilise quand on veut **imposer certaines méthodes** aux classes filles.
+
+Exemple avec `ABC` :
+
+```{.python}
+from abc import ABC, abstractmethod
+
+class PersonneAbstraite(ABC):
+    @abstractmethod
+    def se_presenter(self):
+        pass
+```
+
+Toute classe qui hérite de `PersonneAbstraite` doit définir `se_presenter()`.
+
+Exemple :
+
+```{.python}
+class PersonneConcrete(PersonneAbstraite):
+    def __init__(self, prenom):
+        self.prenom = prenom
+
+    def se_presenter(self):
+        return f"Je suis {self.prenom}."
+```
+
+---
+
+### Résumé
+
+| Concept           | Explication courte      | Exemple                       |
+| ----------------- | ----------------------- | ----------------------------- |
+| Classe            | Modèle, plan            | `Personne`                    |
+| Objet             | Instance de la classe   | `p = Personne("Alice")`       |
+| Attribut          | Donnée interne          | `self.age`                    |
+| Constructeur      | Initialise l'objet      | `__init__()`                  |
+| Valeur par défaut | Paramètre facultatif    | `age=0`                       |
+| Méthode           | Action de l'objet       | `se_presenter()`              |
+| Héritage          | Réutilisation/extention | `class Etudiant(Personne)`    |
+| Abstraite         | Modèle non instanciable | classe avec `@abstractmethod` |
+
+
+
+## Exercices
+
+### Horloges
+
+Une *Horloge* est caractérisée par ses heures et minutes (valeurs entières) :
+
+- l'heure doit être comprise entre 0 et 23
+  - si heure = 26 :arrow_right: heure = 2
+  - si heure = -5 :arrow_right: heure = 19
+- les minutes sont comprises entre 0 et 59
+  - si minute = 70 :arrow_right: minute = 10 et heure est incrémentée de 1
+  - si minute = -65 :arrow_right: minute = 55 et heure est décrémenté de 2
+
+Pour construire une horloge, il faut préciser heures et minutes. les valeurs par défaut sont 0.
+
+
+- [ ] Créer le constructeur de la classe
+  - Ne vous occupez pour le moment des dépassements
+- [ ] Créez une méthode `_normaliser()`  
+  - Elle convertira toutes les valeurs comme décrit ci-dessus
+  - Utilisez cette méthode dans le constructeur
+- [ ] Créer une méthode qui affiche l'horloge au format *HH:MI*
+  - heures et minutes doivent toujours être sur 2 digits
+- [ ] Créer une méthode `tictac()` qui avance de une minute
+- [ ] Créer une méthode `ajouter(heure=0, minute=0)`
+  - Celle-ci peut prendre des valeurs négatives
+- [ ] Créer les méthode *__eq__* et *__lt__*
+- [ ] Ajouter en attribut une liste d'alarmes
+  - Cet attribut sera vide dans le constructeur
+  - Une méthode *ajouter_alarme(h, m)*permettra d'ajouter une alarme
+  - Définissez les alarmes comme des *Horloges*
+  - Si l'horloge arrive sur une alarme, elle doit sonner
+
+::: {.callout-tip collapse="true" title="Solution"}
+class Horloge:
+    def __init__(self, heures: int, minutes: int):
+        if not isinstance(heures, int) or isinstance(heures, bool):
+            raise TypeError(f"heures doit être un int (reçu {type(heures).__name__})")
+        if not isinstance(minutes, int) or isinstance(minutes, bool):
+            raise TypeError(f"minutes doit être un int (reçu {type(minutes).__name__})")
+
+        self.heures = heures
+        self.minutes = minutes
+        self.alarmes = []
+        self._normaliser()
+
+    def _normaliser(self):
+        total_minutes = self.heures * 60 + self.minutes
+        total_minutes %= 24 * 60
+
+        self.heures = total_minutes // 60
+        self.minutes = total_minutes % 60
+
+    def tictac(self):
+        self.minutes += 1
+        self._normaliser()
+        print("Il est", self)
+        self._verif_alarme()
+
+    def ajouter(self, h: int = 0, m: int = 0):
+        self.heures += h
+        self.minutes += m
+        self._normaliser()
+        print("Il est", self)
+        self._verif_alarme()
+
+    def ajouter_alarme(self, h: int, m: int):
+        alarme = Horloge(h, m)
+        self.alarmes.append(alarme)
+
+    def _verif_alarme(self):
+        for alarme in self.alarmes:
+            if self == alarme:
+                print("Allez debout feignasse !")
+
+    def en_minutes(self) -> int:
+        return self.heures * 60 + self.minutes
+
+    def __eq__(self, other):
+        if not isinstance(other, Horloge):
+            return NotImplemented
+        return (self.heures, self.minutes) == (other.heures, other.minutes)
+
+    def __lt__(self, other):
+        if not isinstance(other, Horloge):
+            return NotImplemented
+        return self.en_minutes() < other.en_minutes()
+
+    def __str__(self):
+        return f"{self.heures:02d}:{self.minutes:02d}"
+
+
+if __name__ == "__main__":
+    h = Horloge(6, 58)
+    h.ajouter_alarme(7, 0)
+
+    h.tictac()
+    h.tictac()
+
+    h.ajouter(m=-450)
+    h.ajouter(m=70)
+:::
