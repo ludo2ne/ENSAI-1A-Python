@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ludovic Deneuville">
-<meta name="description" content="Quelle est l’utilité des exceptions">
+<meta name="description" content="Programmation orientée objet">
 
-<title>Les exceptions – Python 1A</title>
+<title>Introduction à la POO – Python 1A</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -423,16 +423,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#lever-une-exception" id="toc-lever-une-exception" class="nav-link active" data-scroll-target="#lever-une-exception"><span class="header-section-number">1</span> Lever une exception</a></li>
-  <li><a href="#gérer-une-exception" id="toc-gérer-une-exception" class="nav-link" data-scroll-target="#gérer-une-exception"><span class="header-section-number">2</span> Gérer une exception</a></li>
-  <li><a href="#types-dexception" id="toc-types-dexception" class="nav-link" data-scroll-target="#types-dexception"><span class="header-section-number">3</span> Types d’exception</a></li>
-  <li><a href="#exception-personnalisée" id="toc-exception-personnalisée" class="nav-link" data-scroll-target="#exception-personnalisée"><span class="header-section-number">4</span> Exception personnalisée</a>
+  <li><a href="#classe-et-objet" id="toc-classe-et-objet" class="nav-link active" data-scroll-target="#classe-et-objet"><span class="header-section-number">1</span> Classe et Objet</a></li>
+  <li><a href="#exemple-central-la-classe-personne" id="toc-exemple-central-la-classe-personne" class="nav-link" data-scroll-target="#exemple-central-la-classe-personne"><span class="header-section-number">2</span> Exemple central : la classe Personne</a></li>
+  <li><a href="#le-constructeur" id="toc-le-constructeur" class="nav-link" data-scroll-target="#le-constructeur"><span class="header-section-number">3</span> Le constructeur</a></li>
+  <li><a href="#les-attributs" id="toc-les-attributs" class="nav-link" data-scroll-target="#les-attributs"><span class="header-section-number">4</span> Les attributs</a></li>
+  <li><a href="#paramètres-du-constructeur-et-attributs" id="toc-paramètres-du-constructeur-et-attributs" class="nav-link" data-scroll-target="#paramètres-du-constructeur-et-attributs"><span class="header-section-number">5</span> Paramètres du constructeur et attributs</a>
   <ul class="collapse">
-  <li><a href="#création-de-lexception" id="toc-création-de-lexception" class="nav-link" data-scroll-target="#création-de-lexception"><span class="header-section-number">4.1</span> Création de l’exception</a></li>
-  <li><a href="#utilisation-dans-une-fonction" id="toc-utilisation-dans-une-fonction" class="nav-link" data-scroll-target="#utilisation-dans-une-fonction"><span class="header-section-number">4.2</span> Utilisation dans une fonction</a></li>
-  <li><a href="#gestion-de-lexception" id="toc-gestion-de-lexception" class="nav-link" data-scroll-target="#gestion-de-lexception"><span class="header-section-number">4.3</span> Gestion de l’exception</a></li>
+  <li><a href="#appel-du-constructeur" id="toc-appel-du-constructeur" class="nav-link" data-scroll-target="#appel-du-constructeur"><span class="header-section-number">5.1</span> Appel du constructeur</a></li>
+  <li><a href="#paramètres-optionnels" id="toc-paramètres-optionnels" class="nav-link" data-scroll-target="#paramètres-optionnels"><span class="header-section-number">5.2</span> Paramètres optionnels</a></li>
+  <li><a href="#attribut-sans-paramètre" id="toc-attribut-sans-paramètre" class="nav-link" data-scroll-target="#attribut-sans-paramètre"><span class="header-section-number">5.3</span> Attribut sans paramètre</a></li>
   </ul></li>
-  <li><a href="#liens" id="toc-liens" class="nav-link" data-scroll-target="#liens">Liens</a></li>
+  <li><a href="#méthodes" id="toc-méthodes" class="nav-link" data-scroll-target="#méthodes"><span class="header-section-number">6</span> Méthodes</a></li>
+  <li><a href="#héritage" id="toc-héritage" class="nav-link" data-scroll-target="#héritage"><span class="header-section-number">7</span> Héritage</a>
+  <ul class="collapse">
+  <li><a href="#classe-abstraite" id="toc-classe-abstraite" class="nav-link" data-scroll-target="#classe-abstraite"><span class="header-section-number">7.1</span> Classe abstraite</a></li>
+  <li><a href="#résumé" id="toc-résumé" class="nav-link" data-scroll-target="#résumé"><span class="header-section-number">7.2</span> Résumé</a></li>
+  </ul></li>
+  <li><a href="#exercices" id="toc-exercices" class="nav-link" data-scroll-target="#exercices"><span class="header-section-number">8</span> Exercices</a>
+  <ul class="collapse">
+  <li><a href="#horloges" id="toc-horloges" class="nav-link" data-scroll-target="#horloges"><span class="header-section-number">8.1</span> Horloges</a></li>
+  </ul></li>
   </ul>
 </nav>
 </nav>
@@ -446,12 +456,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Les exceptions</h1>
+<h1 class="title">Introduction à la POO</h1>
 </div>
 
 <div>
   <div class="description">
-    Quelle est l’utilité des exceptions
+    Programmation orientée objet
   </div>
 </div>
 
@@ -474,152 +484,425 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Les exceptions en Python sont des événements qui surviennent lors de l’exécution d’un programme, souvent à cause d’une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Pourquoi utiliser les exceptions ?">
+<p>La <strong>programmation orientée objet</strong> (POO) est une manière d’organiser son code en regroupant :</p>
+<ul>
+<li>des <strong>données</strong> <span class="emoji" data-emoji="arrow_right">➡️</span> les <em>attributs</em></li>
+<li>des <strong>comportements</strong> <span class="emoji" data-emoji="arrow_right">➡️</span> les <em>méthodes</em></li>
+</ul>
+<p>dans un même bloc logique appelé une <strong>classe</strong>.</p>
+<p>Cela permet de :</p>
+<ul>
+<li>mieux organiser le code</li>
+<li>réutiliser ce que l’on écrit</li>
+<li>représenter des objets du monde réel</li>
+<li>éviter de répéter du code</li>
+</ul>
+<section id="classe-et-objet" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="classe-et-objet"><span class="header-section-number">1</span> Classe et Objet</h2>
+<p>Une <strong>classe</strong> est une description de ce que seront les objets. Nous pouvons considérer une classe comme un plan, un modèle, un moule…</p>
+<p>Lorsque nous définissons une classe, nous spécifions pour les objets qui seront construits à partir de cette classe :</p>
+<ul>
+<li>les attributs qu’ils auront</li>
+<li>les méthodes qu’ils pourront utiliser</li>
+</ul>
+<p>Un <strong>objet</strong> est créé à partir d’une classe, c’est une instance de classe :</p>
+<ul>
+<li>Nous donnons des valeurs à ses attributs</li>
+<li>Il peut exécuter les méthodes définies par la classe</li>
+</ul>
+</section>
+<section id="exemple-central-la-classe-personne" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="exemple-central-la-classe-personne"><span class="header-section-number">2</span> Exemple central : la classe Personne</h2>
+<p>Créons une classe qui représente une personne</p>
+<p>Une personne peut avoir :</p>
+<ul>
+<li>un prénom</li>
+<li>un âge</li>
+</ul>
+<p>Et elle peut faire des actions :</p>
+<ul>
+<li>fêter son anniversaire</li>
+<li>returner un message de présentation</li>
+</ul>
+</section>
+<section id="le-constructeur" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="le-constructeur"><span class="header-section-number">3</span> Le constructeur</h2>
+<p>Le <strong>constructeur</strong> (<code>__init__</code>) est une méthode spéciale. Il permet de créer (instancier) un objet à partir de la classe.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Personne:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom, age):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Il initialise les valeurs des attributs de l’objet.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="self">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Pourquoi utiliser les exceptions ?
+<span class="screen-reader-only">Tip</span>self
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le mot clé <em>self</em> représente l’objet lui même. Par exemple <code>self.prenom</code> <span class="emoji" data-emoji="arrow_right">➡️</span> le prénom de l’objet.</p>
+<p>Remarque : sauf cas particulier, toutes les méthodes d’une classe auront <em>self</em> comme premier paramètre</p>
+</div>
+</div>
+</section>
+<section id="les-attributs" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="les-attributs"><span class="header-section-number">4</span> Les attributs</h2>
+<p>Les <strong>attributs</strong> sont les données internes d’un objet.</p>
+<p>Dans notre exemple, une personne a un <code>prenom</code> et un <code>age</code>.</p>
+</section>
+<section id="paramètres-du-constructeur-et-attributs" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="paramètres-du-constructeur-et-attributs"><span class="header-section-number">5</span> Paramètres du constructeur et attributs</h2>
+<p>Reprenons le constructeur ci-dessus pour différencier paramètres du constructeur et attributs.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Personne:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom, age):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Dans la ligne <code>def __init__(self, prenom, age)</code>, <em>prenom</em> et <em>age</em> sont des paramètres du constructeur</li>
+<li><code>self.prenom</code> et <code>self.age</code> sont les attributs</li>
+</ul>
+<p>Généralement, nous affectons aux attributs la valeur des paramètres du constructeur.</p>
+<p>C’est le cas ci-dessus mais ce n’est pas obligatoire, nous le verons par la suite.</p>
+<section id="appel-du-constructeur" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="appel-du-constructeur"><span class="header-section-number">5.1</span> Appel du constructeur</h3>
+<p>Pour créer un objet de la classe <em>Personne</em>, ce code appelle le constructeur.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Personne(<span class="st">"Laury"</span>, <span class="dv">35</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Remarque">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Remarque
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Amélioration de la lisibilité : Le code devient plus propre et lisible en séparant le traitement des erreurs de la logique principale.</li>
-<li>Gestion des erreurs : Évite les arrêts brutaux en permettant une capture et une gestion des erreurs localisées.</li>
-<li>Contrôle de flux : Permet de gérer des situations exceptionnelles sans perturber le reste du programme.</li>
-</ul>
-</div>
-</div>
-<section id="lever-une-exception" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="lever-une-exception"><span class="header-section-number">1</span> Lever une exception</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lever une exception consiste à signaler volontairement un problème lorsqu’une situation anormale est détectée.</p>
-</div>
-</div>
-<p>Nous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.</p>
-<p>Lorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.</p>
-<div id="dc03a73b" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> verifier_montant(montant):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> montant <span class="op">&lt;=</span> <span class="dv">0</span>:</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"Le montant doit être supérieur à 0."</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Montant </span><span class="sc">{</span>montant<span class="sc">}</span><span class="ss"> accepté."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Si l’utilisateur saisit un montant négatif ou nul, une exception <code>ValueError</code> est levée, interrompant le programme pour signaler l’erreur.</p>
-</section>
-<section id="gérer-une-exception" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="gérer-une-exception"><span class="header-section-number">2</span> Gérer une exception</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Gérer une exception consiste à capturer une erreur grâce au bloc <code>try-except</code> pour éviter que le programme ne se termine brutalement.</p>
-</div>
-</div>
-<div id="a8049c96" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> retirer_argent(montant):</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        verifier_montant(montant)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Retrait en cours..."</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span> <span class="im">as</span> e:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Erreur : </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="dc98e80c" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>retirer_argent(<span class="op">-</span><span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Erreur : Le montant doit être supérieur à 0.</code></pre>
-</div>
-</div>
-<p>Le programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l’exception.</p>
-</section>
-<section id="types-dexception" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="types-dexception"><span class="header-section-number">3</span> Types d’exception</h2>
-<p>les types d’exceptions les plus courantes en Python :</p>
+<li><em>self</em> apparait uniquement lorsque nous déclarons une méthode
 <ul>
-<li><code>ValueError</code> : Lorsque la valeur d’un argument est invalide.</li>
-<li><code>TypeError</code> : Quand une opération ou une fonction est appliquée à un type inapproprié.</li>
-<li><code>IndexError</code> : Tentative d’accéder à un indice inexistant dans une liste.</li>
-<li><code>KeyError</code> : Accès à une clé inexistante dans un dictionnaire.</li>
+<li>jamais lors des appels à ces méthodes (constructeur inclus)</li>
+</ul></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    liste <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(liste[<span class="dv">5</span>])</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">IndexError</span> <span class="im">as</span> e:</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Erreur : </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<p>Ensuite, vous pouvez accéder aux valeurs des attributs de <em>p</em> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p.prenom)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p.age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="exception-personnalisée" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="exception-personnalisée"><span class="header-section-number">4</span> Exception personnalisée</h2>
-<div class="callout callout-style-default callout-note callout-titled">
+<section id="paramètres-optionnels" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="paramètres-optionnels"><span class="header-section-number">5.2</span> Paramètres optionnels</h3>
+<p>Modifions légérement le constructeur :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Personne:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom, age<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Le paramètre <em>age</em> a été modifié en <code>age=0</code>. Cela signifie que si l’âge n’est pas renseigné alors sa valeur par défaut sera 0.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> Personne(<span class="st">"Valérie"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p1.age)               <span class="co"># 0</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> Personne(<span class="st">"Laury"</span>, <span class="dv">35</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p2.age)               <span class="co"># 35</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Il est possible de créer ses propres exceptions pour des cas spécifiques à un programme.</p>
-<p>Les exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.</p>
-</div>
-</div>
-<section id="création-de-lexception" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="création-de-lexception"><span class="header-section-number">4.1</span> Création de l’exception</h3>
-<p>Pour créer une exception personnalisée, il faut créer une classe qui hérite de la classe <code>Exception</code></p>
-<div id="7fd4490e" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SoldeInsuffisantError(<span class="pp">Exception</span>):</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="utilisation-dans-une-fonction" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="utilisation-dans-une-fonction"><span class="header-section-number">4.2</span> Utilisation dans une fonction</h3>
-<p>L’exception que nous venons de créer peut être levée dans la fonction ci-dessous</p>
-<div id="4dc64edb" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> verifier_solde(solde, montant):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Vérifie que le montant du retrait demandé est inférieur au solde"""</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> montant <span class="op">&gt;</span> solde:</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> SoldeInsuffisantError(<span class="st">"Solde insuffisant pour ce retrait."</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Retrait autorisé."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="gestion-de-lexception" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="gestion-de-lexception"><span class="header-section-number">4.3</span> Gestion de l’exception</h3>
-<p>La fonction <code>verifier_solde()</code> peut lever une exception.</p>
-<p>Utilisons un bloc <em>try-except</em> pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.</p>
-<div id="fb075f19" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    verifier_solde(<span class="dv">100</span>, <span class="dv">200</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> SoldeInsuffisantError <span class="im">as</span> e:</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Erreur : </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Erreur : Solde insuffisant pour ce retrait.</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="liens" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="liens">Liens</h2>
 <ul>
-<li><a href="https://datacrafting.substack.com/p/jour-22-ii-python-the-right-way-gestion" target="_blank">Python, the right way : Gestion d’exceptions</a></li>
+<li>Le constructeur peut maintenant être appelé avec 1 ou 2 paramètres</li>
+<li>Les paramètres avec des valeurs par défaut doivent être positionnés à la fin</li>
 </ul>
+</div>
+</div>
+</section>
+<section id="attribut-sans-paramètre" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="attribut-sans-paramètre"><span class="header-section-number">5.3</span> Attribut sans paramètre</h3>
+<p>Il est possible de créer un attribut qui ne nécessite pas de paramètre de constructeur.</p>
+<p>Modifions une nouvelle fois le constructeur.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Personne:</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> <span class="dv">0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>age n’est plus un paramètre du constructeur</li>
+<li>par contre age est toujours un attribut et toutes les personnes créées auront <code>self.age = 0</code></li>
+</ul>
+</section>
+</section>
+<section id="méthodes" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="méthodes"><span class="header-section-number">6</span> Méthodes</h2>
+<p>Une <strong>méthode</strong> est une fonction définie dans une classe et qui agit sur un objet.</p>
+<p>Elle peut éventuellement :</p>
+<ul>
+<li>prendre des paramétres</li>
+<li>modifier les attributs de l’objet</li>
+<li>retourner des valeurs</li>
+</ul>
+<p>La méthode <em>se_presenter()</em> ne prend aucun paramètre, ne modifie pas l’objet et retourne une valeur.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> se_presenter(<span class="va">self</span>):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Bonjour, je m'appelle </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss"> et j'ai </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>age<span class="sc">}</span><span class="ss"> ans."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La méthode <em>anniversaire()</em>, ne prend aucun paramètre, modifie l’objet (incrémente l’attribut age) et ne retourne rien.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> anniversaire(<span class="va">self</span>):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.age <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Variante de la méthode précédente qui cette fois retourne également quelque chose.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> anniversaire_message(<span class="va">self</span>):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.age <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"Joyeux anniversaire </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss">"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Enfin une méthode qui prend un paramètre, ne modifie aucun attribut et retourne quelque chose.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> est_majeure(<span class="va">self</span>, age_majorite):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">self</span>.age <span class="op">&gt;=</span> age_majorite</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled" title="La classe Personne">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>La classe Personne
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Personne:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom, age<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">=</span> age</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> se_presenter(<span class="va">self</span>):</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Bonjour, je m'appelle </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss"> et j'ai </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>age<span class="sc">}</span><span class="ss"> ans."</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> anniversaire(<span class="va">self</span>):</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> anniversaire_message(<span class="va">self</span>):</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.age <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Joyeux anniversaire </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> est_majeure(<span class="va">self</span>, age_majorite):</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.age <span class="op">&gt;=</span> age_majorite</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="héritage" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="héritage"><span class="header-section-number">7</span> Héritage</h2>
+<p>L’héritage permet de <strong>créer une classe qui réutilise et étend une autre classe</strong>.</p>
+<p>Exemple : une classe <code>Etudiant</code> qui est une <code>Personne</code> <strong>avec un attribut supplémentaire</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Etudiant(Personne):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom, age, filiere):</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(prenom, age)          <span class="co"># appel du constructeur parent</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.filiere <span class="op">=</span> filiere</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> se_presenter(<span class="va">self</span>):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Bonjour, je m'appelle </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss">, j'ai </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>age<span class="sc">}</span><span class="ss"> ans et j'étudie en </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>filiere<span class="sc">}</span><span class="ss">."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="classe-abstraite" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="classe-abstraite"><span class="header-section-number">7.1</span> Classe abstraite</h3>
+<p>Une <strong>classe abstraite</strong> est une classe qu’on ne peut pas instancier directement. Elle sert de <strong>modèle</strong> pour d’autres classes.</p>
+<p>On l’utilise quand on veut <strong>imposer certaines méthodes</strong> aux classes filles.</p>
+<p>Exemple avec <code>ABC</code> :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> abc <span class="im">import</span> ABC, abstractmethod</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PersonneAbstraite(ABC):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">@abstractmethod</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> se_presenter(<span class="va">self</span>):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Toute classe qui hérite de <code>PersonneAbstraite</code> doit définir <code>se_presenter()</code>.</p>
+<p>Exemple :</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PersonneConcrete(PersonneAbstraite):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, prenom):</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.prenom <span class="op">=</span> prenom</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> se_presenter(<span class="va">self</span>):</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"Je suis </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>prenom<span class="sc">}</span><span class="ss">."</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="résumé" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="résumé"><span class="header-section-number">7.2</span> Résumé</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Explication courte</th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Classe</td>
+<td>Modèle, plan</td>
+<td><code>Personne</code></td>
+</tr>
+<tr class="even">
+<td>Objet</td>
+<td>Instance de la classe</td>
+<td><code>p = Personne("Alice")</code></td>
+</tr>
+<tr class="odd">
+<td>Attribut</td>
+<td>Donnée interne</td>
+<td><code>self.age</code></td>
+</tr>
+<tr class="even">
+<td>Constructeur</td>
+<td>Initialise l’objet</td>
+<td><code>__init__()</code></td>
+</tr>
+<tr class="odd">
+<td>Valeur par défaut</td>
+<td>Paramètre facultatif</td>
+<td><code>age=0</code></td>
+</tr>
+<tr class="even">
+<td>Méthode</td>
+<td>Action de l’objet</td>
+<td><code>se_presenter()</code></td>
+</tr>
+<tr class="odd">
+<td>Héritage</td>
+<td>Réutilisation/extention</td>
+<td><code>class Etudiant(Personne)</code></td>
+</tr>
+<tr class="even">
+<td>Abstraite</td>
+<td>Modèle non instanciable</td>
+<td>classe avec <code>@abstractmethod</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="exercices" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="exercices"><span class="header-section-number">8</span> Exercices</h2>
+<section id="horloges" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="horloges"><span class="header-section-number">8.1</span> Horloges</h3>
+<p>Une <em>Horloge</em> est caractérisée par ses heures et minutes (valeurs entières) :</p>
+<ul>
+<li>l’heure doit être comprise entre 0 et 23
+<ul>
+<li>si heure = 26 <span class="emoji" data-emoji="arrow_right">➡️</span> heure = 2</li>
+<li>si heure = -5 <span class="emoji" data-emoji="arrow_right">➡️</span> heure = 19</li>
+</ul></li>
+<li>les minutes sont comprises entre 0 et 59
+<ul>
+<li>si minute = 70 <span class="emoji" data-emoji="arrow_right">➡️</span> minute = 10 et heure est incrémentée de 1</li>
+<li>si minute = -65 <span class="emoji" data-emoji="arrow_right">➡️</span> minute = 55 et heure est décrémenté de 2</li>
+</ul></li>
+</ul>
+<p>Pour construire une horloge, il faut préciser heures et minutes. les valeurs par défaut sont 0.</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Créer le constructeur de la classe</label>
+<ul>
+<li>Ne vous occupez pour le moment des dépassements</li>
+</ul></li>
+<li><label><input type="checkbox">Créez une méthode <code>_normaliser()</code></label>
+<ul>
+<li>Elle convertira toutes les valeurs comme décrit ci-dessus</li>
+<li>Utilisez cette méthode dans le constructeur</li>
+</ul></li>
+<li><label><input type="checkbox">Créer une méthode qui affiche l’horloge au format <em>HH:MI</em></label>
+<ul>
+<li>heures et minutes doivent toujours être sur 2 digits</li>
+</ul></li>
+<li><label><input type="checkbox">Créer une méthode <code>tictac()</code> qui avance de une minute</label></li>
+<li><label><input type="checkbox">Créer une méthode <code>ajouter(heure=0, minute=0)</code></label>
+<ul>
+<li>Celle-ci peut prendre des valeurs négatives</li>
+</ul></li>
+<li><label><input type="checkbox">Créer les méthode <em><strong>eq</strong></em> et <em><strong>lt</strong></em></label></li>
+<li><label><input type="checkbox">Ajouter en attribut une liste d’alarmes</label>
+<ul>
+<li>Cet attribut sera vide dans le constructeur</li>
+<li>Une méthode <em>ajouter_alarme(h, m)</em>permettra d’ajouter une alarme</li>
+<li>Définissez les alarmes comme des <em>Horloges</em></li>
+<li>Si l’horloge arrive sur une alarme, elle doit sonner</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>class Horloge: def <strong>init</strong>(self, heures: int, minutes: int): if not isinstance(heures, int) or isinstance(heures, bool): raise TypeError(f”heures doit être un int (reçu {type(heures).__name__})“) if not isinstance(minutes, int) or isinstance(minutes, bool): raise TypeError(f”minutes doit être un int (reçu {type(minutes).__name__})“)</p>
+<pre><code>    self.heures = heures
+    self.minutes = minutes
+    self.alarmes = []
+    self._normaliser()
+
+def _normaliser(self):
+    total_minutes = self.heures * 60 + self.minutes
+    total_minutes %= 24 * 60
+
+    self.heures = total_minutes // 60
+    self.minutes = total_minutes % 60
+
+def tictac(self):
+    self.minutes += 1
+    self._normaliser()
+    print("Il est", self)
+    self._verif_alarme()
+
+def ajouter(self, h: int = 0, m: int = 0):
+    self.heures += h
+    self.minutes += m
+    self._normaliser()
+    print("Il est", self)
+    self._verif_alarme()
+
+def ajouter_alarme(self, h: int, m: int):
+    alarme = Horloge(h, m)
+    self.alarmes.append(alarme)
+
+def _verif_alarme(self):
+    for alarme in self.alarmes:
+        if self == alarme:
+            print("Allez debout feignasse !")
+
+def en_minutes(self) -&gt; int:
+    return self.heures * 60 + self.minutes
+
+def __eq__(self, other):
+    if not isinstance(other, Horloge):
+        return NotImplemented
+    return (self.heures, self.minutes) == (other.heures, other.minutes)
+
+def __lt__(self, other):
+    if not isinstance(other, Horloge):
+        return NotImplemented
+    return self.en_minutes() &lt; other.en_minutes()
+
+def __str__(self):
+    return f"{self.heures:02d}:{self.minutes:02d}"</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”: h = Horloge(6, 58) h.ajouter_alarme(7, 0)</p>
+<pre><code>h.tictac()
+h.tictac()
+
+h.ajouter(m=-450)
+h.ajouter(m=70)</code></pre>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

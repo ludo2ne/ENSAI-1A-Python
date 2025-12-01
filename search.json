@@ -266,102 +266,137 @@
     "text": "2 Chaines de caractères\n\n2.1 Palindrome\nÉcrivez une fonction est_palindrome(texte) -&gt; bool qui retourne True si le paramètre texte est un palindrome (i.e. il se lit de la même manière dans les deux sens)\n\n\n2.2 Mot de passe\nÉcrivez une fonction valider_mot_passe(pwd) -&gt; bool qui retourne True si le mot de passe est valide :\n\ncontient au moins 12 caractères\ncontient au moins une minuscule, une majuscule et un chiffre\n\nSi l’une des condition n’est pas respectée, levez une exception avec un message explicite.\n\n\n\n\n\n\nNoteLever une exception\n\n\n\nif ma_condition:\n    raise ValueError(\"Le mot de passe doit contenir au moins 12 caractères.\")\n\n\n\n\n2.3 Compter les lettres\nÉcrivez une fonction qui :\n\nprend en paramètre une chaine de caractère\ncompte le nombre d’occurences de chaque lettre\nretourne un dictionnaire\n\nclé : lettre\nvaleur : nombre d’occurences de la lettre"
   },
   {
-    "objectID": "cours/print.html",
-    "href": "cours/print.html",
-    "title": "La fonction print",
+    "objectID": "cours/poo.html",
+    "href": "cours/poo.html",
+    "title": "Introduction à la POO",
     "section": "",
-    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
+    "text": "La programmation orientée objet (POO) est une manière d’organiser son code en regroupant :\ndans un même bloc logique appelé une classe.\nCela permet de :"
   },
   {
-    "objectID": "cours/print.html#utiliser-les-f-strings",
-    "href": "cours/print.html#utiliser-les-f-strings",
-    "title": "La fonction print",
+    "objectID": "cours/poo.html#classe-et-objet",
+    "href": "cours/poo.html#classe-et-objet",
+    "title": "Introduction à la POO",
+    "section": "1 Classe et Objet",
+    "text": "1 Classe et Objet\nUne classe est une description de ce que seront les objets. Nous pouvons considérer une classe comme un plan, un modèle, un moule…\nLorsque nous définissons une classe, nous spécifions pour les objets qui seront construits à partir de cette classe :\n\nles attributs qu’ils auront\nles méthodes qu’ils pourront utiliser\n\nUn objet est créé à partir d’une classe, c’est une instance de classe :\n\nNous donnons des valeurs à ses attributs\nIl peut exécuter les méthodes définies par la classe"
+  },
+  {
+    "objectID": "cours/poo.html#exemple-central-la-classe-personne",
+    "href": "cours/poo.html#exemple-central-la-classe-personne",
+    "title": "Introduction à la POO",
+    "section": "2 Exemple central : la classe Personne",
+    "text": "2 Exemple central : la classe Personne\nCréons une classe qui représente une personne\nUne personne peut avoir :\n\nun prénom\nun âge\n\nEt elle peut faire des actions :\n\nfêter son anniversaire\nreturner un message de présentation"
+  },
+  {
+    "objectID": "cours/poo.html#le-constructeur",
+    "href": "cours/poo.html#le-constructeur",
+    "title": "Introduction à la POO",
+    "section": "3 Le constructeur",
+    "text": "3 Le constructeur\nLe constructeur (__init__) est une méthode spéciale. Il permet de créer (instancier) un objet à partir de la classe.\nclass Personne:\n    def __init__(self, prenom, age):\n        self.prenom = prenom\n        self.age = age\nIl initialise les valeurs des attributs de l’objet.\n\n\n\n\n\n\nTipself\n\n\n\nLe mot clé self représente l’objet lui même. Par exemple self.prenom ➡️ le prénom de l’objet.\nRemarque : sauf cas particulier, toutes les méthodes d’une classe auront self comme premier paramètre"
+  },
+  {
+    "objectID": "cours/poo.html#les-attributs",
+    "href": "cours/poo.html#les-attributs",
+    "title": "Introduction à la POO",
+    "section": "4 Les attributs",
+    "text": "4 Les attributs\nLes attributs sont les données internes d’un objet.\nDans notre exemple, une personne a un prenom et un age."
+  },
+  {
+    "objectID": "cours/poo.html#paramètres-du-constructeur-et-attributs",
+    "href": "cours/poo.html#paramètres-du-constructeur-et-attributs",
+    "title": "Introduction à la POO",
+    "section": "5 Paramètres du constructeur et attributs",
+    "text": "5 Paramètres du constructeur et attributs\nReprenons le constructeur ci-dessus pour différencier paramètres du constructeur et attributs.\nclass Personne:\n    def __init__(self, prenom, age):\n        self.prenom = prenom\n        self.age = age\n\nDans la ligne def __init__(self, prenom, age), prenom et age sont des paramètres du constructeur\nself.prenom et self.age sont les attributs\n\nGénéralement, nous affectons aux attributs la valeur des paramètres du constructeur.\nC’est le cas ci-dessus mais ce n’est pas obligatoire, nous le verons par la suite.\n\n5.1 Appel du constructeur\nPour créer un objet de la classe Personne, ce code appelle le constructeur.\np = Personne(\"Laury\", 35)\n\n\n\n\n\n\nWarningRemarque\n\n\n\n\nself apparait uniquement lorsque nous déclarons une méthode\n\njamais lors des appels à ces méthodes (constructeur inclus)\n\n\n\n\nEnsuite, vous pouvez accéder aux valeurs des attributs de p :\nprint(p.prenom)\nprint(p.age)\n\n\n5.2 Paramètres optionnels\nModifions légérement le constructeur :\nclass Personne:\n    def __init__(self, prenom, age=0):\n        self.prenom = prenom\n        self.age = age\nLe paramètre age a été modifié en age=0. Cela signifie que si l’âge n’est pas renseigné alors sa valeur par défaut sera 0.\np1 = Personne(\"Valérie\")\nprint(p1.age)               # 0\n\np2 = Personne(\"Laury\", 35)\nprint(p2.age)               # 35\n\n\n\n\n\n\nCaution\n\n\n\n\nLe constructeur peut maintenant être appelé avec 1 ou 2 paramètres\nLes paramètres avec des valeurs par défaut doivent être positionnés à la fin\n\n\n\n\n\n5.3 Attribut sans paramètre\nIl est possible de créer un attribut qui ne nécessite pas de paramètre de constructeur.\nModifions une nouvelle fois le constructeur.\nclass Personne:\n    def __init__(self, prenom):\n        self.prenom = prenom\n        self.age = 0\n\nage n’est plus un paramètre du constructeur\npar contre age est toujours un attribut et toutes les personnes créées auront self.age = 0"
+  },
+  {
+    "objectID": "cours/poo.html#méthodes",
+    "href": "cours/poo.html#méthodes",
+    "title": "Introduction à la POO",
+    "section": "6 Méthodes",
+    "text": "6 Méthodes\nUne méthode est une fonction définie dans une classe et qui agit sur un objet.\nElle peut éventuellement :\n\nprendre des paramétres\nmodifier les attributs de l’objet\nretourner des valeurs\n\nLa méthode se_presenter() ne prend aucun paramètre, ne modifie pas l’objet et retourne une valeur.\ndef se_presenter(self):\n    return f\"Bonjour, je m'appelle {self.prenom} et j'ai {self.age} ans.\"\nLa méthode anniversaire(), ne prend aucun paramètre, modifie l’objet (incrémente l’attribut age) et ne retourne rien.\ndef anniversaire(self):\n    self.age += 1\nVariante de la méthode précédente qui cette fois retourne également quelque chose.\ndef anniversaire_message(self):\n    self.age += 1\n    return f\"Joyeux anniversaire {self.prenom}\"\nEnfin une méthode qui prend un paramètre, ne modifie aucun attribut et retourne quelque chose.\ndef est_majeure(self, age_majorite):\n    return self.age &gt;= age_majorite\n\n\n\n\n\n\nNoteLa classe Personne\n\n\n\n\n\nclass Personne:\n    def __init__(self, prenom, age=0):\n        self.prenom = prenom\n        self.age = age\n\n    def se_presenter(self):\n        return f\"Bonjour, je m'appelle {self.prenom} et j'ai {self.age} ans.\"\n\n    def anniversaire(self):\n        self.age += 1\n\n    def anniversaire_message(self):\n        self.age += 1\n        return f\"Joyeux anniversaire {self.prenom}\"\n\n    def est_majeure(self, age_majorite):\n        return self.age &gt;= age_majorite"
+  },
+  {
+    "objectID": "cours/poo.html#héritage",
+    "href": "cours/poo.html#héritage",
+    "title": "Introduction à la POO",
+    "section": "7 Héritage",
+    "text": "7 Héritage\nL’héritage permet de créer une classe qui réutilise et étend une autre classe.\nExemple : une classe Etudiant qui est une Personne avec un attribut supplémentaire.\nclass Etudiant(Personne):\n    def __init__(self, prenom, age, filiere):\n        super().__init__(prenom, age)          # appel du constructeur parent\n        self.filiere = filiere\n\n    def se_presenter(self):\n        return f\"Bonjour, je m'appelle {self.prenom}, j'ai {self.age} ans et j'étudie en {self.filiere}.\"\n\n7.1 Classe abstraite\nUne classe abstraite est une classe qu’on ne peut pas instancier directement. Elle sert de modèle pour d’autres classes.\nOn l’utilise quand on veut imposer certaines méthodes aux classes filles.\nExemple avec ABC :\nfrom abc import ABC, abstractmethod\n\nclass PersonneAbstraite(ABC):\n    @abstractmethod\n    def se_presenter(self):\n        pass\nToute classe qui hérite de PersonneAbstraite doit définir se_presenter().\nExemple :\nclass PersonneConcrete(PersonneAbstraite):\n    def __init__(self, prenom):\n        self.prenom = prenom\n\n    def se_presenter(self):\n        return f\"Je suis {self.prenom}.\"\n\n\n\n7.2 Résumé\n\n\n\n\n\n\n\n\nConcept\nExplication courte\nExemple\n\n\n\n\nClasse\nModèle, plan\nPersonne\n\n\nObjet\nInstance de la classe\np = Personne(\"Alice\")\n\n\nAttribut\nDonnée interne\nself.age\n\n\nConstructeur\nInitialise l’objet\n__init__()\n\n\nValeur par défaut\nParamètre facultatif\nage=0\n\n\nMéthode\nAction de l’objet\nse_presenter()\n\n\nHéritage\nRéutilisation/extention\nclass Etudiant(Personne)\n\n\nAbstraite\nModèle non instanciable\nclasse avec @abstractmethod"
+  },
+  {
+    "objectID": "cours/poo.html#exercices",
+    "href": "cours/poo.html#exercices",
+    "title": "Introduction à la POO",
+    "section": "8 Exercices",
+    "text": "8 Exercices\n\n8.1 Horloges\nUne Horloge est caractérisée par ses heures et minutes (valeurs entières) :\n\nl’heure doit être comprise entre 0 et 23\n\nsi heure = 26 ➡️ heure = 2\nsi heure = -5 ➡️ heure = 19\n\nles minutes sont comprises entre 0 et 59\n\nsi minute = 70 ➡️ minute = 10 et heure est incrémentée de 1\nsi minute = -65 ➡️ minute = 55 et heure est décrémenté de 2\n\n\nPour construire une horloge, il faut préciser heures et minutes. les valeurs par défaut sont 0.\n\nCréer le constructeur de la classe\n\nNe vous occupez pour le moment des dépassements\n\nCréez une méthode _normaliser()\n\nElle convertira toutes les valeurs comme décrit ci-dessus\nUtilisez cette méthode dans le constructeur\n\nCréer une méthode qui affiche l’horloge au format HH:MI\n\nheures et minutes doivent toujours être sur 2 digits\n\nCréer une méthode tictac() qui avance de une minute\nCréer une méthode ajouter(heure=0, minute=0)\n\nCelle-ci peut prendre des valeurs négatives\n\nCréer les méthode eq et lt\nAjouter en attribut une liste d’alarmes\n\nCet attribut sera vide dans le constructeur\nUne méthode ajouter_alarme(h, m)permettra d’ajouter une alarme\nDéfinissez les alarmes comme des Horloges\nSi l’horloge arrive sur une alarme, elle doit sonner\n\n\n\n\n\n\n\n\nTipSolution\n\n\n\n\n\nclass Horloge: def init(self, heures: int, minutes: int): if not isinstance(heures, int) or isinstance(heures, bool): raise TypeError(f”heures doit être un int (reçu {type(heures).__name__})“) if not isinstance(minutes, int) or isinstance(minutes, bool): raise TypeError(f”minutes doit être un int (reçu {type(minutes).__name__})“)\n    self.heures = heures\n    self.minutes = minutes\n    self.alarmes = []\n    self._normaliser()\n\ndef _normaliser(self):\n    total_minutes = self.heures * 60 + self.minutes\n    total_minutes %= 24 * 60\n\n    self.heures = total_minutes // 60\n    self.minutes = total_minutes % 60\n\ndef tictac(self):\n    self.minutes += 1\n    self._normaliser()\n    print(\"Il est\", self)\n    self._verif_alarme()\n\ndef ajouter(self, h: int = 0, m: int = 0):\n    self.heures += h\n    self.minutes += m\n    self._normaliser()\n    print(\"Il est\", self)\n    self._verif_alarme()\n\ndef ajouter_alarme(self, h: int, m: int):\n    alarme = Horloge(h, m)\n    self.alarmes.append(alarme)\n\ndef _verif_alarme(self):\n    for alarme in self.alarmes:\n        if self == alarme:\n            print(\"Allez debout feignasse !\")\n\ndef en_minutes(self) -&gt; int:\n    return self.heures * 60 + self.minutes\n\ndef __eq__(self, other):\n    if not isinstance(other, Horloge):\n        return NotImplemented\n    return (self.heures, self.minutes) == (other.heures, other.minutes)\n\ndef __lt__(self, other):\n    if not isinstance(other, Horloge):\n        return NotImplemented\n    return self.en_minutes() &lt; other.en_minutes()\n\ndef __str__(self):\n    return f\"{self.heures:02d}:{self.minutes:02d}\"\nif name == “main”: h = Horloge(6, 58) h.ajouter_alarme(7, 0)\nh.tictac()\nh.tictac()\n\nh.ajouter(m=-450)\nh.ajouter(m=70)"
+  },
+  {
+    "objectID": "cours/liste-dico.html",
+    "href": "cours/liste-dico.html",
+    "title": "Listes et Dictionnaires",
     "section": "",
-    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
+    "text": "La 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\nDe nombreuses autres méthodes existent.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\n\n\nLa compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d’un itérable.\n\n\nVous souhaitez générer la liste des carrés des entiers de 0 à 9.\n\n\n\n\n\n\nNoteCode classique\n\n\n\n\n\nUn code classique serait :\n\nentiers = list(range(10))   # [0, 1, 2, ..., 9]\ncarres = []\n\nfor el in entiers:\n    carres.append(el ** 2)\n\n\n\n\nLa compréhension de liste permet de faire la même chose avec une écriture plus concise.\n\n[i**2 for i in range(10)]\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n\n\n\nIl est également possible d’ajouter une condition.\n\n[i for i in range(10) if i % 2 == 0]\n\n[0, 2, 4, 6, 8]\n\n\n\n\n\n\n🚧\nhttps://koor.fr/Python/Tutorial/python_type_list.wp"
   },
   {
-    "objectID": "cours/print.html#personnaliser-le-séparateur",
-    "href": "cours/print.html#personnaliser-le-séparateur",
-    "title": "La fonction print",
-    "section": "2 Personnaliser le séparateur",
-    "text": "2 Personnaliser le séparateur\n\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1-2-3-4-5\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\n\n1 2 3 4 5"
-  },
-  {
-    "objectID": "cours/print.html#personnaliser-le-caractère-de-fin",
-    "href": "cours/print.html#personnaliser-le-caractère-de-fin",
-    "title": "La fonction print",
-    "section": "3 Personnaliser le caractère de fin",
-    "text": "3 Personnaliser le caractère de fin\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
-  },
-  {
-    "objectID": "cours/print.html#afficher-une-ligne-pour-séparer",
-    "href": "cours/print.html#afficher-une-ligne-pour-séparer",
-    "title": "La fonction print",
-    "section": "4 Afficher une ligne pour séparer",
-    "text": "4 Afficher une ligne pour séparer\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
-  },
-  {
-    "objectID": "cours/print.html#multi-lignes",
-    "href": "cours/print.html#multi-lignes",
-    "title": "La fonction print",
-    "section": "5 Multi lignes",
-    "text": "5 Multi lignes\n\nprint(\"\"\"Maître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage\"\"\")\n\nMaître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage"
-  },
-  {
-    "objectID": "cours/fonctions.html",
-    "href": "cours/fonctions.html",
-    "title": "Les fonctions",
+    "objectID": "cours/liste-dico.html#listes",
+    "href": "cours/liste-dico.html#listes",
+    "title": "Listes et Dictionnaires",
     "section": "",
-    "text": "Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers a et b.\n\ndef maximum(a, b) -&gt; int:\n    \"\"\"Retourne le maximum entre a et b\"\"\"\n    if a &gt; b:\n        return a\n    return b\n\nLa fonction maximum() retourne une valeur qui peut-être stockée :\n\nres = maximum(2, 8)\n\nLa variable res a maintenant pour valeur : 8"
+    "text": "La 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\nDe nombreuses autres méthodes existent.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\n\n\nLa compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d’un itérable.\n\n\nVous souhaitez générer la liste des carrés des entiers de 0 à 9.\n\n\n\n\n\n\nNoteCode classique\n\n\n\n\n\nUn code classique serait :\n\nentiers = list(range(10))   # [0, 1, 2, ..., 9]\ncarres = []\n\nfor el in entiers:\n    carres.append(el ** 2)\n\n\n\n\nLa compréhension de liste permet de faire la même chose avec une écriture plus concise.\n\n[i**2 for i in range(10)]\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n\n\n\nIl est également possible d’ajouter une condition.\n\n[i for i in range(10) if i % 2 == 0]\n\n[0, 2, 4, 6, 8]\n\n\n\n\n\n\n🚧\nhttps://koor.fr/Python/Tutorial/python_type_list.wp"
   },
   {
-    "objectID": "cours/fonctions.html#valeur-retournée",
-    "href": "cours/fonctions.html#valeur-retournée",
-    "title": "Les fonctions",
+    "objectID": "cours/liste-dico.html#dictionnaire",
+    "href": "cours/liste-dico.html#dictionnaire",
+    "title": "Listes et Dictionnaires",
+    "section": "2 Dictionnaire",
+    "text": "2 Dictionnaire\n\n2.1 Parcours de dictionnaires\ndico = {\"d\":\"Dominique\", \"e\":\"Eva\", \"f\":\"Fernande\"}\n\n# Par clés\nfor k in dico.keys():\n    print(f\"{k} : {dico[k]}\")\n\n# Par valeurs\nfor v in dico.values():\n    print(v)\n\n# Clés et valeurs\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")"
+  },
+  {
+    "objectID": "cours/liste-dico.html#liens",
+    "href": "cours/liste-dico.html#liens",
+    "title": "Listes et Dictionnaires",
+    "section": "Liens",
+    "text": "Liens\n\nStructures interessantes"
+  },
+  {
+    "objectID": "cours/exceptions.html",
+    "href": "cours/exceptions.html",
+    "title": "Les exceptions",
     "section": "",
-    "text": "Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers a et b.\n\ndef maximum(a, b) -&gt; int:\n    \"\"\"Retourne le maximum entre a et b\"\"\"\n    if a &gt; b:\n        return a\n    return b\n\nLa fonction maximum() retourne une valeur qui peut-être stockée :\n\nres = maximum(2, 8)\n\nLa variable res a maintenant pour valeur : 8"
+    "text": "Les exceptions en Python sont des événements qui surviennent lors de l’exécution d’un programme, souvent à cause d’une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus."
   },
   {
-    "objectID": "cours/fonctions.html#simple-affichage",
-    "href": "cours/fonctions.html#simple-affichage",
-    "title": "Les fonctions",
-    "section": "2 Simple affichage",
-    "text": "2 Simple affichage\n\ndef affiche_maximum(a, b) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\nLa fonction affiche_maximum() effectue le même type d’opérations mais :\n\nelle ne fait qu’afficher le maximum\nelle ne renvoie pas de résultat\n\n\naffiche_maximum(2, 8)\n\n8\n\n\nSi l’on essaie de stocker le résultat, il vaudra simplement None.\n\nres2 = affiche_maximum(2, 8)\n\nLa variable res2 a maintenant pour valeur : None"
+    "objectID": "cours/exceptions.html#lever-une-exception",
+    "href": "cours/exceptions.html#lever-une-exception",
+    "title": "Les exceptions",
+    "section": "1 Lever une exception",
+    "text": "1 Lever une exception\n\n\n\n\n\n\nImportant\n\n\n\nLever une exception consiste à signaler volontairement un problème lorsqu’une situation anormale est détectée.\n\n\nNous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.\nLorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.\n\ndef verifier_montant(montant):\n    if montant &lt;= 0:\n        raise ValueError(\"Le montant doit être supérieur à 0.\")\n    print(f\"Montant {montant} accepté.\")\n\nSi l’utilisateur saisit un montant négatif ou nul, une exception ValueError est levée, interrompant le programme pour signaler l’erreur."
   },
   {
-    "objectID": "cours/fonctions.html#valeur-par-défaut",
-    "href": "cours/fonctions.html#valeur-par-défaut",
-    "title": "Les fonctions",
-    "section": "3 Valeur par défaut",
-    "text": "3 Valeur par défaut\nIl est possible de donner aux paramètres une valeur par défaut\n\ndef affiche_maximum_def(a, b=0) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\n\naffiche_maximum_def(2)\n\n2\n\n\n\naffiche_maximum_def(3)\n\n3"
+    "objectID": "cours/exceptions.html#gérer-une-exception",
+    "href": "cours/exceptions.html#gérer-une-exception",
+    "title": "Les exceptions",
+    "section": "2 Gérer une exception",
+    "text": "2 Gérer une exception\n\n\n\n\n\n\nImportant\n\n\n\nGérer une exception consiste à capturer une erreur grâce au bloc try-except pour éviter que le programme ne se termine brutalement.\n\n\n\ndef retirer_argent(montant):\n    try:\n        verifier_montant(montant)\n        print(\"Retrait en cours...\")\n    except ValueError as e:\n        print(f\"Erreur : {e}\")\n\n\nretirer_argent(-50)\n\nErreur : Le montant doit être supérieur à 0.\n\n\nLe programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l’exception."
   },
   {
-    "objectID": "cours/fonctions.html#multiples-retours",
-    "href": "cours/fonctions.html#multiples-retours",
-    "title": "Les fonctions",
-    "section": "4 Multiples retours",
-    "text": "4 Multiples retours\nUne fonction peut retourner plusieurs valeurs.\n\ndef min_max(liste):\n    \"\"\"Retourne le minimum et le maximum parmi une liste.\"\"\"\n    return min(liste), max(liste)\n\n\nma_liste = [4, 8, 20, 19, 12, 3]\nminimum, maximum = min_max(ma_liste)\n\nprint(minimum, maximum)\n\n3 20"
+    "objectID": "cours/exceptions.html#types-dexception",
+    "href": "cours/exceptions.html#types-dexception",
+    "title": "Les exceptions",
+    "section": "3 Types d’exception",
+    "text": "3 Types d’exception\nles types d’exceptions les plus courantes en Python :\n\nValueError : Lorsque la valeur d’un argument est invalide.\nTypeError : Quand une opération ou une fonction est appliquée à un type inapproprié.\nIndexError : Tentative d’accéder à un indice inexistant dans une liste.\nKeyError : Accès à une clé inexistante dans un dictionnaire.\n\ntry:\n    liste = [1, 2, 3]\n    print(liste[5])\nexcept IndexError as e:\n    print(f\"Erreur : {e}\")"
   },
   {
-    "objectID": "cours/fonctions.html#lambda-fonctions",
-    "href": "cours/fonctions.html#lambda-fonctions",
-    "title": "Les fonctions",
-    "section": "5 Lambda fonctions",
-    "text": "5 Lambda fonctions\nUne manière très concise pour définir des fonctions\n\ncarre = lambda x: x**2\n\nprint(carre(6))\n\n36"
+    "objectID": "cours/exceptions.html#exception-personnalisée",
+    "href": "cours/exceptions.html#exception-personnalisée",
+    "title": "Les exceptions",
+    "section": "4 Exception personnalisée",
+    "text": "4 Exception personnalisée\n\n\n\n\n\n\nNote\n\n\n\nIl est possible de créer ses propres exceptions pour des cas spécifiques à un programme.\nLes exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.\n\n\n\n4.1 Création de l’exception\nPour créer une exception personnalisée, il faut créer une classe qui hérite de la classe Exception\n\nclass SoldeInsuffisantError(Exception):\n    pass\n\n\n\n4.2 Utilisation dans une fonction\nL’exception que nous venons de créer peut être levée dans la fonction ci-dessous\n\ndef verifier_solde(solde, montant):\n    \"\"\"Vérifie que le montant du retrait demandé est inférieur au solde\"\"\"\n    if montant &gt; solde:\n        raise SoldeInsuffisantError(\"Solde insuffisant pour ce retrait.\")\n    print(\"Retrait autorisé.\")\n\n\n\n4.3 Gestion de l’exception\nLa fonction verifier_solde() peut lever une exception.\nUtilisons un bloc try-except pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.\n\ntry:\n    verifier_solde(100, 200)\nexcept SoldeInsuffisantError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Solde insuffisant pour ce retrait."
   },
   {
-    "objectID": "cours/fonctions.html#template",
-    "href": "cours/fonctions.html#template",
-    "title": "Les fonctions",
-    "section": "Template",
-    "text": "Template\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n    \"\"\"\n\n    return None"
-  },
-  {
-    "objectID": "cours/fonctions.html#exercices",
-    "href": "cours/fonctions.html#exercices",
-    "title": "Les fonctions",
-    "section": "Exercices",
-    "text": "Exercices\n\nTempératures\nÉcrivez une fonction Python qui prend en entrée une température en Celsius et retourne la température correspondante en Fahrenheit.\n\n\n\n\n\n\nNote\n\n\n\n\\[ F = \\frac{9}{5} \\times C + 32 \\]\n\n\n\n\nParité\nÉcrivez une fonction qui :\n\nprend en paramètre un entier\naffiche s’il est pair ou impair\n\nComplétez la fonction :\n\nvérifiez que le paramètre est de type entier\n\nsinon affichez un message d’erreur\n\naffichez également si le paramètre est un multiple de 3\n\n\n\nFactorielle\nÉcrivez trois fonctions qui calculent et retournent le factoriel d’un entier n :\n\navec une boucle for\navec une boucle while\nen utilisant la récursivité\n\nÉcrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :\n1 1 2 6 24 120 ...\n\n\nAnnée bissextile\nÉcrivez une fonction qui :\n\nprend en paramètre une année\nretourne True si elle est bissextile, False sinon\n\n\n\n\n\n\n\nNote\n\n\n\nUne année est bissextile si :\n\nelle est divisible par 4,\nmais pas divisible par 100, sauf si elle est aussi divisible par 400\n\n\n\n\n\nFibonacci\n\nÉcrivez une fonction qui retourne le n ième terme de la suite de Fibonacci\nÉcrivez une autre fonction qui affiche les n premiers termes de la suite de Fibonacci\n\n\n\n\n\n\n\nNoteRappel\n\n\n\nLa suite de Fibonacci \\((F_{n})_{n\\in \\mathbb {N}}\\) est définie par :\n\n\\(F_{0} = 0\\)\n\\(F_{1} = 1\\)\n\\(F_{n} = F_{n-1} + F_{n-2}\\) pour \\(n \\geq 2\\)\n\n\n\n\n\nPalindrome\nUn nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.\nÉcrivez une fonction qui :\n\nprend en entrée un entier\nretourne True si le nombre est un palindrome\n\nComptez le nombre de palindromes entre 0 et 100 000.\n\n\nCrible d’Ératosthène\nCréez une fonction qui génére la liste des nombres premiers de 2 à n (paramètre de la fonction) en utilisant le crible d’Ératosthène.\n\n\n\n\n\n\nNoteCrible d’Ératosthène\n\n\n\nL’idée est de rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens. Nous partons du principe que tous les nombres sont premiers, puis nous éliminons un à un ceux qui ne le sont pas.\n\nCréez une liste de longueur n de booléen valant True\nMettez à False les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers\nMettez à False tous les éléments ayant un index multiple de 2\nRecherchez le prochain nombre encore potentiellement premier supérieur à 2 (i.e. 3) et mettez à False tous ses multiples\netc.\n\nRécupérez les index ayant pour valeur True et retournez cette liste de nombres premiers.\n\n\n\n\nConjecture de Goldbach\nLa conjecture de Goldbach stipule que tout nombre pair supérieur ou égal à 4 peut être écrit comme la somme de deux nombres premiers.\nÉcrivez une fonction qui vérifie la conjecture de Goldbach pour les entiers de 4 à n.\nLa fonction verif_Goldbach(20) retournera un booléen et affichera ce type de message :\n4 = 2 + 2\n6 = 3 + 3\n8 = 3 + 5\n10 = 3 + 7\n12 = 5 + 7\n14 = 3 + 11\n16 = 3 + 13\n18 = 5 + 13\n20 = 3 + 17\nLa conjecture de Goldbach est vérifiée jusqu'à 20.\n\n\nScores de Rugby\nÉcrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque n.\n\n\nTriplet pythagoricien\na² + b² = c²\na+b+c=1000"
+    "objectID": "cours/exceptions.html#liens",
+    "href": "cours/exceptions.html#liens",
+    "title": "Les exceptions",
+    "section": "Liens",
+    "text": "Liens\n\nPython, the right way : Gestion d’exceptions"
   },
   {
     "objectID": "cours/tu.html",
@@ -434,74 +469,102 @@
     "text": "Liens\n\nPython, the right way : Tester son code et le TDD\nPython, the right way : Pytest"
   },
   {
-    "objectID": "cours/exceptions.html",
-    "href": "cours/exceptions.html",
-    "title": "Les exceptions",
+    "objectID": "cours/fonctions.html",
+    "href": "cours/fonctions.html",
+    "title": "Les fonctions",
     "section": "",
-    "text": "Les exceptions en Python sont des événements qui surviennent lors de l’exécution d’un programme, souvent à cause d’une erreur. Contrairement aux erreurs non contrôlées qui interrompent brutalement le programme, les exceptions permettent de gérer ces situations de manière structurée et élégante. Elles offrent des outils pour anticiper, détecter et réagir à des problèmes imprévus."
+    "text": "Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers a et b.\n\ndef maximum(a, b) -&gt; int:\n    \"\"\"Retourne le maximum entre a et b\"\"\"\n    if a &gt; b:\n        return a\n    return b\n\nLa fonction maximum() retourne une valeur qui peut-être stockée :\n\nres = maximum(2, 8)\n\nLa variable res a maintenant pour valeur : 8"
   },
   {
-    "objectID": "cours/exceptions.html#lever-une-exception",
-    "href": "cours/exceptions.html#lever-une-exception",
-    "title": "Les exceptions",
-    "section": "1 Lever une exception",
-    "text": "1 Lever une exception\n\n\n\n\n\n\nImportant\n\n\n\nLever une exception consiste à signaler volontairement un problème lorsqu’une situation anormale est détectée.\n\n\nNous utiliserons comme fil rouge la gestion d’un système de retrait d’argent au distributeur.\nLorsqu’un utilisateur entre un montant à retirer, il est nécessaire de vérifier plusieurs critères (solde suffisant, montant valide, etc.) et de gérer les erreurs qui peuvent survenir.\n\ndef verifier_montant(montant):\n    if montant &lt;= 0:\n        raise ValueError(\"Le montant doit être supérieur à 0.\")\n    print(f\"Montant {montant} accepté.\")\n\nSi l’utilisateur saisit un montant négatif ou nul, une exception ValueError est levée, interrompant le programme pour signaler l’erreur."
-  },
-  {
-    "objectID": "cours/exceptions.html#gérer-une-exception",
-    "href": "cours/exceptions.html#gérer-une-exception",
-    "title": "Les exceptions",
-    "section": "2 Gérer une exception",
-    "text": "2 Gérer une exception\n\n\n\n\n\n\nImportant\n\n\n\nGérer une exception consiste à capturer une erreur grâce au bloc try-except pour éviter que le programme ne se termine brutalement.\n\n\n\ndef retirer_argent(montant):\n    try:\n        verifier_montant(montant)\n        print(\"Retrait en cours...\")\n    except ValueError as e:\n        print(f\"Erreur : {e}\")\n\n\nretirer_argent(-50)\n\nErreur : Le montant doit être supérieur à 0.\n\n\nLe programme continue de fonctionner normalement même après une erreur, grâce à la gestion propre de l’exception."
-  },
-  {
-    "objectID": "cours/exceptions.html#types-dexception",
-    "href": "cours/exceptions.html#types-dexception",
-    "title": "Les exceptions",
-    "section": "3 Types d’exception",
-    "text": "3 Types d’exception\nles types d’exceptions les plus courantes en Python :\n\nValueError : Lorsque la valeur d’un argument est invalide.\nTypeError : Quand une opération ou une fonction est appliquée à un type inapproprié.\nIndexError : Tentative d’accéder à un indice inexistant dans une liste.\nKeyError : Accès à une clé inexistante dans un dictionnaire.\n\ntry:\n    liste = [1, 2, 3]\n    print(liste[5])\nexcept IndexError as e:\n    print(f\"Erreur : {e}\")"
-  },
-  {
-    "objectID": "cours/exceptions.html#exception-personnalisée",
-    "href": "cours/exceptions.html#exception-personnalisée",
-    "title": "Les exceptions",
-    "section": "4 Exception personnalisée",
-    "text": "4 Exception personnalisée\n\n\n\n\n\n\nNote\n\n\n\nIl est possible de créer ses propres exceptions pour des cas spécifiques à un programme.\nLes exceptions personnalisées permettent de mieux identifier et gérer des erreurs spécifiques au contexte du programme.\n\n\n\n4.1 Création de l’exception\nPour créer une exception personnalisée, il faut créer une classe qui hérite de la classe Exception\n\nclass SoldeInsuffisantError(Exception):\n    pass\n\n\n\n4.2 Utilisation dans une fonction\nL’exception que nous venons de créer peut être levée dans la fonction ci-dessous\n\ndef verifier_solde(solde, montant):\n    \"\"\"Vérifie que le montant du retrait demandé est inférieur au solde\"\"\"\n    if montant &gt; solde:\n        raise SoldeInsuffisantError(\"Solde insuffisant pour ce retrait.\")\n    print(\"Retrait autorisé.\")\n\n\n\n4.3 Gestion de l’exception\nLa fonction verifier_solde() peut lever une exception.\nUtilisons un bloc try-except pour gérer le cas où nous rencontrions cette exception sans faire planter notre programme.\n\ntry:\n    verifier_solde(100, 200)\nexcept SoldeInsuffisantError as e:\n    print(f\"Erreur : {e}\")\n\nErreur : Solde insuffisant pour ce retrait."
-  },
-  {
-    "objectID": "cours/exceptions.html#liens",
-    "href": "cours/exceptions.html#liens",
-    "title": "Les exceptions",
-    "section": "Liens",
-    "text": "Liens\n\nPython, the right way : Gestion d’exceptions"
-  },
-  {
-    "objectID": "cours/liste-dico.html",
-    "href": "cours/liste-dico.html",
-    "title": "Listes et Dictionnaires",
+    "objectID": "cours/fonctions.html#valeur-retournée",
+    "href": "cours/fonctions.html#valeur-retournée",
+    "title": "Les fonctions",
     "section": "",
-    "text": "La 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\nDe nombreuses autres méthodes existent.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\n\n\nLa compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d’un itérable.\n\n\nVous souhaitez générer la liste des carrés des entiers de 0 à 9.\n\n\n\n\n\n\nNoteCode classique\n\n\n\n\n\nUn code classique serait :\n\nentiers = list(range(10))   # [0, 1, 2, ..., 9]\ncarres = []\n\nfor el in entiers:\n    carres.append(el ** 2)\n\n\n\n\nLa compréhension de liste permet de faire la même chose avec une écriture plus concise.\n\n[i**2 for i in range(10)]\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n\n\n\nIl est également possible d’ajouter une condition.\n\n[i for i in range(10) if i % 2 == 0]\n\n[0, 2, 4, 6, 8]\n\n\n\n\n\n\n🚧\nhttps://koor.fr/Python/Tutorial/python_type_list.wp"
+    "text": "Prenons le cas d’une fonction qui va calculer et retourner le maximum entre deux entiers a et b.\n\ndef maximum(a, b) -&gt; int:\n    \"\"\"Retourne le maximum entre a et b\"\"\"\n    if a &gt; b:\n        return a\n    return b\n\nLa fonction maximum() retourne une valeur qui peut-être stockée :\n\nres = maximum(2, 8)\n\nLa variable res a maintenant pour valeur : 8"
   },
   {
-    "objectID": "cours/liste-dico.html#listes",
-    "href": "cours/liste-dico.html#listes",
-    "title": "Listes et Dictionnaires",
+    "objectID": "cours/fonctions.html#simple-affichage",
+    "href": "cours/fonctions.html#simple-affichage",
+    "title": "Les fonctions",
+    "section": "2 Simple affichage",
+    "text": "2 Simple affichage\n\ndef affiche_maximum(a, b) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\nLa fonction affiche_maximum() effectue le même type d’opérations mais :\n\nelle ne fait qu’afficher le maximum\nelle ne renvoie pas de résultat\n\n\naffiche_maximum(2, 8)\n\n8\n\n\nSi l’on essaie de stocker le résultat, il vaudra simplement None.\n\nres2 = affiche_maximum(2, 8)\n\nLa variable res2 a maintenant pour valeur : None"
+  },
+  {
+    "objectID": "cours/fonctions.html#valeur-par-défaut",
+    "href": "cours/fonctions.html#valeur-par-défaut",
+    "title": "Les fonctions",
+    "section": "3 Valeur par défaut",
+    "text": "3 Valeur par défaut\nIl est possible de donner aux paramètres une valeur par défaut\n\ndef affiche_maximum_def(a, b=0) -&gt; None:\n    \"\"\"Affiche le maximum entre a et b\"\"\"\n    if a &gt; b:\n        print(a)\n    else:        \n        print(b)\n\n\naffiche_maximum_def(2)\n\n2\n\n\n\naffiche_maximum_def(3)\n\n3"
+  },
+  {
+    "objectID": "cours/fonctions.html#multiples-retours",
+    "href": "cours/fonctions.html#multiples-retours",
+    "title": "Les fonctions",
+    "section": "4 Multiples retours",
+    "text": "4 Multiples retours\nUne fonction peut retourner plusieurs valeurs.\n\ndef min_max(liste):\n    \"\"\"Retourne le minimum et le maximum parmi une liste.\"\"\"\n    return min(liste), max(liste)\n\n\nma_liste = [4, 8, 20, 19, 12, 3]\nminimum, maximum = min_max(ma_liste)\n\nprint(minimum, maximum)\n\n3 20"
+  },
+  {
+    "objectID": "cours/fonctions.html#lambda-fonctions",
+    "href": "cours/fonctions.html#lambda-fonctions",
+    "title": "Les fonctions",
+    "section": "5 Lambda fonctions",
+    "text": "5 Lambda fonctions\nUne manière très concise pour définir des fonctions\n\ncarre = lambda x: x**2\n\nprint(carre(6))\n\n36"
+  },
+  {
+    "objectID": "cours/fonctions.html#template",
+    "href": "cours/fonctions.html#template",
+    "title": "Les fonctions",
+    "section": "Template",
+    "text": "Template\nVoici un modèle que vous pouvez utiliser pour documenter vos fonctions\ndef ma_fonction(param1, param2=valeur_par_defaut) -&gt; type_retour:\n    \"\"\"description_courte\n\n    description_longue\n\n    Parameters\n    ----------\n    param1 : type (str, int, float, list...)\n        description_param1\n    param2 : type\n        description_param2\n\n    Returns\n    -------\n    type_retour\n        description_retour\n    \"\"\"\n\n    return None"
+  },
+  {
+    "objectID": "cours/fonctions.html#exercices",
+    "href": "cours/fonctions.html#exercices",
+    "title": "Les fonctions",
+    "section": "Exercices",
+    "text": "Exercices\n\nTempératures\nÉcrivez une fonction Python qui prend en entrée une température en Celsius et retourne la température correspondante en Fahrenheit.\n\n\n\n\n\n\nNote\n\n\n\n\\[ F = \\frac{9}{5} \\times C + 32 \\]\n\n\n\n\nParité\nÉcrivez une fonction qui :\n\nprend en paramètre un entier\naffiche s’il est pair ou impair\n\nComplétez la fonction :\n\nvérifiez que le paramètre est de type entier\n\nsinon affichez un message d’erreur\n\naffichez également si le paramètre est un multiple de 3\n\n\n\nFactorielle\nÉcrivez trois fonctions qui calculent et retournent le factoriel d’un entier n :\n\navec une boucle for\navec une boucle while\nen utilisant la récursivité\n\nÉcrivez une fonction qui affiche toutes les valeurs des factoriels de 0 à n :\n1 1 2 6 24 120 ...\n\n\nAnnée bissextile\nÉcrivez une fonction qui :\n\nprend en paramètre une année\nretourne True si elle est bissextile, False sinon\n\n\n\n\n\n\n\nNote\n\n\n\nUne année est bissextile si :\n\nelle est divisible par 4,\nmais pas divisible par 100, sauf si elle est aussi divisible par 400\n\n\n\n\n\nFibonacci\n\nÉcrivez une fonction qui retourne le n ième terme de la suite de Fibonacci\nÉcrivez une autre fonction qui affiche les n premiers termes de la suite de Fibonacci\n\n\n\n\n\n\n\nNoteRappel\n\n\n\nLa suite de Fibonacci \\((F_{n})_{n\\in \\mathbb {N}}\\) est définie par :\n\n\\(F_{0} = 0\\)\n\\(F_{1} = 1\\)\n\\(F_{n} = F_{n-1} + F_{n-2}\\) pour \\(n \\geq 2\\)\n\n\n\n\n\nPalindrome\nUn nombre palindorme se lit de la même façon de la gauche vers la droite ou de la droite vers la gauche.\nÉcrivez une fonction qui :\n\nprend en entrée un entier\nretourne True si le nombre est un palindrome\n\nComptez le nombre de palindromes entre 0 et 100 000.\n\n\nCrible d’Ératosthène\nCréez une fonction qui génére la liste des nombres premiers de 2 à n (paramètre de la fonction) en utilisant le crible d’Ératosthène.\n\n\n\n\n\n\nNoteCrible d’Ératosthène\n\n\n\nL’idée est de rayer progressivement les nombres qui ne sont pas premiers dans une liste de booléens. Nous partons du principe que tous les nombres sont premiers, puis nous éliminons un à un ceux qui ne le sont pas.\n\nCréez une liste de longueur n de booléen valant True\nMettez à False les éléments d’index 0 et 1 car ces deux nombres ne sont pas premiers\nMettez à False tous les éléments ayant un index multiple de 2\nRecherchez le prochain nombre encore potentiellement premier supérieur à 2 (i.e. 3) et mettez à False tous ses multiples\netc.\n\nRécupérez les index ayant pour valeur True et retournez cette liste de nombres premiers.\n\n\n\n\nConjecture de Goldbach\nLa conjecture de Goldbach stipule que tout nombre pair supérieur ou égal à 4 peut être écrit comme la somme de deux nombres premiers.\nÉcrivez une fonction qui vérifie la conjecture de Goldbach pour les entiers de 4 à n.\nLa fonction verif_Goldbach(20) retournera un booléen et affichera ce type de message :\n4 = 2 + 2\n6 = 3 + 3\n8 = 3 + 5\n10 = 3 + 7\n12 = 5 + 7\n14 = 3 + 11\n16 = 3 + 13\n18 = 5 + 13\n20 = 3 + 17\nLa conjecture de Goldbach est vérifiée jusqu'à 20.\n\n\nScores de Rugby\nÉcrivez une fonction qui retourne la liste de tous les scores possibles de Rugby jusque n.\n\n\nTriplet pythagoricien\na² + b² = c²\na+b+c=1000"
+  },
+  {
+    "objectID": "cours/print.html",
+    "href": "cours/print.html",
+    "title": "La fonction print",
     "section": "",
-    "text": "La 3e colonne (valeur de retour) indique la valeur obtenue si l’on stocke le résultat de la méthode, par exemple dans une variable.\nDe nombreuses autres méthodes existent.\n\n\n\n\n\n\n\n\nMéthode appliquée\nÉtat de la liste après\nValeur de retour\n\n\n\n\n[🐭, 🐭, 🐷].append(🐭)\n[🐭, 🐭, 🐷, 🐭]\nNone\n\n\n[🐭, 🐭, 🐷].pop()\n[🐭, 🐭]\n🐷\n\n\nlen([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n3\n\n\n[🐭, 🐭, 🐷].count(🐭)\n[🐭, 🐭, 🐷]\n2\n\n\n[🐭, 🐭, 🐷].reverse()\n[🐷, 🐭, 🐭]\nNone\n\n\nreversed([🐭, 🐭, 🐷])\n[🐭, 🐭, 🐷]\n[🐷, 🐭, 🐭]\n\n\n[🐭, 🐭, 🐷].index(🐷)\n[🐭, 🐭, 🐷]\n2\n\n\n🐸 in [🐭, 🐭, 🐷]\n[🐭, 🐭, 🐷]\nFalse\n\n\n[🐭, 🐭, 🐷][-1]\n[🐭, 🐭, 🐷]\n🐷\n\n\n[🐭, 🐸, 🐷][1]\n[🐭, 🐸, 🐷]\n🐸\n\n\n\n\n\n\nliste = [\"Anaïs\", \"Benoit\", \"Camille\"]\n\n# Par valeurs\nfor v in liste:\n    print(v)\n\n# Par index\nfor i in range(len(liste)):\n    print(liste[i])\n\n# Index et valeurs\nfor i, v in enumerate(liste):\n    print(f\"index {i} : valeur {v}\")\n\n\n\nLa compréhension de liste en Python est une syntaxe concise permettant de créer une nouvelle liste en appliquant une expression à chaque élément d’un itérable.\n\n\nVous souhaitez générer la liste des carrés des entiers de 0 à 9.\n\n\n\n\n\n\nNoteCode classique\n\n\n\n\n\nUn code classique serait :\n\nentiers = list(range(10))   # [0, 1, 2, ..., 9]\ncarres = []\n\nfor el in entiers:\n    carres.append(el ** 2)\n\n\n\n\nLa compréhension de liste permet de faire la même chose avec une écriture plus concise.\n\n[i**2 for i in range(10)]\n\n[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]\n\n\n\n\n\nIl est également possible d’ajouter une condition.\n\n[i for i in range(10) if i % 2 == 0]\n\n[0, 2, 4, 6, 8]\n\n\n\n\n\n\n🚧\nhttps://koor.fr/Python/Tutorial/python_type_list.wp"
+    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
   },
   {
-    "objectID": "cours/liste-dico.html#dictionnaire",
-    "href": "cours/liste-dico.html#dictionnaire",
-    "title": "Listes et Dictionnaires",
-    "section": "2 Dictionnaire",
-    "text": "2 Dictionnaire\n\n2.1 Parcours de dictionnaires\ndico = {\"d\":\"Dominique\", \"e\":\"Eva\", \"f\":\"Fernande\"}\n\n# Par clés\nfor k in dico.keys():\n    print(f\"{k} : {dico[k]}\")\n\n# Par valeurs\nfor v in dico.values():\n    print(v)\n\n# Clés et valeurs\nfor k, v in dico.items():\n    print(f\"clé {k} : valeur {v}\")"
+    "objectID": "cours/print.html#utiliser-les-f-strings",
+    "href": "cours/print.html#utiliser-les-f-strings",
+    "title": "La fonction print",
+    "section": "",
+    "text": "Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.\n\nh = 20\nprint(f\"il est {h} heures.\")\n\nil est 20 heures."
   },
   {
-    "objectID": "cours/liste-dico.html#liens",
-    "href": "cours/liste-dico.html#liens",
-    "title": "Listes et Dictionnaires",
-    "section": "Liens",
-    "text": "Liens\n\nStructures interessantes"
+    "objectID": "cours/print.html#personnaliser-le-séparateur",
+    "href": "cours/print.html#personnaliser-le-séparateur",
+    "title": "La fonction print",
+    "section": "2 Personnaliser le séparateur",
+    "text": "2 Personnaliser le séparateur\n\nprint(1, 2, 3, 4, 5, sep=\"-\")\n\n1-2-3-4-5\n\n\nLe séparateur par défaut est l’espace.\n\nprint(1, 2, 3, 4, 5)\n\n1 2 3 4 5"
+  },
+  {
+    "objectID": "cours/print.html#personnaliser-le-caractère-de-fin",
+    "href": "cours/print.html#personnaliser-le-caractère-de-fin",
+    "title": "La fonction print",
+    "section": "3 Personnaliser le caractère de fin",
+    "text": "3 Personnaliser le caractère de fin\nLe caractère final est par défaut le retour à la ligne \\n.\n\nprint(1)\nprint(2)\nprint(3, end=\" --&gt; \")\nprint(4)\n\n1\n2\n3 --&gt; 4"
+  },
+  {
+    "objectID": "cours/print.html#afficher-une-ligne-pour-séparer",
+    "href": "cours/print.html#afficher-une-ligne-pour-séparer",
+    "title": "La fonction print",
+    "section": "4 Afficher une ligne pour séparer",
+    "text": "4 Afficher une ligne pour séparer\n\nprint(\"-\" * 50)\n\n--------------------------------------------------"
+  },
+  {
+    "objectID": "cours/print.html#multi-lignes",
+    "href": "cours/print.html#multi-lignes",
+    "title": "La fonction print",
+    "section": "5 Multi lignes",
+    "text": "5 Multi lignes\n\nprint(\"\"\"Maître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage\"\"\")\n\nMaître Corbeau, sur un arbre perché,\nTenait en son bec un fromage.\nMaître Renard, par l'odeur alléché,\nLui tint à peu près ce langage"
   },
   {
     "objectID": "index.html",

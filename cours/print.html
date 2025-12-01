@@ -387,6 +387,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="dropdown-item" href="../cours/tu.html">
  <span class="dropdown-text">Les Tests Unitaires</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../cours/poo.html">
+ <span class="dropdown-text">La POO</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item">
@@ -468,7 +472,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="utiliser-les-f-strings" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="utiliser-les-f-strings"><span class="header-section-number">1</span> Utiliser les f-strings</h2>
 <p>Les f-strings permettent d’insérer des variables directement dans une chaîne de caractères.</p>
-<div id="cab9d8e4" class="cell" data-execution_count="1">
+<div id="52bb7202" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"il est </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> heures."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -478,14 +482,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="personnaliser-le-séparateur" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="personnaliser-le-séparateur"><span class="header-section-number">2</span> Personnaliser le séparateur</h2>
-<div id="2fcc4c60" class="cell" data-execution_count="2">
+<div id="4fbd07ce" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, sep<span class="op">=</span><span class="st">"-"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1-2-3-4-5</code></pre>
 </div>
 </div>
 <p>Le séparateur par défaut est l’espace.</p>
-<div id="ecaa8bfd" class="cell" data-execution_count="3">
+<div id="166ef087" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1 2 3 4 5</code></pre>
@@ -495,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="personnaliser-le-caractère-de-fin" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="personnaliser-le-caractère-de-fin"><span class="header-section-number">3</span> Personnaliser le caractère de fin</h2>
 <p>Le caractère final est par défaut le retour à la ligne <code>\n</code>.</p>
-<div id="c81dc5f4" class="cell" data-execution_count="4">
+<div id="d323ea05" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">3</span>, end<span class="op">=</span><span class="st">" --&gt; "</span>)</span>
@@ -509,7 +513,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="afficher-une-ligne-pour-séparer" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="afficher-une-ligne-pour-séparer"><span class="header-section-number">4</span> Afficher une ligne pour séparer</h2>
-<div id="b6422ac9" class="cell" data-execution_count="5">
+<div id="ad4e7b8d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>--------------------------------------------------</code></pre>
@@ -518,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="multi-lignes" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="multi-lignes"><span class="header-section-number">5</span> Multi lignes</h2>
-<div id="9359e9fc" class="cell" data-execution_count="6">
+<div id="725cc186" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"""Maître Corbeau, sur un arbre perché,</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">Tenait en son bec un fromage.</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">Maître Renard, par l'odeur alléché,</span></span>
