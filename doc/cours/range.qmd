@@ -1,0 +1,103 @@
+---
+title: "La fonction range"
+description: "Astues pour range"
+author: "Ludovic Deneuville"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    toc-expand: 3
+from: markdown+emoji
+number-sections: true
+number-depth: 3
+---
+
+## Résumé
+
+| Utilisation            | Description                           | Résultat                |
+| ---------------------- | ------------------------------------- | ----------------------- |
+| `range(5)`             | De 0 à 4                              | `0, 1, 2, 3, 4`         |
+| `range(2, 6)`          | De 2 à 5                              | `2, 3, 4, 5`            |
+| `range(0, 10, 2)`      | Pas de 2                              | `0, 2, 4, 6, 8`         |
+| `range(5, 0, -1)`      | Comptage décroissant                  | `5, 4, 3, 2, 1`         |
+| `list(range(4))`       | Conversion en liste                   | `[0, 1, 2, 3]`          |
+| `3 in range(5)`        | Test d'appartenance                   | **True**                |
+| `for _ in range(3):`   | Répéter une action                    | 3 itérations            |
+
+
+
+## Avec un seul paramètre
+
+`range(n)` génère une suite de nombres de *0* à *n-1*.
+
+```{python}
+for i in range(5):
+    print(i)
+```
+
+
+## Avec deux paramètres
+
+`range(n, p)` génère une suite de nombres de *n* à *p-1*.
+
+```{python}
+for i in range(3, 8):
+    print(i)
+```
+
+
+
+## Troisième paramètre : le pas
+
+```{python}
+for i in range(0, 10, 2):
+    print(i)
+```
+
+::: {.callout-tip title="Compte à rebours"}
+Vous pouvez utiliser un pas négatif.
+
+```{python}
+for i in range(5, -1, -1):
+    print(i)
+```
+:::
+
+
+## Convertir en liste
+
+`range()` ne crée pas une liste directement.
+
+```{python}
+print(type(range(5)))
+```
+
+Mais nous pouvons simplement créer une liste avec :
+
+```{python}
+list(range(5))
+```
+
+::: {.callout-tip}
+- `range(1_000_000)` ne consomme presque pas de mémoire
+- Contrairement à `list(range(1_000_000))`
+:::
+
+
+## Autres utilisations
+
+### Tester l'appartenance
+
+```{python}
+5 in range(10)
+```
+
+## Répéter une action
+
+```{python}
+for _ in range(3):
+    print("Bonjour")
+```
+
+`_` indique que la variable n'est pas utilisée
+

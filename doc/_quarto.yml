@@ -50,6 +50,8 @@ website:
         menu:
           - href: cours/print.qmd
             text: "La fonction Print"
+          - href: cours/range.qmd
+            text: "La fonction Range"
           - href: cours/liste-dico.qmd
             text: "Listes et Dictionnaires"
           - href: cours/fonctions.qmd
